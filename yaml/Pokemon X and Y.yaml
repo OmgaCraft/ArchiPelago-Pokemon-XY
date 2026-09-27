@@ -1,0 +1,28 @@
+# Fichier joueur Pokémon X/Y pour Archipelago.
+# Copie-le dans C:\ProgramData\Archipelago\Players, change « name », puis génère.
+
+# Ton nom de slot (16 caractères max) : c'est ce nom que le client BizHawk te demandera.
+name: Joueur
+
+description: Pokémon Y (V1)
+
+game: Pokemon X and Y
+requires:
+  version: 0.6.7
+
+Pokemon X and Y:
+  # Les objets cachés (Cherch'Objet) deviennent des checks.
+  include_hidden_items: true
+
+  # Les objets cachés ne sont dans la logique qu'une fois la Machine Cherch'Objet (Dowsing Machine) reçue.
+  require_dowsing_machine: false
+
+  # Battre les dresseurs (hors champions) devient un check : beaucoup de checks en plus.
+  trainersanity: false
+
+  # Objectif : entrer au Panthéon (les 8 badges + la Ligue).
+  goal: pokemon_league
+
+  # Réglages communs à tous les jeux Archipelago.
+  progression_balancing: 50
+  accessibility: full

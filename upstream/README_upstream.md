@@ -1,0 +1,55 @@
+# Pokemon-x-y-AP
+my implementation for pokemon x/y archipelago
+
+# Player Installation Steps
+Drop APWorld: Copy pokemon_x_and_y.apworld into %ProgramData%\Archipelago\custom_worlds\ or you should be able to just run it maybe
+
+Put the Pokemon_xy_connector depend on your game in your Archipelago\data\lua\ folder, might not be necessary but to be safe
+
+Generate Seed: Use Pokemon X and Y.yaml in the Players/ folder and run ArchipelagoGenerate.exe.
+
+# Play:
+Load Pokémon X or Y in BizHawk.
+
+Run pokemon_xy_connector in Tools -> Lua Console.
+
+Connect using ArchipelagoBizHawkClient.exe.
+
+Added a menu that will pop up when you load the lua script, in this menu there are two parts
+
+1. When you go to fight a gym leader, but you already have their badge, then when you walk up to the leader, hit suppress in the menu and then you can fight them
+
+2. there are some important checks that i couldnt find in the ram (at least not yet) so as a quick fix i added a menu for you to click them off after you collect them, it should remove the original item as well unless archipelago already gave it to you. (pokeflute should work now but i left it as a fallback)
+
+3. both sections have cheats incase anything goes wrong, dont cheat, they are just a fall back.
+
+# Known/potential problems:
+
+Roadblocks can strand you. Use the roadblock toggle in the helper window if Snorlax respawns behind you.
+
+Three Glittering Cave Team Flare grunts have no location assigned.
+
+Logic has roadblocks behind gyms/other items, some are removed by the game when you complete a quest/beat a gym, for example snorlax is not blocked by having the pokeflute, it is blocked by watching the fireworks, but in logic it is behind the pokeflute
+
+At the start you may not think it is working, i could not find how to detect any checks before the potion the mart guy gives, still working on the story checks as most are weird.
+
+Some items being put in the wrong pockets of bag, can lead to a problem where you have to many items in your first pocket, you would likely need to recieve every single item in the game for this to be a problem and it shouldnt mess with anything essential, but some items might go to the wrong bag, just tell me
+
+likely some locations missing/done incorrectly, tell me if you find one you feel should be a check, right now it should be all field items, 
+
+Some checks that are unreasonable to do mightve slipped through into logic so tell me any you encounter
+
+i believe i have just been using the base US version of X/Y, some people have reported issues with other versions so i advise against
+
+Universal Tracker should work, report any problems with it i will try to fix them
+
+If you do run into an issue tell me and i did implement a way to manually send items/locations so at least your run shouldnt be dead, will try to find the best way to share that, but you need all the item/location ids
+
+Any bugs or anything you run into, feel free to dm me, i am more likely to see it than in the pokemon x/y chat, but probably put it in both so more people cann see the problem and solution
+
+Bizhawk sometimes frezzes, you may disconnect temporarily from archipelago but should be fine, hopefully
+
+
+# AI DISCLOSURE
+
+I have said since i started this that i do not know how to code, so i have done research, dug in the ram, done what i do know how to do, but the code is almost exclusively written by ai in both the world and the connectors, i have tested that it works, and i have ran the tests provided by archipelago, and i am ready to keep working to solve any bugs that show up, if anybody ever wants to take this over so it is no longer ai coded, feel free, i only am using ai because i want to play this and nobody was anywhere near starting working on this, ever, except for when i did this, will shout out the people who provided help for me on where to look and what to try doing, as well as the people that provided useful info to further this project, can add your names if you want just reach out
