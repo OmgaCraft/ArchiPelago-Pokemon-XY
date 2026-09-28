@@ -4,7 +4,7 @@ Monde [Archipelago](https://archipelago.gg/) (randomizer multi-jeux) pour **Pok�
 **BizHawk** (cœur 3DS). Les objets au sol, les objets cachés, les cadeaux, les badges et, en option,
 les dresseurs deviennent des checks. Les objets des autres joueurs arrivent directement dans ton sac.
 
-> **Version 0.0.6** — confirmée pour **Pokémon Y (USA)**, Archipelago 0.6.7, BizHawk 2.11.1.
+> **Version 0.0.7** — confirmée pour **Pokémon Y (USA)**, Archipelago 0.6.7, BizHawk 2.11.1.
 
 ## Téléchargement
 
@@ -23,8 +23,10 @@ les dresseurs deviennent des checks. Les objets des autres joueurs arrivent dire
 4. BizHawk : ouvre ton dump de Pokémon Y, puis Tools > Lua Console > ouvre `pokemon_xy_connector.lua`.
 5. Lance le client BizHawk d'Archipelago, connecte-toi et charge ta sauvegarde.
 
-Le jeu n'est pas modifié : sa boîte de dialogue annonce toujours l'objet d'origine de la Poké Ball.
-L'objet réellement trouvé ou envoyé s'affiche en bas à gauche de l'écran de BizHawk.
+À la première connexion, le client demande ton dump de Pokémon Y et installe un patch dans le
+dossier de mods de BizHawk (redémarre le jeu une fois) : les Poké Balls au sol qui contiennent un
+objet pour toi l'annoncent alors vraiment. Les autres objets trouvés ou envoyés s'affichent en bas
+à gauche de l'écran de BizHawk.
 
 **Guide complet, fenêtre d'aide et limites connues : [GUIDE_FR.md](GUIDE_FR.md).**
 
@@ -35,6 +37,11 @@ Ce projet reprend l'APWorld communautaire de **uhsfiuh (Zaitz)** :
 dont le README invite à reprendre le projet. Toute la logique, les données du jeu, les adresses
 mémoire et le script Lua viennent de son travail. Le dépôt d'origine n'a pas de licence : ce dépôt
 sera retiré ou adapté à la demande de l'auteur.
+
+Changements de la v0.0.7 :
+- patch du jeu : les Poké Balls au sol qui contiennent un objet pour toi donnent et annoncent cet
+  objet (dossier de mods LayeredFS construit par le client depuis ton dump, aussi pour une partie
+  déjà commencée).
 
 Changements de la v0.0.6 :
 - les objets trouvés, envoyés et reçus s'affichent par défaut à l'écran de BizHawk (et dans la
@@ -55,8 +62,9 @@ Aucun fichier du jeu n'est fourni : utilise ton propre dump.
 Archipelago world for Pokémon X/Y on BizHawk (3DS core), based on
 [uhsfiuh/Pokemon-x-y-AP](https://github.com/uhsfiuh/Pokemon-x-y-AP) v0.0.4 with client fixes
 (no duplicate items on client restart, no writes at the title screen, progression items restored,
-found/sent/received items shown on BizHawk's screen, repackaged `.apworld`). The in-game textbox
-still names the original item, since the ROM is not patched. Confirmed with **Pokémon Y (USA)**. Download the zip above, install the
+found/sent/received items shown on BizHawk's screen, repackaged `.apworld`). Since v0.0.7 the client
+also builds a LayeredFS mod from your own decrypted dump so that item balls holding your own items
+give and name them in-game (other players' items still show the original name). Confirmed with **Pokémon Y (USA)**. Download the zip above, install the
 `.apworld`, put `pokemon_xy_connector.lua` in `Archipelago\data\lua\` and load it in BizHawk's Lua Console.
 
 ## Développement

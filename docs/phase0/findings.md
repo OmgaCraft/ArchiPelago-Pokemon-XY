@@ -111,14 +111,14 @@ Aucune adresse relevée par nous pour l'instant. À faire pour Pokémon X (et po
 | Équipe | TODO | TODO | | | ❓ |
 | Octets libres dans la sauvegarde | TODO | TODO | | | ❓ |
 
-## 0.D Patches ❓
-Rien de commencé. Deux façons de livrer le jeu modifié, à départager en Phase 4 :
-- **Dossier de mods** dans `BizHawk\3DS\User\load\mods\<Title ID>\` (si Encore le charge) :
-  `romfs\` pour les données (objets au sol, scripts, textes), `exefs\` pour le code
-  (`code.ips`/`code.bps`, lié à une version exacte). Le patch Archipelago écrirait ce
-  dossier, et le joueur ouvrirait son dump d'origine. Léger, mais une seule seed à la fois par jeu.
-- **ROM reconstruite** (comme Noir/Blanc) : le patch produit un nouveau `.3ds`/`.cia`.
-  Plus classique, mais il faut reconstruire le système de fichiers du jeu (plusieurs Go).
+## 0.D Patches ✅ (dossier de mods retenu, v0.0.7)
+- **Dossier de mods** `BizHawk\3DS\User\load\mods\0004000000055E00\romfs\` : ✅ chargé par Encore
+  (test du 2026-09-28 : texte de l'écran de langue remplacé et affiché). Le client Archipelago
+  l'écrit à la connexion depuis le dump du joueur ; le jeu doit être redémarré une fois.
+- Poké Balls au sol : ✅ table du script `a/0/3/1` n° 0x11 réécrite, contrôlée sur le dump
+  (`tools/patch_check.py`), le jeu démarre avec. Détails dans `docs/DEVELOPPEMENT.md`.
+- ❓ Reste à vérifier en jeu : ramasser une Poké Ball patchée (retour de joueur attendu).
+- ROM reconstruite : écartée (plusieurs Go à reconstruire, inutile avec le dossier de mods).
 
 ## 0.E Tests décisifs
 | Test | Statut |
@@ -130,7 +130,7 @@ Rien de commencé. Deux façons de livrer le jeu modifié, à départager en Pha
 | Ajouter un objet au sac, visible en jeu et conservé à la sauvegarde | ❓ |
 | Détecter un objet ramassé (drapeau) | ❓ |
 | Détecter l'obtention d'un badge | ❓ |
-| BizHawk (Encore) charge un mod `romfs` depuis `3DS\User\load\mods` (ex. un texte modifié) | ❓ |
+| BizHawk (Encore) charge un mod `romfs` depuis `3DS\User\load\mods` (ex. un texte modifié) | ✅ 2026-09-28 (`tools/layeredfs_test.py`) |
 
 ---
 

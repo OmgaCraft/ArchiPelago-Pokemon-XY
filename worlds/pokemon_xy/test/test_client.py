@@ -202,6 +202,65 @@ class TestDelivery(unittest.TestCase):
             self.assertEqual(ctx.text_passthrough_categories, set())
         self.run_async(scenario())
 
+    def test_patch_built_from_scouted_item_balls(self):
+        async def scenario():
+            by_flag = {flag: loc for loc, flag in Client.FIELD_ITEM_FLAGS.items()}
+            ctx = FakeContext([])
+            ctx.server_seed_name = "seed-1"
+            ctx.server_locations = set(Client.FIELD_ITEM_FLAGS)
+            ctx.locations_info = {}
+            client = _fresh()
+            calls = []
+
+            def fake_write(rom_path, mod_dir, items, stamp):
+                calls.append((rom_path, items, stamp))
+                return True
+
+            with mock.patch.object(Client, "read_patch_settings", return_value=("rom.3ds", "C:/BH/EmuHawk.exe")), \
+                    mock.patch.object(PokemonXYClient, "_write_patch", staticmethod(fake_write)), \
+                    mock.patch.object(Client.bizhawk, "display_message", mock.AsyncMock()) as shown:
+                client.on_package(ctx, "Connected", {})
+                await asyncio.sleep(0)
+                scouts = [m for m in ctx.sent if m.get("cmd") == "LocationScouts"]
+                self.assertEqual(sorted(scouts[0]["locations"]), sorted(Client.FIELD_ITEM_FLAGS))
+                self.assertEqual(scouts[0]["create_as_hint"], 0)
+
+                # Réponse du serveur : Poké Ball n° 0 = Super Bonbon pour moi, le reste pour un autre joueur.
+                for loc in Client.FIELD_ITEM_FLAGS:
+                    ctx.locations_info[loc] = SimpleNamespace(item=200017, player=2)
+                ctx.locations_info[by_flag[0x51A]] = SimpleNamespace(item=200050, player=1)
+                client.on_package(ctx, "LocationInfo", {})
+                for _ in range(20):
+                    await asyncio.sleep(0.01)
+                self.assertEqual(len(calls), 1)
+                self.assertEqual(calls[0][1], {0: 50})
+                self.assertEqual(calls[0][2]["seed"], "seed-1")
+                shown.assert_awaited_once_with(ctx.bizhawk_ctx, Client.PATCH_REBOOT_MESSAGE)
+
+                # Reconnexion à la même partie : pas de nouvelle demande ni de nouvelle fenêtre.
+                client.on_package(ctx, "Connected", {})
+                await asyncio.sleep(0)
+                self.assertEqual(len([m for m in ctx.sent if m.get("cmd") == "LocationScouts"]), 1)
+        self.run_async(scenario())
+
+    def test_patch_skipped_without_rom(self):
+        async def scenario():
+            ctx = FakeContext([])
+            ctx.seed_name = "seed-1"
+            ctx.server_locations = set(Client.FIELD_ITEM_FLAGS)
+            ctx.locations_info = {loc: SimpleNamespace(item=200017, player=1) for loc in Client.FIELD_ITEM_FLAGS}
+            client = _fresh()
+            write = mock.Mock()
+            with mock.patch.object(Client, "read_patch_settings", side_effect=FileNotFoundError("aucune ROM")), \
+                    mock.patch.object(PokemonXYClient, "_write_patch", staticmethod(write)):
+                client.on_package(ctx, "Connected", {})
+                client.on_package(ctx, "LocationInfo", {})
+                for _ in range(5):
+                    await asyncio.sleep(0.01)
+            write.assert_not_called()
+            self.assertFalse(client._patch_running)
+        self.run_async(scenario())
+
     def test_location_flag_sends_check(self):
         async def scenario():
             ctx = FakeContext([])

@@ -1,4 +1,4 @@
-# Guide — Pokémon X/Y Archipelago (v0.0.6)
+# Guide — Pokémon X/Y Archipelago (v0.0.7)
 
 ## Ce qu'il te faut
 
@@ -41,10 +41,27 @@
 
 Quand tu ramasses une Poké Ball, le script retire tout seul l'objet d'origine, puis te donne l'objet Archipelago.
 
+## Le patch du jeu (Poké Balls au sol)
+
+Depuis la v0.0.7, **une Poké Ball au sol qui contient un objet pour toi l'annonce vraiment** :
+« Vous avez obtenu un Super Bonbon » au lieu de l'objet d'origine.
+
+- **Première connexion** : le client te demande ton dump de Pokémon Y (le fichier `.3ds` déchiffré).
+  Il s'en sert pour construire un petit fichier modifié, qu'il range dans le dossier de mods de
+  BizHawk (`3DS\User\load\mods\0004000000055E00`). Ton dump n'est jamais modifié.
+- **Ensuite, redémarre le jeu une fois** : sauvegarde en jeu, puis Emulation > Reboot Core dans
+  BizHawk. Un message te le rappelle à l'écran. Le patch est refait tout seul à chaque nouvelle partie.
+- Ça marche aussi sur une partie déjà commencée : pas besoin de regénérer.
+- Pour l'instant, seules les **207 Poké Balls au sol** sont concernées, et seulement pour **tes**
+  objets. Un objet pour un autre joueur, un badge ou un objet rare garde le nom de l'objet d'origine.
+  Les objets cachés et les cadeaux des personnages ne changent pas non plus.
+- Sans le patch (ROM refusée, dump chiffré…), le jeu marche comme avant. Pour le désactiver :
+  `patch_game: false` dans `host.yaml`, section `pokemon_xy_settings`.
+
 ## Les messages : ce que tu as vraiment trouvé
 
-La boîte de dialogue du jeu annonce **toujours l'objet d'origine** de la Poké Ball, par exemple
-« Vous avez obtenu une Potion ». C'est normal : le jeu lui-même n'est pas modifié.
+Sans le patch, ou pour un objet destiné à un autre joueur, la boîte de dialogue du jeu annonce
+**l'objet d'origine** de la Poké Ball, par exemple « Vous avez obtenu une Potion ».
 
 Ce que tu as vraiment trouvé s'affiche **en bas à gauche de l'écran de BizHawk**. Les messages
 restent aussi dans la console Lua et dans le client :

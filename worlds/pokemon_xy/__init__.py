@@ -1,7 +1,8 @@
 import os
 import sys
 import subprocess
-from typing import List, Dict, Any
+from typing import ClassVar, List, Dict, Any
+import settings
 from worlds.AutoWorld import World, WebWorld
 from BaseClasses import Region, Entrance, Location, Item, Tutorial, ItemClassification
 from .Options import PokemonXYOptions, pokemon_y_options
@@ -21,6 +22,21 @@ class PokemonXYLocation(Location):
 class PokemonXYItem(Item):
     game: str = "Pokemon X and Y"
 
+class PokemonXYSettings(settings.Group):
+    class RomFile(settings.UserFilePath):
+        """
+        Your own decrypted dump of Pokemon Y (USA) (.3ds). The BizHawk client reads it to build
+        the game patch (LayeredFS mod folder), so that item balls show the items you really get.
+        """
+        description = "Pokemon Y (USA) ROM, decrypted (.3ds)"
+
+    class PatchGame(settings.Bool):
+        """Build the game patch when the BizHawk client connects (set to false to play without it)."""
+
+    rom_file: RomFile = RomFile("Pokemon Y (USA).3ds")
+    patch_game: PatchGame | bool = True
+
+
 class PokemonXYWeb(WebWorld):
     options_page = PokemonXYOptions
     tutorials = [Tutorial(
@@ -38,6 +54,9 @@ class PokemonXYWorld(World):
     """
     game = "Pokemon X and Y"
     web = PokemonXYWeb()
+
+    settings_key = "pokemon_xy_settings"
+    settings: ClassVar[PokemonXYSettings]
 
     options_dataclass = PokemonXYOptions
     options: PokemonXYOptions

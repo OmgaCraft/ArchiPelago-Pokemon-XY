@@ -10,6 +10,9 @@
 | `dist/` | Fichiers prêts à jouer, produits par `tools/build_apworld.py` |
 | `tools/build_apworld.py` | Construit l'APWorld et le zip tout-en-un ; `--install` les installe dans Archipelago |
 | `tools/bizhawk_probe.py` | Sonde mémoire (lecture, écriture, recherche, snapshots) via le script connecteur |
+| `tools/rom_explore.py` | Explore la RomFS d'un dump : fichiers des noms d'objets, recherche de texte |
+| `tools/patch_check.py` | Contrôle le patch des Poké Balls sur un vrai dump (lecture seule) |
+| `tools/layeredfs_test.py` | Test du dossier de mods dans BizHawk (texte de l'écran de langue) |
 | `docs/phase0/` | Recherche : version du jeu, BizHawk, adresses, marche à suivre pour en trouver |
 | `upstream/` | README et commit d'origine (uhsfiuh), pour suivre les mises à jour de l'auteur |
 
@@ -21,8 +24,31 @@
 | **Script Lua** | Tourne dans BizHawk : lit et écrit la mémoire (domaine `mainmemory`), retire l'objet d'origine ramassé, fenêtre d'aide. |
 | **Client** | `BizHawkClient` d'Archipelago : lit les drapeaux d'événement, envoie les checks, livre les objets reçus dans le sac. |
 
-Pas de patch de la ROM : tout passe par la mémoire du jeu pendant la partie.
 Le nombre d'objets livrés est gardé dans le data storage du serveur, clé `pokemon_xy_delivered_{team}_{slot}`.
+
+### Patch du jeu (`worlds/pokemon_xy/rom/`)
+
+Le dump n'est jamais modifié. À la connexion, le client demande au serveur le contenu des
+Poké Balls au sol (`LocationScouts`, sans indice), reconstruit les fichiers modifiés depuis le dump
+du joueur et les écrit dans le dossier de mods LayeredFS de BizHawk, que le cœur Encore lit au
+démarrage du jeu : `<BizHawk>/3DS/User/load/mods/0004000000055E00/romfs/`. La livraison des objets
+ne dépend pas du patch (le script Lua retire toujours l'objet donné par le jeu, puis le client livre).
+
+| Module | Rôle |
+|---|---|
+| `romfs.py` | Lecture de la RomFS d'un dump `.3ds` déchiffré (NCSD, NCCH, IVFC niveau 3) |
+| `garc.py` | Archives GARC v4 (lecture, réécriture identique à l'octet près) |
+| `amx.py` | Scripts AMX compressés (portage de pkNX) |
+| `text.py` | Fichiers texte Gen 6 chiffrés (lecture, remplacement de lignes) |
+| `patch.py` | Poké Balls au sol, dossier des mods, écriture |
+
+Données vérifiées sur Pokémon Y (USA) :
+- objets au sol : script n° 0x11 de `a/0/3/1`, tableau de 207 entrées (objet, quantité, n°) après
+  9 mots de données ; la Poké Ball n° i lève le drapeau `0x51A + i` (207 lieux « FIELD ITEM ») ;
+- noms d'objets : fichiers n° 96 et 98 de `a/0/7/2` à `a/0/7/9` (japonais kana, kanji, anglais,
+  français, italien, allemand, espagnol, coréen), 718 objets ; objets « ??? » : 113-115, 120-133,
+  426, 427, 622 ;
+- écran de langue : `a/0/7/4`, fichier 85, lignes 4-5.
 
 ## Construire
 

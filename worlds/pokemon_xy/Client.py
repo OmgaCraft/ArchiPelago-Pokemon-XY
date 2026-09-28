@@ -5,7 +5,8 @@ Communicates with pokemon_y_connector.lua on port 43055
 which handles mainmemory access for verified Pokémon Y addresses.
 """
 
-from typing import TYPE_CHECKING, Dict, Optional, Set
+from typing import TYPE_CHECKING, Dict, List, Optional, Set, Tuple
+import asyncio
 import logging
 import time
 logger = logging.getLogger("PokemonY")
@@ -14,6 +15,10 @@ import Utils
 from NetUtils import ClientStatus
 import worlds._bizhawk as bizhawk
 from worlds._bizhawk.client import BizHawkClient
+
+from .Items import item_table
+from .Locations import location_table
+from .rom import patch as rom_patch
 
 if TYPE_CHECKING:
     from worlds._bizhawk.context import BizHawkClientContext
@@ -75,6 +80,32 @@ PROGRESSION_BAG_ITEMS = {
 # (le connecteur Lua peut retenir une écriture jusqu'à 10 s).
 ENSURE_CHECK_INTERVAL = 5.0
 ENSURE_REWRITE_COOLDOWN = 15.0
+
+# [FR] Patch du jeu (dossier de mods LayeredFS) : lieux « Poké Ball au sol » -> drapeau,
+# et ids du jeu des objets du monde qui sont de vrais objets (pas les badges).
+FIELD_ITEM_FLAGS = {data.code: data.flag_id for data in location_table.values()
+                    if "FIELD ITEM" in data.category and data.flag_id is not None}
+GAME_ITEM_IDS = frozenset(data.code - rom_patch.AP_ITEM_OFFSET for data in item_table.values()
+                          if data.category != "Badges")
+PATCH_REBOOT_MESSAGE = "Patch Archipelago installé : sauvegarde, puis Emulation > Reboot Core pour l'activer."
+
+
+def _seed_name(ctx) -> Optional[str]:
+    """Nom de la partie : le client BizHawk le garde dans server_seed_name (paquet RoomInfo)."""
+    return getattr(ctx, "server_seed_name", None) or getattr(ctx, "seed_name", None)
+
+
+def read_patch_settings() -> Optional[Tuple[str, str]]:
+    """
+    (ROM, EmuHawk.exe) depuis host.yaml, ou None si le patch est désactivé.
+    Si un chemin manque, Archipelago ouvre une fenêtre pour le choisir.
+    """
+    import settings
+    host = settings.get_settings()
+    options = host.pokemon_xy_settings
+    if not options.patch_game:
+        return None
+    return str(options.rom_file), str(host.bizhawkclient_options.emuhawk_path)
 
 # Roller Skates are NOT a bag item in X/Y. They are a capability switch,
 # SYS_FLAG_ROLLERSKATES. So they cannot be delivered with a bag write, and the
@@ -199,6 +230,10 @@ class PokemonXYClient(BizHawkClient):
     _delivery_key: Optional[str] = None
     _last_ensure_check: float = 0.0
     _item_messages_enabled: bool = False
+    # [FR] Patch du jeu : lieux demandés au serveur, et partie déjà traitée.
+    _patch_locations: List[int]
+    _patch_running: bool = False
+    _patch_done_for: Optional[Tuple[str, int]] = None
     _ensure_last_write: Dict[int, float]
     _sent_locations: Set[int]
     # Badges Archipelago has granted. Drives the RAM enforcement block.
@@ -228,11 +263,15 @@ class PokemonXYClient(BizHawkClient):
         self._ap_received_badges = set()
         self._written_badges = set()
         self._ensure_last_write = {}
+        self._patch_locations = []
 
     def on_package(self, ctx: "BizHawkClientContext", cmd: str, args: dict) -> None:
+        if cmd == "LocationInfo":
+            self._maybe_apply_patch(ctx)
         # [FR] À chaque connexion au serveur, on redemande le compteur d'objets livrés.
         if cmd == "Connected":
             self._enable_item_messages(ctx)
+            self._request_patch(ctx)
             key = DELIVERED_KEY_FORMAT.format(team=ctx.team, slot=ctx.slot)
             if key != self._delivery_key:
                 # Autre partie ou autre slot : l'état en mémoire ne vaut plus rien.
@@ -267,6 +306,69 @@ class PokemonXYClient(BizHawkClient):
         except ImportError:
             return
         ctx.text_passthrough_categories.update((TextCategory.OUTGOING, TextCategory.INCOMING))
+
+    # ----------------------------------------------------------------
+    # [FR] Patch du jeu : les Poké Balls au sol qui contiennent un objet pour toi
+    # donnent directement cet objet, et la boîte de dialogue l'annonce. Le client
+    # demande au serveur ce que contient chaque Poké Ball (LocationScouts, sans
+    # créer d'indice), puis écrit le dossier de mods de BizHawk. La livraison des
+    # objets ne dépend pas du patch : sans lui, le jeu marche comme avant.
+    # ----------------------------------------------------------------
+    def _request_patch(self, ctx: "BizHawkClientContext") -> None:
+        if self._patch_done_for == (_seed_name(ctx), ctx.slot):
+            return
+        server_locations = getattr(ctx, "server_locations", set())
+        self._patch_locations = sorted(loc for loc in FIELD_ITEM_FLAGS if loc in server_locations)
+        if self._patch_locations:
+            Utils.async_start(ctx.send_msgs([{"cmd": "LocationScouts", "locations": self._patch_locations,
+                                              "create_as_hint": 0}]))
+
+    def _maybe_apply_patch(self, ctx: "BizHawkClientContext") -> None:
+        if self._patch_running or not self._patch_locations:
+            return
+        if self._patch_done_for == (_seed_name(ctx), ctx.slot):
+            return
+        if not all(loc in ctx.locations_info for loc in self._patch_locations):
+            return
+        self._patch_running = True
+        Utils.async_start(self._apply_patch(ctx))
+
+    async def _apply_patch(self, ctx: "BizHawkClientContext") -> None:
+        try:
+            # Une seule tentative par partie et par session : pas de fenêtre à chaque reconnexion.
+            self._patch_done_for = (_seed_name(ctx), ctx.slot)
+            try:
+                paths = read_patch_settings()
+            except Exception as error:
+                logger.warning(f"[PokémonXY] Patch du jeu non installé : {error}. Le jeu marche sans ; "
+                               f"choisis ta ROM dans host.yaml (pokemon_xy_settings.rom_file) pour l'activer.")
+                return
+            if paths is None:
+                logger.info("[PokémonXY] Patch du jeu désactivé (pokemon_xy_settings.patch_game).")
+                return
+            rom_path, emuhawk_path = paths
+            scouted = [(loc, ctx.locations_info[loc].item, ctx.locations_info[loc].player)
+                       for loc in self._patch_locations]
+            items = rom_patch.field_items_from_scouts(scouted, FIELD_ITEM_FLAGS, ctx.slot, GAME_ITEM_IDS)
+            stamp = {"seed": _seed_name(ctx), "slot": ctx.slot, "patched_item_balls": len(items)}
+            mod_dir = rom_patch.mods_directory(emuhawk_path)
+            changed = await asyncio.to_thread(self._write_patch, rom_path, mod_dir, items, stamp)
+            logger.info(f"[PokémonXY] Patch du jeu : {len(items)} Poké Ball(s) au sol modifiée(s) ({mod_dir}).")
+            if changed:
+                logger.info(f"[PokémonXY] {PATCH_REBOOT_MESSAGE}")
+                try:
+                    await bizhawk.display_message(ctx.bizhawk_ctx, PATCH_REBOOT_MESSAGE)
+                except Exception:
+                    pass
+        except Exception as error:
+            logger.error(f"[PokémonXY] Échec du patch du jeu : {error}. Le jeu marche sans.")
+        finally:
+            self._patch_running = False
+
+    @staticmethod
+    def _write_patch(rom_path: str, mod_dir: str, items: Dict[int, int], stamp: dict) -> bool:
+        files = rom_patch.build_mod_files(rom_path, items)
+        return rom_patch.write_mod(mod_dir, files, stamp)
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
         try:
