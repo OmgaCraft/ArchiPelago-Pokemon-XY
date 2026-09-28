@@ -198,6 +198,7 @@ class PokemonXYClient(BizHawkClient):
     _received_index: Optional[int] = None
     _delivery_key: Optional[str] = None
     _last_ensure_check: float = 0.0
+    _item_messages_enabled: bool = False
     _ensure_last_write: Dict[int, float]
     _sent_locations: Set[int]
     # Badges Archipelago has granted. Drives the RAM enforcement block.
@@ -231,6 +232,7 @@ class PokemonXYClient(BizHawkClient):
     def on_package(self, ctx: "BizHawkClientContext", cmd: str, args: dict) -> None:
         # [FR] À chaque connexion au serveur, on redemande le compteur d'objets livrés.
         if cmd == "Connected":
+            self._enable_item_messages(ctx)
             key = DELIVERED_KEY_FORMAT.format(team=ctx.team, slot=ctx.slot)
             if key != self._delivery_key:
                 # Autre partie ou autre slot : l'état en mémoire ne vaut plus rien.
@@ -249,6 +251,22 @@ class PokemonXYClient(BizHawkClient):
                 # un Set perdu pendant la coupure ne doit pas faire redonner des objets.
                 self._received_index = max(stored, self._received_index or 0)
                 logger.info(f"[PokémonXY] {self._received_index} item(s) already delivered to this save.")
+
+    def _enable_item_messages(self, ctx: "BizHawkClientContext") -> None:
+        """
+        [FR] Sans patch de la ROM, la boîte de dialogue du jeu annonce toujours l'objet
+        d'origine (« Vous avez obtenu une Potion »). On active donc par défaut l'affichage,
+        dans BizHawk, des objets réellement trouvés, envoyés et reçus. Une seule fois par
+        session : si le joueur les coupe avec /toggle_text, on ne les rallume pas.
+        """
+        if self._item_messages_enabled or not hasattr(ctx, "text_passthrough_categories"):
+            return
+        self._item_messages_enabled = True
+        try:
+            from worlds._bizhawk.context import TextCategory
+        except ImportError:
+            return
+        ctx.text_passthrough_categories.update((TextCategory.OUTGOING, TextCategory.INCOMING))
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
         try:

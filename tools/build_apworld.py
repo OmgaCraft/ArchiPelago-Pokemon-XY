@@ -53,13 +53,13 @@ def build():
                 count += 1
         archive.writestr(f"{WORLD_NAME}/archipelago.json", json.dumps(manifest))
     print(f"{target} : {count} fichier(s) + manifeste {manifest}")
-    build_bundle(target, manifest.get("world_version", "dev"))
+    build_bundle(target)
     return target
 
 
-def build_bundle(apworld, version):
+def build_bundle(apworld):
     """Zip tout-en-un pour les joueurs : APWorld, script Lua, YAML et guide."""
-    bundle = os.path.join(DIST_DIR, f"Pokemon_XY_Archipelago_v{version}.zip")
+    bundle = os.path.join(DIST_DIR, "Pokemon_XY_Archipelago.zip")
     contents = [
         (apworld, os.path.basename(apworld)),
         (LUA_FILE, os.path.basename(LUA_FILE)),

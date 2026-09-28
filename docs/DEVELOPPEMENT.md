@@ -27,7 +27,7 @@ Le nombre d'objets livrés est gardé dans le data storage du serveur, clé `pok
 ## Construire
 
 ```
-py -3.13 tools/build_apworld.py            # dist/pokemon_xy.apworld + dist/Pokemon_XY_Archipelago_v<version>.zip
+py -3.13 tools/build_apworld.py            # dist/pokemon_xy.apworld + dist/Pokemon_XY_Archipelago.zip
 py -3.13 tools/build_apworld.py --install  # et copie l'apworld et le script Lua dans C:\ProgramData\Archipelago
 ```
 

@@ -2238,7 +2238,10 @@ local request_handlers = {
         return {type = "PREFERRED_CORES_RESPONSE", value = {}}
     end,
     ["DISPLAY_MESSAGE"] = function(req)
-        pcall(gui.addmessage, tostring(req["message"] or ""))
+        -- [FR] Affiché en haut de l'écran de BizHawk, et gardé dans la console Lua comme historique.
+        local message = tostring(req["message"] or "")
+        pcall(gui.addmessage, message)
+        print(">>> [AP] " .. message)
         return {type = "DISPLAY_MESSAGE_RESPONSE"}
     end,
     ["SET_MESSAGE_INTERVAL"] = function(req)

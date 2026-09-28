@@ -4,13 +4,13 @@ Monde [Archipelago](https://archipelago.gg/) (randomizer multi-jeux) pour **Pok�
 **BizHawk** (cœur 3DS). Les objets au sol, les objets cachés, les cadeaux, les badges et, en option,
 les dresseurs deviennent des checks. Les objets des autres joueurs arrivent directement dans ton sac.
 
-> **Version 0.0.5** — confirmée pour **Pokémon Y (USA)**, Archipelago 0.6.7, BizHawk 2.11.1.
+> **Version 0.0.6** — confirmée pour **Pokémon Y (USA)**, Archipelago 0.6.7, BizHawk 2.11.1.
 
 ## Téléchargement
 
 | Fichier | Rôle |
 |---|---|
-| [**Pokemon_XY_Archipelago_v0.0.5.zip**](https://github.com/OmgaCraft/ArchiPelago-Pokemon-XY/raw/main/dist/Pokemon_XY_Archipelago_v0.0.5.zip) | Tout en un : APWorld, script Lua, YAML et guide |
+| [**Pokemon_XY_Archipelago.zip**](https://github.com/OmgaCraft/ArchiPelago-Pokemon-XY/raw/main/dist/Pokemon_XY_Archipelago.zip) | Tout en un : APWorld, script Lua, YAML et guide |
 | [pokemon_xy.apworld](https://github.com/OmgaCraft/ArchiPelago-Pokemon-XY/raw/main/dist/pokemon_xy.apworld) | Le monde, à installer dans Archipelago |
 | [pokemon_xy_connector.lua](https://github.com/OmgaCraft/ArchiPelago-Pokemon-XY/raw/main/lua/pokemon_xy_connector.lua) | Le script à charger dans BizHawk |
 | [Pokemon X and Y.yaml](yaml/Pokemon%20X%20and%20Y.yaml) | Fichier joueur modèle |
@@ -23,6 +23,9 @@ les dresseurs deviennent des checks. Les objets des autres joueurs arrivent dire
 4. BizHawk : ouvre ton dump de Pokémon Y, puis Tools > Lua Console > ouvre `pokemon_xy_connector.lua`.
 5. Lance le client BizHawk d'Archipelago, connecte-toi et charge ta sauvegarde.
 
+Le jeu n'est pas modifié : sa boîte de dialogue annonce toujours l'objet d'origine de la Poké Ball.
+L'objet réellement trouvé ou envoyé s'affiche en bas à gauche de l'écran de BizHawk.
+
 **Guide complet, fenêtre d'aide et limites connues : [GUIDE_FR.md](GUIDE_FR.md).**
 
 ## Crédits
@@ -33,7 +36,11 @@ dont le README invite à reprendre le projet. Toute la logique, les données du 
 mémoire et le script Lua viennent de son travail. Le dépôt d'origine n'a pas de licence : ce dépôt
 sera retiré ou adapté à la demande de l'auteur.
 
-Changements de cette version par rapport à la v0.0.4 :
+Changements de la v0.0.6 :
+- les objets trouvés, envoyés et reçus s'affichent par défaut à l'écran de BizHawk (et dans la
+  console Lua), puisque la boîte de dialogue du jeu annonce toujours l'objet d'origine.
+
+Changements de la v0.0.5 par rapport à la v0.0.4 :
 - `.apworld` reconstruit : l'original avait des `\` dans ses chemins internes et Archipelago ne le chargeait pas ;
 - le client ne redonne plus tous les objets à chaque redémarrage (compteur gardé sur le serveur) ;
 - rien n'est écrit en mémoire à l'écran titre (les objets étaient effacés au chargement de la sauvegarde) ;
@@ -48,7 +55,8 @@ Aucun fichier du jeu n'est fourni : utilise ton propre dump.
 Archipelago world for Pokémon X/Y on BizHawk (3DS core), based on
 [uhsfiuh/Pokemon-x-y-AP](https://github.com/uhsfiuh/Pokemon-x-y-AP) v0.0.4 with client fixes
 (no duplicate items on client restart, no writes at the title screen, progression items restored,
-repackaged `.apworld`). Confirmed with **Pokémon Y (USA)**. Download the zip above, install the
+found/sent/received items shown on BizHawk's screen, repackaged `.apworld`). The in-game textbox
+still names the original item, since the ROM is not patched. Confirmed with **Pokémon Y (USA)**. Download the zip above, install the
 `.apworld`, put `pokemon_xy_connector.lua` in `Archipelago\data\lua\` and load it in BizHawk's Lua Console.
 
 ## Développement

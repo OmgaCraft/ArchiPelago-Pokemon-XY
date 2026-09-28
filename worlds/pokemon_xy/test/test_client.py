@@ -181,6 +181,27 @@ class TestDelivery(unittest.TestCase):
             self.assertEqual(self.memory.slot(ADDR_BAG_MEDICINE, 0), (17, 2))
         self.run_async(scenario())
 
+    def test_item_messages_shown_by_default(self):
+        async def scenario():
+            from worlds._bizhawk.context import BizHawkClientContext
+            ctx = BizHawkClientContext(None, None)
+            ctx.slot, ctx.team = 1, 0
+            client = _fresh()
+            client.on_package(ctx, "Connected", {})
+            await asyncio.sleep(0)
+            # Mêmes paquets que le serveur envoie quand on trouve / reçoit un objet.
+            found = {"type": "ItemSend", "item": SimpleNamespace(player=1), "receiving": 2}
+            received = {"type": "ItemSend", "item": SimpleNamespace(player=2), "receiving": 1}
+            for packet in (found, received):
+                self.assertIn(ctx._categorize_text(packet), ctx.text_passthrough_categories)
+
+            # Coupé par le joueur (/toggle_text) : une reconnexion ne le rallume pas.
+            ctx.text_passthrough_categories.clear()
+            client.on_package(ctx, "Connected", {})
+            await asyncio.sleep(0)
+            self.assertEqual(ctx.text_passthrough_categories, set())
+        self.run_async(scenario())
+
     def test_location_flag_sends_check(self):
         async def scenario():
             ctx = FakeContext([])

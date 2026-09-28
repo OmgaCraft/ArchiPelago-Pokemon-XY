@@ -1,4 +1,4 @@
-# Guide — Pokémon X/Y Archipelago (v0.0.5)
+# Guide — Pokémon X/Y Archipelago (v0.0.6)
 
 ## Ce qu'il te faut
 
@@ -16,7 +16,7 @@
 
 ## Installation
 
-1. Télécharge `Pokemon_XY_Archipelago_v0.0.5.zip` (dossier [`dist/`](dist)) et décompresse-le.
+1. Télécharge `Pokemon_XY_Archipelago.zip` (dossier [`dist/`](dist)) et décompresse-le.
 2. **APWorld** : double-clique sur `pokemon_xy.apworld`, ou Launcher Archipelago > « Install APWorld ».
    Tu peux aussi le copier à la main dans `C:\ProgramData\Archipelago\custom_worlds\`.
 3. **Script Lua** : copie `pokemon_xy_connector.lua` dans `C:\ProgramData\Archipelago\data\lua\`.
@@ -40,6 +40,24 @@
    qu'une fois la sauvegarde chargée, jamais à l'écran titre.
 
 Quand tu ramasses une Poké Ball, le script retire tout seul l'objet d'origine, puis te donne l'objet Archipelago.
+
+## Les messages : ce que tu as vraiment trouvé
+
+La boîte de dialogue du jeu annonce **toujours l'objet d'origine** de la Poké Ball, par exemple
+« Vous avez obtenu une Potion ». C'est normal : le jeu lui-même n'est pas modifié.
+
+Ce que tu as vraiment trouvé s'affiche **en bas à gauche de l'écran de BizHawk**. Les messages
+restent aussi dans la console Lua et dans le client :
+
+| Message | Signification |
+|---|---|
+| `Toi found their Absolite (…)` | L'objet était pour toi : il remplace la Potion dans ton sac. |
+| `Toi sent Potion to Ami (…)` | L'objet part chez un autre joueur : la Potion d'origine est retirée de ton sac. |
+| `Ami sent Absolite to Toi (…)` | Un autre joueur t'a envoyé un objet. |
+
+- Si les messages sont coupés, agrandis la fenêtre de BizHawk (View > Window Size).
+- Pour les masquer, tape `/toggle_text outgoing off` ou `/toggle_text incoming off` dans le client.
+  Remplace `off` par `on` pour les réafficher.
 
 ## La fenêtre d'aide (Helper)
 
