@@ -46,11 +46,46 @@ Quand tu ramasses une Poké Ball, le script retire tout seul l'objet d'origine, 
 Depuis la v0.0.7, **une Poké Ball au sol qui contient un objet pour toi l'annonce vraiment** :
 « Vous avez obtenu un Super Bonbon » au lieu de l'objet d'origine.
 
-- **Première connexion** : le client te demande ton dump de Pokémon Y (le fichier `.3ds` déchiffré).
-  Il s'en sert pour construire un petit fichier modifié, qu'il range dans le dossier de mods de
-  BizHawk (`3DS\User\load\mods\0004000000055E00`). Ton dump n'est jamais modifié.
-- **Ensuite, redémarre le jeu une fois** : sauvegarde en jeu, puis Emulation > Reboot Core dans
-  BizHawk. Un message te le rappelle à l'écran. Le patch est refait tout seul à chaque nouvelle partie.
+### Première connexion : choisir ton fichier de jeu (une seule fois)
+
+Le client a besoin du fichier de ton jeu pour construire le patch. Il ne le modifie jamais : il
+lit dedans, puis range un petit fichier modifié dans le dossier de mods de BizHawk
+(`3DS\User\load\mods\0004000000055E00`).
+
+1. Fais comme d'habitude : BizHawk avec Pokémon Y, le script Lua, puis le client BizHawk
+   d'Archipelago connecté au serveur.
+2. Juste après la connexion, une fenêtre Windows s'ouvre :
+   **« Select Pokemon Y (USA) ROM, decrypted (.3ds) »**.
+   Elle s'ouvre parfois **derrière** les autres fenêtres : si tu ne la vois pas, regarde la barre des tâches.
+3. Dans cette fenêtre, va chercher **le même fichier `.3ds` que tu ouvres dans BizHawk**
+   (File > Open ROM), sélectionne-le, puis clique sur **Ouvrir**.
+4. Regarde la fenêtre du client BizHawk :
+   - `Patch du jeu : … Poké Ball(s) au sol modifiée(s)` puis `Patch Archipelago installé…` :
+     c'est réussi, passe à l'étape suivante ;
+   - `Échec du patch du jeu : Dump chiffré…` : ton fichier est chiffré (voir plus bas) ;
+   - `Patch du jeu non installé…` : aucun fichier choisi (fenêtre fermée ou annulée).
+
+   Dans les deux derniers cas, le jeu marche quand même, comme avant le patch.
+5. Archipelago retient ton choix : la fenêtre ne s'ouvrira plus. Si tu l'as fermée sans choisir,
+   elle reviendra au prochain lancement du client.
+
+**Chiffré ou déchiffré ?** Si BizHawk t'a demandé les fichiers `aes_keys.txt` et `seeddb.bin` quand
+tu as ouvert le jeu la première fois, ton dump est chiffré : le patch ne marche pas avec. Sinon, il
+est déchiffré et tout va bien.
+
+**Ton fichier n'apparaît pas dans la fenêtre ?** Elle n'affiche que les fichiers `.3ds`. Les dumps
+`.cia` ne sont pas pris en charge par le patch.
+
+**Changer de fichier plus tard :** ouvre `C:\ProgramData\Archipelago\host.yaml` avec le Bloc-notes,
+cherche `pokemon_xy_settings`, et corrige le chemin de la ligne `rom_file`.
+
+### Ensuite : redémarrer le jeu une fois
+
+Sauvegarde en jeu, puis Emulation > Reboot Core dans BizHawk. Un message te le rappelle à l'écran.
+Le patch est refait tout seul à chaque nouvelle partie (il faudra alors redémarrer une fois de plus).
+
+### Bon à savoir sur le patch
+
 - Ça marche aussi sur une partie déjà commencée : pas besoin de regénérer.
 - Pour l'instant, seules les **207 Poké Balls au sol** sont concernées, et seulement pour **tes**
   objets. Un objet pour un autre joueur, un badge ou un objet rare garde le nom de l'objet d'origine.
