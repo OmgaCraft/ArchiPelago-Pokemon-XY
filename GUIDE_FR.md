@@ -1,4 +1,4 @@
-# Guide — Pokémon X/Y Archipelago (v0.0.7)
+# Guide — Pokémon X/Y Archipelago (v0.0.8)
 
 ## Ce qu'il te faut
 
@@ -113,8 +113,8 @@ restent aussi dans la console Lua et dans le client :
 
 ## La fenêtre d'aide (Helper)
 
-- **Badges — « Suppress »** : si tu as déjà reçu le badge d'une arène sans avoir battu le champion,
-  le champion refuse le combat. Clique « Suppress » sur ce badge, parle au champion, bats-le :
+- **Badges — « Suppress »** : si tu as déjà reçu le badge d'une arène sans avoir battu le champion
+  (option `randomize_badges`, ou partie générée avant la v0.0.8), le champion refuse le combat. Clique « Suppress » sur ce badge, parle au champion, bats-le :
   le check part et le badge revient.
 - **« Got it »** : six objets n'ont pas de drapeau détectable (CS03 Surf, CS04 Force, CS05 Cascade,
   Machine Cherch'Objet, Elevator Key, Poké Flûte). Quand le jeu te donne l'un d'eux, clique
@@ -137,6 +137,7 @@ restent aussi dans la console Lua et dans le client :
 | `include_hidden_items` | Les objets cachés deviennent des checks (défaut : oui). |
 | `require_dowsing_machine` | Les objets cachés ne sont dans la logique qu'avec la Machine Cherch'Objet (défaut : non). |
 | `trainersanity` | Battre les dresseurs devient un check (défaut : non, beaucoup de checks en plus). |
+| `randomize_badges` | Mélange les badges dans le multiworld (défaut : non, chaque champion donne son badge). Activé, un badge reçu avant le combat fait refuser le combat au champion : clique « Suppress » pour ce badge dans la fenêtre d'aide, puis parle-lui. |
 | `goal` | `pokemon_league` : entrer au Panthéon. |
 
 ## Limites connues

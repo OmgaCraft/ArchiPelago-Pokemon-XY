@@ -13,6 +13,12 @@ class TrainerSanity(Toggle):
     """Include beating in-game trainers (Youngsters, Lasses, Gym Trainers, Rivals) as location checks."""
     display_name = "Trainersanity"
 
+class RandomizeBadges(Toggle):
+    """Shuffle gym badges into the multiworld.
+    Off: each gym leader gives his own badge. On: a badge can arrive before you beat its gym; the leader
+    then refuses to fight until you press "Suppress" for that badge in the connector's helper window."""
+    display_name = "Randomize Badges"
+
 class Goal(Choice):
     """Goal condition for completing the multiworld."""
     display_name = "Goal"
@@ -24,6 +30,7 @@ class PokemonXYOptions(PerGameCommonOptions):
     include_hidden_items: IncludeHiddenItems
     require_dowsing_machine: RequireDowsingMachine
     trainersanity: TrainerSanity
+    randomize_badges: RandomizeBadges
     goal: Goal
 
 @dataclass
@@ -31,6 +38,7 @@ class PokemonYOptions(PerGameCommonOptions):
     include_hidden_items: IncludeHiddenItems
     require_dowsing_machine: RequireDowsingMachine
     trainersanity: TrainerSanity
+    randomize_badges: RandomizeBadges
     goal: Goal
 
 @dataclass
@@ -38,12 +46,14 @@ class PokemonXOptions(PerGameCommonOptions):
     include_hidden_items: IncludeHiddenItems
     require_dowsing_machine: RequireDowsingMachine
     trainersanity: TrainerSanity
+    randomize_badges: RandomizeBadges
     goal: Goal
 
 pokemon_y_options = {
     "include_hidden_items": IncludeHiddenItems,
     "require_dowsing_machine": RequireDowsingMachine,
     "trainersanity": TrainerSanity,
+    "randomize_badges": RandomizeBadges,
     "goal": Goal,
 }
 
