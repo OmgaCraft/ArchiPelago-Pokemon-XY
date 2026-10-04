@@ -42,16 +42,3 @@ Copy `pokemon_xy.apworld` into your Archipelago installation's `custom_worlds` f
 
 4. **Enjoy your Multiworld!**:
    * The client will automatically connect to your BizHawk emulator and sync items and location checks bidirectionally in real-time.
-
----
-
-## 🛠️ Helpful BizHawk Console Debug Commands
-
-While running `pokemon_xy_connector.lua` in BizHawk, you can type the following helper functions directly into the Lua Console:
-
-| Command | Description | Example |
-| :--- | :--- | :--- |
-| `give(item_id, count)` | Injects an item directly into your bag | `give(0x0011, 5)` *(Gives 5 Potions)* |
-| `give_badge(num)` | Grants a specific Gym Badge (1..8) or all badges (`0`) | `give_badge(1)` *(Grants Bug Badge)* |
-| `check_flag(flag_id)` | Manually sets an event flag in RAM and marks check | `check_flag(0x051A)` |
-| `check_loc("name")` | Checks all locations matching search text | `check_loc("Route 2")` |

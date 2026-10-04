@@ -1355,7 +1355,6 @@ local BADGES = {
 local badge_suppressed = {}
 local badge_form       = nil
 local badge_buttons    = {}
-local badge_grant_btns = {}
 local badge_header     = nil
 local badge_loadlabel  = nil
 local badge_addrlabel  = nil
@@ -1440,42 +1439,11 @@ local function badge_restore(idx)
     local b = BADGES[idx]
     if not badge_suppressed[b.bit] then
         print(string.format(">>> [BADGE] Refusing: the helper did not suppress the %s Badge.", b.name))
-        print(string.format(">>>         If you earned it and it is stuck missing, the fallback is:  force on %d", idx))
-        print(">>>         (the \"Grant (cheat)\" button on that row) -- recovery only.")
         return
     end
     badge_write_bit(b.bit, true)
     badge_suppressed[b.bit] = nil
     print(string.format(">>> [BADGE RESTORED] %s Badge (bit %d) put back.", b.name, b.bit))
-end
-
--- CHEAT -- FALLBACK ONLY.
---
--- Hands you a badge outright. It does not check whether you earned it, it does
--- not check whether the helper suppressed it, and it never sets the gym's event
--- flag -- so it grants the badge's effects WITHOUT awarding the Archipelago
--- location check for that gym.
---
--- It exists purely as a recovery tool for when something has gone wrong: the
--- connector was reloaded or a save state loaded while a badge was suppressed,
--- the AP client stripped a badge it should not have, or a badge is otherwise
--- stuck missing. badge_restore refuses in those cases because it has no record
--- of taking the badge, which would strand you without this.
---
--- Do not use it to skip a gym. Suppress the badge and refight the leader --
--- that is the supported path, and it awards the check properly.
-local function badge_force_on(idx)
-    local b = BADGES[idx]
-    local before = badge_read_field()
-    badge_write_bit(b.bit, true)
-    badge_suppressed[b.bit] = nil
-    print(string.format(">>> [BADGE CHEAT] Granted %s Badge (bit %d). 0x%08X: %s -> %s",
-        b.name, b.bit, badge_addr, badge_bin(before), badge_field_binary()))
-    print(">>> This only STICKS if Archipelago has already given you this badge.")
-    print(">>> If it has not, the client strips it again within a second -- that is")
-    print(">>> the anti-cheat doing its job, not a bug.")
-    print(">>> It also looks identical to beating the gym, so the client will bank")
-    print(">>> that gym's location check. Recovery only.")
 end
 
 local function badge_restore_all()
@@ -1763,12 +1731,6 @@ local function badge_command(line)
         local idx = badge_find(arg)
         if idx then badge_restore(idx)
         else print(">>> [BADGE] Unknown badge: " .. tostring(arg) .. "  (try: on 2  /  on cliff)") end
-    elseif verb == "force" or verb == "grant" then
-        -- accepts "force on 2", "force 2", "grant cliff"
-        local target = arg:gsub("^on%s+", "")
-        local idx = badge_find(target)
-        if idx then badge_force_on(idx)
-        else print(">>> [BADGE] Unknown badge: " .. tostring(target) .. "  (try: force on 2)") end
     elseif verb == "dump" or verb == "d" then
         badge_dump_region()
     elseif verb == "diag" then
@@ -1784,7 +1746,6 @@ local function badge_command(line)
         print(">>>   off <n|name>       suppress a badge so the leader refights")
         print(">>>   on <n|name>        restore a badge the helper suppressed")
         print(">>>   all on             restore everything the helper suppressed")
-        print(">>>   force on <n|name>  CHEAT, fallback only: grants a badge outright.")
         print(">>>                      Use if a badge is stuck missing. Awards no AP check.")
         print(">>>   status             print the bitfield and per-badge state")
         print(">>>   dump               print the bytes around the current address")
@@ -1875,7 +1836,7 @@ local function bag_find(item_id)
 end
 
 -- No bag_remove_one here: removing a manually claimed item is the client's job,
--- for the reasons above. bag_find and bag_grant remain, used by the Cheat
+-- for the reasons above. bag_find and bag_grant remain, used by the manual
 -- buttons, which only ever ADD an item and so need no knowledge of Archipelago
 -- state.
 
@@ -1984,21 +1945,11 @@ local function blocker_clear_now(idx)
     print(">>>           the game only spawns it when the map loads.")
 end
 
--- Recovery button: hand the item over regardless, awarding no check.
-local function manual_cheat(idx)
-    local e = MANUAL_ITEMS[idx]
-    if bag_grant(e) then
-        print(string.format(">>> [ITEM CHEAT] Gave you %s. This awards NO Archipelago check.", e.name))
-    else
-        print(string.format(">>> [ITEM CHEAT] Could not place %s -- its bag pocket is full.", e.name))
-    end
-end
-
 -- Build the helper window. Wrapped in pcall so a forms failure on an unusual
 -- BizHawk build can never take the connector down with it.
 local function badge_init_form()
     local ok, err = pcall(function()
-        badge_form = forms.newform(510, 760, "X/Y Archipelago Helper", function()
+        badge_form = forms.newform(510, 560, "X/Y Archipelago Helper", function()
             -- Never leave the player short a badge because they closed the window.
             badge_restore_all()
             badge_form = nil
@@ -2009,9 +1960,6 @@ local function badge_init_form()
             "At load: " .. badge_bin(badge_value_at_load), 10, 22, 180, 16)
         badge_addrlabel = forms.label(badge_form,
             string.format("Addr:    0x%08X", badge_addr), 10, 38, 180, 16)
-
-        -- Column heading over the cheat buttons.
-        forms.label(badge_form, "CHEAT - fallback only", 200, 38, 140, 16)
 
         -- Given its own button because it is the thing to press when nothing
         -- works, and asking someone to type into the right textbox at that point
@@ -2026,40 +1974,15 @@ local function badge_init_form()
             badge_buttons[i] = forms.button(badge_form, "...", function()
                 if badge_suppressed[b.bit] then badge_restore(i) else badge_suppress(i) end
             end, 84, y, 112, 22)
-            -- CHEAT. Grants the badge outright: no earn check, no AP location
-            -- check. Recovery tool for a stuck badge, not a way to skip a gym.
-            badge_grant_btns[i] = forms.button(badge_form, "Grant (cheat)", function()
-                badge_force_on(i)
-            end, 200, y, 88, 22)
-            forms.label(badge_form, b.gym, 294, y + 4, 190, 16)
+            forms.label(badge_form, b.gym, 204, y + 4, 280, 16)
         end
 
         local cy = 58 + #BADGES * 26 + 10
-        forms.label(badge_form, "Command:", 10, cy + 4, 60, 16)
-        local box = forms.textbox(badge_form, "", 190, 20, nil, 74, cy)
-        forms.button(badge_form, "Run", function()
-            badge_command(forms.gettext(box))
-            forms.settext(box, "")
-        end, 272, cy - 1, 44, 22)
-        forms.label(badge_form, "help / dump / addr 0x...", 324, cy + 4, 150, 16)
-
-        forms.button(badge_form, "Restore All",  function() badge_restore_all() end,       10, cy + 30, 105, 24)
-        forms.button(badge_form, "Status",       function() badge_status() end,           120, cy + 30, 105, 24)
-        forms.button(badge_form, "Dump Region",  function() badge_dump_region() end,      230, cy + 30, 105, 24)
-        forms.button(badge_form, "Reset to load", function() badge_restore_load_value() end, 340, cy + 30, 105, 24)
-
-        forms.label(badge_form,
-            "\"Grant (cheat)\" only sticks for a badge Archipelago already gave you.",
-            10, cy + 62, 470, 16)
-        forms.label(badge_form,
-            "Otherwise the client strips it back within a second, by design. It also",
-            10, cy + 78, 470, 16)
-        forms.label(badge_form,
-            "banks that gym's check, since it looks the same as beating the leader.",
-            10, cy + 94, 470, 16)
+        forms.button(badge_form, "Restore All", function() badge_restore_all() end, 10, cy, 130, 24)
+        forms.label(badge_form, "Rend les badges retirés par « Suppress ».", 150, cy + 4, 330, 16)
 
         -- Manual checks for the items the game gives no detectable flag for.
-        local my = cy + 122
+        local my = cy + 40
         forms.label(badge_form, "Items with no detectable pickup flag:", 10, my, 300, 16)
         forms.label(badge_form, "Press \"Got it\" after you have received one in game.", 10, my + 16, 400, 16)
 
@@ -2069,10 +1992,7 @@ local function badge_init_form()
             manual_buttons[i] = forms.button(badge_form, "Got it", function()
                 manual_claim(i)
             end, 134, y, 100, 22)
-            forms.button(badge_form, "Cheat: give", function()
-                manual_cheat(i)
-            end, 240, y, 90, 22)
-            forms.label(badge_form, e.where, 336, y + 4, 150, 16)
+            forms.label(badge_form, e.where, 246, y + 4, 240, 16)
         end
 
         -- Roadblock safety valve.
@@ -2094,7 +2014,7 @@ local function badge_init_form()
             "\"Got it\" sends the check; the client removes the vanilla copy unless it",
             10, wy, 470, 16)
         forms.label(badge_form,
-            "already gave you that item. \"Cheat: give\" only hands the item over.",
+            "already gave you that item.",
             10, wy + 16, 470, 16)
         forms.label(badge_form,
             "Use \"Clear it now\" if a roadblock has respawned and trapped you.",

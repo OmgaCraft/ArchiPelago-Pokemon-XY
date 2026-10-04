@@ -1,4 +1,4 @@
-# Guide — Pokémon X/Y Archipelago (v0.0.8)
+# Guide — Pokémon X/Y Archipelago (v1.0.0)
 
 ## Ce qu'il te faut
 
@@ -120,7 +120,8 @@ restent aussi dans la console Lua et dans le client :
   Machine Cherch'Objet, Elevator Key, Poké Flûte). Quand le jeu te donne l'un d'eux, clique
   « Got it » : le check part et l'objet d'origine est retiré (sauf si Archipelago te l'a déjà donné).
 - **Roadblock (Ronflex, Route 7)** : si Ronflex réapparaît derrière toi et te bloque, désactive-le ici.
-- Les boutons **« Cheat »** ne servent qu'en secours, si quelque chose casse.
+- **Restore All** : rend tous les badges retirés par « Suppress ».
+- **Diagnostics** : affiche l'état du script dans la console Lua. Utile pour signaler un problème.
 
 ## Bon à savoir
 
