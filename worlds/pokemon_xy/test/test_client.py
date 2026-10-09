@@ -43,6 +43,10 @@ class FakeMemory:
         o = pocket - MEM_START + index * 4
         return (self.data[o] | self.data[o + 1] << 8, self.data[o + 2] | self.data[o + 3] << 8)
 
+    def put(self, pocket, index, item_id, qty=1):
+        o = pocket - MEM_START + index * 4
+        self.data[o:o + 4] = bytes([item_id & 0xFF, item_id >> 8, qty & 0xFF, qty >> 8])
+
     def clear_pocket(self, pocket, slots):
         self.data[pocket - MEM_START:pocket - MEM_START + slots * 4] = bytes(slots * 4)
 
@@ -90,6 +94,7 @@ class TestDelivery(unittest.TestCase):
     async def tick(self, client, ctx, count=1):
         for _ in range(count):
             client._last_ensure_check = 0.0
+            client._last_gift_check = 0.0
             await client.game_watcher(ctx)
 
     def test_nothing_written_at_title_screen(self):
@@ -110,10 +115,19 @@ class TestDelivery(unittest.TestCase):
             await self.tick(client, ctx, 2)
 
             self.assertEqual(self.memory.slot(ADDR_BAG_MEDICINE, 0), (17, 1))
-            self.assertEqual(self.memory.slot(ADDR_BAG_TM, 0), (422, 1))
+            # Le Surf d'Archipelago est en réserve tant que Calem/Serena ne l'a pas donné.
+            self.assertEqual(self.memory.slot(ADDR_BAG_TM, 0), (0, 0))
             self.assertEqual(self.memory.data[ADDR_BADGES - MEM_START] & 1, 1)
             saved = [m for m in ctx.sent if m.get("cmd") == "Set"]
             self.assertEqual(saved[-1]["operations"][0], {"operation": "max", "value": 3})
+
+            # Le PNJ donne la CS03 d'origine : check envoyé, puis l'objet Archipelago prend sa place.
+            self.memory.put(ADDR_BAG_TM, 0, 422)
+            await self.tick(client, ctx)
+            checks = [m for m in ctx.sent if m.get("cmd") == "LocationChecks"]
+            self.assertIn(200493, checks[-1]["locations"])
+            self.assertEqual(self.memory.slot(ADDR_BAG_TM, 0), (422, 1))
+            ctx.checked_locations.add(200493)
 
             # Redémarrage du client : le serveur renvoie 3, rien ne doit être redonné.
             restarted = _fresh()
@@ -126,6 +140,7 @@ class TestDelivery(unittest.TestCase):
     def test_progression_restored_after_reloading_older_save(self):
         async def scenario():
             ctx = FakeContext([POTION, HM03_SURF, BUG_BADGE])
+            ctx.checked_locations.add(200493)  # le cadeau du PNJ a déjà été reçu
             self.memory.load_save()
             await self.connect(_fresh(), ctx, None)
             client = _fresh()
@@ -179,6 +194,36 @@ class TestDelivery(unittest.TestCase):
             await self.connect(client, ctx, 0)
             await self.tick(client, ctx)
             self.assertEqual(self.memory.slot(ADDR_BAG_MEDICINE, 0), (17, 2))
+        self.run_async(scenario())
+
+    def test_npc_gift_held_until_received(self):
+        async def scenario():
+            ctx = FakeContext([HM03_SURF])
+            self.memory.load_save()
+            client = _fresh()
+            await self.connect(client, ctx, None)
+            await self.tick(client, ctx, 3)
+            # Rien dans le sac, donc aucun check : l'objet reste en réserve.
+            self.assertEqual(self.memory.slot(ADDR_BAG_TM, 0), (0, 0))
+            self.assertEqual([m for m in ctx.sent if m.get("cmd") == "LocationChecks"], [])
+            self.assertEqual(client._received_index, 1)
+        self.run_async(scenario())
+
+    def test_npc_gift_without_archipelago_item(self):
+        async def scenario():
+            ctx = FakeContext([])
+            self.memory.load_save()
+            client = _fresh()
+            await self.connect(client, ctx, None)
+            # Machine Cherch'Objet (471) donnée par la femme de la Route 8 : poche des objets rares.
+            self.memory.put(Client.ADDR_BAG_KEY, 3, 471)
+            await self.tick(client, ctx)
+            checks = [m for m in ctx.sent if m.get("cmd") == "LocationChecks"]
+            self.assertIn(200491, checks[-1]["locations"])
+            self.assertEqual(self.memory.slot(Client.ADDR_BAG_KEY, 3), (0, 0))  # objet d'origine retiré
+            # Un seul check, pas de répétition.
+            await self.tick(client, ctx, 2)
+            self.assertEqual(len([m for m in ctx.sent if m.get("cmd") == "LocationChecks"]), 1)
         self.run_async(scenario())
 
     def test_item_messages_shown_by_default(self):

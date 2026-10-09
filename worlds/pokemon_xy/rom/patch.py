@@ -34,6 +34,11 @@ AP_ITEM_OFFSET = 200000
 KEY_ITEM_IDS = frozenset([216, 431, 442, 445, 446, 447, 450, 465, 466, 471, 628, 629, 631, 632, 638, 641,
                           642, 643, 651, 689, 695, 696, 697, 698, 700, 701, 702, 703, 705, 712, 713, 714])
 
+# Les CS ne sont jamais donnés par une Poké Ball au sol : le client prendrait un tel objet pour le
+# cadeau d'un personnage (CS03, CS04, CS05 sont détectées dans le sac) et enverrait un faux check.
+HM_ITEM_IDS = frozenset(range(420, 425))
+NO_NATIVE_ITEM_IDS = KEY_ITEM_IDS | HM_ITEM_IDS
+
 # Fichier écrit à côté des mods pour savoir quelle partie les a produits.
 STAMP_FILE = "archipelago.json"
 
@@ -57,7 +62,7 @@ def native_item_id(ap_item_id: int, item_player: int, my_slot: int, game_item_id
     if item_player != my_slot:
         return None
     game_id = ap_item_id - AP_ITEM_OFFSET
-    if game_id not in game_item_ids or game_id in KEY_ITEM_IDS:
+    if game_id not in game_item_ids or game_id in NO_NATIVE_ITEM_IDS:
         return None
     return game_id
 

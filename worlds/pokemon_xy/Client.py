@@ -132,7 +132,7 @@ KNOWN_GOOD_ROM_HASHES = {
 EMPTY_FLAG_WARN_AFTER = 600
 
 # Manual checks: items the game sets no usable pickup flag for, claimed by a
-# button in the connector's helper window.
+# detection in the bag (see BAG_GIFT_LOCATIONS).
 #
 # The button sets a spare event flag; the client sees it, banks the check, and
 # then decides whether to remove the vanilla copy from the bag. That decision
@@ -150,6 +150,16 @@ MANUAL_CHECK_ITEMS = {
     200492: (200700, 700, "Elevator Key"),
     200483: (200651, 651, "Poké Flute"),
 }
+
+# [FR] Cadeaux de PNJ sans drapeau d'événement connu : CS03 Surf, CS04 Force, CS05 Cascade,
+# Machine Cherch'Objet, Elevator Key. Ils sont détectés dans le sac : quand l'objet d'origine
+# y apparaît alors que le lieu n'est pas encore validé, c'est le cadeau du PNJ. Le client le
+# retire et envoie le check. En attendant, l'objet Archipelago correspondant est gardé en
+# réserve (jamais écrit dans le sac), sinon on ne pourrait pas distinguer les deux copies.
+# La Poké Flûte a son propre drapeau (CLEARED_FLAG_LOCATIONS) et n'en fait pas partie.
+BAG_GIFT_LOCATIONS = {loc: entry for loc, entry in MANUAL_CHECK_ITEMS.items() if loc != 200483}
+BAG_GIFT_BY_AP_ITEM = {ap_item: loc for loc, (ap_item, _game_item, _label) in BAG_GIFT_LOCATIONS.items()}
+BAG_GIFT_CHECK_INTERVAL = 1.0
 
 # Roadblocks the story removes, which we put back until Archipelago grants the
 # key item. Same principle as stripping an un-granted badge: the multiworld, not
@@ -230,6 +240,7 @@ class PokemonXYClient(BizHawkClient):
     _delivery_key: Optional[str] = None
     _last_ensure_check: float = 0.0
     _item_messages_enabled: bool = False
+    _last_gift_check: float = 0.0
     # [FR] Patch du jeu : lieux demandés au serveur, et partie déjà traitée.
     _patch_locations: List[int]
     _patch_running: bool = False
@@ -432,8 +443,8 @@ class PokemonXYClient(BizHawkClient):
             logger.warning("[PokémonXY] connection looks healthy, THIS IS ALMOST CERTAINLY WHY: the")
             logger.warning("[PokémonXY] memory addresses are specific to a particular dump and BizHawk")
             logger.warning("[PokémonXY] build, and a mismatch reads as all-zero rather than erroring.")
-            logger.warning("[PokémonXY] Press Diagnostics in the connector's helper window. If")
-            logger.warning("[PokémonXY] 'Event flags set' is 0 bits, that is confirmed.")
+            logger.warning("[PokémonXY] If you are in game and no check ever registers, that is")
+            logger.warning("[PokémonXY] almost certainly the cause: use the Pokémon Y (USA) dump.")
             logger.warning("[PokémonXY] ------------------------------------------------------------")
 
         # Route game name to match server room registration
@@ -480,7 +491,8 @@ class PokemonXYClient(BizHawkClient):
         # else. They are detected from the badge byte in section 1b instead.
         flag_locs = [(name, data) for name, data in location_table.items()
                      if data.flag_id is not None and data.code is not None
-                     and "Badge" not in data.category]
+                     and "Badge" not in data.category
+                     and data.code not in BAG_GIFT_LOCATIONS]
 
         checked = []
         if flag_locs:
@@ -536,8 +548,8 @@ class PokemonXYClient(BizHawkClient):
                     logger.warning("[PokémonXY] If you ARE in game, this connector cannot see your game's")
                     logger.warning("[PokémonXY] memory, and no check will ever register. The addresses are")
                     logger.warning("[PokémonXY] specific to a particular ROM dump and BizHawk build.")
-                    logger.warning("[PokémonXY] Press Diagnostics in the connector's helper window and share")
-                    logger.warning("[PokémonXY] the output.")
+                    logger.warning("[PokémonXY] Check that you loaded the Pokémon Y (USA) dump the")
+                    logger.warning("[PokémonXY] connector was built for, then report the issue.")
                     logger.warning("[PokémonXY] ------------------------------------------------------------")
 
         # [FR] Tant qu'aucune sauvegarde n'est chargée (écran titre), le bloc de drapeaux
@@ -835,6 +847,10 @@ class PokemonXYClient(BizHawkClient):
                 # would create a phantom entry the game never reads. Section 1c
                 # above owns setting the bit; just acknowledge it here.
                 success = True
+            elif self._gift_pending(ctx, item_id):
+                # [FR] En réserve : posé dans le sac par _ensure_progression_items dès que
+                # le cadeau du PNJ a été reçu et validé.
+                success = True
             else:
                 success = await self._give_bag_item(ctx, item_id)
 
@@ -860,9 +876,50 @@ class PokemonXYClient(BizHawkClient):
                 "operations": [{"operation": "max", "value": self._received_index}],
             }])
 
-        # 2c. [FR] Objets de progression déjà livrés mais absents du sac (partie
+        # 2c. [FR] Cadeaux de PNJ détectés dans le sac.
+        await self._detect_bag_gifts(ctx)
+
+        # 2d. [FR] Objets de progression déjà livrés mais absents du sac (partie
         # rechargée après un plantage, par exemple) : on les repose.
         await self._ensure_progression_items(ctx)
+
+    def _gift_pending(self, ctx: "BizHawkClientContext", ap_item_id: int) -> bool:
+        """True si cet objet est en réserve : son cadeau de PNJ n'a pas encore été reçu."""
+        location = BAG_GIFT_BY_AP_ITEM.get(ap_item_id)
+        return location is not None and location not in self._sent_locations             and location not in ctx.checked_locations
+
+    async def _detect_bag_gifts(self, ctx: "BizHawkClientContext") -> None:
+        now = time.monotonic()
+        if now - self._last_gift_check < BAG_GIFT_CHECK_INTERVAL:
+            return
+        self._last_gift_check = now
+
+        pending = [(loc, entry) for loc, entry in BAG_GIFT_LOCATIONS.items()
+                   if loc not in self._sent_locations and loc not in ctx.checked_locations
+                   and loc in getattr(ctx, "server_locations", BAG_GIFT_LOCATIONS)]
+        pockets: Dict[int, bytes] = {}
+        for location, (_ap_item, game_item_id, label) in pending:
+            pocket_addr, max_slots = get_pocket_info(game_item_id)
+            if pocket_addr not in pockets:
+                try:
+                    res = await bizhawk.read(ctx.bizhawk_ctx, [(pocket_addr, max_slots * 4, MEMORY_DOMAIN)])
+                except bizhawk.RequestFailedError:
+                    return
+                pockets[pocket_addr] = res[0]
+            data = pockets[pocket_addr]
+            if not any((data[o] | (data[o + 1] << 8)) == game_item_id
+                       for o in range(0, min(len(data), max_slots * 4) - 3, 4)):
+                continue
+            # L'objet d'origine est arrivé : le retirer d'abord (s'il échoue, on réessaie au tour suivant).
+            if not await self._remove_bag_item(ctx, game_item_id):
+                continue
+            pockets.pop(pocket_addr, None)
+            self._sent_locations.add(location)
+            ctx.locations_checked.add(location)
+            await ctx.send_msgs([{"cmd": "LocationChecks", "locations": [location]}])
+            logger.info(f"[PokémonXY] {label} reçu du PNJ : check envoyé, objet d'origine retiré.")
+            # L'objet Archipelago éventuellement en réserve est posé au prochain passage.
+            self._last_ensure_check = 0.0
 
     async def _ensure_progression_items(self, ctx: "BizHawkClientContext") -> None:
         now = time.monotonic()
@@ -871,7 +928,8 @@ class PokemonXYClient(BizHawkClient):
         self._last_ensure_check = now
 
         delivered = ctx.items_received[:self._received_index or 0]
-        wanted = sorted({PROGRESSION_BAG_ITEMS[i.item] for i in delivered if i.item in PROGRESSION_BAG_ITEMS})
+        wanted = sorted({PROGRESSION_BAG_ITEMS[i.item] for i in delivered
+                         if i.item in PROGRESSION_BAG_ITEMS and not self._gift_pending(ctx, i.item)})
         pockets: Dict[int, bytes] = {}
         for game_item_id in wanted:
             if now - self._ensure_last_write.get(game_item_id, -ENSURE_REWRITE_COOLDOWN) < ENSURE_REWRITE_COOLDOWN:

@@ -103,11 +103,11 @@ class TestFieldItemPatch(unittest.TestCase):
             (1001, 200017, 2),   # Potion pour un autre joueur -> objet d'origine
             (1002, 200801, 1),   # badge -> objet d'origine
             (1003, 200651, 1),   # Poké Flûte (objet rare) -> objet d'origine
-            (1004, 200422, 1),   # CS03 -> donnée par la Poké Ball
+            (1004, 200422, 1),   # CS03 -> objet d'origine (cadeau de PNJ détecté dans le sac)
             (1005, 200050, 1),   # lieu qui n'est pas une Poké Ball au sol
         ]
         flags = {1000: 0x51A, 1001: 0x51B, 1002: 0x51C, 1003: 0x51D, 1004: 0x5E8, 1005: 0x0A4}
-        self.assertEqual(patch.field_items_from_scouts(scouted, flags, 1, game_ids), {0: 50, 206: 422})
+        self.assertEqual(patch.field_items_from_scouts(scouted, flags, 1, game_ids), {0: 50})
 
     def test_mods_directory_follows_bizhawk_config(self):
         with tempfile.TemporaryDirectory() as root:

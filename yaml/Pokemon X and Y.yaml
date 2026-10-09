@@ -20,11 +20,6 @@ Pokemon X and Y:
   # Battre les dresseurs (hors champions) devient un check : beaucoup de checks en plus.
   trainersanity: false
 
-  # Mélanger les badges dans le multiworld. Désactivé : chaque champion d'arène donne son propre badge.
-  # Activé : un badge peut arriver avant le combat, et le champion refuse alors de se battre
-  # tant que tu n'as pas cliqué « Suppress » pour ce badge dans la fenêtre d'aide.
-  randomize_badges: false
-
   # Objectif : entrer au Panthéon (les 8 badges + la Ligue).
   goal: pokemon_league
 

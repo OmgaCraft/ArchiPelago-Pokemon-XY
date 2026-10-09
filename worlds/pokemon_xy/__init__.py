@@ -77,16 +77,15 @@ class PokemonXYWorld(World):
         useful_items: List[Item] = []
         filler_names: List[str] = []
 
-        # [FR] Badges non mélangés (par défaut) : chaque champion donne son propre badge.
-        # Sinon un badge reçu avant le combat fait refuser le combat au champion.
+        # [FR] Chaque champion donne son propre badge : un badge reçu avant le combat
+        # ferait refuser le combat au champion et bloquerait le check de l'arène.
         locked_badges = set()
-        if not self.options.randomize_badges:
-            for location in self.multiworld.get_locations(self.player):
-                data = location_table.get(location.name)
-                if data and "Badge" in data.category:
-                    badge = location.name.split(" - ", 1)[1]
-                    location.place_locked_item(self.create_item(badge))
-                    locked_badges.add(badge)
+        for location in self.multiworld.get_locations(self.player):
+            data = location_table.get(location.name)
+            if data and "Badge" in data.category:
+                badge = location.name.split(" - ", 1)[1]
+                location.place_locked_item(self.create_item(badge))
+                locked_badges.add(badge)
 
         for item_name, data in item_table.items():
             if item_name in locked_badges:

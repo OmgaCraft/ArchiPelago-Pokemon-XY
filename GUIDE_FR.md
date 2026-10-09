@@ -1,4 +1,4 @@
-# Guide — Pokémon X/Y Archipelago (v1.0.0)
+# Guide — Pokémon X/Y Archipelago (v1.1.0)
 
 ## Ce qu'il te faut
 
@@ -33,7 +33,6 @@
 4. **BizHawk** (`EmuHawk.exe`) :
    - File > Open ROM > ton dump de Pokémon Y ;
    - Tools > Lua Console, puis Script > Open Script > `C:\ProgramData\Archipelago\data\lua\pokemon_xy_connector.lua`.
-     Une fenêtre « X/Y Archipelago Helper » s'ouvre : garde-la ouverte.
 5. **Client** : lance `ArchipelagoBizHawkClient.exe` (ou Launcher > BizHawk Client), entre l'adresse du
    serveur, puis ton nom de slot.
 6. **Charge ta partie** (ou termine l'intro d'une nouvelle partie). Les objets reçus n'arrivent
@@ -111,17 +110,22 @@ restent aussi dans la console Lua et dans le client :
 - Pour les masquer, tape `/toggle_text outgoing off` ou `/toggle_text incoming off` dans le client.
   Remplace `off` par `on` pour les réafficher.
 
-## La fenêtre d'aide (Helper)
+## Les cadeaux des personnages et la Poké Flûte
 
-- **Badges — « Suppress »** : si tu as déjà reçu le badge d'une arène sans avoir battu le champion
-  (option `randomize_badges`, ou partie générée avant la v0.0.8), le champion refuse le combat. Clique « Suppress » sur ce badge, parle au champion, bats-le :
-  le check part et le badge revient.
-- **« Got it »** : six objets n'ont pas de drapeau détectable (CS03 Surf, CS04 Force, CS05 Cascade,
-  Machine Cherch'Objet, Elevator Key, Poké Flûte). Quand le jeu te donne l'un d'eux, clique
-  « Got it » : le check part et l'objet d'origine est retiré (sauf si Archipelago te l'a déjà donné).
-- **Roadblock (Ronflex, Route 7)** : si Ronflex réapparaît derrière toi et te bloque, désactive-le ici.
-- **Restore All** : rend tous les badges retirés par « Suppress ».
-- **Diagnostics** : affiche l'état du script dans la console Lua. Utile pour signaler un problème.
+Il n'y a plus de fenêtre d'aide : tout est automatique.
+
+- **Cadeaux sans drapeau** : CS03 Surf (Yantreizh), CS04 Force (Relifac-le-Haut), CS05 Cascade
+  (Route 19), Machine Cherch'Objet (Route 8) et Elevator Key (Labo Lysandre). Quand le personnage te
+  donne l'objet, le client le voit arriver dans ton sac, le retire et envoie le check. L'objet que
+  le multiworld te destine (s'il y en a un) arrive dans la seconde qui suit.
+  **Attention :** tant que tu n'as pas reçu le cadeau du personnage, l'objet Archipelago correspondant
+  est gardé en réserve et n'apparaît pas dans ton sac. Va chercher le cadeau comme dans le jeu normal.
+- **Poké Flûte et Ronflex** : la Poké Flûte du château de Shabboneau envoie son check toute seule. La
+  Poké Flûte d'Archipelago fait disparaître Ronflex (Route 7) : si tu es déjà sur la route, quitte-la et
+  reviens pour voir Ronflex partir.
+- **Badges** : chaque champion d'arène donne son propre badge. Si une ancienne partie avait mélangé
+  les badges (avant la v1.1.0), un badge reçu avant le combat fait refuser le combat au champion :
+  régénère la partie.
 
 ## Bon à savoir
 
@@ -138,7 +142,6 @@ restent aussi dans la console Lua et dans le client :
 | `include_hidden_items` | Les objets cachés deviennent des checks (défaut : oui). |
 | `require_dowsing_machine` | Les objets cachés ne sont dans la logique qu'avec la Machine Cherch'Objet (défaut : non). |
 | `trainersanity` | Battre les dresseurs devient un check (défaut : non, beaucoup de checks en plus). |
-| `randomize_badges` | Mélange les badges dans le multiworld (défaut : non, chaque champion donne son badge). Activé, un badge reçu avant le combat fait refuser le combat au champion : clique « Suppress » pour ce badge dans la fenêtre d'aide, puis parle-lui. |
 | `goal` | `pokemon_league` : entrer au Panthéon. |
 
 ## Limites connues

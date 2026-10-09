@@ -39,8 +39,10 @@ class GARC:
         position += fato_size
 
         fatb_magic, fatb_size, fatb_count = struct.unpack_from("<4sII", data, position)
-        if fatb_magic != FATB_MAGIC or fatb_count != count:
+        if fatb_magic != FATB_MAGIC:
             raise GARCError("Section FATB invalide.")
+        # Le nombre d'entrées vient de FATB : certaines archives ont un FATO plus court.
+        count = fatb_count
         entries_position = position + 0xC
         position += fatb_size
 

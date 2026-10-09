@@ -21,7 +21,7 @@
 | Morceau | Rôle |
 |---|---|
 | **APWorld** | Checks (objets au sol, cachés, cadeaux, badges, dresseurs en option), items et logique par paliers de badges. |
-| **Script Lua** | Tourne dans BizHawk : lit et écrit la mémoire (domaine `mainmemory`), retire l'objet d'origine ramassé, fenêtre d'aide. |
+| **Script Lua** | Tourne dans BizHawk : lit et écrit la mémoire (domaine `mainmemory`), retire l'objet d'origine ramassé. Aucune fenêtre. |
 | **Client** | `BizHawkClient` d'Archipelago : lit les drapeaux d'événement, envoie les checks, livre les objets reçus dans le sac. |
 
 Le nombre d'objets livrés est gardé dans le data storage du serveur, clé `pokemon_xy_delivered_{team}_{slot}`.
