@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Santalune Area",
+    "location_size": 24,
+    "location_border_thickness": 3,
+    "img": "images/maps/Santalune_Area.png"
+  },
+  {
+    "name": "Camphrier Area",
+    "location_size": 24,
+    "location_border_thickness": 3,
+    "img": "images/maps/Camphrier_Area.png"
+  },
+  {
+    "name": "Cyllage Area",
+    "location_size": 24,
+    "location_border_thickness": 3,
+    "img": "images/maps/Cyllage_Area.png"
+  },
+  {
+    "name": "Shalour Area",
+    "location_size": 24,
+    "location_border_thickness": 3,
+    "img": "images/maps/Shalour_Area.png"
+  },
+  {
+    "name": "Coumarine Area",
+    "location_size": 24,
+    "location_border_thickness": 3,
+    "img": "images/maps/Coumarine_Area.png"
+  },
+  {
+    "name": "Lumiose Area",
+    "location_size": 24,
+    "location_border_thickness": 3,
+    "img": "images/maps/Lumiose_Area.png"
+  },
+  {
+    "name": "Laverre Area",
+    "location_size": 24,
+    "location_border_thickness": 3,
+    "img": "images/maps/Laverre_Area.png"
+  },
+  {
+    "name": "Anistar Area",
+    "location_size": 24,
+    "location_border_thickness": 3,
+    "img": "images/maps/Anistar_Area.png"
+  },
+  {
+    "name": "Snowbelle Area",
+    "location_size": 24,
+    "location_border_thickness": 3,
+    "img": "images/maps/Snowbelle_Area.png"
+  },
+  {
+    "name": "Victory Road",
+    "location_size": 24,
+    "location_border_thickness": 3,
+    "img": "images/maps/Victory_Road.png"
+  }
+]

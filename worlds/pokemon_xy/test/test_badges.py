@@ -14,3 +14,14 @@ class TestBadgesAtTheirGym(WorldTestBase):
                 self.assertEqual(location.item.name, location.name.split(" - ", 1)[1])
                 self.assertTrue(location.locked)
         self.assertEqual(count, 8)
+
+
+class TestSlotData(WorldTestBase):
+    game = "Pokemon X and Y"
+    options = {"trainersanity": True, "require_dowsing_machine": True, "include_hidden_items": False}
+
+    def test_options_exposed_to_the_tracker(self):
+        data = self.world.fill_slot_data()
+        self.assertIs(data["trainersanity"], True)
+        self.assertIs(data["require_dowsing_machine"], True)
+        self.assertIs(data["include_hidden_items"], False)

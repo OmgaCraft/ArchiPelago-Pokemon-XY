@@ -137,5 +137,8 @@ class PokemonXYWorld(World):
         return {
             "goal": "8 Badges + E4 + Champion",
             "include_hidden_items": include_hidden,
+            # [FR] Lues par le pack PopTracker (tracker/) pour afficher les bons lieux.
+            "require_dowsing_machine": bool(self.options.require_dowsing_machine.value),
+            "trainersanity": bool(self.options.trainersanity.value),
         }
 

@@ -1,0 +1,97 @@
+{
+  "tabbed_maps": {
+    "type": "tabbed",
+    "tabs": [
+      {
+        "title": "Santalune",
+        "content": {
+          "type": "map",
+          "maps": [
+            "Santalune Area"
+          ]
+        }
+      },
+      {
+        "title": "Camphrier",
+        "content": {
+          "type": "map",
+          "maps": [
+            "Camphrier Area"
+          ]
+        }
+      },
+      {
+        "title": "Cyllage",
+        "content": {
+          "type": "map",
+          "maps": [
+            "Cyllage Area"
+          ]
+        }
+      },
+      {
+        "title": "Shalour",
+        "content": {
+          "type": "map",
+          "maps": [
+            "Shalour Area"
+          ]
+        }
+      },
+      {
+        "title": "Coumarine",
+        "content": {
+          "type": "map",
+          "maps": [
+            "Coumarine Area"
+          ]
+        }
+      },
+      {
+        "title": "Lumiose",
+        "content": {
+          "type": "map",
+          "maps": [
+            "Lumiose Area"
+          ]
+        }
+      },
+      {
+        "title": "Laverre",
+        "content": {
+          "type": "map",
+          "maps": [
+            "Laverre Area"
+          ]
+        }
+      },
+      {
+        "title": "Anistar",
+        "content": {
+          "type": "map",
+          "maps": [
+            "Anistar Area"
+          ]
+        }
+      },
+      {
+        "title": "Snowbelle",
+        "content": {
+          "type": "map",
+          "maps": [
+            "Snowbelle Area"
+          ]
+        }
+      },
+      {
+        "title": "Victory Road",
+        "content": {
+          "type": "map",
+          "maps": [
+            "Victory Road"
+          ]
+        }
+      }
+    ]
+  }
+}

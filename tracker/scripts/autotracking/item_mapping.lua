@@ -1,0 +1,23 @@
+-- Généré par tools/build_tracker.py : id d'objet Archipelago -> code du pack.
+ITEM_MAPPING = {
+  [200420] = "HM01_Cut",
+  [200421] = "HM02_Fly",
+  [200422] = "HM03_Surf",
+  [200423] = "HM04_Strength",
+  [200424] = "HM05_Waterfall",
+  [200471] = "Dowsing_Machine",
+  [200619] = "TM94_Rock_Smash",
+  [200643] = "Roller_Skates",
+  [200651] = "Poke_Flute",
+  [200695] = "Power_Plant_Pass",
+  [200696] = "Mega_Ring",
+  [200700] = "Elevator_Key",
+  [200801] = "Bug_Badge",
+  [200802] = "Cliff_Badge",
+  [200803] = "Rumble_Badge",
+  [200804] = "Plant_Badge",
+  [200805] = "Voltage_Badge",
+  [200806] = "Fairy_Badge",
+  [200807] = "Psychic_Badge",
+  [200808] = "Iceberg_Badge",
+}

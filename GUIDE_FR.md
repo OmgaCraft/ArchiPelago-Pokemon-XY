@@ -1,4 +1,4 @@
-# Guide — Pokémon X/Y Archipelago (v1.1.0)
+# Guide — Pokémon X/Y Archipelago (v1.2.0)
 
 ## Ce qu'il te faut
 
@@ -134,6 +134,23 @@ Il n'y a plus de fenêtre d'aide : tout est automatique.
   les objets clés de progression, les badges et les Rollers sont reposés automatiquement.
 - **Nouvelle partie avec le même slot** : les objets ordinaires déjà reçus ne sont pas redonnés.
 - Les savestates de BizHawk sont gérés par le script. Sauvegarde quand même en jeu.
+
+## Le tracker (PopTracker)
+
+Un pack [PopTracker](https://github.com/black-sliver/PopTracker) suit ta partie en direct : badges, CS
+et objets clés reçus, et les lieux déjà validés, répartis en 10 cartes par région.
+
+1. Télécharge `Pokemon_XY_Tracker.zip` (dossier [`dist/`](dist)) **sans le décompresser** et mets-le
+   dans le dossier `packs` de PopTracker.
+2. Lance PopTracker, choisis « Pokémon X/Y Archipelago Tracker », puis connecte-le à ton serveur
+   (menu Archipelago, adresse du serveur, nom de slot).
+3. Les couleurs des repères suivent la logique du monde : vert = accessible avec ce que tu as reçu,
+   rouge = pas encore. Chaque repère est un check ; survole-le pour voir son nom.
+4. Les icônes du bas à gauche (cachés, dresseurs, Machine Cherch'Objet) reprennent les options de
+   ton YAML : elles se règlent seules à la connexion, et tu peux les basculer à la main.
+
+Le pack ne valide aucun check lui-même : cliquer sur un repère ne sert qu'à te repérer, les checks
+partent du client BizHawk.
 
 ## Options du YAML
 

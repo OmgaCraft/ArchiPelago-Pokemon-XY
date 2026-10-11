@@ -1,0 +1,140 @@
+[
+  {
+    "name": "Bug Badge",
+    "type": "toggle",
+    "img": "images/items/Bug_Badge.png",
+    "codes": "Bug_Badge"
+  },
+  {
+    "name": "Cliff Badge",
+    "type": "toggle",
+    "img": "images/items/Cliff_Badge.png",
+    "codes": "Cliff_Badge"
+  },
+  {
+    "name": "Rumble Badge",
+    "type": "toggle",
+    "img": "images/items/Rumble_Badge.png",
+    "codes": "Rumble_Badge"
+  },
+  {
+    "name": "Plant Badge",
+    "type": "toggle",
+    "img": "images/items/Plant_Badge.png",
+    "codes": "Plant_Badge"
+  },
+  {
+    "name": "Voltage Badge",
+    "type": "toggle",
+    "img": "images/items/Voltage_Badge.png",
+    "codes": "Voltage_Badge"
+  },
+  {
+    "name": "Fairy Badge",
+    "type": "toggle",
+    "img": "images/items/Fairy_Badge.png",
+    "codes": "Fairy_Badge"
+  },
+  {
+    "name": "Psychic Badge",
+    "type": "toggle",
+    "img": "images/items/Psychic_Badge.png",
+    "codes": "Psychic_Badge"
+  },
+  {
+    "name": "Iceberg Badge",
+    "type": "toggle",
+    "img": "images/items/Iceberg_Badge.png",
+    "codes": "Iceberg_Badge"
+  },
+  {
+    "name": "Dowsing Machine",
+    "type": "toggle",
+    "img": "images/items/Dowsing_Machine.png",
+    "codes": "Dowsing_Machine"
+  },
+  {
+    "name": "Roller Skates",
+    "type": "toggle",
+    "img": "images/items/Roller_Skates.png",
+    "codes": "Roller_Skates"
+  },
+  {
+    "name": "Poke Flute",
+    "type": "toggle",
+    "img": "images/items/Poke_Flute.png",
+    "codes": "Poke_Flute"
+  },
+  {
+    "name": "Power Plant Pass",
+    "type": "toggle",
+    "img": "images/items/Power_Plant_Pass.png",
+    "codes": "Power_Plant_Pass"
+  },
+  {
+    "name": "Mega Ring",
+    "type": "toggle",
+    "img": "images/items/Mega_Ring.png",
+    "codes": "Mega_Ring"
+  },
+  {
+    "name": "Elevator Key",
+    "type": "toggle",
+    "img": "images/items/Elevator_Key.png",
+    "codes": "Elevator_Key"
+  },
+  {
+    "name": "HM01 Cut",
+    "type": "toggle",
+    "img": "images/items/HM01_Cut.png",
+    "codes": "HM01_Cut"
+  },
+  {
+    "name": "HM02 Fly",
+    "type": "toggle",
+    "img": "images/items/HM02_Fly.png",
+    "codes": "HM02_Fly"
+  },
+  {
+    "name": "HM03 Surf",
+    "type": "toggle",
+    "img": "images/items/HM03_Surf.png",
+    "codes": "HM03_Surf"
+  },
+  {
+    "name": "HM04 Strength",
+    "type": "toggle",
+    "img": "images/items/HM04_Strength.png",
+    "codes": "HM04_Strength"
+  },
+  {
+    "name": "HM05 Waterfall",
+    "type": "toggle",
+    "img": "images/items/HM05_Waterfall.png",
+    "codes": "HM05_Waterfall"
+  },
+  {
+    "name": "TM94 Rock Smash",
+    "type": "toggle",
+    "img": "images/items/TM94_Rock_Smash.png",
+    "codes": "TM94_Rock_Smash"
+  },
+  {
+    "name": "Objets cachés (option)",
+    "type": "toggle",
+    "img": "images/items/opt_hidden.png",
+    "codes": "opt_hidden"
+  },
+  {
+    "name": "Dresseurs (option)",
+    "type": "toggle",
+    "img": "images/items/opt_trainers.png",
+    "codes": "opt_trainers"
+  },
+  {
+    "name": "Machine Cherch'Objet requise (option)",
+    "type": "toggle",
+    "img": "images/items/opt_dowsing.png",
+    "codes": "opt_dowsing"
+  }
+]

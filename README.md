@@ -4,7 +4,7 @@ Monde [Archipelago](https://archipelago.gg/) (randomizer multi-jeux) pour **Pok�
 **BizHawk** (cœur 3DS). Les objets au sol, les objets cachés, les cadeaux, les badges et, en option,
 les dresseurs deviennent des checks. Les objets des autres joueurs arrivent directement dans ton sac.
 
-> **Version 1.1.0** — confirmée pour **Pokémon Y (USA)**, Archipelago 0.6.7, BizHawk 2.11.1.
+> **Version 1.2.0** — confirmée pour **Pokémon Y (USA)**, Archipelago 0.6.7, BizHawk 2.11.1.
 
 ## Téléchargement
 
@@ -12,6 +12,7 @@ les dresseurs deviennent des checks. Les objets des autres joueurs arrivent dire
 |---|---|
 | [**Pokemon_XY_Archipelago.zip**](https://github.com/OmgaCraft/ArchiPelago-Pokemon-XY/raw/main/dist/Pokemon_XY_Archipelago.zip) | Tout en un : APWorld, script Lua, YAML et guide |
 | [pokemon_xy.apworld](https://github.com/OmgaCraft/ArchiPelago-Pokemon-XY/raw/main/dist/pokemon_xy.apworld) | Le monde, à installer dans Archipelago |
+| [**Pokemon_XY_Tracker.zip**](https://github.com/OmgaCraft/ArchiPelago-Pokemon-XY/raw/main/dist/Pokemon_XY_Tracker.zip) | Pack [PopTracker](https://github.com/black-sliver/PopTracker) : objets reçus et checks validés, par région |
 | [pokemon_xy_connector.lua](https://github.com/OmgaCraft/ArchiPelago-Pokemon-XY/raw/main/lua/pokemon_xy_connector.lua) | Le script à charger dans BizHawk |
 | [Pokemon X and Y.yaml](yaml/Pokemon%20X%20and%20Y.yaml) | Fichier joueur modèle |
 
@@ -32,11 +33,17 @@ objet pour toi l'annoncent alors vraiment. Les autres objets trouvés ou envoyé
 
 ## Crédits
 
+La structure du pack PopTracker s'inspire de celui de [darkfire006](https://github.com/darkfire006/xy-manual-ap-tracker) (licence MIT), prévu pour un autre monde.
+
 Ce projet reprend l'APWorld communautaire de **uhsfiuh (Zaitz)** :
 [uhsfiuh/Pokemon-x-y-AP](https://github.com/uhsfiuh/Pokemon-x-y-AP) (v0.0.4, commit `ebf52f6`),
 dont le README invite à reprendre le projet. Toute la logique, les données du jeu, les adresses
 mémoire et le script Lua viennent de son travail. Le dépôt d'origine n'a pas de licence : ce dépôt
 sera retiré ou adapté à la demande de l'auteur.
+
+Changements de la v1.2.0 :
+- pack PopTracker (`tracker/`, `dist/Pokemon_XY_Tracker.zip`) généré depuis les données du monde ;
+- les options `trainersanity` et `require_dowsing_machine` sont transmises au tracker.
 
 Changements de la v1.1.0 :
 - fenêtre d'aide supprimée : les cadeaux des personnages (CS03, CS04, CS05, Machine Cherch'Objet,
