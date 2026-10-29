@@ -44,6 +44,24 @@ ne dépend pas du patch (le script Lua retire toujours l'objet donné par le jeu
 | `text.py` | Fichiers texte Gen 6 chiffrés (lecture, remplacement de lignes) |
 | `patch.py` | Poké Balls au sol, dossier des mods, écriture |
 
+### Randomisation (`rom/randomize.py`, `rom/lz11.py`)
+
+Options du YAML transmises par le `slot_data` (`rom_seed`, `randomize_*`, `experience_multiplier`), lues
+par le client à la connexion. Tous les formats ont été vérifiés sur Pokémon Y (USA) et le jeu a démarré
+et chargé une sauvegarde avec tous les fichiers remplacés (BizHawk 2.11.1) :
+
+| Donnée | Fichier | Format |
+|---|---|---|
+| Fiches des Pokémon | `a/2/1/8` (dernier fichier) | 0x40 octets par espèce : talents 0x18-0x1A, expérience de base u16 en 0x22, stades en 0x09 |
+| Capacités par niveau | `a/2/1/4` | paires (capacité u16, niveau u16) jusqu'à 0xFFFF |
+| Rencontres sauvages | `a/0/1/2` | LZ11 ; 94 entrées de 4 octets (espèce 11 bits + forme 5 bits, niveaux) à partir du décalage lu en 0x10 |
+| Dresseurs | `a/0/3/8` + `a/0/4/0` | données de 20 octets (format : bit 0 capacités, bit 1 objet) ; équipes de 8 octets par Pokémon (+2 objet, +8 capacités) |
+| Starters | `DllPoke3Select.cro` (données, 0x10 + n x 0x54) et `DllField.cro` (code, 0xF7EDC + n x 0x18) | u16 espèce ; Kalos puis Kanto |
+
+Le tirage utilise `random.Random(rom_seed)` : même partie, même jeu. Espèces choisies par force (somme des
+statistiques) proche de l'originale ; capacités et talents tirés parmi ceux déjà présents dans le jeu.
+L'encodeur LZ11 n'écrit que des octets littéraux (valide, un peu plus gros).
+
 Données vérifiées sur Pokémon Y (USA) :
 - objets au sol : script n° 0x11 de `a/0/3/1`, tableau de 207 entrées (objet, quantité, n°) après
   9 mots de données ; la Poké Ball n° i lève le drapeau `0x51A + i` (207 lieux « FIELD ITEM ») ;

@@ -86,14 +86,27 @@ def build_field_items(garc_data: bytes, items: Dict[int, int]) -> bytes:
     return garc.build()
 
 
-def build_mod_files(rom_path: str, items: Dict[int, int]) -> Dict[str, bytes]:
-    """Fichiers de la RomFS à remplacer, construits depuis le dump du joueur."""
+def build_mod_files(rom_path: str, items: Dict[int, int], slot_data: Optional[dict] = None) -> Dict[str, bytes]:
+    """
+    Fichiers de la RomFS à remplacer, construits depuis le dump du joueur : Poké Balls au sol, puis
+    randomisation et multiplicateur d'expérience choisis dans le YAML (slot_data de la partie).
+    """
     with open(rom_path, "rb") as handle:
         rom = RomFS(handle)
         if rom.title_id != TITLE_ID_Y:
             raise PatchError(f"Ce dump n'est pas Pokémon Y (Title ID {rom.title_id:016X}).")
         original = rom.read_file(FIELD_ITEM_GARC)
-    return {FIELD_ITEM_GARC: build_field_items(original, items)}
+    files = {FIELD_ITEM_GARC: build_field_items(original, items)}
+    options = slot_data or {}
+    if "rom_seed" in options:
+        from . import randomize
+        files.update(randomize.build(
+            rom_path, int(options["rom_seed"]),
+            wild=bool(options.get("randomize_wild_pokemon")), trainers=bool(options.get("randomize_trainers")),
+            starters=bool(options.get("randomize_starters")), moves=bool(options.get("randomize_moves")),
+            abilities=bool(options.get("randomize_abilities")),
+            experience_percent=int(options.get("experience_multiplier", 100))))
+    return files
 
 
 def mods_directory(emuhawk_path: str, title_id: int = TITLE_ID_Y) -> str:
@@ -118,6 +131,21 @@ def mods_directory(emuhawk_path: str, title_id: int = TITLE_ID_Y) -> str:
 def write_mod(mod_dir: str, files: Dict[str, bytes], stamp: dict) -> bool:
     """Écrit les fichiers modifiés ; renvoie True si quelque chose a changé."""
     changed = False
+    # Fichiers écrits par une version précédente de ce patch et plus nécessaires aujourd'hui
+    # (option désactivée) : sinon ils resteraient actifs. Les fichiers d'autres mods ne sont pas touchés.
+    try:
+        with open(os.path.join(mod_dir, STAMP_FILE), encoding="utf-8") as handle:
+            previous = json.load(handle).get("files", [])
+    except (OSError, ValueError):
+        previous = []
+    for path in previous:
+        if path not in files:
+            try:
+                os.remove(os.path.join(mod_dir, "romfs", *path.split("/")))
+                changed = True
+            except OSError:
+                pass
+    stamp = dict(stamp, files=sorted(files))
     for path, data in files.items():
         target = os.path.join(mod_dir, "romfs", *path.split("/"))
         try:

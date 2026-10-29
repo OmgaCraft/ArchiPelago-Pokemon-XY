@@ -67,6 +67,11 @@ class PokemonXYWorld(World):
     item_name_to_id = ITEM_NAME_TO_ID
     location_name_to_id = LOCATION_NAME_TO_ID
 
+    def generate_early(self) -> None:
+        # [FR] Graine de la randomisation : tirée avec le générateur de la partie, donc la même
+        # génération donne toujours le même jeu.
+        self.rom_seed = self.random.getrandbits(48)
+
     def create_regions(self):
         create_regions(self, self.player)
 
@@ -140,5 +145,13 @@ class PokemonXYWorld(World):
             # [FR] Lues par le pack PopTracker (tracker/) pour afficher les bons lieux.
             "require_dowsing_machine": bool(self.options.require_dowsing_machine.value),
             "trainersanity": bool(self.options.trainersanity.value),
+            # [FR] Lues par le client pour construire le patch (rom/randomize.py).
+            "rom_seed": self.rom_seed,
+            "randomize_wild_pokemon": bool(self.options.randomize_wild_pokemon.value),
+            "randomize_trainers": bool(self.options.randomize_trainers.value),
+            "randomize_starters": bool(self.options.randomize_starters.value),
+            "randomize_moves": bool(self.options.randomize_moves.value),
+            "randomize_abilities": bool(self.options.randomize_abilities.value),
+            "experience_multiplier": int(self.options.experience_multiplier.value),
         }
 

@@ -254,11 +254,12 @@ class TestDelivery(unittest.TestCase):
             ctx.server_seed_name = "seed-1"
             ctx.server_locations = set(Client.FIELD_ITEM_FLAGS)
             ctx.locations_info = {}
+            ctx.slot_data = {"rom_seed": 7, "randomize_starters": True, "experience_multiplier": 150}
             client = _fresh()
             calls = []
 
-            def fake_write(rom_path, mod_dir, items, stamp):
-                calls.append((rom_path, items, stamp))
+            def fake_write(rom_path, mod_dir, items, stamp, slot_data=None):
+                calls.append((rom_path, items, stamp, slot_data))
                 return True
 
             with mock.patch.object(Client, "read_patch_settings", return_value=("rom.3ds", "C:/BH/EmuHawk.exe")), \
@@ -280,6 +281,7 @@ class TestDelivery(unittest.TestCase):
                 self.assertEqual(len(calls), 1)
                 self.assertEqual(calls[0][1], {0: 50})
                 self.assertEqual(calls[0][2]["seed"], "seed-1")
+                self.assertEqual(calls[0][3]["rom_seed"], 7)  # les réglages de randomisation arrivent au patch
                 shown.assert_awaited_once_with(ctx.bizhawk_ctx, Client.PATCH_REBOOT_MESSAGE)
 
                 # Reconnexion à la même partie : pas de nouvelle demande ni de nouvelle fenêtre.

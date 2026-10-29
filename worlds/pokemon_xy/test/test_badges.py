@@ -25,3 +25,16 @@ class TestSlotData(WorldTestBase):
         self.assertIs(data["trainersanity"], True)
         self.assertIs(data["require_dowsing_machine"], True)
         self.assertIs(data["include_hidden_items"], False)
+
+
+class TestRomOptions(WorldTestBase):
+    game = "Pokemon X and Y"
+    options = {"randomize_wild_pokemon": True, "randomize_starters": True, "experience_multiplier": 250}
+
+    def test_patch_options_in_slot_data(self):
+        data = self.world.fill_slot_data()
+        self.assertIs(data["randomize_wild_pokemon"], True)
+        self.assertIs(data["randomize_trainers"], False)
+        self.assertIs(data["randomize_starters"], True)
+        self.assertEqual(data["experience_multiplier"], 250)
+        self.assertIsInstance(data["rom_seed"], int)

@@ -128,3 +128,62 @@ class TestFieldItemPatch(unittest.TestCase):
             self.assertTrue(patch.write_mod(root, {"a/0/3/1": b"other"}, {"seed": "2"}))
             with open(os.path.join(root, "romfs", "a", "0", "3", "1"), "rb") as handle:
                 self.assertEqual(handle.read(), b"other")
+
+
+class TestLz11(unittest.TestCase):
+    def test_roundtrip_literal_encoder(self):
+        from worlds.pokemon_xy.rom import lz11
+        data = bytes(range(256)) * 3 + b"fin"
+        self.assertEqual(lz11.decompress(lz11.compress(data)), data)
+
+    def test_decodes_back_references(self):
+        from worlds.pokemon_xy.rom import lz11
+        # « ab » en littéraux, puis une référence de longueur 6 à distance 2 : « abababab ».
+        stream = bytes([0x11, 8, 0, 0, 0b00100000, ord("a"), ord("b"), 0x50, 0x01])
+        self.assertEqual(lz11.decompress(stream), b"abababab")
+
+
+class TestRandomizerHelpers(unittest.TestCase):
+    def _randomizer(self):
+        from worlds.pokemon_xy.rom import randomize
+        engine = randomize.Randomizer.__new__(randomize.Randomizer)
+        engine.table = bytearray(randomize.PERSONAL_SIZE * 3)
+        engine.random = __import__("random").Random(1)
+        return randomize, engine
+
+    def test_experience_multiplier_is_clamped(self):
+        randomize, engine = self._randomizer()
+        struct.pack_into("<H", engine.table, 1 * randomize.PERSONAL_SIZE + 0x22, 63)
+        struct.pack_into("<H", engine.table, 2 * randomize.PERSONAL_SIZE + 0x22, 60000)
+        engine.set_experience_multiplier(200)
+        self.assertEqual(struct.unpack_from("<H", engine.table, randomize.PERSONAL_SIZE + 0x22)[0], 126)
+        self.assertEqual(struct.unpack_from("<H", engine.table, 2 * randomize.PERSONAL_SIZE + 0x22)[0], 0xFFFF)
+        engine.set_experience_multiplier(25)
+        self.assertEqual(struct.unpack_from("<H", engine.table, randomize.PERSONAL_SIZE + 0x22)[0], 32)
+
+    def test_nothing_requested_builds_nothing(self):
+        from worlds.pokemon_xy.rom import randomize
+        self.assertEqual(randomize.build("inexistant.3ds", 1, False, False, False, False, False, 100), {})
+
+    def test_same_seed_same_result(self):
+        randomize, first = self._randomizer()
+        _, second = self._randomizer()
+        for engine in (first, second):
+            engine.bst = {sp: 300 + sp for sp in range(1, 200)}
+            engine._pools = {}
+        picks = [[engine.random_species(50) for _ in range(5)] for engine in (first, second)]
+        self.assertEqual(picks[0], picks[1])
+        self.assertTrue(all(sp not in randomize.EXCLUDED_SPECIES for sp in picks[0]))
+
+
+class TestStaleFiles(unittest.TestCase):
+    def test_disabled_option_removes_its_old_file(self):
+        with tempfile.TemporaryDirectory() as root:
+            patch.write_mod(root, {"a/0/3/1": b"1", "a/0/1/2": b"2"}, {"seed": "x"})
+            other = os.path.join(root, "romfs", "autre.bin")  # fichier d'un autre mod : intouchable
+            with open(other, "wb") as handle:
+                handle.write(b"?")
+            self.assertTrue(patch.write_mod(root, {"a/0/3/1": b"1"}, {"seed": "x"}))
+            self.assertFalse(os.path.exists(os.path.join(root, "romfs", "a", "0", "1", "2")))
+            self.assertTrue(os.path.exists(os.path.join(root, "romfs", "a", "0", "3", "1")))
+            self.assertTrue(os.path.exists(other))

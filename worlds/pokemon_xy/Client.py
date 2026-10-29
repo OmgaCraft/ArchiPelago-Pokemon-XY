@@ -368,8 +368,17 @@ class PokemonXYClient(BizHawkClient):
             items = rom_patch.field_items_from_scouts(scouted, FIELD_ITEM_FLAGS, ctx.slot, GAME_ITEM_IDS)
             stamp = {"seed": _seed_name(ctx), "slot": ctx.slot, "patched_item_balls": len(items)}
             mod_dir = rom_patch.mods_directory(emuhawk_path)
-            changed = await asyncio.to_thread(self._write_patch, rom_path, mod_dir, items, stamp)
+            slot_data = getattr(ctx, "slot_data", None) or {}
+            changed = await asyncio.to_thread(self._write_patch, rom_path, mod_dir, items, stamp, slot_data)
             logger.info(f"[PokémonXY] Patch du jeu : {len(items)} Poké Ball(s) au sol modifiée(s) ({mod_dir}).")
+            chosen = [label for key, label in (
+                ("randomize_wild_pokemon", "Pokémon sauvages"), ("randomize_trainers", "dresseurs"),
+                ("randomize_starters", "starters"), ("randomize_moves", "capacités"),
+                ("randomize_abilities", "talents")) if slot_data.get(key)]
+            if chosen:
+                logger.info(f"[PokémonXY] Randomisation : {', '.join(chosen)} (graine {slot_data.get('rom_seed')}).")
+            if slot_data.get("experience_multiplier", 100) != 100:
+                logger.info(f"[PokémonXY] Multiplicateur d'expérience : {slot_data['experience_multiplier']} %.")
             if changed:
                 logger.info(f"[PokémonXY] {PATCH_REBOOT_MESSAGE}")
                 try:
@@ -382,8 +391,8 @@ class PokemonXYClient(BizHawkClient):
             self._patch_running = False
 
     @staticmethod
-    def _write_patch(rom_path: str, mod_dir: str, items: Dict[int, int], stamp: dict) -> bool:
-        files = rom_patch.build_mod_files(rom_path, items)
+    def _write_patch(rom_path: str, mod_dir: str, items: Dict[int, int], stamp: dict, slot_data: dict = None) -> bool:
+        files = rom_patch.build_mod_files(rom_path, items, slot_data)
         return rom_patch.write_mod(mod_dir, files, stamp)
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:

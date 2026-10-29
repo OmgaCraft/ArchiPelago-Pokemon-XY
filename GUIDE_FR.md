@@ -1,4 +1,4 @@
-# Guide — Pokémon X/Y Archipelago (v1.2.1)
+# Guide — Pokémon X/Y Archipelago (v1.3.0)
 
 ## Ce qu'il te faut
 
@@ -109,6 +109,29 @@ restent aussi dans la console Lua et dans le client :
 - Si les messages sont coupés, agrandis la fenêtre de BizHawk (View > Window Size).
 - Pour les masquer, tape `/toggle_text outgoing off` ou `/toggle_text incoming off` dans le client.
   Remplace `off` par `on` pour les réafficher.
+
+## La randomisation du jeu et l'expérience
+
+Dans le YAML, chaque option est indépendante (toutes désactivées par défaut) :
+
+| Option | Effet |
+|---|---|
+| `randomize_wild_pokemon` | Les Pokémon sauvages changent partout (herbe, grottes, eau, pêche, hordes). |
+| `randomize_trainers` | Les équipes de tous les dresseurs changent, champions et rivaux compris. Les niveaux restent. |
+| `randomize_starters` | Les trois starters de Kalos et les trois de Kanto changent. |
+| `randomize_moves` | Les capacités apprises par niveau changent (celles du niveau 5 ou moins restent). |
+| `randomize_abilities` | Les talents de chaque espèce changent. |
+| `experience_multiplier` | Expérience gagnée, de 25 à 400 % (100 = normal, 200 = double). |
+
+- Les Pokémon tirés au sort sont de **force proche** de l'original, sans légendaire d'événement.
+- Le tirage dépend de la partie générée : la même partie donne toujours le même jeu, pour tous les joueurs.
+- **Active-les avant de commencer ta partie.** Le patch est installé au premier lancement, puis il faut
+  redémarrer le jeu (Emulation > Reboot Core). Sur une partie déjà avancée, les Pokémon que tu possèdes
+  déjà ne changent pas.
+- Les textes du jeu gardent les anciens noms (un dialogue peut parler de Marisson alors que ton starter
+  est autre chose).
+- Le fichier du jeu est demandé comme pour le patch des Poké Balls (voir plus haut). Sans lui, les options
+  sont ignorées et le jeu reste normal.
 
 ## Les cadeaux des personnages et la Poké Flûte
 

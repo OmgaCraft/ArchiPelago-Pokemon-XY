@@ -20,6 +20,18 @@ Pokemon X and Y:
   # Battre les dresseurs (hors champions) devient un check : beaucoup de checks en plus.
   trainersanity: false
 
+  # Randomisation du jeu. Chaque option a besoin du patch du jeu : le client demande ton dump de
+  # Pokémon Y la première fois (voir le guide). Les Pokémon tirés au sort ont une force proche de
+  # l'original : pas de légendaire sur la première route. À activer AVANT de commencer ta partie.
+  randomize_wild_pokemon: false   # Pokémon sauvages (herbe, grottes, eau, pêche, hordes)
+  randomize_trainers: false       # équipes des dresseurs, champions d'arène et rivaux compris
+  randomize_starters: false       # les 3 starters de Kalos et les 3 de Kanto
+  randomize_moves: false          # capacités apprises par niveau (celles du niveau 5 ou moins restent)
+  randomize_abilities: false      # talents de chaque espèce
+
+  # Expérience gagnée en combat, en pourcentage : 100 = jeu normal, 200 = double, 25 = quart (de 25 à 400).
+  experience_multiplier: 100
+
   # Objectif : entrer au Panthéon (les 8 badges + la Ligue).
   goal: pokemon_league
 
