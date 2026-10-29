@@ -1,4 +1,4 @@
-# Guide — Pokémon X/Y Archipelago (v1.2.0)
+# Guide — Pokémon X/Y Archipelago (v1.2.1)
 
 ## Ce qu'il te faut
 

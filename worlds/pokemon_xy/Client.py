@@ -241,6 +241,9 @@ class PokemonXYClient(BizHawkClient):
     _last_ensure_check: float = 0.0
     _item_messages_enabled: bool = False
     _last_gift_check: float = 0.0
+    # [FR] Vrai quand le serveur a répondu après la liste des objets reçus : jusque-là,
+    # on ne touche pas à la mémoire du jeu (sinon badges et Rollers sont retirés avant la connexion).
+    _synced: bool = False
     # [FR] Patch du jeu : lieux demandés au serveur, et partie déjà traitée.
     _patch_locations: List[int]
     _patch_running: bool = False
@@ -281,6 +284,7 @@ class PokemonXYClient(BizHawkClient):
             self._maybe_apply_patch(ctx)
         # [FR] À chaque connexion au serveur, on redemande le compteur d'objets livrés.
         if cmd == "Connected":
+            self._synced = False
             self._enable_item_messages(ctx)
             self._request_patch(ctx)
             key = DELIVERED_KEY_FORMAT.format(team=ctx.team, slot=ctx.slot)
@@ -300,6 +304,7 @@ class PokemonXYClient(BizHawkClient):
                 # Après une simple reconnexion, on garde le plus grand des deux compteurs :
                 # un Set perdu pendant la coupure ne doit pas faire redonner des objets.
                 self._received_index = max(stored, self._received_index or 0)
+                self._synced = True
                 logger.info(f"[PokémonXY] {self._received_index} item(s) already delivered to this save.")
 
     def _enable_item_messages(self, ctx: "BizHawkClientContext") -> None:
@@ -555,7 +560,7 @@ class PokemonXYClient(BizHawkClient):
         # [FR] Tant qu'aucune sauvegarde n'est chargée (écran titre), le bloc de drapeaux
         # est vide. On n'écrit alors rien en mémoire : le chargement de la sauvegarde
         # effacerait les objets livrés, et un drapeau écrit ici fausserait ce test.
-        in_game = 'flag_bytes' in locals() and any(flag_bytes)
+        in_game = 'flag_bytes' in locals() and any(flag_bytes) and self._is_online(ctx)
 
         # ----------------------------------------------------------------
         # 1d. Cleared-flag checks, and roadblock enforcement
@@ -882,6 +887,14 @@ class PokemonXYClient(BizHawkClient):
         # 2d. [FR] Objets de progression déjà livrés mais absents du sac (partie
         # rechargée après un plantage, par exemple) : on les repose.
         await self._ensure_progression_items(ctx)
+
+    def _is_online(self, ctx: "BizHawkClientContext") -> bool:
+        """Connecté au serveur et liste des objets reçue (voir _synced)."""
+        if not self._synced:
+            return False
+        if hasattr(ctx, "server") and (ctx.server is None or ctx.server.socket.closed):
+            return False
+        return True
 
     def _gift_pending(self, ctx: "BizHawkClientContext", ap_item_id: int) -> bool:
         """True si cet objet est en réserve : son cadeau de PNJ n'a pas encore été reçu."""

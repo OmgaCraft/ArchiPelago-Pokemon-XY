@@ -306,6 +306,21 @@ class TestDelivery(unittest.TestCase):
             self.assertFalse(client._patch_running)
         self.run_async(scenario())
 
+    def test_nothing_touched_before_server_answers(self):
+        async def scenario():
+            ctx = FakeContext([BUG_BADGE])
+            self.memory.load_save()
+            self.memory.data[ADDR_BADGES - MEM_START] = 0x3F   # badges déjà dans la sauvegarde
+            client = _fresh()
+            client.on_package(ctx, "Connected", {})            # connecté, pas encore de réponse du serveur
+            await self.tick(client, ctx, 3)
+            self.assertEqual(self.memory.writes, [])
+            self.assertEqual(self.memory.data[ADDR_BADGES - MEM_START], 0x3F)
+            client.on_package(ctx, "Retrieved", {"keys": {client._delivery_key: 0}})
+            await self.tick(client, ctx, 2)
+            self.assertEqual(self.memory.data[ADDR_BADGES - MEM_START], 0x01)  # seul le badge reçu reste
+        self.run_async(scenario())
+
     def test_location_flag_sends_check(self):
         async def scenario():
             ctx = FakeContext([])
