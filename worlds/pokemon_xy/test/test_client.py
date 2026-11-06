@@ -262,7 +262,8 @@ class TestDelivery(unittest.TestCase):
                 calls.append((rom_path, items, stamp, slot_data))
                 return True
 
-            with mock.patch.object(Client, "read_patch_settings", return_value=("rom.3ds", "C:/BH/EmuHawk.exe")), \
+            with mock.patch.object(Client, "read_installed_stamp", return_value=None), \
+                    mock.patch.object(Client, "read_patch_settings", return_value=("rom.3ds", "C:/BH/EmuHawk.exe")), \
                     mock.patch.object(PokemonXYClient, "_write_patch", staticmethod(fake_write)), \
                     mock.patch.object(Client.bizhawk, "display_message", mock.AsyncMock()) as shown:
                 client.on_package(ctx, "Connected", {})
@@ -290,6 +291,26 @@ class TestDelivery(unittest.TestCase):
                 self.assertEqual(len([m for m in ctx.sent if m.get("cmd") == "LocationScouts"]), 1)
         self.run_async(scenario())
 
+    def test_patch_already_installed_from_file_is_not_rebuilt(self):
+        async def scenario():
+            ctx = FakeContext([])
+            ctx.server_seed_name = "seed-1"
+            ctx.server_locations = set(Client.FIELD_ITEM_FLAGS)
+            ctx.locations_info = {loc: SimpleNamespace(item=200017, player=1) for loc in Client.FIELD_ITEM_FLAGS}
+            client = _fresh()
+            write = mock.Mock()
+            stamp = {"from_patch_file": True, "seed": "seed-1", "slot": 1}
+            with mock.patch.object(Client, "read_installed_stamp", return_value=stamp), \
+                    mock.patch.object(Client, "read_patch_settings") as settings_read, \
+                    mock.patch.object(PokemonXYClient, "_write_patch", staticmethod(write)):
+                client.on_package(ctx, "Connected", {})
+                client.on_package(ctx, "LocationInfo", {})
+                for _ in range(5):
+                    await asyncio.sleep(0.01)
+            write.assert_not_called()
+            settings_read.assert_not_called()   # pas de fenêtre de choix du dump
+        self.run_async(scenario())
+
     def test_patch_skipped_without_rom(self):
         async def scenario():
             ctx = FakeContext([])
@@ -298,7 +319,8 @@ class TestDelivery(unittest.TestCase):
             ctx.locations_info = {loc: SimpleNamespace(item=200017, player=1) for loc in Client.FIELD_ITEM_FLAGS}
             client = _fresh()
             write = mock.Mock()
-            with mock.patch.object(Client, "read_patch_settings", side_effect=FileNotFoundError("aucune ROM")), \
+            with mock.patch.object(Client, "read_installed_stamp", return_value=None), \
+                    mock.patch.object(Client, "read_patch_settings", side_effect=FileNotFoundError("aucune ROM")), \
                     mock.patch.object(PokemonXYClient, "_write_patch", staticmethod(write)):
                 client.on_package(ctx, "Connected", {})
                 client.on_package(ctx, "LocationInfo", {})

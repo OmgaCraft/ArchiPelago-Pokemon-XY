@@ -44,6 +44,14 @@ ne dépend pas du patch (le script Lua retire toujours l'objet donné par le jeu
 | `text.py` | Fichiers texte Gen 6 chiffrés (lecture, remplacement de lignes) |
 | `patch.py` | Poké Balls au sol, dossier des mods, écriture |
 
+### Fichier de patch par joueur (`patchfile.py`)
+
+`PokemonXYPatch` (`APAutoPatchInterface`, suffixe `.apxy`) est écrit par `generate_output` : graine, options
+(`fill_slot_data`) et `item_balls` (index de Poké Ball -> objet du jeu, calculés à la génération). Le composant
+du Launcher « Pokemon X/Y Patch Client » (identifié par le suffixe) installe le patch, lance EmuHawk avec
+`pokemon_xy_connector.lua` puis le client. Le cachet du dossier de mods (`from_patch_file`, graine, joueur) évite
+au client de reconstruire le patch quand le fichier a déjà été appliqué. `Patch.py` appelle `patch(target)`.
+
 ### Randomisation (`rom/randomize.py`, `rom/lz11.py`)
 
 Options du YAML transmises par le `slot_data` (`rom_seed`, `randomize_*`, `experience_multiplier`), lues

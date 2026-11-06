@@ -12,6 +12,7 @@ from .Regions import create_regions
 from .Rules import set_rules
 
 from .Client import PokemonXYClient, PokemonYClient, PokemonXClient
+from . import patchfile  # noqa: F401 -- enregistre le patch .apxy et son composant du Launcher
 
 ITEM_NAME_TO_ID = {name: data.code for name, data in item_table.items() if data.code is not None}
 LOCATION_NAME_TO_ID = {name: data.code for name, data in location_table.items() if data.code is not None}
@@ -135,6 +136,25 @@ class PokemonXYWorld(World):
             )
         )
         return PokemonXYItem(name, classification, data.code, self.player)
+
+    def generate_output(self, output_directory: str) -> None:
+        # [FR] Fichier de patch du joueur (.apxy) : graine, options et contenu des Poké Balls au sol.
+        from .Client import FIELD_ITEM_FLAGS, GAME_ITEM_IDS
+        from .patchfile import PokemonXYPatch
+        from .rom import patch as rom_patch
+        placed = [(loc.address, loc.item.code, loc.item.player)
+                  for loc in self.multiworld.get_locations(self.player)
+                  if loc.address in FIELD_ITEM_FLAGS and loc.item is not None and loc.item.code is not None]
+        balls = rom_patch.field_items_from_scouts(placed, FIELD_ITEM_FLAGS, self.player, GAME_ITEM_IDS)
+        data = dict(self.fill_slot_data())
+        data.update(seed_name=self.multiworld.seed_name, slot=self.player,
+                    player_name=self.multiworld.player_name[self.player],
+                    item_balls={str(index): item for index, item in balls.items()})
+        name = self.multiworld.get_out_file_name_base(self.player) + PokemonXYPatch.patch_file_ending
+        patch = PokemonXYPatch(os.path.join(output_directory, name), player=self.player,
+                               player_name=self.multiworld.player_name[self.player])
+        patch.data = data
+        patch.write()
 
     def fill_slot_data(self) -> Dict[str, Any]:
         include_hidden = getattr(self.options, "include_hidden_items", True)

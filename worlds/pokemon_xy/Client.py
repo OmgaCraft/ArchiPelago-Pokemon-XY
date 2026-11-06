@@ -95,6 +95,16 @@ def _seed_name(ctx) -> Optional[str]:
     return getattr(ctx, "server_seed_name", None) or getattr(ctx, "seed_name", None)
 
 
+def read_installed_stamp() -> Optional[dict]:
+    """Cachet du patch installé dans le dossier de mods de BizHawk (None si absent ou illisible)."""
+    try:
+        import settings
+        emuhawk = str(settings.get_settings().bizhawkclient_options.emuhawk_path)
+        return rom_patch.read_stamp(rom_patch.mods_directory(emuhawk))
+    except Exception:
+        return None
+
+
 def read_patch_settings() -> Optional[Tuple[str, str]]:
     """
     (ROM, EmuHawk.exe) depuis host.yaml, ou None si le patch est désactivé.
@@ -233,7 +243,7 @@ GYM_FLAG_BY_BADGE = {
 class PokemonXYClient(BizHawkClient):
     game         = "Pokemon X and Y"
     system       = ("N3DS", "3DS", "N3DS Extra RAM", "System Bus")
-    patch_suffix = (".appatch", ".apypatch", ".apxypatch", ".apworld")
+    patch_suffix = (".appatch", ".apypatch", ".apxypatch")
 
     # [FR] None tant que le serveur n'a pas renvoyé le compteur sauvegardé.
     _received_index: Optional[int] = None
@@ -379,6 +389,11 @@ class PokemonXYClient(BizHawkClient):
         try:
             # Une seule tentative par partie et par session : pas de fenêtre à chaque reconnexion.
             self._patch_done_for = (_seed_name(ctx), ctx.slot)
+            installed = read_installed_stamp()
+            if installed and installed.get("from_patch_file") and installed.get("seed") == _seed_name(ctx) \
+                    and installed.get("slot") == ctx.slot:
+                logger.info("[PokémonXY] Patch du jeu déjà installé depuis le fichier .apxy de cette partie.")
+                return
             try:
                 paths = read_patch_settings()
             except Exception as error:

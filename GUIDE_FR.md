@@ -1,4 +1,4 @@
-# Guide — Pokémon X/Y Archipelago (v1.3.1)
+# Guide — Pokémon X/Y Archipelago (v1.4.0)
 
 ## Ce qu'il te faut
 
@@ -39,6 +39,23 @@
    qu'une fois la sauvegarde chargée, jamais à l'écran titre.
 
 Quand tu ramasses une Poké Ball, le script retire tout seul l'objet d'origine, puis te donne l'objet Archipelago.
+
+## Le fichier de patch de ta partie (.apxy)
+
+Comme pour Pokémon Émeraude, la génération crée **un fichier de patch par joueur**, qui contient ta
+graine, tes options (randomisation, expérience) et le contenu de chaque Poké Ball au sol.
+
+1. **Télécharge-le** sur la page de la salle (colonne « Download Link », « Download Patch File… »), ou
+   prends le fichier `.apxy` dans le zip de la partie générée.
+2. **Ouvre-le** : double-clic, ou Launcher > « Open Patch ». Au premier lancement, Archipelago te demande ton
+   dump de Pokémon Y (le `.3ds` déchiffré) : il s'en sert pour construire le patch, sans le modifier.
+3. **BizHawk et le client se lancent seuls**, avec le script de la partie. Connecte-toi au serveur et joue.
+
+Ouvrir le fichier est la méthode conseillée : le patch est prêt avant la connexion et ne dépend plus du
+serveur. Sans fichier, le client construit le même patch à la connexion, comme avant.
+
+**Les sauvegardes** ne sont pas séparées : sur 3DS elles sont rangées par numéro de jeu, pas par fichier
+comme sur Game Boy Advance. Pour une nouvelle partie, commence une nouvelle sauvegarde dans le jeu.
 
 ## Le patch du jeu (Poké Balls au sol)
 

@@ -128,6 +128,15 @@ def mods_directory(emuhawk_path: str, title_id: int = TITLE_ID_Y) -> str:
     return os.path.normpath(os.path.join(user_dir, "load", "mods", f"{title_id:016X}"))
 
 
+def read_stamp(mod_dir: str) -> Optional[dict]:
+    """Cachet écrit avec le patch (partie, joueur, origine), ou None."""
+    try:
+        with open(os.path.join(mod_dir, STAMP_FILE), encoding="utf-8") as handle:
+            return json.load(handle)
+    except (OSError, ValueError):
+        return None
+
+
 def write_mod(mod_dir: str, files: Dict[str, bytes], stamp: dict) -> bool:
     """Écrit les fichiers modifiés ; renvoie True si quelque chose a changé."""
     changed = False
