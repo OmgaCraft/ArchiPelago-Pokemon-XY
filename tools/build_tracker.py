@@ -8,14 +8,19 @@ les règles d'accès, qui reprennent celles de Rules.py (voir REGION_REQUIREMENT
 Usage :
     py -3.13 tools/build_tracker.py          # tracker/ (sources du pack) + dist/Pokemon_XY_Tracker.zip
 
-Structure du pack inspirée du pack MIT de darkfire006 (xy-manual-ap-tracker), pour un autre monde.
+Structure du pack, carte de Kalos et positions des zones (tools/assets/) : pack MIT de darkfire006
+(xy-manual-ap-tracker), prévu pour un autre monde.
 """
 
 import importlib
 import json
+import math
 import os
+import re
+import shutil
 import sys
 import types
+import unicodedata
 import zipfile
 from collections import OrderedDict
 
@@ -26,6 +31,20 @@ WORLD_DIR = os.path.join(PROJECT_DIR, "worlds", "pokemon_xy")
 TRACKER_DIR = os.path.join(PROJECT_DIR, "tracker")
 DIST_DIR = os.path.join(PROJECT_DIR, "dist")
 GAME_NAME = "Pokemon X and Y"
+ASSETS_DIR = os.path.join(PROJECT_DIR, "tools", "assets")
+KALOS_MAP = "kalos_map.png"          # carte et positions des zones : darkfire006 (MIT), voir assets/
+MAP_PIN = 16                          # taille d'un repère sur la carte de Kalos
+MAP_PITCH = 19
+
+# Zones de nos checks qui n'ont pas le même nom sur la carte de référence.
+AREA_ALIASES = {
+    "Route 16": "Route 16 (West)", "Dendemille Town": "Dendimille Town", "Power Plant": "Kalos Power Plant",
+    "Lysandre Lab": "Lysandre Labs", "Ambrette Gate": "Ambrette Town", "Coumarine Gate": "Coumarine City",
+    "Shabboneau Castle": "Camphrier Town", "Kiloude City": "Pokemon League",
+    "Lumiose City (South Boulevard)": "Lumiose City (South)", "Lumiose City (Lysandre Cafe)": "Lumiose City (South)",
+    "Lumiose City (Gym 2F)": "Lumiose City (North)", "Lumiose City (Gym 3F)": "Lumiose City (North)",
+    "Lumiose City (Gym 4F)": "Lumiose City (North)", "Lumiose City (Gym 5F)": "Lumiose City (North)",
+}
 
 
 # ---------------------------------------------------------------------------
@@ -102,6 +121,36 @@ def font(size):
         if os.path.exists(path):
             return ImageFont.truetype(path, size)
     return ImageFont.load_default()
+
+
+def plain(text):
+    text = unicodedata.normalize("NFKD", text)
+    return re.sub(r"[^a-z0-9]", "", "".join(c for c in text if not unicodedata.combining(c)).lower())
+
+
+def resolve_anchor(group, areas):
+    """Position (x, y) de la zone d'un check sur la carte de Kalos, ou None."""
+    by_plain = {plain(name): xy for name, xy in areas.items()}
+    candidates = [AREA_ALIASES.get(group), group, re.sub(r"\s*\(.*?\)", "", group).strip()]
+    for candidate in candidates:
+        if candidate and plain(candidate) in by_plain:
+            return tuple(by_plain[plain(candidate)])
+        if candidate and candidate in AREA_ALIASES and plain(AREA_ALIASES[candidate]) in by_plain:
+            return tuple(by_plain[plain(AREA_ALIASES[candidate])])
+    return None
+
+
+def cluster(count, anchor, size):
+    """Positions de `count` repères en petit groupe centré sur la zone."""
+    cols = max(1, math.ceil(math.sqrt(count * 1.4)))
+    rows = math.ceil(count / cols)
+    out = []
+    for index in range(count):
+        row, col = divmod(index, cols)
+        x = anchor[0] + (col - (cols - 1) / 2) * MAP_PITCH
+        y = anchor[1] + (row - (rows - 1) / 2) * MAP_PITCH
+        out.append((int(min(max(x, MAP_PIN), size[0] - MAP_PIN)), int(min(max(y, MAP_PIN), size[1] - MAP_PIN))))
+    return out
 
 
 def write_json(path, data):
@@ -215,6 +264,10 @@ def build():
         cumulative = cumulative + REGION_REQUIREMENTS[region]
         required[region] = list(cumulative)
 
+    areas = json.load(open(os.path.join(ASSETS_DIR, "kalos_areas.json"), encoding="utf-8"))
+    kalos_size = Image.open(os.path.join(ASSETS_DIR, KALOS_MAP)).size
+    os.makedirs(f"{TRACKER_DIR}/images/maps", exist_ok=True)
+    shutil.copyfile(os.path.join(ASSETS_DIR, KALOS_MAP), f"{TRACKER_DIR}/images/maps/kalos.png")
     maps, location_nodes, item_map, location_map = [], [], {}, {}
     for region in REGION_ORDER:
         groups = by_region[region]
@@ -224,6 +277,18 @@ def build():
                                  OrderedDict((g, [e[0] for e in entries]) for g, entries in groups.items()))
         maps.append({"name": region, "location_size": 24, "location_border_thickness": 3,
                      "img": f"images/maps/{code_of(region)}.png"})
+        maps.append({"name": f"{region} (carte)", "location_size": MAP_PIN, "location_border_thickness": 2,
+                     "img": "images/maps/kalos.png"})
+        # Position de chaque lieu sur la carte de Kalos : groupes autour de leur zone.
+        anchors = OrderedDict()
+        for group, entries in groups.items():
+            anchors.setdefault(resolve_anchor(group, areas), []).extend(e[0] for e in entries)
+        found = [a for a in anchors if a]
+        fallback = (sum(a[0] for a in found) / len(found), sum(a[1] for a in found) / len(found))             if found else (kalos_size[0] / 2, kalos_size[1] / 2)
+        on_map = {}
+        for anchor, names in anchors.items():
+            for name, xy in zip(names, cluster(len(names), anchor or fallback, kalos_size)):
+                on_map[name] = xy
         children = []
         for group, entries in groups.items():
             for name, data in entries:
@@ -236,7 +301,8 @@ def build():
                         rules += parts
                 node = {
                     "name": clean(name),
-                    "map_locations": [{"map": region, "x": x, "y": y}],
+                    "map_locations": [{"map": region, "x": x, "y": y},
+                                      {"map": f"{region} (carte)", "x": on_map[name][0], "y": on_map[name][1]}],
                     "sections": [{"name": "Check", "item_count": 1,
                                   "chest_unopened_img": f"images/checks/{CATEGORY_STYLE[category][0]}.png",
                                   "chest_opened_img": "images/checks/opened.png"}],
@@ -264,8 +330,11 @@ def build():
             ["opt_hidden", "opt_trainers", "opt_dowsing"]]
     grid = {"type": "itemgrid", "item_margin": "2,2", "h_alignment": "left", "item_h_alignment": "center",
             "item_v_alignment": "center", "item_height": 36, "item_width": 36, "rows": rows}
+    region_maps = [m["name"] for m in maps if not m["name"].endswith("(carte)")]
     tabs = {"tabbed_maps": {"type": "tabbed", "tabs": [
-        {"title": m["name"].replace(" Area", ""), "content": {"type": "map", "maps": [m["name"]]}} for m in maps]}}
+        {"title": r.replace(" Area", ""), "content": {"type": "tabbed", "tabs": [
+            {"title": "Carte", "content": {"type": "map", "maps": [f"{r} (carte)"]}},
+            {"title": "Liste", "content": {"type": "map", "maps": [r]}}]}} for r in region_maps]}}
     layout = {"tracker_default": {"type": "container", "background": "#00000000", "content": {
         "type": "dock", "dropshadow": True, "content": [
             {"type": "dock", "dock": "left", "v_alignment": "stretch", "content": [
@@ -292,6 +361,8 @@ def build():
         for ap_id, path in sorted(location_map.items()):
             handle.write(f"  [{ap_id}] = {lua_value(path)},\n")
         handle.write("}\n")
+    unmatched = [g for r in REGION_ORDER for g in by_region[r] if resolve_anchor(g, areas) is None]
+    print("zones sans position sur la carte (placées au centre de leur région) :", unmatched)
     return version, maps, location_map, item_map
 
 

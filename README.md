@@ -33,7 +33,7 @@ objet pour toi l'annoncent alors vraiment. Les autres objets trouvés ou envoyé
 
 ## Crédits
 
-La structure du pack PopTracker s'inspire de celui de [darkfire006](https://github.com/darkfire006/xy-manual-ap-tracker) (licence MIT), prévu pour un autre monde.
+Le pack PopTracker s'inspire de celui de [darkfire006](https://github.com/darkfire006/xy-manual-ap-tracker) (licence MIT, prévu pour un autre monde) : sa carte de Kalos et les positions de ses zones sont reprises dans `tools/assets/` avec sa licence.
 
 Ce projet reprend l'APWorld communautaire de **uhsfiuh (Zaitz)** :
 [uhsfiuh/Pokemon-x-y-AP](https://github.com/uhsfiuh/Pokemon-x-y-AP) (v0.0.4, commit `ebf52f6`),

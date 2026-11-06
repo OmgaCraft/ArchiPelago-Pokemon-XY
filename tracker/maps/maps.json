@@ -6,10 +6,22 @@
     "img": "images/maps/Santalune_Area.png"
   },
   {
+    "name": "Santalune Area (carte)",
+    "location_size": 16,
+    "location_border_thickness": 2,
+    "img": "images/maps/kalos.png"
+  },
+  {
     "name": "Camphrier Area",
     "location_size": 24,
     "location_border_thickness": 3,
     "img": "images/maps/Camphrier_Area.png"
+  },
+  {
+    "name": "Camphrier Area (carte)",
+    "location_size": 16,
+    "location_border_thickness": 2,
+    "img": "images/maps/kalos.png"
   },
   {
     "name": "Cyllage Area",
@@ -18,10 +30,22 @@
     "img": "images/maps/Cyllage_Area.png"
   },
   {
+    "name": "Cyllage Area (carte)",
+    "location_size": 16,
+    "location_border_thickness": 2,
+    "img": "images/maps/kalos.png"
+  },
+  {
     "name": "Shalour Area",
     "location_size": 24,
     "location_border_thickness": 3,
     "img": "images/maps/Shalour_Area.png"
+  },
+  {
+    "name": "Shalour Area (carte)",
+    "location_size": 16,
+    "location_border_thickness": 2,
+    "img": "images/maps/kalos.png"
   },
   {
     "name": "Coumarine Area",
@@ -30,10 +54,22 @@
     "img": "images/maps/Coumarine_Area.png"
   },
   {
+    "name": "Coumarine Area (carte)",
+    "location_size": 16,
+    "location_border_thickness": 2,
+    "img": "images/maps/kalos.png"
+  },
+  {
     "name": "Lumiose Area",
     "location_size": 24,
     "location_border_thickness": 3,
     "img": "images/maps/Lumiose_Area.png"
+  },
+  {
+    "name": "Lumiose Area (carte)",
+    "location_size": 16,
+    "location_border_thickness": 2,
+    "img": "images/maps/kalos.png"
   },
   {
     "name": "Laverre Area",
@@ -42,10 +78,22 @@
     "img": "images/maps/Laverre_Area.png"
   },
   {
+    "name": "Laverre Area (carte)",
+    "location_size": 16,
+    "location_border_thickness": 2,
+    "img": "images/maps/kalos.png"
+  },
+  {
     "name": "Anistar Area",
     "location_size": 24,
     "location_border_thickness": 3,
     "img": "images/maps/Anistar_Area.png"
+  },
+  {
+    "name": "Anistar Area (carte)",
+    "location_size": 16,
+    "location_border_thickness": 2,
+    "img": "images/maps/kalos.png"
   },
   {
     "name": "Snowbelle Area",
@@ -54,9 +102,21 @@
     "img": "images/maps/Snowbelle_Area.png"
   },
   {
+    "name": "Snowbelle Area (carte)",
+    "location_size": 16,
+    "location_border_thickness": 2,
+    "img": "images/maps/kalos.png"
+  },
+  {
     "name": "Victory Road",
     "location_size": 24,
     "location_border_thickness": 3,
     "img": "images/maps/Victory_Road.png"
+  },
+  {
+    "name": "Victory Road (carte)",
+    "location_size": 16,
+    "location_border_thickness": 2,
+    "img": "images/maps/kalos.png"
   }
 ]

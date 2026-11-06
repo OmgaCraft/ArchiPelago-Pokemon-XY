@@ -178,7 +178,7 @@ Il n'y a plus de fenêtre d'aide : tout est automatique.
 ## Le tracker (PopTracker)
 
 Un pack [PopTracker](https://github.com/black-sliver/PopTracker) suit ta partie en direct : badges, CS
-et objets clés reçus, et les lieux déjà validés, répartis en 10 cartes par région.
+et objets clés reçus, et les lieux déjà validés. Chaque région a un onglet avec deux vues : **Carte** (la carte de Kalos, les checks groupés autour de leur zone) et **Liste** (tous les checks rangés par zone).
 
 1. Télécharge `Pokemon_XY_Tracker.zip` (dossier [`dist/`](dist)) **sans le décompresser** et mets-le
    dans le dossier `packs` de PopTracker.
@@ -186,7 +186,7 @@ et objets clés reçus, et les lieux déjà validés, répartis en 10 cartes par
    (menu Archipelago, adresse du serveur, nom de slot).
 3. Les couleurs des repères suivent la logique du monde : vert = accessible avec ce que tu as reçu,
    rouge = pas encore. Chaque repère est un check ; survole-le pour voir son nom.
-4. Les icônes du bas à gauche (cachés, dresseurs, Machine Cherch'Objet) reprennent les options de
+4. Sur la carte, les groupes de repères se recouvrent parfois un peu : zoome avec la molette. Les icônes du bas à gauche (cachés, dresseurs, Machine Cherch'Objet) reprennent les options de
    ton YAML : elles se règlent seules à la connexion, et tu peux les basculer à la main.
 
 Le pack ne valide aucun check lui-même : cliquer sur un repère ne sert qu'à te repérer, les checks
