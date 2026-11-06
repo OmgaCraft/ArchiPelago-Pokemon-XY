@@ -4,7 +4,7 @@ Monde [Archipelago](https://archipelago.gg/) (randomizer multi-jeux) pour **Pok�
 **BizHawk** (cœur 3DS). Les objets au sol, les objets cachés, les cadeaux, les badges et, en option,
 les dresseurs deviennent des checks. Les objets des autres joueurs arrivent directement dans ton sac.
 
-> **Version 1.3.0** — confirmée pour **Pokémon Y (USA)**, Archipelago 0.6.7, BizHawk 2.11.1.
+> **Version 1.3.1** — confirmée pour **Pokémon Y (USA)**, Archipelago 0.6.7, BizHawk 2.11.1.
 
 ## Téléchargement
 
@@ -40,6 +40,11 @@ Ce projet reprend l'APWorld communautaire de **uhsfiuh (Zaitz)** :
 dont le README invite à reprendre le projet. Toute la logique, les données du jeu, les adresses
 mémoire et le script Lua viennent de son travail. Le dépôt d'origine n'a pas de licence : ce dépôt
 sera retiré ou adapté à la demande de l'auteur.
+
+Changements de la v1.3.1 :
+- correction : en passant à une nouvelle partie sans fermer le client BizHawk, les checks de la partie
+  précédente étaient renvoyés à la nouvelle (Archipelago garde cette liste d'une connexion à l'autre).
+  Elle est maintenant vidée à chaque connexion, et rien n'est envoyé avant la réponse du serveur.
 
 Changements de la v1.3.0 :
 - randomisation du jeu, en options du YAML : Pokémon sauvages, dresseurs, starters, capacités et

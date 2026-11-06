@@ -323,6 +323,28 @@ class TestDelivery(unittest.TestCase):
             self.assertEqual(self.memory.data[ADDR_BADGES - MEM_START], 0x01)  # seul le badge reçu reste
         self.run_async(scenario())
 
+    def test_old_checks_not_sent_to_a_new_multiworld(self):
+        async def scenario():
+            ctx = FakeContext([])
+            self.memory.load_save()
+            client = _fresh()
+            client.on_package(ctx, "RoomInfo", {"seed_name": "ancienne"})
+            await self.connect(client, ctx, None)
+            self.memory.data[EVENT_FLAGS_BASE - MEM_START + 0xA4 // 8] |= 1 << (0xA4 % 8)
+            await self.tick(client, ctx)
+            self.assertIn(200023, ctx.locations_checked)
+
+            # Nouvelle partie, même client, même emplacement : l'ancienne liste ne doit pas partir.
+            ctx.sent.clear()
+            ctx.checked_locations = set()
+            client.on_package(ctx, "RoomInfo", {"seed_name": "nouvelle"})
+            self.assertEqual(ctx.locations_checked, set())
+            client.on_package(ctx, "Connected", {})          # le serveur n'a encore rien confirmé
+            await self.tick(client, ctx, 2)
+            self.assertEqual([m for m in ctx.sent if m.get("cmd") == "LocationChecks"], [])
+            self.assertEqual(client._received_index, None)
+        self.run_async(scenario())
+
     def test_location_flag_sends_check(self):
         async def scenario():
             ctx = FakeContext([])

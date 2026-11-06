@@ -244,6 +244,7 @@ class PokemonXYClient(BizHawkClient):
     # [FR] Vrai quand le serveur a répondu après la liste des objets reçus : jusque-là,
     # on ne touche pas à la mémoire du jeu (sinon badges et Rollers sont retirés avant la connexion).
     _synced: bool = False
+    _run_seed: Optional[str] = None
     # [FR] Patch du jeu : lieux demandés au serveur, et partie déjà traitée.
     _patch_locations: List[int]
     _patch_running: bool = False
@@ -279,7 +280,32 @@ class PokemonXYClient(BizHawkClient):
         self._ensure_last_write = {}
         self._patch_locations = []
 
+    def _forget_previous_connection(self, ctx: "BizHawkClientContext", seed_name) -> None:
+        """
+        [FR] Le client Archipelago garde la liste des checks envoyés (ctx.locations_checked) d'une
+        connexion à l'autre : en passant à une nouvelle partie sans fermer le client, elle était renvoyée
+        telle quelle au nouveau serveur. On la vide à chaque connexion ; les drapeaux du jeu sont relus
+        ensuite, et le serveur nous redonne les checks qu'il connaît.
+        """
+        ctx.locations_checked.clear()
+        self._synced = False
+        self._sent_locations = set()
+        self._prev_flag_bytes = None
+        self._prev_badge_byte = None
+        if seed_name != self._run_seed:
+            # Une autre partie : tout ce qui concernait la précédente ne vaut plus rien.
+            self._delivery_key = None
+            self._received_index = None
+            self._ap_received_badges = set()
+            self._written_badges = set()
+            self._ensure_last_write = {}
+            self._patch_done_for = None
+            self._patch_locations = []
+        self._run_seed = seed_name
+
     def on_package(self, ctx: "BizHawkClientContext", cmd: str, args: dict) -> None:
+        if cmd == "RoomInfo":
+            self._forget_previous_connection(ctx, args.get("seed_name"))
         if cmd == "LocationInfo":
             self._maybe_apply_patch(ctx)
         # [FR] À chaque connexion au serveur, on redemande le compteur d'objets livrés.
@@ -509,7 +535,9 @@ class PokemonXYClient(BizHawkClient):
                      and data.code not in BAG_GIFT_LOCATIONS]
 
         checked = []
-        if flag_locs:
+        # [FR] Avant la réponse du serveur on n'envoie rien : les checks partaient sinon vers la
+        # partie précédente ou avant même la connexion.
+        if flag_locs and self._is_online(ctx):
             try:
                 results = await bizhawk.read(ctx.bizhawk_ctx, [(EVENT_FLAGS_BASE, 375, MEMORY_DOMAIN)])
                 if results and len(results) > 0:
