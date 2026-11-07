@@ -109,6 +109,7 @@ CATEGORY_STYLE = OrderedDict([  # catégorie -> (code d'image, couleur, libellé
     ("Badge", ("badge", "#facc15", "Badge")),
     ("Goal", ("badge", "#facc15", "Objectif")),
 ])
+FIELD_ITEM_FLAG = 0x051A  # drapeau de la première Poké Ball au sol
 EXTRA_TRACKED_ITEMS = ["HM02 Fly", "Mega Ring"]
 SKIPPED_PREFIXES = ("FE_", "TMFLG_", "FLAG_")
 
@@ -220,9 +221,58 @@ def zone_image(group):
     return None
 
 
-def make_map(path, region, groups):
-    """Liste d'une région : repères par zone, avec la capture d'écran de la zone à gauche si on l'a."""
+def spread(points, size, gap=22):
+    """Écarte les repères trop proches (même case de la grille, quelques pixels d'écart)."""
+    pts = [list(p) for p in points]
+    for _ in range(40):
+        moved = False
+        for i in range(len(pts)):
+            for j in range(i + 1, len(pts)):
+                dx, dy = pts[j][0] - pts[i][0], pts[j][1] - pts[i][1]
+                dist = math.hypot(dx, dy)
+                if dist < gap:
+                    if dist < 0.01:
+                        dx, dy, dist = 1.0, 0.3 * (j - i), 1.04
+                    push = (gap - dist) / 2 + 0.5
+                    for k, sign in ((i, -1), (j, 1)):
+                        pts[k][0] += sign * dx / dist * push
+                        pts[k][1] += sign * dy / dist * push
+                    moved = True
+        for p in pts:
+            p[0] = min(max(p[0], gap / 2), size[0] - gap / 2)
+            p[1] = min(max(p[1], gap / 2), size[1] - gap / 2)
+        if not moved:
+            break
+    return [(p[0], p[1]) for p in pts]
+
+
+def plan_layout(entries, positions, size):
+    """Plans de zone : un cadre par zone du jeu, les objets au sol à leur vraie place relative.
+    Renvoie [(liste de (nom, x, y) dans le cadre)] ; les objets sans position sont ignorés ici."""
+    by_zone = OrderedDict()
+    for name in entries:
+        if name in positions:
+            zone, x, y = positions[name]
+            by_zone.setdefault(zone, []).append((name, x, y))
+    plans = []
+    margin = 14
+    for zone, items in by_zone.items():
+        xs, ys = [i[1] for i in items], [i[2] for i in items]
+        span_x, span_y = max(max(xs) - min(xs), 14), max(max(ys) - min(ys), 14)
+        scale = min((size[0] - 2 * margin) / span_x, (size[1] - 2 * margin) / span_y, 14)
+        cx, cy = (max(xs) + min(xs)) / 2, (max(ys) + min(ys)) / 2
+        pts = [(size[0] / 2 + (x - cx) * scale, size[1] / 2 + (y - cy) * scale) for _n, x, y in items]
+        pts = spread(pts, size)
+        plans.append([(i[0], px, py) for i, (px, py) in zip(items, pts)])
+    return plans
+
+
+def make_map(path, region, groups, positions=None):
+    """Liste d'une région : par zone, la capture d'écran (si on l'a), les plans des objets au sol
+    (positions lues dans la ROM) puis les autres repères en grille."""
+    positions = positions or {}
     width, margin, pitch = 980, 16, 30
+    plan_size = (290, 200)
     head = font(15)
     y = margin + 26
     placed = OrderedDict()
@@ -233,24 +283,44 @@ def make_map(path, region, groups):
         image_path = zone_image(group) if base not in seen else None
         seen.add(base)
         left = margin + THUMB[0] + 16 if image_path else margin
-        columns = max(1, (width - margin - left) // pitch)
         blocks.append((y, group, image_path))
         y += 22
-        for index, entry in enumerate(entries):
+        plans = plan_layout(entries, positions, plan_size)
+        per_row = max(1, (width - margin - left) // (plan_size[0] + 12))
+        frames = []
+        for index, plan in enumerate(plans):
+            row, col = divmod(index, per_row)
+            ox, oy = left + col * (plan_size[0] + 12), y + row * (plan_size[1] + 12)
+            frames.append((ox, oy))
+            for name, px, py in plan:
+                placed[name] = (int(ox + px), int(oy + py))
+        plans_height = ((len(plans) - 1) // per_row + 1) * (plan_size[1] + 12) if plans else 0
+        blocks[-1] = (blocks[-1][0], group, image_path, frames)
+        rest = [e for e in entries if e not in placed]
+        columns = max(1, (width - margin - left) // pitch)
+        rest_top = y + plans_height
+        for index, entry in enumerate(rest):
             row, col = divmod(index, columns)
-            placed[entry] = (left + col * pitch + pitch // 2, y + row * pitch + pitch // 2)
-        pins_height = ((len(entries) - 1) // columns + 1) * pitch
-        y += max(pins_height, THUMB[1] if image_path else 0) + 14
+            placed[entry] = (left + col * pitch + pitch // 2, rest_top + row * pitch + pitch // 2)
+        rest_height = ((len(rest) - 1) // columns + 1) * pitch if rest else 0
+        y += max(plans_height + rest_height, THUMB[1] if image_path else 0) + 14
     height = y + margin
     image = Image.new("RGB", (width, height), "#0f172a")
     draw = ImageDraw.Draw(image)
     draw.text((margin, 6), region, font=font(18), fill="#e2e8f0")
-    for label_y, group, image_path in blocks:
+    for label_y, group, image_path, frames in blocks:
         draw.text((margin, label_y), group, font=head, fill="#94a3b8")
         draw.line((margin, label_y + 19, width - margin, label_y + 19), fill="#1e293b")
         if image_path:
             thumb = Image.open(image_path).convert("RGB").resize(THUMB)
             image.paste(thumb, (margin, label_y + 22))
+        for ox, oy in frames:
+            draw.rounded_rectangle((ox, oy, ox + plan_size[0], oy + plan_size[1]), radius=8,
+                                   fill="#111c33", outline="#334155", width=2)
+            for gx in range(ox + 30, ox + plan_size[0], 30):
+                draw.line((gx, oy + 4, gx, oy + plan_size[1] - 4), fill="#16233f")
+            for gy in range(oy + 30, oy + plan_size[1], 30):
+                draw.line((ox + 4, gy, ox + plan_size[0] - 4, gy), fill="#16233f")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     image.save(path)
     return placed, (width, height)
@@ -288,6 +358,18 @@ def build(out_dir=None, zones=False):
         group = name.split(" - ", 1)[0] if " - " in name else "Divers"
         by_region[region].setdefault(group, []).append((name, data))
 
+    # Position de chaque objet au sol, lue dans la ROM (tools/extract_ball_positions.py) :
+    # la Poké Ball n lève le drapeau FIELD_ITEM_FLAG + n.
+    ball_positions = {}
+    raw = json.load(open(os.path.join(ASSETS_DIR, "ball_positions.json"), encoding="utf-8"))
+    for by_group in by_region.values():
+        for entries in by_group.values():
+            for name, data in entries:
+                n = (data.flag_id or 0) - FIELD_ITEM_FLAG
+                if "FIELD ITEM" in data.category and str(n) in raw:
+                    ball_positions[name] = (raw[str(n)]["zone"], raw[str(n)]["x"], raw[str(n)]["y"])
+    print("objets au sol placés sur un plan :", len(ball_positions))
+
     cumulative, required = [], {}
     for region in REGION_ORDER:
         cumulative = cumulative + REGION_REQUIREMENTS[region]
@@ -303,7 +385,8 @@ def build(out_dir=None, zones=False):
         if not groups:
             continue
         placed, _size = make_map(f"{TRACKER_DIR}/images/maps/{code_of(region)}.png", region,
-                                 OrderedDict((g, [e[0] for e in entries]) for g, entries in groups.items()))
+                                 OrderedDict((g, [e[0] for e in entries]) for g, entries in groups.items()),
+                                 ball_positions)
         maps.append({"name": region, "location_size": 24, "location_border_thickness": 3,
                      "img": f"images/maps/{code_of(region)}.png"})
         maps.append({"name": f"{region} (carte)", "location_size": MAP_PIN, "location_border_thickness": 2,

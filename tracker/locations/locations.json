@@ -210,7 +210,7 @@
           {
             "map": "Santalune Area",
             "x": 31,
-            "y": 277
+            "y": 489
           },
           {
             "map": "Santalune Area (carte)",
@@ -232,8 +232,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 61,
-            "y": 277
+            "x": 75,
+            "y": 346
           },
           {
             "map": "Santalune Area (carte)",
@@ -255,8 +255,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 91,
-            "y": 277
+            "x": 189,
+            "y": 282
           },
           {
             "map": "Santalune Area (carte)",
@@ -278,8 +278,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 121,
-            "y": 277
+            "x": 285,
+            "y": 448
           },
           {
             "map": "Santalune Area (carte)",
@@ -301,8 +301,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 151,
-            "y": 277
+            "x": 36,
+            "y": 276
           },
           {
             "map": "Santalune Area (carte)",
@@ -324,8 +324,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 181,
-            "y": 277
+            "x": 49,
+            "y": 435
           },
           {
             "map": "Santalune Area (carte)",
@@ -347,8 +347,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 211,
-            "y": 277
+            "x": 61,
+            "y": 489
           },
           {
             "map": "Santalune Area (carte)",
@@ -373,8 +373,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 241,
-            "y": 277
+            "x": 91,
+            "y": 489
           },
           {
             "map": "Santalune Area (carte)",
@@ -399,8 +399,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 271,
-            "y": 277
+            "x": 121,
+            "y": 489
           },
           {
             "map": "Santalune Area (carte)",
@@ -426,7 +426,7 @@
           {
             "map": "Santalune Area",
             "x": 31,
-            "y": 343
+            "y": 767
           },
           {
             "map": "Santalune Area (carte)",
@@ -455,7 +455,7 @@
           {
             "map": "Santalune Area",
             "x": 61,
-            "y": 343
+            "y": 767
           },
           {
             "map": "Santalune Area (carte)",
@@ -483,8 +483,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 91,
-            "y": 343
+            "x": 98,
+            "y": 613
           },
           {
             "map": "Santalune Area (carte)",
@@ -506,8 +506,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 121,
-            "y": 343
+            "x": 51,
+            "y": 554
           },
           {
             "map": "Santalune Area (carte)",
@@ -532,8 +532,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 151,
-            "y": 343
+            "x": 270,
+            "y": 681
           },
           {
             "map": "Santalune Area (carte)",
@@ -558,8 +558,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 181,
-            "y": 343
+            "x": 241,
+            "y": 726
           },
           {
             "map": "Santalune Area (carte)",
@@ -584,8 +584,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 211,
-            "y": 343
+            "x": 91,
+            "y": 767
           },
           {
             "map": "Santalune Area (carte)",
@@ -610,8 +610,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 241,
-            "y": 343
+            "x": 121,
+            "y": 767
           },
           {
             "map": "Santalune Area (carte)",
@@ -636,8 +636,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 271,
-            "y": 343
+            "x": 151,
+            "y": 767
           },
           {
             "map": "Santalune Area (carte)",
@@ -662,8 +662,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 301,
-            "y": 343
+            "x": 181,
+            "y": 767
           },
           {
             "map": "Santalune Area (carte)",
@@ -688,8 +688,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 331,
-            "y": 343
+            "x": 211,
+            "y": 767
           },
           {
             "map": "Santalune Area (carte)",
@@ -714,8 +714,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 361,
-            "y": 343
+            "x": 241,
+            "y": 767
           },
           {
             "map": "Santalune Area (carte)",
@@ -740,8 +740,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 391,
-            "y": 343
+            "x": 271,
+            "y": 767
           },
           {
             "map": "Santalune Area (carte)",
@@ -769,8 +769,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 421,
-            "y": 343
+            "x": 301,
+            "y": 767
           },
           {
             "map": "Santalune Area (carte)",
@@ -798,8 +798,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 31,
-            "y": 409
+            "x": 136,
+            "y": 934
           },
           {
             "map": "Santalune Area (carte)",
@@ -821,8 +821,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 61,
-            "y": 409
+            "x": 222,
+            "y": 832
           },
           {
             "map": "Santalune Area (carte)",
@@ -847,8 +847,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 91,
-            "y": 409
+            "x": 99,
+            "y": 1004
           },
           {
             "map": "Santalune Area (carte)",
@@ -873,8 +873,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 121,
-            "y": 409
+            "x": 31,
+            "y": 1045
           },
           {
             "map": "Santalune Area (carte)",
@@ -899,8 +899,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 151,
-            "y": 409
+            "x": 61,
+            "y": 1045
           },
           {
             "map": "Santalune Area (carte)",
@@ -925,8 +925,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 181,
-            "y": 409
+            "x": 91,
+            "y": 1045
           },
           {
             "map": "Santalune Area (carte)",
@@ -951,8 +951,8 @@
         "map_locations": [
           {
             "map": "Santalune Area",
-            "x": 211,
-            "y": 409
+            "x": 121,
+            "y": 1045
           },
           {
             "map": "Santalune Area (carte)",
@@ -978,7 +978,7 @@
           {
             "map": "Santalune Area",
             "x": 31,
-            "y": 475
+            "y": 1111
           },
           {
             "map": "Santalune Area (carte)",
@@ -1004,7 +1004,7 @@
           {
             "map": "Santalune Area",
             "x": 31,
-            "y": 541
+            "y": 1177
           },
           {
             "map": "Santalune Area (carte)",
@@ -1030,7 +1030,7 @@
           {
             "map": "Santalune Area",
             "x": 61,
-            "y": 541
+            "y": 1177
           },
           {
             "map": "Santalune Area (carte)",
@@ -1056,7 +1056,7 @@
           {
             "map": "Santalune Area",
             "x": 91,
-            "y": 541
+            "y": 1177
           },
           {
             "map": "Santalune Area (carte)",
@@ -1087,7 +1087,7 @@
           {
             "map": "Camphrier Area",
             "x": 31,
-            "y": 79
+            "y": 291
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1112,8 +1112,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 61,
-            "y": 79
+            "x": 161,
+            "y": 164
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1139,7 +1139,7 @@
           {
             "map": "Camphrier Area",
             "x": 31,
-            "y": 145
+            "y": 569
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1165,7 +1165,7 @@
           {
             "map": "Camphrier Area",
             "x": 61,
-            "y": 145
+            "y": 569
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1191,7 +1191,7 @@
           {
             "map": "Camphrier Area",
             "x": 91,
-            "y": 145
+            "y": 569
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1217,7 +1217,7 @@
           {
             "map": "Camphrier Area",
             "x": 121,
-            "y": 145
+            "y": 569
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1243,7 +1243,7 @@
           {
             "map": "Camphrier Area",
             "x": 151,
-            "y": 145
+            "y": 569
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1272,7 +1272,7 @@
           {
             "map": "Camphrier Area",
             "x": 181,
-            "y": 145
+            "y": 569
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1300,8 +1300,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 211,
-            "y": 145
+            "x": 84,
+            "y": 356
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1326,8 +1326,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 241,
-            "y": 145
+            "x": 237,
+            "y": 528
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1353,7 +1353,7 @@
           {
             "map": "Camphrier Area",
             "x": 31,
-            "y": 211
+            "y": 847
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1379,7 +1379,7 @@
           {
             "map": "Camphrier Area",
             "x": 61,
-            "y": 211
+            "y": 847
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1408,7 +1408,7 @@
           {
             "map": "Camphrier Area",
             "x": 91,
-            "y": 211
+            "y": 847
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1437,7 +1437,7 @@
           {
             "map": "Camphrier Area",
             "x": 121,
-            "y": 211
+            "y": 847
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1465,8 +1465,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 151,
-            "y": 211
+            "x": 52,
+            "y": 634
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1491,8 +1491,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 181,
-            "y": 211
+            "x": 463,
+            "y": 720
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1517,8 +1517,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 211,
-            "y": 211
+            "x": 765,
+            "y": 720
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1543,8 +1543,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 241,
-            "y": 211
+            "x": 213,
+            "y": 787
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1569,8 +1569,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 271,
-            "y": 211
+            "x": 269,
+            "y": 701
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1595,8 +1595,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 301,
-            "y": 211
+            "x": 92,
+            "y": 776
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1621,8 +1621,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 331,
-            "y": 211
+            "x": 116,
+            "y": 806
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1648,7 +1648,7 @@
           {
             "map": "Camphrier Area",
             "x": 31,
-            "y": 277
+            "y": 1125
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1677,7 +1677,7 @@
           {
             "map": "Camphrier Area",
             "x": 61,
-            "y": 277
+            "y": 1125
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1706,7 +1706,7 @@
           {
             "map": "Camphrier Area",
             "x": 91,
-            "y": 277
+            "y": 1125
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1735,7 +1735,7 @@
           {
             "map": "Camphrier Area",
             "x": 121,
-            "y": 277
+            "y": 1125
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1763,8 +1763,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 151,
-            "y": 277
+            "x": 173,
+            "y": 1059
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1789,8 +1789,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 181,
-            "y": 277
+            "x": 144,
+            "y": 1058
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1815,8 +1815,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 211,
-            "y": 277
+            "x": 170,
+            "y": 1084
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1841,8 +1841,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 241,
-            "y": 277
+            "x": 147,
+            "y": 1081
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1867,8 +1867,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 271,
-            "y": 277
+            "x": 161,
+            "y": 951
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1893,8 +1893,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 301,
-            "y": 277
+            "x": 134,
+            "y": 912
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1919,8 +1919,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 331,
-            "y": 277
+            "x": 187,
+            "y": 912
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1945,8 +1945,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 361,
-            "y": 277
+            "x": 151,
+            "y": 1125
           },
           {
             "map": "Camphrier Area (carte)",
@@ -1974,8 +1974,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 391,
-            "y": 277
+            "x": 181,
+            "y": 1125
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2003,8 +2003,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 421,
-            "y": 277
+            "x": 211,
+            "y": 1125
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2032,8 +2032,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 451,
-            "y": 277
+            "x": 241,
+            "y": 1125
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2061,8 +2061,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 481,
-            "y": 277
+            "x": 271,
+            "y": 1125
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2090,8 +2090,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 511,
-            "y": 277
+            "x": 301,
+            "y": 1125
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2119,8 +2119,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 541,
-            "y": 277
+            "x": 331,
+            "y": 1125
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2148,8 +2148,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 571,
-            "y": 277
+            "x": 361,
+            "y": 1125
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2177,8 +2177,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 601,
-            "y": 277
+            "x": 391,
+            "y": 1125
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2207,7 +2207,7 @@
           {
             "map": "Camphrier Area",
             "x": 31,
-            "y": 343
+            "y": 1403
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2236,7 +2236,7 @@
           {
             "map": "Camphrier Area",
             "x": 61,
-            "y": 343
+            "y": 1403
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2264,8 +2264,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 91,
-            "y": 343
+            "x": 292,
+            "y": 1202
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2290,8 +2290,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 121,
-            "y": 343
+            "x": 179,
+            "y": 1199
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2316,8 +2316,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 151,
-            "y": 343
+            "x": 221,
+            "y": 1278
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2342,8 +2342,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 181,
-            "y": 343
+            "x": 30,
+            "y": 1256
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2368,8 +2368,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 211,
-            "y": 343
+            "x": 38,
+            "y": 1323
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2394,8 +2394,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 241,
-            "y": 343
+            "x": 60,
+            "y": 1352
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2420,8 +2420,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 271,
-            "y": 343
+            "x": 91,
+            "y": 1403
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2449,8 +2449,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 301,
-            "y": 343
+            "x": 121,
+            "y": 1403
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2478,8 +2478,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 331,
-            "y": 343
+            "x": 151,
+            "y": 1403
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2507,8 +2507,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 361,
-            "y": 343
+            "x": 181,
+            "y": 1403
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2536,8 +2536,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 391,
-            "y": 343
+            "x": 211,
+            "y": 1403
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2565,8 +2565,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 421,
-            "y": 343
+            "x": 241,
+            "y": 1403
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2594,8 +2594,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 451,
-            "y": 343
+            "x": 271,
+            "y": 1403
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2623,8 +2623,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 481,
-            "y": 343
+            "x": 301,
+            "y": 1403
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2653,7 +2653,7 @@
           {
             "map": "Camphrier Area",
             "x": 31,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2682,7 +2682,7 @@
           {
             "map": "Camphrier Area",
             "x": 61,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2710,8 +2710,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 91,
-            "y": 409
+            "x": 130,
+            "y": 1640
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2736,8 +2736,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 121,
-            "y": 409
+            "x": 268,
+            "y": 1474
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2762,8 +2762,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 151,
-            "y": 409
+            "x": 204,
+            "y": 1498
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2788,8 +2788,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 181,
-            "y": 409
+            "x": 268,
+            "y": 1565
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2814,8 +2814,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 211,
-            "y": 409
+            "x": 201,
+            "y": 1586
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2840,8 +2840,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 241,
-            "y": 409
+            "x": 134,
+            "y": 1468
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2866,8 +2866,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 271,
-            "y": 409
+            "x": 53,
+            "y": 1481
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2892,8 +2892,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 301,
-            "y": 409
+            "x": 69,
+            "y": 1629
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2918,8 +2918,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 331,
-            "y": 409
+            "x": 91,
+            "y": 1681
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2947,8 +2947,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 361,
-            "y": 409
+            "x": 121,
+            "y": 1681
           },
           {
             "map": "Camphrier Area (carte)",
@@ -2976,8 +2976,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 391,
-            "y": 409
+            "x": 151,
+            "y": 1681
           },
           {
             "map": "Camphrier Area (carte)",
@@ -3005,8 +3005,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 421,
-            "y": 409
+            "x": 181,
+            "y": 1681
           },
           {
             "map": "Camphrier Area (carte)",
@@ -3034,8 +3034,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 451,
-            "y": 409
+            "x": 211,
+            "y": 1681
           },
           {
             "map": "Camphrier Area (carte)",
@@ -3063,8 +3063,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 481,
-            "y": 409
+            "x": 241,
+            "y": 1681
           },
           {
             "map": "Camphrier Area (carte)",
@@ -3092,8 +3092,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 511,
-            "y": 409
+            "x": 271,
+            "y": 1681
           },
           {
             "map": "Camphrier Area (carte)",
@@ -3121,8 +3121,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 541,
-            "y": 409
+            "x": 301,
+            "y": 1681
           },
           {
             "map": "Camphrier Area (carte)",
@@ -3150,8 +3150,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 571,
-            "y": 409
+            "x": 331,
+            "y": 1681
           },
           {
             "map": "Camphrier Area (carte)",
@@ -3179,8 +3179,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 601,
-            "y": 409
+            "x": 361,
+            "y": 1681
           },
           {
             "map": "Camphrier Area (carte)",
@@ -3208,8 +3208,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 31,
-            "y": 475
+            "x": 161,
+            "y": 1832
           },
           {
             "map": "Camphrier Area (carte)",
@@ -3234,8 +3234,8 @@
         "map_locations": [
           {
             "map": "Camphrier Area",
-            "x": 61,
-            "y": 475
+            "x": 463,
+            "y": 1832
           },
           {
             "map": "Camphrier Area (carte)",
@@ -3292,7 +3292,7 @@
           {
             "map": "Cyllage Area",
             "x": 31,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3318,7 +3318,7 @@
           {
             "map": "Cyllage Area",
             "x": 61,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3344,7 +3344,7 @@
           {
             "map": "Cyllage Area",
             "x": 91,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3370,7 +3370,7 @@
           {
             "map": "Cyllage Area",
             "x": 121,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3396,7 +3396,7 @@
           {
             "map": "Cyllage Area",
             "x": 151,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3422,7 +3422,7 @@
           {
             "map": "Cyllage Area",
             "x": 181,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3448,7 +3448,7 @@
           {
             "map": "Cyllage Area",
             "x": 211,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3477,7 +3477,7 @@
           {
             "map": "Cyllage Area",
             "x": 241,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3506,7 +3506,7 @@
           {
             "map": "Cyllage Area",
             "x": 271,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3535,7 +3535,7 @@
           {
             "map": "Cyllage Area",
             "x": 301,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3563,8 +3563,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 331,
-            "y": 145
+            "x": 151,
+            "y": 141
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3589,8 +3589,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 361,
-            "y": 145
+            "x": 170,
+            "y": 154
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3615,8 +3615,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 391,
-            "y": 145
+            "x": 162,
+            "y": 316
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3642,7 +3642,7 @@
           {
             "map": "Cyllage Area",
             "x": 31,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3668,7 +3668,7 @@
           {
             "map": "Cyllage Area",
             "x": 61,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3697,7 +3697,7 @@
           {
             "map": "Cyllage Area",
             "x": 91,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3726,7 +3726,7 @@
           {
             "map": "Cyllage Area",
             "x": 121,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3755,7 +3755,7 @@
           {
             "map": "Cyllage Area",
             "x": 151,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3784,7 +3784,7 @@
           {
             "map": "Cyllage Area",
             "x": 181,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3813,7 +3813,7 @@
           {
             "map": "Cyllage Area",
             "x": 211,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3842,7 +3842,7 @@
           {
             "map": "Cyllage Area",
             "x": 241,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3870,8 +3870,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 271,
-            "y": 211
+            "x": 188,
+            "y": 452
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3896,8 +3896,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 301,
-            "y": 211
+            "x": 224,
+            "y": 586
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3922,8 +3922,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 331,
-            "y": 211
+            "x": 209,
+            "y": 501
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3948,8 +3948,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 361,
-            "y": 211
+            "x": 195,
+            "y": 594
           },
           {
             "map": "Cyllage Area (carte)",
@@ -3974,8 +3974,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 391,
-            "y": 211
+            "x": 97,
+            "y": 422
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4001,7 +4001,7 @@
           {
             "map": "Cyllage Area",
             "x": 31,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4027,7 +4027,7 @@
           {
             "map": "Cyllage Area",
             "x": 61,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4053,7 +4053,7 @@
           {
             "map": "Cyllage Area",
             "x": 91,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4079,7 +4079,7 @@
           {
             "map": "Cyllage Area",
             "x": 121,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4108,7 +4108,7 @@
           {
             "map": "Cyllage Area",
             "x": 151,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4136,8 +4136,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 181,
-            "y": 277
+            "x": 161,
+            "y": 786
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4163,7 +4163,7 @@
           {
             "map": "Cyllage Area",
             "x": 31,
-            "y": 343
+            "y": 979
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4189,7 +4189,7 @@
           {
             "map": "Cyllage Area",
             "x": 31,
-            "y": 409
+            "y": 1257
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4214,8 +4214,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 61,
-            "y": 409
+            "x": 161,
+            "y": 1130
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4240,8 +4240,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 91,
-            "y": 409
+            "x": 61,
+            "y": 1257
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4270,7 +4270,7 @@
           {
             "map": "Cyllage Area",
             "x": 31,
-            "y": 475
+            "y": 1535
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4298,8 +4298,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 61,
-            "y": 475
+            "x": 30,
+            "y": 1359
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4324,8 +4324,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 91,
-            "y": 475
+            "x": 147,
+            "y": 1408
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4350,8 +4350,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 121,
-            "y": 475
+            "x": 202,
+            "y": 1408
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4376,8 +4376,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 151,
-            "y": 475
+            "x": 292,
+            "y": 1456
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4402,8 +4402,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 181,
-            "y": 475
+            "x": 61,
+            "y": 1535
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4431,8 +4431,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 31,
-            "y": 541
+            "x": 292,
+            "y": 1647
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4457,8 +4457,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 61,
-            "y": 541
+            "x": 147,
+            "y": 1647
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4483,8 +4483,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 91,
-            "y": 541
+            "x": 30,
+            "y": 1727
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4509,8 +4509,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 121,
-            "y": 541
+            "x": 39,
+            "y": 1644
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4535,8 +4535,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 151,
-            "y": 541
+            "x": 31,
+            "y": 1813
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4564,8 +4564,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 181,
-            "y": 541
+            "x": 61,
+            "y": 1813
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4593,8 +4593,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 211,
-            "y": 541
+            "x": 91,
+            "y": 1813
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4622,8 +4622,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 31,
-            "y": 607
+            "x": 156,
+            "y": 2050
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4648,8 +4648,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 61,
-            "y": 607
+            "x": 165,
+            "y": 1878
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4674,8 +4674,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 91,
-            "y": 607
+            "x": 463,
+            "y": 1964
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4700,8 +4700,8 @@
         "map_locations": [
           {
             "map": "Cyllage Area",
-            "x": 121,
-            "y": 607
+            "x": 31,
+            "y": 2091
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4730,7 +4730,7 @@
           {
             "map": "Cyllage Area",
             "x": 31,
-            "y": 673
+            "y": 2157
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4759,7 +4759,7 @@
           {
             "map": "Cyllage Area",
             "x": 61,
-            "y": 673
+            "y": 2157
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4788,7 +4788,7 @@
           {
             "map": "Cyllage Area",
             "x": 91,
-            "y": 673
+            "y": 2157
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4817,7 +4817,7 @@
           {
             "map": "Cyllage Area",
             "x": 121,
-            "y": 673
+            "y": 2157
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4846,7 +4846,7 @@
           {
             "map": "Cyllage Area",
             "x": 31,
-            "y": 739
+            "y": 2223
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4875,7 +4875,7 @@
           {
             "map": "Cyllage Area",
             "x": 61,
-            "y": 739
+            "y": 2223
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4904,7 +4904,7 @@
           {
             "map": "Cyllage Area",
             "x": 91,
-            "y": 739
+            "y": 2223
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4933,7 +4933,7 @@
           {
             "map": "Cyllage Area",
             "x": 121,
-            "y": 739
+            "y": 2223
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4962,7 +4962,7 @@
           {
             "map": "Cyllage Area",
             "x": 31,
-            "y": 805
+            "y": 2289
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4991,7 +4991,7 @@
           {
             "map": "Cyllage Area",
             "x": 61,
-            "y": 805
+            "y": 2289
           },
           {
             "map": "Cyllage Area (carte)",
@@ -5020,7 +5020,7 @@
           {
             "map": "Cyllage Area",
             "x": 91,
-            "y": 805
+            "y": 2289
           },
           {
             "map": "Cyllage Area (carte)",
@@ -5049,7 +5049,7 @@
           {
             "map": "Cyllage Area",
             "x": 121,
-            "y": 805
+            "y": 2289
           },
           {
             "map": "Cyllage Area (carte)",
@@ -5078,7 +5078,7 @@
           {
             "map": "Cyllage Area",
             "x": 151,
-            "y": 805
+            "y": 2289
           },
           {
             "map": "Cyllage Area (carte)",
@@ -5107,7 +5107,7 @@
           {
             "map": "Cyllage Area",
             "x": 181,
-            "y": 805
+            "y": 2289
           },
           {
             "map": "Cyllage Area (carte)",
@@ -5136,7 +5136,7 @@
           {
             "map": "Cyllage Area",
             "x": 211,
-            "y": 805
+            "y": 2289
           },
           {
             "map": "Cyllage Area (carte)",
@@ -5165,7 +5165,7 @@
           {
             "map": "Cyllage Area",
             "x": 241,
-            "y": 805
+            "y": 2289
           },
           {
             "map": "Cyllage Area (carte)",
@@ -5225,7 +5225,7 @@
           {
             "map": "Shalour Area",
             "x": 31,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Shalour Area (carte)",
@@ -5251,7 +5251,7 @@
           {
             "map": "Shalour Area",
             "x": 61,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Shalour Area (carte)",
@@ -5277,7 +5277,7 @@
           {
             "map": "Shalour Area",
             "x": 91,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Shalour Area (carte)",
@@ -5303,7 +5303,7 @@
           {
             "map": "Shalour Area",
             "x": 121,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Shalour Area (carte)",
@@ -5329,7 +5329,7 @@
           {
             "map": "Shalour Area",
             "x": 151,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Shalour Area (carte)",
@@ -5355,7 +5355,7 @@
           {
             "map": "Shalour Area",
             "x": 181,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Shalour Area (carte)",
@@ -5384,7 +5384,7 @@
           {
             "map": "Shalour Area",
             "x": 211,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Shalour Area (carte)",
@@ -5413,7 +5413,7 @@
           {
             "map": "Shalour Area",
             "x": 241,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Shalour Area (carte)",
@@ -5441,8 +5441,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 271,
-            "y": 145
+            "x": 161,
+            "y": 230
           },
           {
             "map": "Shalour Area (carte)",
@@ -5468,7 +5468,7 @@
           {
             "map": "Shalour Area",
             "x": 31,
-            "y": 211
+            "y": 423
           },
           {
             "map": "Shalour Area (carte)",
@@ -5494,7 +5494,7 @@
           {
             "map": "Shalour Area",
             "x": 31,
-            "y": 277
+            "y": 701
           },
           {
             "map": "Shalour Area (carte)",
@@ -5520,7 +5520,7 @@
           {
             "map": "Shalour Area",
             "x": 61,
-            "y": 277
+            "y": 701
           },
           {
             "map": "Shalour Area (carte)",
@@ -5545,8 +5545,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 91,
-            "y": 277
+            "x": 292,
+            "y": 520
           },
           {
             "map": "Shalour Area (carte)",
@@ -5571,8 +5571,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 121,
-            "y": 277
+            "x": 30,
+            "y": 627
           },
           {
             "map": "Shalour Area (carte)",
@@ -5598,7 +5598,7 @@
           {
             "map": "Shalour Area",
             "x": 31,
-            "y": 343
+            "y": 979
           },
           {
             "map": "Shalour Area (carte)",
@@ -5627,7 +5627,7 @@
           {
             "map": "Shalour Area",
             "x": 61,
-            "y": 343
+            "y": 979
           },
           {
             "map": "Shalour Area (carte)",
@@ -5656,7 +5656,7 @@
           {
             "map": "Shalour Area",
             "x": 91,
-            "y": 343
+            "y": 979
           },
           {
             "map": "Shalour Area (carte)",
@@ -5684,8 +5684,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 121,
-            "y": 343
+            "x": 248,
+            "y": 915
           },
           {
             "map": "Shalour Area (carte)",
@@ -5710,8 +5710,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 151,
-            "y": 343
+            "x": 162,
+            "y": 938
           },
           {
             "map": "Shalour Area (carte)",
@@ -5736,8 +5736,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 181,
-            "y": 343
+            "x": 73,
+            "y": 840
           },
           {
             "map": "Shalour Area (carte)",
@@ -5762,8 +5762,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 211,
-            "y": 343
+            "x": 95,
+            "y": 766
           },
           {
             "map": "Shalour Area (carte)",
@@ -5788,8 +5788,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 241,
-            "y": 343
+            "x": 121,
+            "y": 979
           },
           {
             "map": "Shalour Area (carte)",
@@ -5817,8 +5817,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 271,
-            "y": 343
+            "x": 151,
+            "y": 979
           },
           {
             "map": "Shalour Area (carte)",
@@ -5846,8 +5846,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 301,
-            "y": 343
+            "x": 181,
+            "y": 979
           },
           {
             "map": "Shalour Area (carte)",
@@ -5875,8 +5875,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 331,
-            "y": 343
+            "x": 211,
+            "y": 979
           },
           {
             "map": "Shalour Area (carte)",
@@ -5904,8 +5904,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 361,
-            "y": 343
+            "x": 241,
+            "y": 979
           },
           {
             "map": "Shalour Area (carte)",
@@ -5933,8 +5933,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 391,
-            "y": 343
+            "x": 271,
+            "y": 979
           },
           {
             "map": "Shalour Area (carte)",
@@ -5963,7 +5963,7 @@
           {
             "map": "Shalour Area",
             "x": 31,
-            "y": 409
+            "y": 1257
           },
           {
             "map": "Shalour Area (carte)",
@@ -5992,7 +5992,7 @@
           {
             "map": "Shalour Area",
             "x": 61,
-            "y": 409
+            "y": 1257
           },
           {
             "map": "Shalour Area (carte)",
@@ -6020,8 +6020,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 91,
-            "y": 409
+            "x": 52,
+            "y": 1044
           },
           {
             "map": "Shalour Area (carte)",
@@ -6046,8 +6046,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 121,
-            "y": 409
+            "x": 269,
+            "y": 1216
           },
           {
             "map": "Shalour Area (carte)",
@@ -6072,8 +6072,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 151,
-            "y": 409
+            "x": 91,
+            "y": 1257
           },
           {
             "map": "Shalour Area (carte)",
@@ -6101,8 +6101,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 181,
-            "y": 409
+            "x": 121,
+            "y": 1257
           },
           {
             "map": "Shalour Area (carte)",
@@ -6130,8 +6130,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 211,
-            "y": 409
+            "x": 151,
+            "y": 1257
           },
           {
             "map": "Shalour Area (carte)",
@@ -6159,8 +6159,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 241,
-            "y": 409
+            "x": 181,
+            "y": 1257
           },
           {
             "map": "Shalour Area (carte)",
@@ -6188,8 +6188,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 31,
-            "y": 475
+            "x": 126,
+            "y": 1322
           },
           {
             "map": "Shalour Area (carte)",
@@ -6214,8 +6214,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 61,
-            "y": 475
+            "x": 195,
+            "y": 1377
           },
           {
             "map": "Shalour Area (carte)",
@@ -6240,8 +6240,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 91,
-            "y": 475
+            "x": 178,
+            "y": 1494
           },
           {
             "map": "Shalour Area (carte)",
@@ -6266,8 +6266,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 121,
-            "y": 475
+            "x": 435,
+            "y": 1424
           },
           {
             "map": "Shalour Area (carte)",
@@ -6292,8 +6292,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 151,
-            "y": 475
+            "x": 527,
+            "y": 1322
           },
           {
             "map": "Shalour Area (carte)",
@@ -6318,8 +6318,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 181,
-            "y": 475
+            "x": 483,
+            "y": 1494
           },
           {
             "map": "Shalour Area (carte)",
@@ -6344,8 +6344,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 211,
-            "y": 475
+            "x": 398,
+            "y": 1325
           },
           {
             "map": "Shalour Area (carte)",
@@ -6370,8 +6370,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 241,
-            "y": 475
+            "x": 765,
+            "y": 1408
           },
           {
             "map": "Shalour Area (carte)",
@@ -6396,8 +6396,8 @@
         "map_locations": [
           {
             "map": "Shalour Area",
-            "x": 271,
-            "y": 475
+            "x": 161,
+            "y": 1620
           },
           {
             "map": "Shalour Area (carte)",
@@ -6423,7 +6423,7 @@
           {
             "map": "Shalour Area",
             "x": 31,
-            "y": 541
+            "y": 1783
           },
           {
             "map": "Shalour Area (carte)",
@@ -6452,7 +6452,7 @@
           {
             "map": "Shalour Area",
             "x": 61,
-            "y": 541
+            "y": 1783
           },
           {
             "map": "Shalour Area (carte)",
@@ -6481,7 +6481,7 @@
           {
             "map": "Shalour Area",
             "x": 91,
-            "y": 541
+            "y": 1783
           },
           {
             "map": "Shalour Area (carte)",
@@ -6510,7 +6510,7 @@
           {
             "map": "Shalour Area",
             "x": 121,
-            "y": 541
+            "y": 1783
           },
           {
             "map": "Shalour Area (carte)",
@@ -6539,7 +6539,7 @@
           {
             "map": "Shalour Area",
             "x": 151,
-            "y": 541
+            "y": 1783
           },
           {
             "map": "Shalour Area (carte)",
@@ -6568,7 +6568,7 @@
           {
             "map": "Shalour Area",
             "x": 181,
-            "y": 541
+            "y": 1783
           },
           {
             "map": "Shalour Area (carte)",
@@ -6597,7 +6597,7 @@
           {
             "map": "Shalour Area",
             "x": 31,
-            "y": 607
+            "y": 1849
           },
           {
             "map": "Shalour Area (carte)",
@@ -6626,7 +6626,7 @@
           {
             "map": "Shalour Area",
             "x": 61,
-            "y": 607
+            "y": 1849
           },
           {
             "map": "Shalour Area (carte)",
@@ -6655,7 +6655,7 @@
           {
             "map": "Shalour Area",
             "x": 91,
-            "y": 607
+            "y": 1849
           },
           {
             "map": "Shalour Area (carte)",
@@ -6684,7 +6684,7 @@
           {
             "map": "Shalour Area",
             "x": 121,
-            "y": 607
+            "y": 1849
           },
           {
             "map": "Shalour Area (carte)",
@@ -6713,7 +6713,7 @@
           {
             "map": "Shalour Area",
             "x": 31,
-            "y": 673
+            "y": 1915
           },
           {
             "map": "Shalour Area (carte)",
@@ -6742,7 +6742,7 @@
           {
             "map": "Shalour Area",
             "x": 61,
-            "y": 673
+            "y": 1915
           },
           {
             "map": "Shalour Area (carte)",
@@ -6771,7 +6771,7 @@
           {
             "map": "Shalour Area",
             "x": 91,
-            "y": 673
+            "y": 1915
           },
           {
             "map": "Shalour Area (carte)",
@@ -6800,7 +6800,7 @@
           {
             "map": "Shalour Area",
             "x": 121,
-            "y": 673
+            "y": 1915
           },
           {
             "map": "Shalour Area (carte)",
@@ -6860,7 +6860,7 @@
           {
             "map": "Coumarine Area",
             "x": 31,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Coumarine Area (carte)",
@@ -6886,7 +6886,7 @@
           {
             "map": "Coumarine Area",
             "x": 61,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Coumarine Area (carte)",
@@ -6912,7 +6912,7 @@
           {
             "map": "Coumarine Area",
             "x": 91,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Coumarine Area (carte)",
@@ -6938,7 +6938,7 @@
           {
             "map": "Coumarine Area",
             "x": 121,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Coumarine Area (carte)",
@@ -6964,7 +6964,7 @@
           {
             "map": "Coumarine Area",
             "x": 151,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Coumarine Area (carte)",
@@ -6993,7 +6993,7 @@
           {
             "map": "Coumarine Area",
             "x": 181,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7022,7 +7022,7 @@
           {
             "map": "Coumarine Area",
             "x": 211,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7050,8 +7050,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 241,
-            "y": 145
+            "x": 161,
+            "y": 230
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7077,7 +7077,7 @@
           {
             "map": "Coumarine Area",
             "x": 31,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7103,7 +7103,7 @@
           {
             "map": "Coumarine Area",
             "x": 61,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7132,7 +7132,7 @@
           {
             "map": "Coumarine Area",
             "x": 91,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7161,7 +7161,7 @@
           {
             "map": "Coumarine Area",
             "x": 121,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7189,8 +7189,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 151,
-            "y": 211
+            "x": 128,
+            "y": 556
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7215,8 +7215,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 181,
-            "y": 211
+            "x": 137,
+            "y": 597
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7241,8 +7241,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 211,
-            "y": 211
+            "x": 112,
+            "y": 422
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7267,8 +7267,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 241,
-            "y": 211
+            "x": 209,
+            "y": 517
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7293,8 +7293,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 271,
-            "y": 211
+            "x": 190,
+            "y": 442
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7319,8 +7319,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 301,
-            "y": 211
+            "x": 125,
+            "y": 578
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7345,8 +7345,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 331,
-            "y": 211
+            "x": 151,
+            "y": 635
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7374,8 +7374,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 361,
-            "y": 211
+            "x": 181,
+            "y": 635
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7403,8 +7403,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 391,
-            "y": 211
+            "x": 211,
+            "y": 635
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7432,8 +7432,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 421,
-            "y": 211
+            "x": 241,
+            "y": 635
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7461,8 +7461,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 451,
-            "y": 211
+            "x": 271,
+            "y": 635
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7490,8 +7490,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 481,
-            "y": 211
+            "x": 301,
+            "y": 635
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7520,7 +7520,7 @@
           {
             "map": "Coumarine Area",
             "x": 31,
-            "y": 277
+            "y": 701
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7546,7 +7546,7 @@
           {
             "map": "Coumarine Area",
             "x": 31,
-            "y": 343
+            "y": 979
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7572,7 +7572,7 @@
           {
             "map": "Coumarine Area",
             "x": 61,
-            "y": 343
+            "y": 979
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7601,7 +7601,7 @@
           {
             "map": "Coumarine Area",
             "x": 91,
-            "y": 343
+            "y": 979
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7630,7 +7630,7 @@
           {
             "map": "Coumarine Area",
             "x": 121,
-            "y": 343
+            "y": 979
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7659,7 +7659,7 @@
           {
             "map": "Coumarine Area",
             "x": 151,
-            "y": 343
+            "y": 979
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7687,8 +7687,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 181,
-            "y": 343
+            "x": 87,
+            "y": 791
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7713,8 +7713,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 211,
-            "y": 343
+            "x": 234,
+            "y": 766
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7739,8 +7739,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 241,
-            "y": 343
+            "x": 148,
+            "y": 872
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7765,8 +7765,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 271,
-            "y": 343
+            "x": 102,
+            "y": 938
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7791,8 +7791,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 301,
-            "y": 343
+            "x": 181,
+            "y": 979
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7820,8 +7820,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 331,
-            "y": 343
+            "x": 211,
+            "y": 979
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7849,8 +7849,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 361,
-            "y": 343
+            "x": 241,
+            "y": 979
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7878,8 +7878,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 391,
-            "y": 343
+            "x": 271,
+            "y": 979
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7907,8 +7907,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 421,
-            "y": 343
+            "x": 301,
+            "y": 979
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7936,8 +7936,8 @@
         "map_locations": [
           {
             "map": "Coumarine Area",
-            "x": 451,
-            "y": 343
+            "x": 331,
+            "y": 979
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7966,7 +7966,7 @@
           {
             "map": "Coumarine Area",
             "x": 31,
-            "y": 409
+            "y": 1045
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7995,7 +7995,7 @@
           {
             "map": "Coumarine Area",
             "x": 61,
-            "y": 409
+            "y": 1045
           },
           {
             "map": "Coumarine Area (carte)",
@@ -8024,7 +8024,7 @@
           {
             "map": "Coumarine Area",
             "x": 91,
-            "y": 409
+            "y": 1045
           },
           {
             "map": "Coumarine Area (carte)",
@@ -8053,7 +8053,7 @@
           {
             "map": "Coumarine Area",
             "x": 121,
-            "y": 409
+            "y": 1045
           },
           {
             "map": "Coumarine Area (carte)",
@@ -8217,7 +8217,7 @@
           {
             "map": "Lumiose Area",
             "x": 31,
-            "y": 211
+            "y": 423
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8246,7 +8246,7 @@
           {
             "map": "Lumiose Area",
             "x": 61,
-            "y": 211
+            "y": 423
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8275,7 +8275,7 @@
           {
             "map": "Lumiose Area",
             "x": 91,
-            "y": 211
+            "y": 423
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8304,7 +8304,7 @@
           {
             "map": "Lumiose Area",
             "x": 121,
-            "y": 211
+            "y": 423
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8333,7 +8333,7 @@
           {
             "map": "Lumiose Area",
             "x": 151,
-            "y": 211
+            "y": 423
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8362,7 +8362,7 @@
           {
             "map": "Lumiose Area",
             "x": 181,
-            "y": 211
+            "y": 423
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8391,7 +8391,7 @@
           {
             "map": "Lumiose Area",
             "x": 211,
-            "y": 211
+            "y": 423
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8420,7 +8420,7 @@
           {
             "map": "Lumiose Area",
             "x": 241,
-            "y": 211
+            "y": 423
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8449,7 +8449,7 @@
           {
             "map": "Lumiose Area",
             "x": 271,
-            "y": 211
+            "y": 423
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8478,7 +8478,7 @@
           {
             "map": "Lumiose Area",
             "x": 301,
-            "y": 211
+            "y": 423
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8506,8 +8506,8 @@
         "map_locations": [
           {
             "map": "Lumiose Area",
-            "x": 331,
-            "y": 211
+            "x": 239,
+            "y": 210
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8532,8 +8532,8 @@
         "map_locations": [
           {
             "map": "Lumiose Area",
-            "x": 361,
-            "y": 211
+            "x": 107,
+            "y": 306
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8558,8 +8558,8 @@
         "map_locations": [
           {
             "map": "Lumiose Area",
-            "x": 391,
-            "y": 211
+            "x": 67,
+            "y": 275
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8584,8 +8584,8 @@
         "map_locations": [
           {
             "map": "Lumiose Area",
-            "x": 421,
-            "y": 211
+            "x": 254,
+            "y": 329
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8610,8 +8610,8 @@
         "map_locations": [
           {
             "map": "Lumiose Area",
-            "x": 451,
-            "y": 211
+            "x": 78,
+            "y": 358
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8636,8 +8636,8 @@
         "map_locations": [
           {
             "map": "Lumiose Area",
-            "x": 481,
-            "y": 211
+            "x": 174,
+            "y": 382
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8662,8 +8662,8 @@
         "map_locations": [
           {
             "map": "Lumiose Area",
-            "x": 31,
-            "y": 277
+            "x": 161,
+            "y": 574
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8689,7 +8689,7 @@
           {
             "map": "Lumiose Area",
             "x": 31,
-            "y": 343
+            "y": 737
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8718,7 +8718,7 @@
           {
             "map": "Lumiose Area",
             "x": 61,
-            "y": 343
+            "y": 737
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8747,7 +8747,7 @@
           {
             "map": "Lumiose Area",
             "x": 31,
-            "y": 409
+            "y": 803
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8776,7 +8776,7 @@
           {
             "map": "Lumiose Area",
             "x": 61,
-            "y": 409
+            "y": 803
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8805,7 +8805,7 @@
           {
             "map": "Lumiose Area",
             "x": 91,
-            "y": 409
+            "y": 803
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8834,7 +8834,7 @@
           {
             "map": "Lumiose Area",
             "x": 31,
-            "y": 475
+            "y": 869
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8863,7 +8863,7 @@
           {
             "map": "Lumiose Area",
             "x": 61,
-            "y": 475
+            "y": 869
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8892,7 +8892,7 @@
           {
             "map": "Lumiose Area",
             "x": 91,
-            "y": 475
+            "y": 869
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8921,7 +8921,7 @@
           {
             "map": "Lumiose Area",
             "x": 121,
-            "y": 475
+            "y": 869
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8950,7 +8950,7 @@
           {
             "map": "Lumiose Area",
             "x": 151,
-            "y": 475
+            "y": 869
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8979,7 +8979,7 @@
           {
             "map": "Lumiose Area",
             "x": 181,
-            "y": 475
+            "y": 869
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9008,7 +9008,7 @@
           {
             "map": "Lumiose Area",
             "x": 31,
-            "y": 541
+            "y": 935
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9037,7 +9037,7 @@
           {
             "map": "Lumiose Area",
             "x": 61,
-            "y": 541
+            "y": 935
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9066,7 +9066,7 @@
           {
             "map": "Lumiose Area",
             "x": 91,
-            "y": 541
+            "y": 935
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9095,7 +9095,7 @@
           {
             "map": "Lumiose Area",
             "x": 31,
-            "y": 607
+            "y": 1001
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9124,7 +9124,7 @@
           {
             "map": "Lumiose Area",
             "x": 61,
-            "y": 607
+            "y": 1001
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9153,7 +9153,7 @@
           {
             "map": "Lumiose Area",
             "x": 91,
-            "y": 607
+            "y": 1001
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9182,7 +9182,7 @@
           {
             "map": "Lumiose Area",
             "x": 31,
-            "y": 673
+            "y": 1067
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9211,7 +9211,7 @@
           {
             "map": "Lumiose Area",
             "x": 61,
-            "y": 673
+            "y": 1067
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9240,7 +9240,7 @@
           {
             "map": "Lumiose Area",
             "x": 91,
-            "y": 673
+            "y": 1067
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9300,7 +9300,7 @@
           {
             "map": "Laverre Area",
             "x": 31,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Laverre Area (carte)",
@@ -9329,7 +9329,7 @@
           {
             "map": "Laverre Area",
             "x": 61,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Laverre Area (carte)",
@@ -9358,7 +9358,7 @@
           {
             "map": "Laverre Area",
             "x": 91,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Laverre Area (carte)",
@@ -9386,8 +9386,8 @@
         "map_locations": [
           {
             "map": "Laverre Area",
-            "x": 121,
-            "y": 145
+            "x": 189,
+            "y": 222
           },
           {
             "map": "Laverre Area (carte)",
@@ -9412,8 +9412,8 @@
         "map_locations": [
           {
             "map": "Laverre Area",
-            "x": 151,
-            "y": 145
+            "x": 120,
+            "y": 251
           },
           {
             "map": "Laverre Area (carte)",
@@ -9438,8 +9438,8 @@
         "map_locations": [
           {
             "map": "Laverre Area",
-            "x": 181,
-            "y": 145
+            "x": 144,
+            "y": 172
           },
           {
             "map": "Laverre Area (carte)",
@@ -9464,8 +9464,8 @@
         "map_locations": [
           {
             "map": "Laverre Area",
-            "x": 211,
-            "y": 145
+            "x": 175,
+            "y": 144
           },
           {
             "map": "Laverre Area (carte)",
@@ -9490,8 +9490,8 @@
         "map_locations": [
           {
             "map": "Laverre Area",
-            "x": 241,
-            "y": 145
+            "x": 134,
+            "y": 210
           },
           {
             "map": "Laverre Area (carte)",
@@ -9516,8 +9516,8 @@
         "map_locations": [
           {
             "map": "Laverre Area",
-            "x": 271,
-            "y": 145
+            "x": 201,
+            "y": 192
           },
           {
             "map": "Laverre Area (carte)",
@@ -9542,8 +9542,8 @@
         "map_locations": [
           {
             "map": "Laverre Area",
-            "x": 301,
-            "y": 145
+            "x": 177,
+            "y": 316
           },
           {
             "map": "Laverre Area (carte)",
@@ -9568,8 +9568,8 @@
         "map_locations": [
           {
             "map": "Laverre Area",
-            "x": 331,
-            "y": 145
+            "x": 121,
+            "y": 357
           },
           {
             "map": "Laverre Area (carte)",
@@ -9597,8 +9597,8 @@
         "map_locations": [
           {
             "map": "Laverre Area",
-            "x": 361,
-            "y": 145
+            "x": 151,
+            "y": 357
           },
           {
             "map": "Laverre Area (carte)",
@@ -9626,8 +9626,8 @@
         "map_locations": [
           {
             "map": "Laverre Area",
-            "x": 391,
-            "y": 145
+            "x": 181,
+            "y": 357
           },
           {
             "map": "Laverre Area (carte)",
@@ -9655,8 +9655,8 @@
         "map_locations": [
           {
             "map": "Laverre Area",
-            "x": 421,
-            "y": 145
+            "x": 211,
+            "y": 357
           },
           {
             "map": "Laverre Area (carte)",
@@ -9684,8 +9684,8 @@
         "map_locations": [
           {
             "map": "Laverre Area",
-            "x": 451,
-            "y": 145
+            "x": 241,
+            "y": 357
           },
           {
             "map": "Laverre Area (carte)",
@@ -9714,7 +9714,7 @@
           {
             "map": "Laverre Area",
             "x": 31,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Laverre Area (carte)",
@@ -9743,7 +9743,7 @@
           {
             "map": "Laverre Area",
             "x": 61,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Laverre Area (carte)",
@@ -9772,7 +9772,7 @@
           {
             "map": "Laverre Area",
             "x": 91,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Laverre Area (carte)",
@@ -9800,8 +9800,8 @@
         "map_locations": [
           {
             "map": "Laverre Area",
-            "x": 121,
-            "y": 211
+            "x": 161,
+            "y": 508
           },
           {
             "map": "Laverre Area (carte)",
@@ -9827,7 +9827,7 @@
           {
             "map": "Laverre Area",
             "x": 31,
-            "y": 277
+            "y": 701
           },
           {
             "map": "Laverre Area (carte)",
@@ -9856,7 +9856,7 @@
           {
             "map": "Laverre Area",
             "x": 61,
-            "y": 277
+            "y": 701
           },
           {
             "map": "Laverre Area (carte)",
@@ -9885,7 +9885,7 @@
           {
             "map": "Laverre Area",
             "x": 91,
-            "y": 277
+            "y": 701
           },
           {
             "map": "Laverre Area (carte)",
@@ -9914,7 +9914,7 @@
           {
             "map": "Laverre Area",
             "x": 121,
-            "y": 277
+            "y": 701
           },
           {
             "map": "Laverre Area (carte)",
@@ -9974,7 +9974,7 @@
           {
             "map": "Anistar Area",
             "x": 31,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Anistar Area (carte)",
@@ -10003,7 +10003,7 @@
           {
             "map": "Anistar Area",
             "x": 61,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Anistar Area (carte)",
@@ -10032,7 +10032,7 @@
           {
             "map": "Anistar Area",
             "x": 91,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Anistar Area (carte)",
@@ -10061,7 +10061,7 @@
           {
             "map": "Anistar Area",
             "x": 121,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Anistar Area (carte)",
@@ -10089,8 +10089,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 151,
-            "y": 145
+            "x": 292,
+            "y": 224
           },
           {
             "map": "Anistar Area (carte)",
@@ -10115,8 +10115,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 181,
-            "y": 145
+            "x": 30,
+            "y": 235
           },
           {
             "map": "Anistar Area (carte)",
@@ -10141,8 +10141,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 211,
-            "y": 145
+            "x": 332,
+            "y": 151
           },
           {
             "map": "Anistar Area (carte)",
@@ -10167,8 +10167,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 241,
-            "y": 145
+            "x": 573,
+            "y": 308
           },
           {
             "map": "Anistar Area (carte)",
@@ -10193,8 +10193,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 271,
-            "y": 145
+            "x": 594,
+            "y": 235
           },
           {
             "map": "Anistar Area (carte)",
@@ -10220,7 +10220,7 @@
           {
             "map": "Anistar Area",
             "x": 31,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Anistar Area (carte)",
@@ -10249,7 +10249,7 @@
           {
             "map": "Anistar Area",
             "x": 61,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Anistar Area (carte)",
@@ -10278,7 +10278,7 @@
           {
             "map": "Anistar Area",
             "x": 91,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Anistar Area (carte)",
@@ -10307,7 +10307,7 @@
           {
             "map": "Anistar Area",
             "x": 121,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Anistar Area (carte)",
@@ -10336,7 +10336,7 @@
           {
             "map": "Anistar Area",
             "x": 151,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Anistar Area (carte)",
@@ -10364,8 +10364,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 181,
-            "y": 211
+            "x": 96,
+            "y": 438
           },
           {
             "map": "Anistar Area (carte)",
@@ -10390,8 +10390,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 211,
-            "y": 211
+            "x": 30,
+            "y": 493
           },
           {
             "map": "Anistar Area (carte)",
@@ -10416,8 +10416,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 241,
-            "y": 211
+            "x": 122,
+            "y": 502
           },
           {
             "map": "Anistar Area (carte)",
@@ -10442,8 +10442,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 271,
-            "y": 211
+            "x": 202,
+            "y": 438
           },
           {
             "map": "Anistar Area (carte)",
@@ -10468,8 +10468,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 301,
-            "y": 211
+            "x": 81,
+            "y": 542
           },
           {
             "map": "Anistar Area (carte)",
@@ -10494,8 +10494,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 331,
-            "y": 211
+            "x": 205,
+            "y": 487
           },
           {
             "map": "Anistar Area (carte)",
@@ -10520,8 +10520,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 361,
-            "y": 211
+            "x": 292,
+            "y": 516
           },
           {
             "map": "Anistar Area (carte)",
@@ -10546,8 +10546,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 391,
-            "y": 211
+            "x": 254,
+            "y": 464
           },
           {
             "map": "Anistar Area (carte)",
@@ -10572,8 +10572,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 421,
-            "y": 211
+            "x": 182,
+            "y": 577
           },
           {
             "map": "Anistar Area (carte)",
@@ -10598,8 +10598,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 451,
-            "y": 211
+            "x": 181,
+            "y": 635
           },
           {
             "map": "Anistar Area (carte)",
@@ -10627,8 +10627,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 481,
-            "y": 211
+            "x": 211,
+            "y": 635
           },
           {
             "map": "Anistar Area (carte)",
@@ -10656,8 +10656,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 511,
-            "y": 211
+            "x": 241,
+            "y": 635
           },
           {
             "map": "Anistar Area (carte)",
@@ -10685,8 +10685,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 541,
-            "y": 211
+            "x": 271,
+            "y": 635
           },
           {
             "map": "Anistar Area (carte)",
@@ -10714,8 +10714,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 571,
-            "y": 211
+            "x": 301,
+            "y": 635
           },
           {
             "map": "Anistar Area (carte)",
@@ -10743,8 +10743,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 601,
-            "y": 211
+            "x": 331,
+            "y": 635
           },
           {
             "map": "Anistar Area (carte)",
@@ -10772,8 +10772,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 631,
-            "y": 211
+            "x": 361,
+            "y": 635
           },
           {
             "map": "Anistar Area (carte)",
@@ -10801,8 +10801,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 661,
-            "y": 211
+            "x": 391,
+            "y": 635
           },
           {
             "map": "Anistar Area (carte)",
@@ -10831,7 +10831,7 @@
           {
             "map": "Anistar Area",
             "x": 31,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -10860,7 +10860,7 @@
           {
             "map": "Anistar Area",
             "x": 61,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -10889,7 +10889,7 @@
           {
             "map": "Anistar Area",
             "x": 91,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -10918,7 +10918,7 @@
           {
             "map": "Anistar Area",
             "x": 121,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -10946,8 +10946,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 151,
-            "y": 277
+            "x": 260,
+            "y": 700
           },
           {
             "map": "Anistar Area (carte)",
@@ -10972,8 +10972,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 181,
-            "y": 277
+            "x": 248,
+            "y": 872
           },
           {
             "map": "Anistar Area (carte)",
@@ -10998,8 +10998,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 211,
-            "y": 277
+            "x": 140,
+            "y": 855
           },
           {
             "map": "Anistar Area (carte)",
@@ -11024,8 +11024,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 241,
-            "y": 277
+            "x": 61,
+            "y": 707
           },
           {
             "map": "Anistar Area (carte)",
@@ -11050,8 +11050,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 271,
-            "y": 277
+            "x": 151,
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -11079,8 +11079,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 301,
-            "y": 277
+            "x": 181,
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -11108,8 +11108,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 331,
-            "y": 277
+            "x": 211,
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -11137,8 +11137,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 361,
-            "y": 277
+            "x": 241,
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -11166,8 +11166,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 391,
-            "y": 277
+            "x": 271,
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -11195,8 +11195,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 421,
-            "y": 277
+            "x": 301,
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -11224,8 +11224,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 451,
-            "y": 277
+            "x": 331,
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -11253,8 +11253,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 481,
-            "y": 277
+            "x": 361,
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -11282,8 +11282,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 511,
-            "y": 277
+            "x": 391,
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -11311,8 +11311,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 541,
-            "y": 277
+            "x": 421,
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -11340,8 +11340,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 571,
-            "y": 277
+            "x": 451,
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -11369,8 +11369,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 601,
-            "y": 277
+            "x": 481,
+            "y": 913
           },
           {
             "map": "Anistar Area (carte)",
@@ -11399,7 +11399,7 @@
           {
             "map": "Anistar Area",
             "x": 31,
-            "y": 343
+            "y": 1191
           },
           {
             "map": "Anistar Area (carte)",
@@ -11428,7 +11428,7 @@
           {
             "map": "Anistar Area",
             "x": 61,
-            "y": 343
+            "y": 1191
           },
           {
             "map": "Anistar Area (carte)",
@@ -11457,7 +11457,7 @@
           {
             "map": "Anistar Area",
             "x": 91,
-            "y": 343
+            "y": 1191
           },
           {
             "map": "Anistar Area (carte)",
@@ -11485,8 +11485,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 121,
-            "y": 343
+            "x": 161,
+            "y": 1064
           },
           {
             "map": "Anistar Area (carte)",
@@ -11512,7 +11512,7 @@
           {
             "map": "Anistar Area",
             "x": 31,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Anistar Area (carte)",
@@ -11541,7 +11541,7 @@
           {
             "map": "Anistar Area",
             "x": 61,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Anistar Area (carte)",
@@ -11570,7 +11570,7 @@
           {
             "map": "Anistar Area",
             "x": 91,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Anistar Area (carte)",
@@ -11599,7 +11599,7 @@
           {
             "map": "Anistar Area",
             "x": 121,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Anistar Area (carte)",
@@ -11628,7 +11628,7 @@
           {
             "map": "Anistar Area",
             "x": 151,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Anistar Area (carte)",
@@ -11657,7 +11657,7 @@
           {
             "map": "Anistar Area",
             "x": 181,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Anistar Area (carte)",
@@ -11686,7 +11686,7 @@
           {
             "map": "Anistar Area",
             "x": 211,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Anistar Area (carte)",
@@ -11715,7 +11715,7 @@
           {
             "map": "Anistar Area",
             "x": 241,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Anistar Area (carte)",
@@ -11744,7 +11744,7 @@
           {
             "map": "Anistar Area",
             "x": 271,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Anistar Area (carte)",
@@ -11773,7 +11773,7 @@
           {
             "map": "Anistar Area",
             "x": 301,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Anistar Area (carte)",
@@ -11801,8 +11801,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 331,
-            "y": 409
+            "x": 30,
+            "y": 1282
           },
           {
             "map": "Anistar Area (carte)",
@@ -11827,8 +11827,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 361,
-            "y": 409
+            "x": 292,
+            "y": 1401
           },
           {
             "map": "Anistar Area (carte)",
@@ -11853,8 +11853,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 391,
-            "y": 409
+            "x": 463,
+            "y": 1342
           },
           {
             "map": "Anistar Area (carte)",
@@ -11879,8 +11879,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 421,
-            "y": 409
+            "x": 809,
+            "y": 1256
           },
           {
             "map": "Anistar Area (carte)",
@@ -11905,8 +11905,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 451,
-            "y": 409
+            "x": 734,
+            "y": 1364
           },
           {
             "map": "Anistar Area (carte)",
@@ -11931,8 +11931,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 481,
-            "y": 409
+            "x": 690,
+            "y": 1422
           },
           {
             "map": "Anistar Area (carte)",
@@ -11957,8 +11957,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 511,
-            "y": 409
+            "x": 839,
+            "y": 1428
           },
           {
             "map": "Anistar Area (carte)",
@@ -11983,8 +11983,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 541,
-            "y": 409
+            "x": 30,
+            "y": 1477
           },
           {
             "map": "Anistar Area (carte)",
@@ -12009,8 +12009,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 571,
-            "y": 409
+            "x": 292,
+            "y": 1630
           },
           {
             "map": "Anistar Area (carte)",
@@ -12035,8 +12035,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 601,
-            "y": 409
+            "x": 463,
+            "y": 1554
           },
           {
             "map": "Anistar Area (carte)",
@@ -12062,7 +12062,7 @@
           {
             "map": "Anistar Area",
             "x": 31,
-            "y": 475
+            "y": 1959
           },
           {
             "map": "Anistar Area (carte)",
@@ -12091,7 +12091,7 @@
           {
             "map": "Anistar Area",
             "x": 61,
-            "y": 475
+            "y": 1959
           },
           {
             "map": "Anistar Area (carte)",
@@ -12119,8 +12119,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 91,
-            "y": 475
+            "x": 123,
+            "y": 1746
           },
           {
             "map": "Anistar Area (carte)",
@@ -12145,8 +12145,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 121,
-            "y": 475
+            "x": 76,
+            "y": 1918
           },
           {
             "map": "Anistar Area (carte)",
@@ -12171,8 +12171,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 151,
-            "y": 475
+            "x": 245,
+            "y": 1855
           },
           {
             "map": "Anistar Area (carte)",
@@ -12197,8 +12197,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 181,
-            "y": 475
+            "x": 91,
+            "y": 1959
           },
           {
             "map": "Anistar Area (carte)",
@@ -12227,7 +12227,7 @@
           {
             "map": "Anistar Area",
             "x": 31,
-            "y": 541
+            "y": 2025
           },
           {
             "map": "Anistar Area (carte)",
@@ -12256,7 +12256,7 @@
           {
             "map": "Anistar Area",
             "x": 61,
-            "y": 541
+            "y": 2025
           },
           {
             "map": "Anistar Area (carte)",
@@ -12285,7 +12285,7 @@
           {
             "map": "Anistar Area",
             "x": 91,
-            "y": 541
+            "y": 2025
           },
           {
             "map": "Anistar Area (carte)",
@@ -12314,7 +12314,7 @@
           {
             "map": "Anistar Area",
             "x": 121,
-            "y": 541
+            "y": 2025
           },
           {
             "map": "Anistar Area (carte)",
@@ -12342,8 +12342,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 31,
-            "y": 607
+            "x": 224,
+            "y": 2221
           },
           {
             "map": "Anistar Area (carte)",
@@ -12368,8 +12368,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 61,
-            "y": 607
+            "x": 178,
+            "y": 2115
           },
           {
             "map": "Anistar Area (carte)",
@@ -12394,8 +12394,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 91,
-            "y": 607
+            "x": 168,
+            "y": 2090
           },
           {
             "map": "Anistar Area (carte)",
@@ -12420,8 +12420,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 121,
-            "y": 607
+            "x": 168,
+            "y": 2262
           },
           {
             "map": "Anistar Area (carte)",
@@ -12446,8 +12446,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 151,
-            "y": 607
+            "x": 97,
+            "y": 2231
           },
           {
             "map": "Anistar Area (carte)",
@@ -12472,8 +12472,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 181,
-            "y": 607
+            "x": 31,
+            "y": 2303
           },
           {
             "map": "Anistar Area (carte)",
@@ -12501,8 +12501,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 211,
-            "y": 607
+            "x": 61,
+            "y": 2303
           },
           {
             "map": "Anistar Area (carte)",
@@ -12530,8 +12530,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 241,
-            "y": 607
+            "x": 91,
+            "y": 2303
           },
           {
             "map": "Anistar Area (carte)",
@@ -12559,8 +12559,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 271,
-            "y": 607
+            "x": 121,
+            "y": 2303
           },
           {
             "map": "Anistar Area (carte)",
@@ -12588,8 +12588,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 301,
-            "y": 607
+            "x": 151,
+            "y": 2303
           },
           {
             "map": "Anistar Area (carte)",
@@ -12617,8 +12617,8 @@
         "map_locations": [
           {
             "map": "Anistar Area",
-            "x": 331,
-            "y": 607
+            "x": 181,
+            "y": 2303
           },
           {
             "map": "Anistar Area (carte)",
@@ -12647,7 +12647,7 @@
           {
             "map": "Anistar Area",
             "x": 31,
-            "y": 673
+            "y": 2369
           },
           {
             "map": "Anistar Area (carte)",
@@ -12676,7 +12676,7 @@
           {
             "map": "Anistar Area",
             "x": 61,
-            "y": 673
+            "y": 2369
           },
           {
             "map": "Anistar Area (carte)",
@@ -12705,7 +12705,7 @@
           {
             "map": "Anistar Area",
             "x": 91,
-            "y": 673
+            "y": 2369
           },
           {
             "map": "Anistar Area (carte)",
@@ -12734,7 +12734,7 @@
           {
             "map": "Anistar Area",
             "x": 121,
-            "y": 673
+            "y": 2369
           },
           {
             "map": "Anistar Area (carte)",
@@ -12763,7 +12763,7 @@
           {
             "map": "Anistar Area",
             "x": 151,
-            "y": 673
+            "y": 2369
           },
           {
             "map": "Anistar Area (carte)",
@@ -12792,7 +12792,7 @@
           {
             "map": "Anistar Area",
             "x": 31,
-            "y": 739
+            "y": 2435
           },
           {
             "map": "Anistar Area (carte)",
@@ -12821,7 +12821,7 @@
           {
             "map": "Anistar Area",
             "x": 61,
-            "y": 739
+            "y": 2435
           },
           {
             "map": "Anistar Area (carte)",
@@ -12850,7 +12850,7 @@
           {
             "map": "Anistar Area",
             "x": 91,
-            "y": 739
+            "y": 2435
           },
           {
             "map": "Anistar Area (carte)",
@@ -12879,7 +12879,7 @@
           {
             "map": "Anistar Area",
             "x": 121,
-            "y": 739
+            "y": 2435
           },
           {
             "map": "Anistar Area (carte)",
@@ -12908,7 +12908,7 @@
           {
             "map": "Anistar Area",
             "x": 31,
-            "y": 805
+            "y": 2501
           },
           {
             "map": "Anistar Area (carte)",
@@ -12937,7 +12937,7 @@
           {
             "map": "Anistar Area",
             "x": 61,
-            "y": 805
+            "y": 2501
           },
           {
             "map": "Anistar Area (carte)",
@@ -12966,7 +12966,7 @@
           {
             "map": "Anistar Area",
             "x": 91,
-            "y": 805
+            "y": 2501
           },
           {
             "map": "Anistar Area (carte)",
@@ -12995,7 +12995,7 @@
           {
             "map": "Anistar Area",
             "x": 31,
-            "y": 871
+            "y": 2567
           },
           {
             "map": "Anistar Area (carte)",
@@ -13024,7 +13024,7 @@
           {
             "map": "Anistar Area",
             "x": 61,
-            "y": 871
+            "y": 2567
           },
           {
             "map": "Anistar Area (carte)",
@@ -13053,7 +13053,7 @@
           {
             "map": "Anistar Area",
             "x": 91,
-            "y": 871
+            "y": 2567
           },
           {
             "map": "Anistar Area (carte)",
@@ -13082,7 +13082,7 @@
           {
             "map": "Anistar Area",
             "x": 121,
-            "y": 871
+            "y": 2567
           },
           {
             "map": "Anistar Area (carte)",
@@ -13111,7 +13111,7 @@
           {
             "map": "Anistar Area",
             "x": 31,
-            "y": 937
+            "y": 2633
           },
           {
             "map": "Anistar Area (carte)",
@@ -13140,7 +13140,7 @@
           {
             "map": "Anistar Area",
             "x": 61,
-            "y": 937
+            "y": 2633
           },
           {
             "map": "Anistar Area (carte)",
@@ -13169,7 +13169,7 @@
           {
             "map": "Anistar Area",
             "x": 91,
-            "y": 937
+            "y": 2633
           },
           {
             "map": "Anistar Area (carte)",
@@ -13198,7 +13198,7 @@
           {
             "map": "Anistar Area",
             "x": 31,
-            "y": 1003
+            "y": 2699
           },
           {
             "map": "Anistar Area (carte)",
@@ -13227,7 +13227,7 @@
           {
             "map": "Anistar Area",
             "x": 61,
-            "y": 1003
+            "y": 2699
           },
           {
             "map": "Anistar Area (carte)",
@@ -13256,7 +13256,7 @@
           {
             "map": "Anistar Area",
             "x": 91,
-            "y": 1003
+            "y": 2699
           },
           {
             "map": "Anistar Area (carte)",
@@ -13285,7 +13285,7 @@
           {
             "map": "Anistar Area",
             "x": 121,
-            "y": 1003
+            "y": 2699
           },
           {
             "map": "Anistar Area (carte)",
@@ -13345,7 +13345,7 @@
           {
             "map": "Snowbelle Area",
             "x": 31,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13371,7 +13371,7 @@
           {
             "map": "Snowbelle Area",
             "x": 61,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13400,7 +13400,7 @@
           {
             "map": "Snowbelle Area",
             "x": 91,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13429,7 +13429,7 @@
           {
             "map": "Snowbelle Area",
             "x": 121,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13458,7 +13458,7 @@
           {
             "map": "Snowbelle Area",
             "x": 151,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13487,7 +13487,7 @@
           {
             "map": "Snowbelle Area",
             "x": 181,
-            "y": 145
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13515,8 +13515,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 211,
-            "y": 145
+            "x": 198,
+            "y": 249
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13541,8 +13541,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 241,
-            "y": 145
+            "x": 229,
+            "y": 277
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13567,8 +13567,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 271,
-            "y": 145
+            "x": 128,
+            "y": 316
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13593,8 +13593,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 301,
-            "y": 145
+            "x": 92,
+            "y": 210
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13619,8 +13619,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 331,
-            "y": 145
+            "x": 149,
+            "y": 144
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13645,8 +13645,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 361,
-            "y": 145
+            "x": 177,
+            "y": 195
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13671,8 +13671,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 391,
-            "y": 145
+            "x": 211,
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13700,8 +13700,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 421,
-            "y": 145
+            "x": 241,
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13729,8 +13729,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 451,
-            "y": 145
+            "x": 271,
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13758,8 +13758,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 481,
-            "y": 145
+            "x": 301,
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13787,8 +13787,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 511,
-            "y": 145
+            "x": 331,
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13816,8 +13816,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 541,
-            "y": 145
+            "x": 361,
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13845,8 +13845,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 571,
-            "y": 145
+            "x": 391,
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13874,8 +13874,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 601,
-            "y": 145
+            "x": 421,
+            "y": 357
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13904,7 +13904,7 @@
           {
             "map": "Snowbelle Area",
             "x": 31,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13929,8 +13929,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 61,
-            "y": 211
+            "x": 30,
+            "y": 540
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13955,8 +13955,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 91,
-            "y": 211
+            "x": 292,
+            "y": 475
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -13981,8 +13981,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 121,
-            "y": 211
+            "x": 463,
+            "y": 508
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14007,8 +14007,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 151,
-            "y": 211
+            "x": 765,
+            "y": 508
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14034,7 +14034,7 @@
           {
             "map": "Snowbelle Area",
             "x": 31,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14063,7 +14063,7 @@
           {
             "map": "Snowbelle Area",
             "x": 61,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14092,7 +14092,7 @@
           {
             "map": "Snowbelle Area",
             "x": 91,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14121,7 +14121,7 @@
           {
             "map": "Snowbelle Area",
             "x": 121,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14149,8 +14149,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 151,
-            "y": 277
+            "x": 57,
+            "y": 822
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14175,8 +14175,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 181,
-            "y": 277
+            "x": 183,
+            "y": 700
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14201,8 +14201,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 211,
-            "y": 277
+            "x": 248,
+            "y": 810
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14227,8 +14227,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 241,
-            "y": 277
+            "x": 264,
+            "y": 872
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14253,8 +14253,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 271,
-            "y": 277
+            "x": 151,
+            "y": 913
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14282,8 +14282,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 301,
-            "y": 277
+            "x": 181,
+            "y": 913
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14311,8 +14311,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 331,
-            "y": 277
+            "x": 211,
+            "y": 913
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14340,8 +14340,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 361,
-            "y": 277
+            "x": 241,
+            "y": 913
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14369,8 +14369,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 391,
-            "y": 277
+            "x": 271,
+            "y": 913
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14398,8 +14398,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 421,
-            "y": 277
+            "x": 301,
+            "y": 913
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14428,7 +14428,7 @@
           {
             "map": "Snowbelle Area",
             "x": 31,
-            "y": 343
+            "y": 1403
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14457,7 +14457,7 @@
           {
             "map": "Snowbelle Area",
             "x": 61,
-            "y": 343
+            "y": 1403
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14486,7 +14486,7 @@
           {
             "map": "Snowbelle Area",
             "x": 91,
-            "y": 343
+            "y": 1403
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14515,7 +14515,7 @@
           {
             "map": "Snowbelle Area",
             "x": 121,
-            "y": 343
+            "y": 1403
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14544,7 +14544,7 @@
           {
             "map": "Snowbelle Area",
             "x": 151,
-            "y": 343
+            "y": 1403
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14573,7 +14573,7 @@
           {
             "map": "Snowbelle Area",
             "x": 181,
-            "y": 343
+            "y": 1403
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14602,7 +14602,7 @@
           {
             "map": "Snowbelle Area",
             "x": 211,
-            "y": 343
+            "y": 1403
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14631,7 +14631,7 @@
           {
             "map": "Snowbelle Area",
             "x": 241,
-            "y": 343
+            "y": 1403
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14660,7 +14660,7 @@
           {
             "map": "Snowbelle Area",
             "x": 271,
-            "y": 343
+            "y": 1403
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14688,8 +14688,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 301,
-            "y": 343
+            "x": 195,
+            "y": 1034
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14714,8 +14714,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 331,
-            "y": 343
+            "x": 31,
+            "y": 1150
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14740,8 +14740,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 361,
-            "y": 343
+            "x": 95,
+            "y": 1082
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14766,8 +14766,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 391,
-            "y": 343
+            "x": 291,
+            "y": 978
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14792,8 +14792,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 421,
-            "y": 343
+            "x": 361,
+            "y": 1110
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14818,8 +14818,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 451,
-            "y": 343
+            "x": 367,
+            "y": 984
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14844,8 +14844,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 481,
-            "y": 343
+            "x": 482,
+            "y": 978
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14870,8 +14870,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 511,
-            "y": 343
+            "x": 564,
+            "y": 1062
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14896,8 +14896,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 541,
-            "y": 343
+            "x": 473,
+            "y": 1150
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14922,8 +14922,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 571,
-            "y": 343
+            "x": 482,
+            "y": 1074
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14948,8 +14948,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 601,
-            "y": 343
+            "x": 659,
+            "y": 978
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14974,8 +14974,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 631,
-            "y": 343
+            "x": 161,
+            "y": 1276
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15000,8 +15000,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 661,
-            "y": 343
+            "x": 463,
+            "y": 1276
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15026,8 +15026,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 691,
-            "y": 343
+            "x": 684,
+            "y": 1150
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15052,8 +15052,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 721,
-            "y": 343
+            "x": 870,
+            "y": 1107
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15079,7 +15079,7 @@
           {
             "map": "Snowbelle Area",
             "x": 31,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15108,7 +15108,7 @@
           {
             "map": "Snowbelle Area",
             "x": 61,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15137,7 +15137,7 @@
           {
             "map": "Snowbelle Area",
             "x": 91,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15166,7 +15166,7 @@
           {
             "map": "Snowbelle Area",
             "x": 121,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15195,7 +15195,7 @@
           {
             "map": "Snowbelle Area",
             "x": 151,
-            "y": 409
+            "y": 1681
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15223,8 +15223,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 181,
-            "y": 409
+            "x": 137,
+            "y": 1468
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15249,8 +15249,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 211,
-            "y": 409
+            "x": 172,
+            "y": 1561
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15275,8 +15275,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 241,
-            "y": 409
+            "x": 184,
+            "y": 1640
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15302,7 +15302,7 @@
           {
             "map": "Snowbelle Area",
             "x": 31,
-            "y": 475
+            "y": 1959
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15331,7 +15331,7 @@
           {
             "map": "Snowbelle Area",
             "x": 61,
-            "y": 475
+            "y": 1959
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15360,7 +15360,7 @@
           {
             "map": "Snowbelle Area",
             "x": 91,
-            "y": 475
+            "y": 1959
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15388,8 +15388,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 121,
-            "y": 475
+            "x": 161,
+            "y": 1832
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15415,7 +15415,7 @@
           {
             "map": "Snowbelle Area",
             "x": 31,
-            "y": 541
+            "y": 2237
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15444,7 +15444,7 @@
           {
             "map": "Snowbelle Area",
             "x": 61,
-            "y": 541
+            "y": 2237
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15473,7 +15473,7 @@
           {
             "map": "Snowbelle Area",
             "x": 91,
-            "y": 541
+            "y": 2237
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15502,7 +15502,7 @@
           {
             "map": "Snowbelle Area",
             "x": 121,
-            "y": 541
+            "y": 2237
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15531,7 +15531,7 @@
           {
             "map": "Snowbelle Area",
             "x": 151,
-            "y": 541
+            "y": 2237
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15559,8 +15559,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 181,
-            "y": 541
+            "x": 292,
+            "y": 2067
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15585,8 +15585,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 211,
-            "y": 541
+            "x": 181,
+            "y": 2100
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15611,8 +15611,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 241,
-            "y": 541
+            "x": 131,
+            "y": 2147
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15637,8 +15637,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 271,
-            "y": 541
+            "x": 30,
+            "y": 2046
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15663,8 +15663,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 301,
-            "y": 541
+            "x": 159,
+            "y": 2173
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15689,8 +15689,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 331,
-            "y": 541
+            "x": 181,
+            "y": 2237
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15718,8 +15718,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 361,
-            "y": 541
+            "x": 211,
+            "y": 2237
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15747,8 +15747,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 391,
-            "y": 541
+            "x": 241,
+            "y": 2237
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15776,8 +15776,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 421,
-            "y": 541
+            "x": 271,
+            "y": 2237
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15805,8 +15805,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 451,
-            "y": 541
+            "x": 301,
+            "y": 2237
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15835,7 +15835,7 @@
           {
             "map": "Snowbelle Area",
             "x": 31,
-            "y": 607
+            "y": 2515
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15864,7 +15864,7 @@
           {
             "map": "Snowbelle Area",
             "x": 61,
-            "y": 607
+            "y": 2515
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15893,7 +15893,7 @@
           {
             "map": "Snowbelle Area",
             "x": 91,
-            "y": 607
+            "y": 2515
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15921,8 +15921,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 121,
-            "y": 607
+            "x": 292,
+            "y": 2453
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15947,8 +15947,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 151,
-            "y": 607
+            "x": 124,
+            "y": 2343
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15973,8 +15973,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 181,
-            "y": 607
+            "x": 56,
+            "y": 2369
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15999,8 +15999,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 211,
-            "y": 607
+            "x": 30,
+            "y": 2322
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16026,7 +16026,7 @@
           {
             "map": "Snowbelle Area",
             "x": 31,
-            "y": 673
+            "y": 2581
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16054,8 +16054,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 31,
-            "y": 739
+            "x": 247,
+            "y": 2706
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16080,8 +16080,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 61,
-            "y": 739
+            "x": 75,
+            "y": 2790
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16106,8 +16106,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 91,
-            "y": 739
+            "x": 156,
+            "y": 2787
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16132,8 +16132,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 121,
-            "y": 739
+            "x": 189,
+            "y": 2818
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16158,8 +16158,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 151,
-            "y": 739
+            "x": 159,
+            "y": 2646
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16184,8 +16184,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 181,
-            "y": 739
+            "x": 31,
+            "y": 2859
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16213,8 +16213,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 211,
-            "y": 739
+            "x": 61,
+            "y": 2859
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16242,8 +16242,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 241,
-            "y": 739
+            "x": 91,
+            "y": 2859
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16271,8 +16271,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 271,
-            "y": 739
+            "x": 121,
+            "y": 2859
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16300,8 +16300,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 301,
-            "y": 739
+            "x": 151,
+            "y": 2859
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16329,8 +16329,8 @@
         "map_locations": [
           {
             "map": "Snowbelle Area",
-            "x": 31,
-            "y": 805
+            "x": 161,
+            "y": 3010
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16356,7 +16356,7 @@
           {
             "map": "Snowbelle Area",
             "x": 31,
-            "y": 871
+            "y": 3173
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16385,7 +16385,7 @@
           {
             "map": "Snowbelle Area",
             "x": 61,
-            "y": 871
+            "y": 3173
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16414,7 +16414,7 @@
           {
             "map": "Snowbelle Area",
             "x": 91,
-            "y": 871
+            "y": 3173
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16443,7 +16443,7 @@
           {
             "map": "Snowbelle Area",
             "x": 121,
-            "y": 871
+            "y": 3173
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16472,7 +16472,7 @@
           {
             "map": "Snowbelle Area",
             "x": 31,
-            "y": 937
+            "y": 3239
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16501,7 +16501,7 @@
           {
             "map": "Snowbelle Area",
             "x": 61,
-            "y": 937
+            "y": 3239
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16530,7 +16530,7 @@
           {
             "map": "Snowbelle Area",
             "x": 91,
-            "y": 937
+            "y": 3239
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16559,7 +16559,7 @@
           {
             "map": "Snowbelle Area",
             "x": 121,
-            "y": 937
+            "y": 3239
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16588,7 +16588,7 @@
           {
             "map": "Snowbelle Area",
             "x": 151,
-            "y": 937
+            "y": 3239
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16617,7 +16617,7 @@
           {
             "map": "Snowbelle Area",
             "x": 181,
-            "y": 937
+            "y": 3239
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16646,7 +16646,7 @@
           {
             "map": "Snowbelle Area",
             "x": 211,
-            "y": 937
+            "y": 3239
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16675,7 +16675,7 @@
           {
             "map": "Snowbelle Area",
             "x": 31,
-            "y": 1003
+            "y": 3305
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16704,7 +16704,7 @@
           {
             "map": "Snowbelle Area",
             "x": 61,
-            "y": 1003
+            "y": 3305
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16733,7 +16733,7 @@
           {
             "map": "Snowbelle Area",
             "x": 91,
-            "y": 1003
+            "y": 3305
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16762,7 +16762,7 @@
           {
             "map": "Snowbelle Area",
             "x": 121,
-            "y": 1003
+            "y": 3305
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16791,7 +16791,7 @@
           {
             "map": "Snowbelle Area",
             "x": 151,
-            "y": 1003
+            "y": 3305
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16820,7 +16820,7 @@
           {
             "map": "Snowbelle Area",
             "x": 31,
-            "y": 1069
+            "y": 3371
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16849,7 +16849,7 @@
           {
             "map": "Snowbelle Area",
             "x": 61,
-            "y": 1069
+            "y": 3371
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16878,7 +16878,7 @@
           {
             "map": "Snowbelle Area",
             "x": 91,
-            "y": 1069
+            "y": 3371
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16907,7 +16907,7 @@
           {
             "map": "Snowbelle Area",
             "x": 121,
-            "y": 1069
+            "y": 3371
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16936,7 +16936,7 @@
           {
             "map": "Snowbelle Area",
             "x": 151,
-            "y": 1069
+            "y": 3371
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -17112,7 +17112,7 @@
           {
             "map": "Victory Road",
             "x": 31,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Victory Road (carte)",
@@ -17141,7 +17141,7 @@
           {
             "map": "Victory Road",
             "x": 61,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Victory Road (carte)",
@@ -17170,7 +17170,7 @@
           {
             "map": "Victory Road",
             "x": 91,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Victory Road (carte)",
@@ -17199,7 +17199,7 @@
           {
             "map": "Victory Road",
             "x": 121,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Victory Road (carte)",
@@ -17228,7 +17228,7 @@
           {
             "map": "Victory Road",
             "x": 151,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Victory Road (carte)",
@@ -17257,7 +17257,7 @@
           {
             "map": "Victory Road",
             "x": 181,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Victory Road (carte)",
@@ -17286,7 +17286,7 @@
           {
             "map": "Victory Road",
             "x": 211,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Victory Road (carte)",
@@ -17315,7 +17315,7 @@
           {
             "map": "Victory Road",
             "x": 241,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Victory Road (carte)",
@@ -17344,7 +17344,7 @@
           {
             "map": "Victory Road",
             "x": 271,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Victory Road (carte)",
@@ -17373,7 +17373,7 @@
           {
             "map": "Victory Road",
             "x": 301,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Victory Road (carte)",
@@ -17402,7 +17402,7 @@
           {
             "map": "Victory Road",
             "x": 331,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Victory Road (carte)",
@@ -17431,7 +17431,7 @@
           {
             "map": "Victory Road",
             "x": 361,
-            "y": 211
+            "y": 635
           },
           {
             "map": "Victory Road (carte)",
@@ -17459,8 +17459,8 @@
         "map_locations": [
           {
             "map": "Victory Road",
-            "x": 391,
-            "y": 211
+            "x": 155,
+            "y": 382
           },
           {
             "map": "Victory Road (carte)",
@@ -17485,8 +17485,8 @@
         "map_locations": [
           {
             "map": "Victory Road",
-            "x": 421,
-            "y": 211
+            "x": 166,
+            "y": 210
           },
           {
             "map": "Victory Road (carte)",
@@ -17511,8 +17511,8 @@
         "map_locations": [
           {
             "map": "Victory Road",
-            "x": 451,
-            "y": 211
+            "x": 463,
+            "y": 296
           },
           {
             "map": "Victory Road (carte)",
@@ -17537,8 +17537,8 @@
         "map_locations": [
           {
             "map": "Victory Road",
-            "x": 481,
-            "y": 211
+            "x": 765,
+            "y": 296
           },
           {
             "map": "Victory Road (carte)",
@@ -17563,8 +17563,8 @@
         "map_locations": [
           {
             "map": "Victory Road",
-            "x": 511,
-            "y": 211
+            "x": 30,
+            "y": 515
           },
           {
             "map": "Victory Road (carte)",
@@ -17589,8 +17589,8 @@
         "map_locations": [
           {
             "map": "Victory Road",
-            "x": 541,
-            "y": 211
+            "x": 138,
+            "y": 550
           },
           {
             "map": "Victory Road (carte)",
@@ -17615,8 +17615,8 @@
         "map_locations": [
           {
             "map": "Victory Road",
-            "x": 571,
-            "y": 211
+            "x": 292,
+            "y": 550
           },
           {
             "map": "Victory Road (carte)",
@@ -17641,8 +17641,8 @@
         "map_locations": [
           {
             "map": "Victory Road",
-            "x": 601,
-            "y": 211
+            "x": 472,
+            "y": 422
           },
           {
             "map": "Victory Road (carte)",
@@ -17667,8 +17667,8 @@
         "map_locations": [
           {
             "map": "Victory Road",
-            "x": 631,
-            "y": 211
+            "x": 453,
+            "y": 594
           },
           {
             "map": "Victory Road (carte)",
@@ -17693,8 +17693,8 @@
         "map_locations": [
           {
             "map": "Victory Road",
-            "x": 661,
-            "y": 211
+            "x": 765,
+            "y": 508
           },
           {
             "map": "Victory Road (carte)",
@@ -17719,8 +17719,8 @@
         "map_locations": [
           {
             "map": "Victory Road",
-            "x": 691,
-            "y": 211
+            "x": 212,
+            "y": 465
           },
           {
             "map": "Victory Road (carte)",
@@ -17746,7 +17746,7 @@
           {
             "map": "Victory Road",
             "x": 31,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Victory Road (carte)",
@@ -17775,7 +17775,7 @@
           {
             "map": "Victory Road",
             "x": 61,
-            "y": 277
+            "y": 913
           },
           {
             "map": "Victory Road (carte)",
@@ -17803,8 +17803,8 @@
         "map_locations": [
           {
             "map": "Victory Road",
-            "x": 91,
-            "y": 277
+            "x": 161,
+            "y": 786
           },
           {
             "map": "Victory Road (carte)",
@@ -17830,7 +17830,7 @@
           {
             "map": "Victory Road",
             "x": 31,
-            "y": 343
+            "y": 979
           },
           {
             "map": "Victory Road (carte)",
@@ -17859,7 +17859,7 @@
           {
             "map": "Victory Road",
             "x": 31,
-            "y": 409
+            "y": 1045
           },
           {
             "map": "Victory Road (carte)",
@@ -17888,7 +17888,7 @@
           {
             "map": "Victory Road",
             "x": 61,
-            "y": 409
+            "y": 1045
           },
           {
             "map": "Victory Road (carte)",
@@ -17917,7 +17917,7 @@
           {
             "map": "Victory Road",
             "x": 91,
-            "y": 409
+            "y": 1045
           },
           {
             "map": "Victory Road (carte)",
@@ -17946,7 +17946,7 @@
           {
             "map": "Victory Road",
             "x": 121,
-            "y": 409
+            "y": 1045
           },
           {
             "map": "Victory Road (carte)",
@@ -17975,7 +17975,7 @@
           {
             "map": "Victory Road",
             "x": 31,
-            "y": 475
+            "y": 1111
           },
           {
             "map": "Victory Road (carte)",
@@ -18004,7 +18004,7 @@
           {
             "map": "Victory Road",
             "x": 61,
-            "y": 475
+            "y": 1111
           },
           {
             "map": "Victory Road (carte)",
@@ -18033,7 +18033,7 @@
           {
             "map": "Victory Road",
             "x": 91,
-            "y": 475
+            "y": 1111
           },
           {
             "map": "Victory Road (carte)",
@@ -18062,7 +18062,7 @@
           {
             "map": "Victory Road",
             "x": 121,
-            "y": 475
+            "y": 1111
           },
           {
             "map": "Victory Road (carte)",
@@ -18091,7 +18091,7 @@
           {
             "map": "Victory Road",
             "x": 31,
-            "y": 541
+            "y": 1177
           },
           {
             "map": "Victory Road (carte)",
@@ -18120,7 +18120,7 @@
           {
             "map": "Victory Road",
             "x": 31,
-            "y": 607
+            "y": 1243
           },
           {
             "map": "Victory Road (carte)",
@@ -18149,7 +18149,7 @@
           {
             "map": "Victory Road",
             "x": 61,
-            "y": 607
+            "y": 1243
           },
           {
             "map": "Victory Road (carte)",
@@ -18178,7 +18178,7 @@
           {
             "map": "Victory Road",
             "x": 31,
-            "y": 673
+            "y": 1309
           },
           {
             "map": "Victory Road (carte)",
@@ -18207,7 +18207,7 @@
           {
             "map": "Victory Road",
             "x": 61,
-            "y": 673
+            "y": 1309
           },
           {
             "map": "Victory Road (carte)",
@@ -18236,7 +18236,7 @@
           {
             "map": "Victory Road",
             "x": 91,
-            "y": 673
+            "y": 1309
           },
           {
             "map": "Victory Road (carte)",
@@ -18265,7 +18265,7 @@
           {
             "map": "Victory Road",
             "x": 121,
-            "y": 673
+            "y": 1309
           },
           {
             "map": "Victory Road (carte)",
@@ -18294,7 +18294,7 @@
           {
             "map": "Victory Road",
             "x": 31,
-            "y": 739
+            "y": 1375
           },
           {
             "map": "Victory Road (carte)",
@@ -18323,7 +18323,7 @@
           {
             "map": "Victory Road",
             "x": 61,
-            "y": 739
+            "y": 1375
           },
           {
             "map": "Victory Road (carte)",
@@ -18352,7 +18352,7 @@
           {
             "map": "Victory Road",
             "x": 91,
-            "y": 739
+            "y": 1375
           },
           {
             "map": "Victory Road (carte)",
@@ -18381,7 +18381,7 @@
           {
             "map": "Victory Road",
             "x": 31,
-            "y": 805
+            "y": 1441
           },
           {
             "map": "Victory Road (carte)",
@@ -18410,7 +18410,7 @@
           {
             "map": "Victory Road",
             "x": 61,
-            "y": 805
+            "y": 1441
           },
           {
             "map": "Victory Road (carte)",
@@ -18439,7 +18439,7 @@
           {
             "map": "Victory Road",
             "x": 91,
-            "y": 805
+            "y": 1441
           },
           {
             "map": "Victory Road (carte)",

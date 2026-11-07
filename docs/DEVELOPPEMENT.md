@@ -11,6 +11,7 @@
 | `tools/build_apworld.py` | Construit l'APWorld et le zip tout-en-un ; `--install` les installe dans Archipelago |
 | `tools/bizhawk_probe.py` | Sonde mémoire (lecture, écriture, recherche, snapshots) via le script connecteur |
 | `tools/build_tracker.py` | Génère `tracker/` (pack PopTracker) et `dist/Pokemon_XY_Tracker.zip` depuis les données du monde |
+| `tools/extract_ball_positions.py` | Lit dans la ROM la zone et la position (X, Y) des 207 Poké Balls -> `tools/assets/ball_positions.json` |
 | `tools/fetch_zone_images.py` | Télécharge les captures d'écran de zones (Serebii) dans `tools/assets/zones/` (ignoré par git) |
 | `tools/check_tracker.py` | Contrôle le pack avec un simulateur de l'API PopTracker (nécessite `lupa`) |
 | `tools/rom_explore.py` | Explore la RomFS d'un dump : fichiers des noms d'objets, recherche de texte |
