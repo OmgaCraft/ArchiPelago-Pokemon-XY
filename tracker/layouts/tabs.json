@@ -3,6 +3,15 @@
     "type": "tabbed",
     "tabs": [
       {
+        "title": "Guide",
+        "content": {
+          "type": "map",
+          "maps": [
+            "Guide (carte)"
+          ]
+        }
+      },
+      {
         "title": "Kalos",
         "content": {
           "type": "map",
@@ -183,6 +192,15 @@
                 "type": "map",
                 "maps": [
                   "Lieu : Lumiose City (Gym 5F)"
+                ]
+              }
+            },
+            {
+              "title": "Lumiose 6F",
+              "content": {
+                "type": "map",
+                "maps": [
+                  "Lieu : Lumiose City (Gym 6F)"
                 ]
               }
             },
@@ -656,6 +674,15 @@
                       "type": "map",
                       "maps": [
                         "Lieu : Lumiose City (Gym 5F)"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Gym 6F",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Lumiose City (Gym 6F)"
                       ]
                     }
                   },

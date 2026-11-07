@@ -369,6 +369,41 @@ def render_world_maps(out_dir, base_path, by_region, pins):
         files[f"{region} (carte)"] = (name, 28)
     return files, placed
 
+def render_guide(path):
+    """Image de l'onglet « Guide » : PopTracker n'affiche pas de texte libre, le mode d'emploi est donc une image."""
+    lines = [
+        ("Pokémon X/Y : Archipelago Tracker", 30, "#f8fafc"),
+        ("", 10, None),
+        ("Onglets", 22, "#7dd3fc"),
+        ("Kalos : la carte entière, un repère par lieu (nom des villes écrit dessus).", 17, "#e2e8f0"),
+        ("Régions : une carte agrandie par région, avec le nom de chaque lieu.", 17, "#e2e8f0"),
+        ("Arènes, Villes, Routes, Grottes & lieux : le plan détaillé de chaque lieu, un repère par check.", 17, "#e2e8f0"),
+        ("", 10, None),
+        ("Repères", 22, "#7dd3fc"),
+        ("Vert : les checks du lieu sont accessibles. Rouge : pas encore. Mélange : une partie seulement.", 17, "#e2e8f0"),
+        ("Survole un repère pour voir la liste de ses checks.", 17, "#e2e8f0"),
+        ("Les checks validés dans le jeu se cochent tout seuls (connexion Archipelago du tracker).", 17, "#e2e8f0"),
+        ("", 10, None),
+        ("Options (à gauche, sous les objets)", 22, "#7dd3fc"),
+        ("Objets cachés, Dresseurs et Machine Cherch'Objet : reprises du YAML à la connexion, modifiables à la main.", 17, "#e2e8f0"),
+        ("", 10, None),
+        ("Sur les plans", 22, "#7dd3fc"),
+        ("Objets au sol et dresseurs : positions lues dans la ROM, posées sur les cartes vues du dessus de Bulbapedia.", 17, "#e2e8f0"),
+        ("Arènes : plan dessiné (Lumiose, Poivressel et Anistar : schématique, d'après Bulbapedia).", 17, "#e2e8f0"),
+        ("Checks sans position connue (cadeaux, objets cachés, badges...) : rangés en grille sous le plan.", 17, "#e2e8f0"),
+        ("", 10, None),
+        ("Cartes : Bulbapedia (utilisation équitable). Voir « Crédits » du README.", 14, "#94a3b8"),
+    ]
+    image = Image.new("RGB", (1000, 40 + sum(int(size * 1.55) for _t, size, _c in lines)), "#0f172a")
+    draw = ImageDraw.Draw(image)
+    y = 24
+    for text, size, color in lines:
+        if text:
+            draw.text((30, y), text, font=bold(size) if size >= 22 else font(size), fill=color)
+        y += int(size * 1.55)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    image.save(path)
+
 
 def write_json(path, data):
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -647,7 +682,8 @@ def navigation(group_region):
             out.append({"title": region.replace(" Area", ""), "content": {"type": "tabbed", "tabs": tabs}})
         return {"type": "tabbed", "tabs": out}
 
-    return [{"title": "Kalos", "content": {"type": "map", "maps": ["Kalos (carte)"]}},
+    return [{"title": "Guide", "content": {"type": "map", "maps": ["Guide (carte)"]}},
+            {"title": "Kalos", "content": {"type": "map", "maps": ["Kalos (carte)"]}},
             {"title": "Régions", "content": {"type": "tabbed", "tabs": regions}},
             {"title": "Arènes", "content": {"type": "tabbed", "tabs": [
                 map_tab(re.sub(r"\s*\(Gym\)", "", g).replace(" City", "").replace("(Gym ", "(") if g.endswith("(Gym)")
@@ -721,7 +757,9 @@ def build(out_dir=None, zones=False):
     pins = layout_pins(by_region, areas, kalos_size)
     world_maps, on_map = render_world_maps(f"{TRACKER_DIR}/images/maps", os.path.join(ASSETS_DIR, KALOS_MAP),
                                            by_region, pins)
+    render_guide(f"{TRACKER_DIR}/images/maps/guide.png")
     maps, location_nodes, item_map, location_map = [], [], {}, {}
+    maps.append({"name": "Guide (carte)", "location_size": 10, "location_border_thickness": 1, "img": "images/maps/guide.png"})
     for name, (img, pin) in world_maps.items():
         maps.append({"name": name, "location_size": pin, "location_border_thickness": 3, "img": img})
     group_region = OrderedDict()
@@ -749,6 +787,17 @@ def build(out_dir=None, zones=False):
             maps.append({"name": f"Lieu : {group}", "location_size": 24, "location_border_thickness": 3,
                          "img": f"images/maps/lieu_{slug}.jpg"})
             group_region[group] = region
+        if region == "Lumiose Area" and "Voltage Badge" in leaders:
+            # 6e étage de l'arène de Lumiose : le chef (Lem) et son badge, position lue dans la ROM.
+            n = next(x for x in location_table if x.endswith(" - Voltage Badge"))
+            lead = leaders["Voltage Badge"]
+            result = make_group_map(f"{TRACKER_DIR}/images/maps/lieu_Lumiose_City_Gym_6F.jpg", "Lumiose City (Gym 6F)",
+                                    [n], {n: (lead["zone"], lead["x"], lead["y"])}, {n: lead["zone"]})
+            x, y = result.pop(n)
+            extra_pins[n] = {"map": "Lieu : Lumiose City (Gym 6F)", "x": x, "y": y}
+            maps.append({"name": "Lieu : Lumiose City (Gym 6F)", "location_size": 24, "location_border_thickness": 3,
+                         "img": "images/maps/lieu_Lumiose_City_Gym_6F.jpg"})
+            group_region["Lumiose City (Gym 6F)"] = region
         children = []
         for group, entries in groups.items():
             sections, used = [], set()

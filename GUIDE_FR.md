@@ -193,7 +193,7 @@ Il n'y a plus de fenêtre d'aide : tout est automatique.
 ## Le tracker (PopTracker)
 
 Un pack [PopTracker](https://github.com/black-sliver/PopTracker) suit ta partie en direct : badges, CS
-et objets clés reçus, et les lieux déjà validés. Deux onglets : **Monde** (une sous-carte par région : la carte de Kalos avec les checks autour de leur zone, puis, en sous-onglets, chaque route et chaque lieu de la région) et **Villes** (une sous-carte par ville, avec son arène et les routes qui y mènent).
+et objets clés reçus, et les lieux déjà validés. Sept onglets : **Guide** (mode d'emploi), **Kalos** (la carte entière avec un repère nommé par lieu), **Régions** (une carte agrandie par région), **Arènes**, **Villes** (chaque ville et les routes qui y mènent), **Routes** et **Grottes & lieux** (le plan détaillé de chaque lieu, classés par région).
 
 1. Télécharge `Pokemon_XY_Tracker.zip` (dossier [`dist/`](dist)) **sans le décompresser** et mets-le
    dans le dossier `packs` de PopTracker.
@@ -204,13 +204,15 @@ et objets clés reçus, et les lieux déjà validés. Deux onglets : **Monde** (
 4. Sur la carte, les groupes de repères se recouvrent parfois un peu : zoome avec la molette. Les icônes du bas à gauche (cachés, dresseurs, Machine Cherch'Objet) reprennent les options de
    ton YAML : elles se règlent seules à la connexion, et tu peux les basculer à la main.
 
-**Plans et cartes.** Chaque route, ville ou lieu a sa propre carte, avec les objets au sol à leur vraie place
-(positions lues dans la ROM). Quand le jeu a une carte vue du dessus (routes, villes, forêt, plusieurs grottes), c'est
+**Plans et cartes.** Chaque route, ville ou lieu a sa propre carte, avec les objets au sol et les dresseurs à leur vraie place
+(positions lues dans la ROM ; les arènes ont un plan dessiné, schématique pour Lumiose, Poivressel et Anistar). Quand le jeu a une carte vue du dessus (routes, villes, forêt, plusieurs grottes), c'est
 elle qui sert de fond ; sinon, un plan schématique. Les images viennent de Bulbapedia, voir « Crédits » du README.
 
 Pour refaire le pack avec les dernières cartes :
 
 ```
+py -3.13 tools/extract_ball_positions.py "<dump.3ds>"
+py -3.13 tools/extract_trainer_positions.py "<dump.3ds>"
 py -3.13 tools/fetch_topdown_maps.py
 py -3.13 tools/calibrate_topmaps.py
 py -3.13 tools/build_tracker.py

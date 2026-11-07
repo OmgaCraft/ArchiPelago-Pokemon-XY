@@ -1,5 +1,11 @@
 [
   {
+    "name": "Guide (carte)",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/maps/guide.png"
+  },
+  {
     "name": "Kalos (carte)",
     "location_size": 20,
     "location_border_thickness": 3,
@@ -382,6 +388,12 @@
     "location_size": 24,
     "location_border_thickness": 3,
     "img": "images/maps/lieu_Lumiose_City_Gym_5F.jpg"
+  },
+  {
+    "name": "Lieu : Lumiose City (Gym 6F)",
+    "location_size": 24,
+    "location_border_thickness": 3,
+    "img": "images/maps/lieu_Lumiose_City_Gym_6F.jpg"
   },
   {
     "name": "Lieu : Laverre Area",

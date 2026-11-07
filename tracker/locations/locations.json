@@ -10403,6 +10403,11 @@
             "map": "Lieu : Lumiose Area",
             "x": 31,
             "y": 31
+          },
+          {
+            "map": "Lieu : Lumiose City (Gym 6F)",
+            "x": 316,
+            "y": 206
           }
         ],
         "sections": [
