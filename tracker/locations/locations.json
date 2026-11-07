@@ -11258,8 +11258,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lumiose City (Gym 4F)",
-            "x": 31,
-            "y": 31
+            "x": 166,
+            "y": 96
           }
         ],
         "sections": [
@@ -11282,8 +11282,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lumiose City (Gym 4F)",
-            "x": 61,
-            "y": 31
+            "x": 316,
+            "y": 96
           }
         ],
         "sections": [
@@ -11306,8 +11306,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lumiose City (Gym 4F)",
-            "x": 91,
-            "y": 31
+            "x": 466,
+            "y": 96
           }
         ],
         "sections": [
@@ -11616,8 +11616,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lumiose City (Gym 2F)",
-            "x": 31,
-            "y": 31
+            "x": 166,
+            "y": 96
           }
         ],
         "sections": [
@@ -11640,8 +11640,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lumiose City (Gym 2F)",
-            "x": 61,
-            "y": 31
+            "x": 316,
+            "y": 96
           }
         ],
         "sections": [
@@ -11664,8 +11664,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lumiose City (Gym 2F)",
-            "x": 91,
-            "y": 31
+            "x": 466,
+            "y": 96
           }
         ],
         "sections": [
@@ -11741,8 +11741,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lumiose City (Gym 3F)",
-            "x": 31,
-            "y": 31
+            "x": 166,
+            "y": 96
           }
         ],
         "sections": [
@@ -11765,8 +11765,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lumiose City (Gym 3F)",
-            "x": 61,
-            "y": 31
+            "x": 316,
+            "y": 96
           }
         ],
         "sections": [
@@ -11789,8 +11789,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lumiose City (Gym 3F)",
-            "x": 91,
-            "y": 31
+            "x": 466,
+            "y": 96
           }
         ],
         "sections": [
@@ -11866,8 +11866,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lumiose City (Gym 5F)",
-            "x": 31,
-            "y": 31
+            "x": 166,
+            "y": 96
           }
         ],
         "sections": [
@@ -11890,8 +11890,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lumiose City (Gym 5F)",
-            "x": 61,
-            "y": 31
+            "x": 316,
+            "y": 96
           }
         ],
         "sections": [
@@ -11914,8 +11914,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lumiose City (Gym 5F)",
-            "x": 91,
-            "y": 31
+            "x": 466,
+            "y": 96
           }
         ],
         "sections": [

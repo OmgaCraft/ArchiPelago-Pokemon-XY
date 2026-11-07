@@ -504,6 +504,13 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
                 pictures.append((picture, y))
                 y += picture.height + 10
     plans = plan_layout([e for e in entries if e not in placed], positions, plan_size, 26 if gym else 14)
+    # Arène de Lumiose (étages 2 à 5) : les dresseurs ne sont pas dans les données de zone de la ROM. D'après
+    # Bulbapedia (Lumiose Gym), chaque étage a 3 dresseurs, un devant chacun des 3 ascenseurs, de gauche à droite.
+    elevators = []
+    if group.startswith("Lumiose City (Gym ") and not plans:
+        trainers = [e for e in entries if e not in placed][:3]
+        elevators = [plan_size[0] * (k + 1) / (len(trainers) + 1) for k in range(len(trainers))]
+        plans = [[(name, elevators[k], 80) for k, name in enumerate(trainers)]]
     per_row = max(1, (width - 2 * margin) // (plan_size[0] + 12))
     frames = []
     for index, plan in enumerate(plans):
@@ -532,7 +539,14 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
             draw.line((gx, oy + 4, gx, oy + plan_size[1] - 4), fill="#16233f")
         for gy in range(oy + 30, oy + plan_size[1], 30):
             draw.line((ox + 4, gy, ox + plan_size[0] - 4, gy), fill="#16233f")
-    if gym and frames:
+    if elevators and frames:
+        for number, ex in enumerate(elevators, 1):
+            ox, oy = frames[0]
+            draw.rounded_rectangle((ox + ex - 38, oy + 12, ox + ex + 38, oy + 52), radius=6, fill="#1e293b", outline="#38bdf8", width=2)
+            draw.text((ox + ex - 5, oy + 18), str(number), font=bold(22), fill="#7dd3fc")
+        draw.text((frames[0][0] + 4, frames[0][1] + plan_size[1] + 2),
+                  "Plan schématique (d'après Bulbapedia) : un dresseur devant chaque ascenseur, de gauche à droite", font=font(12), fill="#94a3b8")
+    elif gym and frames:
         draw.text((frames[0][0] + 4, frames[0][1] + plan_size[1] + 2),
                   "Plan de l'arène : positions des dresseurs lues dans la ROM (haut = nord)", font=font(12), fill="#94a3b8")
     os.makedirs(os.path.dirname(path), exist_ok=True)
