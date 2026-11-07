@@ -1,3 +1,5 @@
 __pycache__/
 *.pyc
 tools/.probe_state/
+local/
+tools/assets/zones/

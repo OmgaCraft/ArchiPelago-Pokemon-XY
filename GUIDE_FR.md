@@ -204,6 +204,17 @@ et objets clés reçus, et les lieux déjà validés. Chaque région a un onglet
 4. Sur la carte, les groupes de repères se recouvrent parfois un peu : zoome avec la molette. Les icônes du bas à gauche (cachés, dresseurs, Machine Cherch'Objet) reprennent les options de
    ton YAML : elles se règlent seules à la connexion, et tu peux les basculer à la main.
 
+**Version avec le visuel des routes (facultatif).** L'onglet **Liste** de chaque région peut montrer
+une capture d'écran de chaque route, ville ou grotte à côté de ses checks. Ces captures (Serebii)
+appartiennent à leurs auteurs : elles ne sont pas dans le pack publié, et se récupèrent chez toi :
+
+```
+py -3.13 tools/fetch_zone_images.py
+py -3.13 tools/build_tracker.py
+```
+
+Le pack complet est alors dans `local/Pokemon_XY_Tracker.zip` : copie-le dans le dossier `packs` de PopTracker.
+
 Le pack ne valide aucun check lui-même : cliquer sur un repère ne sert qu'à te repérer, les checks
 partent du client BizHawk.
 

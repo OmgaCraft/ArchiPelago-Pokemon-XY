@@ -28,7 +28,13 @@ from PIL import Image, ImageDraw, ImageFont
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WORLD_DIR = os.path.join(PROJECT_DIR, "worlds", "pokemon_xy")
-TRACKER_DIR = os.path.join(PROJECT_DIR, "tracker")
+TRACKER_DIR = os.path.join(PROJECT_DIR, "tracker")          # pack public (sans captures d'écran)
+LOCAL_DIR = os.path.join(PROJECT_DIR, "local", "tracker")   # pack local, avec les captures (jamais publié)
+PUBLIC_DIR = TRACKER_DIR
+ZONE_IMAGES_DIR = os.path.join(PROJECT_DIR, "tools", "assets", "zones")  # voir tools/fetch_zone_images.py
+USE_ZONES = False
+THUMB = (320, 192)
+STATIC_SCRIPTS = ("scripts/init.lua", "scripts/logic.lua", "scripts/autotracking/archipelago.lua")
 DIST_DIR = os.path.join(PROJECT_DIR, "dist")
 GAME_NAME = "Pokemon X and Y"
 ASSETS_DIR = os.path.join(PROJECT_DIR, "tools", "assets")
@@ -202,28 +208,49 @@ def make_icons(tracked):
     icon(f"{base}/items/opt_dowsing.png", "#0ea5e9", "Cherch")
 
 
+def zone_image(group):
+    """Première capture d'écran de la zone (téléchargée par tools/fetch_zone_images.py), ou None."""
+    if not USE_ZONES or not os.path.isdir(ZONE_IMAGES_DIR):
+        return None
+    base = plain(re.sub(r"\s*\(.*?\)", "", group))
+    base = {"powerplant": "kalospowerplant"}.get(base, base)
+    for name in sorted(os.listdir(ZONE_IMAGES_DIR)):
+        if name.endswith((".jpg", ".png")) and plain(name.rsplit("_", 1)[0]) == base:
+            return os.path.join(ZONE_IMAGES_DIR, name)
+    return None
+
+
 def make_map(path, region, groups):
-    """Carte d'une région : une grille de repères par lieu, regroupés par zone."""
-    width, margin, pitch, pin = 980, 16, 30, 26
-    columns = (width - 2 * margin) // pitch
+    """Liste d'une région : repères par zone, avec la capture d'écran de la zone à gauche si on l'a."""
+    width, margin, pitch = 980, 16, 30
     head = font(15)
     y = margin + 26
     placed = OrderedDict()
-    layout = []
+    blocks = []
+    seen = set()
     for group, entries in groups.items():
-        layout.append((y, group))
+        base = plain(re.sub(r"\s*\(.*?\)", "", group))
+        image_path = zone_image(group) if base not in seen else None
+        seen.add(base)
+        left = margin + THUMB[0] + 16 if image_path else margin
+        columns = max(1, (width - margin - left) // pitch)
+        blocks.append((y, group, image_path))
         y += 22
         for index, entry in enumerate(entries):
             row, col = divmod(index, columns)
-            placed[entry] = (margin + col * pitch + pitch // 2, y + row * pitch + pitch // 2)
-        y += ((len(entries) - 1) // columns + 1) * pitch + 14
+            placed[entry] = (left + col * pitch + pitch // 2, y + row * pitch + pitch // 2)
+        pins_height = ((len(entries) - 1) // columns + 1) * pitch
+        y += max(pins_height, THUMB[1] if image_path else 0) + 14
     height = y + margin
     image = Image.new("RGB", (width, height), "#0f172a")
     draw = ImageDraw.Draw(image)
     draw.text((margin, 6), region, font=font(18), fill="#e2e8f0")
-    for label_y, group in layout:
+    for label_y, group, image_path in blocks:
         draw.text((margin, label_y), group, font=head, fill="#94a3b8")
         draw.line((margin, label_y + 19, width - margin, label_y + 19), fill="#1e293b")
+        if image_path:
+            thumb = Image.open(image_path).convert("RGB").resize(THUMB)
+            image.paste(thumb, (margin, label_y + 22))
     os.makedirs(os.path.dirname(path), exist_ok=True)
     image.save(path)
     return placed, (width, height)
@@ -233,7 +260,9 @@ def make_map(path, region, groups):
 # Construction du pack
 # ---------------------------------------------------------------------------
 
-def build():
+def build(out_dir=None, zones=False):
+    global TRACKER_DIR, USE_ZONES
+    TRACKER_DIR, USE_ZONES = out_dir or PUBLIC_DIR, zones
     items_mod, locations_mod, regions_mod, version = load_world()
     item_table, location_table = items_mod.item_table, locations_mod.location_table
 
@@ -351,6 +380,9 @@ def build():
         "variants": {"standard": {"display_name": "Carte par régions", "flags": ["ap"]}}})
     scripts = os.path.join(TRACKER_DIR, "scripts")
     os.makedirs(os.path.join(scripts, "autotracking"), exist_ok=True)
+    if TRACKER_DIR != PUBLIC_DIR:  # scripts écrits à la main : copiés depuis le pack public
+        for relative in STATIC_SCRIPTS:
+            shutil.copyfile(os.path.join(PUBLIC_DIR, relative), os.path.join(TRACKER_DIR, relative))
     with open(f"{scripts}/autotracking/item_mapping.lua", "w", encoding="utf-8", newline="\n") as handle:
         handle.write("-- Généré par tools/build_tracker.py : id d'objet Archipelago -> code du pack.\nITEM_MAPPING = {\n")
         for ap_id, code in sorted(item_map.items()):
@@ -366,16 +398,15 @@ def build():
     return version, maps, location_map, item_map
 
 
-def package(version):
-    os.makedirs(DIST_DIR, exist_ok=True)
-    target = os.path.join(DIST_DIR, "Pokemon_XY_Tracker.zip")
+def package(version, source, target):
+    os.makedirs(os.path.dirname(target), exist_ok=True)
     count = 0
     with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
-        for root, dirs, files in os.walk(TRACKER_DIR):
+        for root, dirs, files in os.walk(source):
             dirs.sort()
             for name in sorted(files):
                 path = os.path.join(root, name)
-                archive.write(path, os.path.relpath(path, TRACKER_DIR).replace(os.sep, "/"))
+                archive.write(path, os.path.relpath(path, source).replace(os.sep, "/"))
                 count += 1
     print(f"{target} : {count} fichier(s), version {version}")
 
@@ -383,4 +414,10 @@ def package(version):
 if __name__ == "__main__":
     version, maps, location_map, item_map = build()
     print(f"{len(maps)} cartes, {len(location_map)} lieux, {len(item_map)} objets suivis")
-    package(version)
+    package(version, PUBLIC_DIR, os.path.join(DIST_DIR, "Pokemon_XY_Tracker.zip"))
+    # Version locale avec les captures d'écran des zones : à garder chez soi (droits d'auteur).
+    if os.path.isdir(ZONE_IMAGES_DIR) and any(n.endswith((".jpg", ".png")) for n in os.listdir(ZONE_IMAGES_DIR)):
+        if os.path.isdir(LOCAL_DIR):
+            shutil.rmtree(LOCAL_DIR)
+        build(LOCAL_DIR, zones=True)
+        package(version, LOCAL_DIR, os.path.join(PROJECT_DIR, "local", "Pokemon_XY_Tracker.zip"))
