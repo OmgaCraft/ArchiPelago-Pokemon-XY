@@ -129,7 +129,7 @@ ROUTE_LINKS = {
 EXTRA_TOWN_LINKS = {"Kiloude City": ["Victory Road", "Pokémon League"]}  # on y arrive par la Route Victoire
 # Cartes vues du dessus (Bulbapedia, voir tools/fetch_topdown_maps.py) : lieux dont le nom diffère.
 MAP_ALIASES = {"Power Plant": "Kalos Power Plant", "PokeBall Factory": "Poké Ball Factory",
-               "Pokémon League": "Kiloude City", "Shabboneau Castle": "Camphrier Town"}
+               "Pokémon League": "Kiloude City"}
 
 
 def topmap_stems():
@@ -137,14 +137,34 @@ def topmap_stems():
     return sorted(f[:-4] for f in os.listdir(path) if f.endswith(".png")) if os.path.isdir(path) else []
 
 
+VICTORY_ROAD = {"Inside 1": "First cave", "Inside 2": "Second cave", "Inside 3": "Third cave", "Inside 4": "Fourth cave",
+                "Outside 2": "Second grove", "Entrance": "Gate"}
+GYM_TOWNS = ["Santalune", "Cyllage", "Shalour", "Coumarine", "Laverre", "Anistar", "Snowbelle"]
+
+
 def images_for(group):
     """Noms (sans extension) des cartes possibles pour un groupe de checks : la carte exacte (étage compris) si
     elle existe, sinon toutes celles du lieu (le calage choisit celle qui concorde)."""
     stems = {plain(s): s for s in topmap_stems()}
+    named = {}
+    for town in GYM_TOWNS:
+        named[f"{town} City (Gym)"] = [s for k, s in stems.items() if k.startswith(plain(town + " Gym"))]
+    for floors in ("2F", "3F", "4F", "5F"):
+        named[f"Lumiose City (Gym {floors})"] = [stems[k] for k in stems if k.startswith(plain("Lumiose Gym 2F"))]
+    named["Lumiose City (South Boulevard)"] = [stems[k] for k in stems if k == plain("Lumiose City South Boulevard")]
+    for label, part in VICTORY_ROAD.items():
+        named[f"Victory Road ({label})"] = [stems[k] for k in stems if k == plain(f"Kalos Victory Road {part}")]
+    named["Victory Road"] = [s for k, s in stems.items() if k.startswith(plain("Kalos Victory Road"))]
+    if named.get(group):
+        return named[group]
     base, floor = group.split(" (")[0], re.search(r"\((.*?)\)", group)
     base = MAP_ALIASES.get(base, base)
     if floor and plain(f"{base} {floor.group(1)}") in stems:
         return [stems[plain(f"{base} {floor.group(1)}")]]
+    if floor:  # plusieurs cartes pour le même étage (centre, est...)
+        same_floor = [s for k, s in stems.items() if k.startswith(plain(f"{base} {floor.group(1)}"))]
+        if same_floor:
+            return same_floor
     exact = [stems[k] for k in (plain(base), plain("Kalos " + base)) if k in stems]
     if exact:
         return exact[:1]
@@ -297,50 +317,51 @@ def plan_layout(entries, positions, size):
 
 
 def load_topmaps():
-    """Calage des cartes vues du dessus (tools/calibrate_topmaps.py) ; vide sans le dossier des cartes."""
+    """Calage des cartes vues du dessus (tools/calibrate_topmaps.py) : {lieu: {zone: [carte, sx, sy, tx, ty]}}."""
     path = os.path.join(ASSETS_DIR, "topmap_calibration.json")
     if not USE_ZONES or not os.path.exists(path):
         return {}
     with open(path, encoding="utf-8") as handle:
-        return {g: c for g, c in json.load(handle).items()
-                if os.path.exists(os.path.join(ASSETS_DIR, "topmaps", c["image"]))}
+        data = json.load(handle)
+    return {g: {z: v for z, v in c["zones"].items() if os.path.exists(os.path.join(ASSETS_DIR, "topmaps", v[0]))}
+            for g, c in data.items()}
+
+
+def fitted_picture(name, width, margin):
+    picture = Image.open(os.path.join(ASSETS_DIR, "topmaps", name)).convert("RGB")
+    factor = min((width - 2 * margin) / picture.width, 640 / picture.height, 1.6)
+    return picture.resize((int(picture.width * factor), int(picture.height * factor)), Image.LANCZOS), factor
 
 
 def make_group_map(path, group, entries, positions=None, zone_of=None):
-    """Image d'un lieu (route, ville, grotte...) : la carte vue du dessus avec les objets
-    au sol à leur place exacte, sinon un plan schématique (positions lues dans la ROM), puis les autres
-    repères en grille. Renvoie la position de chaque check dans l'image."""
+    """Image d'un lieu (route, ville, grotte...) : la ou les cartes vues du dessus avec les objets au sol à
+    leur place exacte, sinon un plan schématique (positions lues dans la ROM), puis les autres repères en grille.
+    Renvoie la position de chaque check dans l'image."""
     positions, zone_of = positions or {}, zone_of or {}
-    calib = load_topmaps().get(group)
+    calib = load_topmaps().get(group) or {}
     width, margin, pitch = 980, 16, 30
-    plain_map = None  # carte sans calage : affichée quand même, les checks restent en dessous
-    if not calib and USE_ZONES:
-        names = images_for(group)
-        candidate = os.path.join(ASSETS_DIR, "topmaps", f"{names[0]}.png") if names else ""
-        plain_map = candidate if len(names) == 1 and os.path.exists(candidate) else None
     plan_size = (290, 200)
     y = margin
     placed = OrderedDict()
-    picture = None
-    if calib:
-        picture = Image.open(os.path.join(ASSETS_DIR, "topmaps", calib["image"])).convert("RGB")
-        factor = min((width - 2 * margin) / picture.width, 640 / picture.height, 1.6)
-        picture = picture.resize((int(picture.width * factor), int(picture.height * factor)), Image.LANCZOS)
-        for name in entries:
-            transform = calib["zones"].get(str(zone_of.get(name)))
-            if transform and name in positions:
-                sx, sy, tx, ty = transform
-                px = min(max((sx * positions[name][1] + tx) * factor, 8), picture.width - 8)
-                py = min(max((sy * positions[name][2] + ty) * factor, 8), picture.height - 8)
-                placed[name] = (int(margin + px), int(y + py))
-        picture_y = y
+    pictures = []  # (image, y)
+    for name in OrderedDict.fromkeys(v[0] for v in calib.values()):
+        picture, factor = fitted_picture(name, width, margin)
+        for entry in entries:
+            transform = calib.get(str(zone_of.get(entry)))
+            if transform and transform[0] == name and entry in positions:
+                _n, sx, sy, tx, ty = transform
+                px = min(max((sx * positions[entry][1] + tx) * factor, 8), picture.width - 8)
+                py = min(max((sy * positions[entry][2] + ty) * factor, 8), picture.height - 8)
+                placed[entry] = (int(margin + px), int(y + py))
+        pictures.append((picture, y))
         y += picture.height + 10
-    if plain_map:
-        picture = Image.open(plain_map).convert("RGB")
-        factor = min((width - 2 * margin) / picture.width, 640 / picture.height, 1.6)
-        picture = picture.resize((int(picture.width * factor), int(picture.height * factor)), Image.LANCZOS)
-        picture_y = y
-        y += picture.height + 10
+    if not calib and USE_ZONES:  # carte(s) sans calage : affichées quand même, les checks restent en dessous
+        names = images_for(group)
+        for name in (names if len(names) <= 3 else []):
+            if os.path.exists(os.path.join(ASSETS_DIR, "topmaps", f"{name}.png")):
+                picture, _factor = fitted_picture(f"{name}.png", width, margin)
+                pictures.append((picture, y))
+                y += picture.height + 10
     plans = plan_layout([e for e in entries if e not in placed], positions, plan_size)
     per_row = max(1, (width - 2 * margin) // (plan_size[0] + 12))
     frames = []
@@ -359,8 +380,8 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
     y += ((len(rest) - 1) // columns + 1) * pitch if rest else 0
     image = Image.new("RGB", (width, max(y + margin, 120)), "#0f172a")
     draw = ImageDraw.Draw(image)
-    if picture:
-        image.paste(picture, (margin, picture_y))
+    for picture, top in pictures:
+        image.paste(picture, (margin, top))
     for ox, oy in frames:
         draw.rounded_rectangle((ox, oy, ox + plan_size[0], oy + plan_size[1]), radius=8,
                                fill="#111c33", outline="#334155", width=2)

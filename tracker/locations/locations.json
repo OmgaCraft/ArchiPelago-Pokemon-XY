@@ -1004,7 +1004,7 @@
           {
             "map": "Lieu : Santalune City (Gym)",
             "x": 31,
-            "y": 681
+            "y": 819
           },
           {
             "map": "Santalune Area (carte)",
@@ -1030,7 +1030,7 @@
           {
             "map": "Lieu : Santalune City (Gym)",
             "x": 61,
-            "y": 681
+            "y": 819
           },
           {
             "map": "Santalune Area (carte)",
@@ -1056,7 +1056,7 @@
           {
             "map": "Lieu : Santalune City (Gym)",
             "x": 91,
-            "y": 681
+            "y": 819
           },
           {
             "map": "Santalune Area (carte)",
@@ -4846,7 +4846,7 @@
           {
             "map": "Lieu : Cyllage City (Gym)",
             "x": 31,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4875,7 +4875,7 @@
           {
             "map": "Lieu : Cyllage City (Gym)",
             "x": 61,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4904,7 +4904,7 @@
           {
             "map": "Lieu : Cyllage City (Gym)",
             "x": 91,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Cyllage Area (carte)",
@@ -4933,7 +4933,7 @@
           {
             "map": "Lieu : Cyllage City (Gym)",
             "x": 121,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Cyllage Area (carte)",
@@ -6266,8 +6266,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave",
-            "x": 133,
-            "y": 782
+            "x": 270,
+            "y": 995
           },
           {
             "map": "Shalour Area (carte)",
@@ -6292,8 +6292,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave",
-            "x": 225,
-            "y": 680
+            "x": 498,
+            "y": 743
           },
           {
             "map": "Shalour Area (carte)",
@@ -6318,8 +6318,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave",
-            "x": 181,
-            "y": 852
+            "x": 388,
+            "y": 1166
           },
           {
             "map": "Shalour Area (carte)",
@@ -6344,8 +6344,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave",
-            "x": 96,
-            "y": 683
+            "x": 179,
+            "y": 752
           },
           {
             "map": "Shalour Area (carte)",
@@ -6370,8 +6370,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave",
-            "x": 463,
-            "y": 766
+            "x": 161,
+            "y": 1395
           },
           {
             "map": "Shalour Area (carte)",
@@ -6396,8 +6396,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave",
-            "x": 765,
-            "y": 766
+            "x": 463,
+            "y": 1395
           },
           {
             "map": "Shalour Area (carte)",
@@ -6597,7 +6597,7 @@
           {
             "map": "Lieu : Shalour City (Gym)",
             "x": 31,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Shalour Area (carte)",
@@ -6626,7 +6626,7 @@
           {
             "map": "Lieu : Shalour City (Gym)",
             "x": 61,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Shalour Area (carte)",
@@ -6655,7 +6655,7 @@
           {
             "map": "Lieu : Shalour City (Gym)",
             "x": 91,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Shalour Area (carte)",
@@ -6684,7 +6684,7 @@
           {
             "map": "Lieu : Shalour City (Gym)",
             "x": 121,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Shalour Area (carte)",
@@ -7966,7 +7966,7 @@
           {
             "map": "Lieu : Coumarine City (Gym)",
             "x": 31,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Coumarine Area (carte)",
@@ -7995,7 +7995,7 @@
           {
             "map": "Lieu : Coumarine City (Gym)",
             "x": 61,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Coumarine Area (carte)",
@@ -8024,7 +8024,7 @@
           {
             "map": "Lieu : Coumarine City (Gym)",
             "x": 91,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Coumarine Area (carte)",
@@ -8053,7 +8053,7 @@
           {
             "map": "Lieu : Coumarine City (Gym)",
             "x": 121,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Coumarine Area (carte)",
@@ -8113,7 +8113,7 @@
           {
             "map": "Lieu : Lumiose City (South Boulevard)",
             "x": 31,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8139,7 +8139,7 @@
           {
             "map": "Lieu : Lumiose City (South Boulevard)",
             "x": 61,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8165,7 +8165,7 @@
           {
             "map": "Lieu : Lumiose City (South Boulevard)",
             "x": 91,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8191,7 +8191,7 @@
           {
             "map": "Lieu : Lumiose City (South Boulevard)",
             "x": 121,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8747,7 +8747,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 4F)",
             "x": 31,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8776,7 +8776,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 4F)",
             "x": 61,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -8805,7 +8805,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 4F)",
             "x": 91,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9008,7 +9008,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 2F)",
             "x": 31,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9037,7 +9037,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 2F)",
             "x": 61,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9066,7 +9066,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 2F)",
             "x": 91,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9095,7 +9095,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 3F)",
             "x": 31,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9124,7 +9124,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 3F)",
             "x": 61,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9153,7 +9153,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 3F)",
             "x": 91,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9182,7 +9182,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 5F)",
             "x": 31,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9211,7 +9211,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 5F)",
             "x": 61,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9240,7 +9240,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 5F)",
             "x": 91,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Lumiose Area (carte)",
@@ -9827,7 +9827,7 @@
           {
             "map": "Lieu : Laverre City (Gym)",
             "x": 31,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Laverre Area (carte)",
@@ -9856,7 +9856,7 @@
           {
             "map": "Lieu : Laverre City (Gym)",
             "x": 61,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Laverre Area (carte)",
@@ -9885,7 +9885,7 @@
           {
             "map": "Lieu : Laverre City (Gym)",
             "x": 91,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Laverre Area (carte)",
@@ -9914,7 +9914,7 @@
           {
             "map": "Lieu : Laverre City (Gym)",
             "x": 121,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Laverre Area (carte)",
@@ -12647,7 +12647,7 @@
           {
             "map": "Lieu : Anistar City (Gym)",
             "x": 31,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Anistar Area (carte)",
@@ -12676,7 +12676,7 @@
           {
             "map": "Lieu : Anistar City (Gym)",
             "x": 61,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Anistar Area (carte)",
@@ -12705,7 +12705,7 @@
           {
             "map": "Lieu : Anistar City (Gym)",
             "x": 91,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Anistar Area (carte)",
@@ -12734,7 +12734,7 @@
           {
             "map": "Lieu : Anistar City (Gym)",
             "x": 121,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Anistar Area (carte)",
@@ -12763,7 +12763,7 @@
           {
             "map": "Lieu : Anistar City (Gym)",
             "x": 151,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Anistar Area (carte)",
@@ -14428,7 +14428,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 31,
-            "y": 1028
+            "y": 1942
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14457,7 +14457,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 61,
-            "y": 1028
+            "y": 1942
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14486,7 +14486,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 91,
-            "y": 1028
+            "y": 1942
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14515,7 +14515,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 121,
-            "y": 1028
+            "y": 1942
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14544,7 +14544,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 151,
-            "y": 1028
+            "y": 1942
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14573,7 +14573,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 181,
-            "y": 1028
+            "y": 1942
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14602,7 +14602,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 211,
-            "y": 1028
+            "y": 1942
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14631,7 +14631,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 241,
-            "y": 1028
+            "y": 1942
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14660,7 +14660,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 271,
-            "y": 1028
+            "y": 1942
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14688,8 +14688,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave",
-            "x": 195,
-            "y": 659
+            "x": 427,
+            "y": 310
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14714,8 +14714,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave",
-            "x": 31,
-            "y": 775
+            "x": 89,
+            "y": 540
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14740,8 +14740,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave",
-            "x": 95,
-            "y": 707
+            "x": 221,
+            "y": 405
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14766,8 +14766,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave",
-            "x": 291,
-            "y": 603
+            "x": 465,
+            "y": 199
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14793,7 +14793,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 70,
-            "y": 404
+            "y": 986
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14819,7 +14819,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 85,
-            "y": 108
+            "y": 690
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14845,7 +14845,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 368,
-            "y": 94
+            "y": 676
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14871,7 +14871,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 568,
-            "y": 291
+            "y": 873
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14897,7 +14897,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 345,
-            "y": 496
+            "y": 1078
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14923,7 +14923,7 @@
           {
             "map": "Lieu : Terminus Cave",
             "x": 368,
-            "y": 320
+            "y": 902
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14948,8 +14948,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave",
-            "x": 357,
-            "y": 603
+            "x": 97,
+            "y": 1268
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -14974,8 +14974,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave",
-            "x": 765,
-            "y": 689
+            "x": 161,
+            "y": 1815
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15000,8 +15000,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave",
-            "x": 161,
-            "y": 901
+            "x": 463,
+            "y": 1815
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15026,8 +15026,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave",
-            "x": 382,
-            "y": 775
+            "x": 149,
+            "y": 1603
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -15052,8 +15052,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave",
-            "x": 568,
-            "y": 732
+            "x": 535,
+            "y": 1519
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16356,7 +16356,7 @@
           {
             "map": "Lieu : Snowbelle City (Gym)",
             "x": 31,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16385,7 +16385,7 @@
           {
             "map": "Lieu : Snowbelle City (Gym)",
             "x": 61,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16414,7 +16414,7 @@
           {
             "map": "Lieu : Snowbelle City (Gym)",
             "x": 91,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16443,7 +16443,7 @@
           {
             "map": "Lieu : Snowbelle City (Gym)",
             "x": 121,
-            "y": 681
+            "y": 425
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16820,7 +16820,7 @@
           {
             "map": "Lieu : Terminus Cave (B1F)",
             "x": 31,
-            "y": 604
+            "y": 917
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16849,7 +16849,7 @@
           {
             "map": "Lieu : Terminus Cave (B1F)",
             "x": 61,
-            "y": 604
+            "y": 917
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16878,7 +16878,7 @@
           {
             "map": "Lieu : Terminus Cave (B1F)",
             "x": 91,
-            "y": 604
+            "y": 917
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16907,7 +16907,7 @@
           {
             "map": "Lieu : Terminus Cave (B1F)",
             "x": 121,
-            "y": 604
+            "y": 917
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -16936,7 +16936,7 @@
           {
             "map": "Lieu : Terminus Cave (B1F)",
             "x": 151,
-            "y": 604
+            "y": 917
           },
           {
             "map": "Snowbelle Area (carte)",
@@ -17112,7 +17112,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 31,
-            "y": 455
+            "y": 956
           },
           {
             "map": "Victory Road (carte)",
@@ -17141,7 +17141,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 61,
-            "y": 455
+            "y": 956
           },
           {
             "map": "Victory Road (carte)",
@@ -17170,7 +17170,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 91,
-            "y": 455
+            "y": 956
           },
           {
             "map": "Victory Road (carte)",
@@ -17199,7 +17199,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 121,
-            "y": 455
+            "y": 956
           },
           {
             "map": "Victory Road (carte)",
@@ -17228,7 +17228,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 151,
-            "y": 455
+            "y": 956
           },
           {
             "map": "Victory Road (carte)",
@@ -17257,7 +17257,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 181,
-            "y": 455
+            "y": 956
           },
           {
             "map": "Victory Road (carte)",
@@ -17286,7 +17286,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 211,
-            "y": 455
+            "y": 956
           },
           {
             "map": "Victory Road (carte)",
@@ -17315,7 +17315,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 241,
-            "y": 455
+            "y": 956
           },
           {
             "map": "Victory Road (carte)",
@@ -17344,7 +17344,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 271,
-            "y": 455
+            "y": 956
           },
           {
             "map": "Victory Road (carte)",
@@ -17373,7 +17373,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 301,
-            "y": 455
+            "y": 956
           },
           {
             "map": "Victory Road (carte)",
@@ -17402,7 +17402,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 331,
-            "y": 455
+            "y": 956
           },
           {
             "map": "Victory Road (carte)",
@@ -17431,7 +17431,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 361,
-            "y": 455
+            "y": 956
           },
           {
             "map": "Victory Road (carte)",
@@ -17460,7 +17460,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 155,
-            "y": 202
+            "y": 703
           },
           {
             "map": "Victory Road (carte)",
@@ -17486,7 +17486,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 166,
-            "y": 30
+            "y": 531
           },
           {
             "map": "Victory Road (carte)",
@@ -17512,7 +17512,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 463,
-            "y": 116
+            "y": 617
           },
           {
             "map": "Victory Road (carte)",
@@ -17538,7 +17538,7 @@
           {
             "map": "Lieu : Victory Road",
             "x": 765,
-            "y": 116
+            "y": 617
           },
           {
             "map": "Victory Road (carte)",
@@ -17563,8 +17563,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road",
-            "x": 30,
-            "y": 335
+            "x": 79,
+            "y": 208
           },
           {
             "map": "Victory Road (carte)",
@@ -17589,8 +17589,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road",
-            "x": 138,
-            "y": 370
+            "x": 262,
+            "y": 266
           },
           {
             "map": "Victory Road (carte)",
@@ -17615,8 +17615,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road",
-            "x": 292,
-            "y": 370
+            "x": 520,
+            "y": 266
           },
           {
             "map": "Victory Road (carte)",
@@ -17641,8 +17641,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road",
-            "x": 472,
-            "y": 242
+            "x": 170,
+            "y": 743
           },
           {
             "map": "Victory Road (carte)",
@@ -17667,8 +17667,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road",
-            "x": 453,
-            "y": 414
+            "x": 151,
+            "y": 915
           },
           {
             "map": "Victory Road (carte)",
@@ -17693,8 +17693,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road",
-            "x": 765,
-            "y": 328
+            "x": 463,
+            "y": 829
           },
           {
             "map": "Victory Road (carte)",
@@ -17719,8 +17719,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road",
-            "x": 212,
-            "y": 285
+            "x": 387,
+            "y": 124
           },
           {
             "map": "Victory Road (carte)",
@@ -17830,7 +17830,7 @@
           {
             "map": "Lieu : Victory Road (Entrance)",
             "x": 31,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Victory Road (carte)",
@@ -17859,7 +17859,7 @@
           {
             "map": "Lieu : Victory Road (Inside 1)",
             "x": 31,
-            "y": 31
+            "y": 517
           },
           {
             "map": "Victory Road (carte)",
@@ -17888,7 +17888,7 @@
           {
             "map": "Lieu : Victory Road (Inside 1)",
             "x": 61,
-            "y": 31
+            "y": 517
           },
           {
             "map": "Victory Road (carte)",
@@ -17917,7 +17917,7 @@
           {
             "map": "Lieu : Victory Road (Inside 1)",
             "x": 91,
-            "y": 31
+            "y": 517
           },
           {
             "map": "Victory Road (carte)",
@@ -17946,7 +17946,7 @@
           {
             "map": "Lieu : Victory Road (Inside 1)",
             "x": 121,
-            "y": 31
+            "y": 517
           },
           {
             "map": "Victory Road (carte)",
@@ -17975,7 +17975,7 @@
           {
             "map": "Lieu : Victory Road (Inside 2)",
             "x": 31,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Victory Road (carte)",
@@ -18004,7 +18004,7 @@
           {
             "map": "Lieu : Victory Road (Inside 2)",
             "x": 61,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Victory Road (carte)",
@@ -18033,7 +18033,7 @@
           {
             "map": "Lieu : Victory Road (Inside 2)",
             "x": 91,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Victory Road (carte)",
@@ -18062,7 +18062,7 @@
           {
             "map": "Lieu : Victory Road (Inside 2)",
             "x": 121,
-            "y": 31
+            "y": 681
           },
           {
             "map": "Victory Road (carte)",
@@ -18091,7 +18091,7 @@
           {
             "map": "Lieu : Victory Road (Outside 2)",
             "x": 31,
-            "y": 31
+            "y": 532
           },
           {
             "map": "Victory Road (carte)",
@@ -18178,7 +18178,7 @@
           {
             "map": "Lieu : Victory Road (Inside 3)",
             "x": 31,
-            "y": 31
+            "y": 674
           },
           {
             "map": "Victory Road (carte)",
@@ -18207,7 +18207,7 @@
           {
             "map": "Lieu : Victory Road (Inside 3)",
             "x": 61,
-            "y": 31
+            "y": 674
           },
           {
             "map": "Victory Road (carte)",
@@ -18236,7 +18236,7 @@
           {
             "map": "Lieu : Victory Road (Inside 3)",
             "x": 91,
-            "y": 31
+            "y": 674
           },
           {
             "map": "Victory Road (carte)",
@@ -18265,7 +18265,7 @@
           {
             "map": "Lieu : Victory Road (Inside 3)",
             "x": 121,
-            "y": 31
+            "y": 674
           },
           {
             "map": "Victory Road (carte)",
@@ -18294,7 +18294,7 @@
           {
             "map": "Lieu : Victory Road (Inside 4)",
             "x": 31,
-            "y": 31
+            "y": 645
           },
           {
             "map": "Victory Road (carte)",
@@ -18323,7 +18323,7 @@
           {
             "map": "Lieu : Victory Road (Inside 4)",
             "x": 61,
-            "y": 31
+            "y": 645
           },
           {
             "map": "Victory Road (carte)",
@@ -18352,7 +18352,7 @@
           {
             "map": "Lieu : Victory Road (Inside 4)",
             "x": 91,
-            "y": 31
+            "y": 645
           },
           {
             "map": "Victory Road (carte)",

@@ -944,20 +944,20 @@
                     }
                   },
                   {
-                    "title": "Route 8",
-                    "content": {
-                      "type": "map",
-                      "maps": [
-                        "Lieu : Route 8"
-                      ]
-                    }
-                  },
-                  {
                     "title": "Route 8 (Cliffside)",
                     "content": {
                       "type": "map",
                       "maps": [
                         "Lieu : Route 8 (Cliffside)"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 8",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 8"
                       ]
                     }
                   },
@@ -1006,20 +1006,20 @@
                     }
                   },
                   {
-                    "title": "Route 8",
-                    "content": {
-                      "type": "map",
-                      "maps": [
-                        "Lieu : Route 8"
-                      ]
-                    }
-                  },
-                  {
                     "title": "Route 8 (Cliffside)",
                     "content": {
                       "type": "map",
                       "maps": [
                         "Lieu : Route 8 (Cliffside)"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 8",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 8"
                       ]
                     }
                   },

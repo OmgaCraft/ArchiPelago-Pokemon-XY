@@ -124,7 +124,7 @@ def main():
         if data.flag_id is not None and "FIELD ITEM" in data.category and key in raw:
             groups[name.split(" - ")[0]][raw[key]["zone"]].append((int(key), raw[key]["x"], raw[key]["y"]))
     images = {f: detect(os.path.join(MAPS, f)) for f in sorted(os.listdir(MAPS)) if f.endswith(".png")}
-    result = {}
+    result, accepted = {}, collections.OrderedDict()
     for group, zones in sorted(groups.items()):
         candidates = [f"{group}.png"] if f"{group}.png" in images else             [f"{n}.png" for n in bt.images_for(group) if f"{n}.png" in images]
         if not candidates:
@@ -148,10 +148,11 @@ def main():
                     if loose_params and loose >= max(3, round(len(points) * 0.8)) and loose > count:
                         count, image, params, solid = loose, image_name, loose_params, True
             if solid and count >= len(points) - 2:
-                entry = result.setdefault(group, {"image": image, "zones": {}})
-                if entry["image"] == image:
-                    entry["zones"][str(zone)] = [round(v, 3) for v in params[:4]]
-                    print(f"{group}: zone {zone} -> {image} ({count}/{len(points)})".encode("ascii", "replace").decode())
+                accepted.setdefault(group, []).append((zone, image, [round(v, 3) for v in params[:4]], count, len(points)))
+    for group, rows in accepted.items():
+        result[group] = {"zones": {str(z): [image] + params for z, image, params, _c, _n in rows}}
+        for z, image, _params, count, n in rows:
+            print(f"{group}: zone {z} -> {image} ({count}/{n})".encode("ascii", "replace").decode())
     target = os.path.join(HERE, "assets", "topmap_calibration.json")
     with open(target, "w", encoding="utf-8") as handle:
         json.dump(result, handle, ensure_ascii=False, indent=1)

@@ -37,6 +37,24 @@ def api(**params):
         return json.load(response)
 
 
+# Pages Bulbapedia dont on prend les cartes « <nom> XY.png » (intérieurs, étages, quartiers...).
+PAGES = ["Santalune Gym", "Cyllage Gym", "Shalour Gym", "Coumarine Gym", "Lumiose Gym", "Laverre Gym", "Anistar Gym",
+         "Snowbelle Gym", "Victory Road (Kalos)", "Lumiose City", "Pokémon League (Kalos)", "Terminus Cave",
+         "Poké Ball Factory", "Glittering Cave", "Parfum Palace", "Shabboneau Castle", "Frost Cavern",
+         "Reflection Cave", "Tower of Mastery", "Kalos Power Plant", "Chamber of Emptiness"]
+SKIP = ("Icon", "Hat", "Dress", "VS", "Symbol", "Sprite", "Exterior", "exterior", "Badge", "Prism Tower")
+
+
+def page_titles():
+    found = []
+    for page in PAGES:
+        data = api(action="query", titles=page, prop="images", imlimit=120, redirects=1)
+        for item in next(iter(data["query"]["pages"].values())).get("images", []):
+            if item["title"].endswith(" XY.png") and not any(word in item["title"] for word in SKIP):
+                found.append(item["title"])
+    return found
+
+
 def candidates():
     names = [f"Kalos Route {n}" for n in range(1, 23)] + PLACES
     names += [f"{place} {floor}" for place in ("Frost Cavern", "Reflection Cave", "Terminus Cave", "Glittering Cave",
@@ -47,7 +65,7 @@ def candidates():
 
 def main():
     os.makedirs(TARGET, exist_ok=True)
-    titles = candidates()
+    titles = sorted(set(candidates() + page_titles()))
     found = {}
     for start in range(0, len(titles), 40):
         data = api(action="query", titles="|".join(titles[start:start + 40]), prop="imageinfo", iiprop="url|size", iilimit=5)
