@@ -28,8 +28,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WORLD_DIR = os.path.join(PROJECT_DIR, "worlds", "pokemon_xy")
-TRACKER_DIR = os.path.join(PROJECT_DIR, "tracker")          # pack public (plans schématiques)
-LOCAL_DIR = os.path.join(PROJECT_DIR, "local", "tracker")   # pack local, avec les cartes vues du dessus (jamais publié)
+TRACKER_DIR = os.path.join(PROJECT_DIR, "tracker")          # sources du pack PopTracker
 PUBLIC_DIR = TRACKER_DIR
 USE_ZONES = False
 STATIC_SCRIPTS = ("scripts/init.lua", "scripts/logic.lua", "scripts/autotracking/archipelago.lua")
@@ -128,30 +127,28 @@ ROUTE_LINKS = {
     "Route 22": ["Santalune City"],
 }
 EXTRA_TOWN_LINKS = {"Kiloude City": ["Victory Road", "Pokémon League"]}  # on y arrive par la Route Victoire
-# Carte de Poképédia de chaque ville / lieu (noms français des fiches, via les liens inter-wikis).
-IMAGE_OF = {
-    "Aquacorde Town": "Quarellis", "Santalune City": "Neuvartault", "Camphrier Town": "Fort-Vanitas",
-    "Cyllage City": "Relifac-le-Haut", "Ambrette Town": "Roche-sur-Gliffe", "Geosenge Town": "Cromlach",
-    "Shalour City": "Yantreizh", "Coumarine City": "Port Tempères", "Laverre City": "Romant-sous-Bois",
-    "Dendemille Town": "La Frescale", "Anistar City": "Flusselles", "Couriway Town": "Mozheim",
-    "Snowbelle City": "Auffrac-les-Congères", "Pokémon Village": "Village Pokémon",
-    "Azure Bay": "Baie Azur", "Lost Hotel": "Hôtel Désolation", "Vaniville Town": "Bourg Croquis",
-}
-# Plusieurs cartes possibles pour un même lieu (étages) : le calage choisit celle qui concorde.
-IMAGES_OF = {
-    "Route 3": ["Route 3"], "Santalune Forest": ["Forêt de Neuvartault"], "Connecting Cave": ["Cave Connecterre"],
-    "Frost Cavern": ["Caverne Gelée 1", "Caverne Gelée 2", "Caverne Gelée RdC", "Caverne Gelée extérieur"],
-    "Reflection Cave": ["Grotte Miroitante -1", "Grotte Miroitante -2", "Grotte Miroitante RdC"],
-    "Glittering Cave": ["Grotte Étincelante 1", "Grotte Étincelante 2"],
-    "Lysandre Labs": ["Labos Lysandre 1", "Labos Lysandre 2", "Labos Lysandre 3"],
-    "Lysandre Lab": ["Labos Lysandre 1", "Labos Lysandre 2", "Labos Lysandre 3"],
-}
+# Cartes vues du dessus (Bulbapedia, voir tools/fetch_topdown_maps.py) : lieux dont le nom diffère.
+MAP_ALIASES = {"Power Plant": "Kalos Power Plant", "PokeBall Factory": "Poké Ball Factory",
+               "Pokémon League": "Kiloude City", "Shabboneau Castle": "Camphrier Town"}
+
+
+def topmap_stems():
+    path = os.path.join(ASSETS_DIR, "topmaps")
+    return sorted(f[:-4] for f in os.listdir(path) if f.endswith(".png")) if os.path.isdir(path) else []
 
 
 def images_for(group):
-    """Noms (sans extension) des cartes de Poképédia possibles pour un groupe de checks."""
-    base = group.split(" (")[0]
-    return IMAGES_OF.get(base) or [IMAGE_OF.get(base, base)]
+    """Noms (sans extension) des cartes possibles pour un groupe de checks : la carte exacte (étage compris) si
+    elle existe, sinon toutes celles du lieu (le calage choisit celle qui concorde)."""
+    stems = {plain(s): s for s in topmap_stems()}
+    base, floor = group.split(" (")[0], re.search(r"\((.*?)\)", group)
+    base = MAP_ALIASES.get(base, base)
+    if floor and plain(f"{base} {floor.group(1)}") in stems:
+        return [stems[plain(f"{base} {floor.group(1)}")]]
+    exact = [stems[k] for k in (plain(base), plain("Kalos " + base)) if k in stems]
+    if exact:
+        return exact[:1]
+    return [s for k, s in stems.items() if k.startswith(plain(base)) and base]
 
 
 EXTRA_TRACKED_ITEMS = ["HM02 Fly", "Mega Ring"]
@@ -300,7 +297,7 @@ def plan_layout(entries, positions, size):
 
 
 def load_topmaps():
-    """Calage des cartes vues du dessus (tools/calibrate_topmaps.py) ; vide hors version locale."""
+    """Calage des cartes vues du dessus (tools/calibrate_topmaps.py) ; vide sans le dossier des cartes."""
     path = os.path.join(ASSETS_DIR, "topmap_calibration.json")
     if not USE_ZONES or not os.path.exists(path):
         return {}
@@ -310,17 +307,16 @@ def load_topmaps():
 
 
 def make_group_map(path, group, entries, positions=None, zone_of=None):
-    """Image d'un lieu (route, ville, grotte...) : la carte vue du dessus (version locale) avec les objets
+    """Image d'un lieu (route, ville, grotte...) : la carte vue du dessus avec les objets
     au sol à leur place exacte, sinon un plan schématique (positions lues dans la ROM), puis les autres
     repères en grille. Renvoie la position de chaque check dans l'image."""
     positions, zone_of = positions or {}, zone_of or {}
     calib = load_topmaps().get(group)
     width, margin, pitch = 980, 16, 30
-    base = group.split(" (")[0]
     plain_map = None  # carte sans calage : affichée quand même, les checks restent en dessous
     if not calib and USE_ZONES:
         names = images_for(group)
-        candidate = os.path.join(ASSETS_DIR, "topmaps", f"{names[0]}.png")
+        candidate = os.path.join(ASSETS_DIR, "topmaps", f"{names[0]}.png") if names else ""
         plain_map = candidate if len(names) == 1 and os.path.exists(candidate) else None
     plan_size = (290, 200)
     y = margin
@@ -373,7 +369,7 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
         for gy in range(oy + 30, oy + plan_size[1], 30):
             draw.line((ox + 4, gy, ox + plan_size[0] - 4, gy), fill="#16233f")
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    image.save(path)
+    image.save(path, quality=82, optimize=True)
     return placed
 
 
@@ -482,10 +478,10 @@ def build(out_dir=None, zones=False):
         placed = {}
         for group, entries in groups.items():
             slug = re.sub(r"[^A-Za-z0-9]+", "_", unicodedata.normalize("NFKD", group)).strip("_")
-            placed.update(make_group_map(f"{TRACKER_DIR}/images/maps/lieu_{slug}.png", group,
+            placed.update(make_group_map(f"{TRACKER_DIR}/images/maps/lieu_{slug}.jpg", group,
                                          [e[0] for e in entries], ball_positions, ball_zones))
             maps.append({"name": f"Lieu : {group}", "location_size": 24, "location_border_thickness": 3,
-                         "img": f"images/maps/lieu_{slug}.png"})
+                         "img": f"images/maps/lieu_{slug}.jpg"})
             group_region[group] = region
         maps.append({"name": f"{region} (carte)", "location_size": MAP_PIN, "location_border_thickness": 2,
                      "img": "images/maps/kalos.png"})
@@ -589,12 +585,6 @@ def package(version, source, target):
 
 
 if __name__ == "__main__":
-    version, maps, location_map, item_map = build()
+    version, maps, location_map, item_map = build(zones=bool(topmap_stems()))
     print(f"{len(maps)} cartes, {len(location_map)} lieux, {len(item_map)} objets suivis")
     package(version, PUBLIC_DIR, os.path.join(DIST_DIR, "Pokemon_XY_Tracker.zip"))
-    # Version locale avec les cartes vues du dessus (Poképédia) : à garder chez soi (droits d'auteur).
-    if os.path.isdir(os.path.join(ASSETS_DIR, "topmaps")) and os.path.exists(os.path.join(ASSETS_DIR, "topmap_calibration.json")):
-        if os.path.isdir(LOCAL_DIR):
-            shutil.rmtree(LOCAL_DIR)
-        build(LOCAL_DIR, zones=True)
-        package(version, LOCAL_DIR, os.path.join(PROJECT_DIR, "local", "Pokemon_XY_Tracker.zip"))

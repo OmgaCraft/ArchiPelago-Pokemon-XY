@@ -33,6 +33,14 @@ objet pour toi l'annoncent alors vraiment. Les autres objets trouvés ou envoyé
 
 ## Crédits
 
+**Cartes du tracker.** Les cartes de routes, villes et grottes (`tracker/images/maps/lieu_*.jpg`) sont des
+captures d'écran de Pokémon X et Y, © Nintendo / Game Freak / Creatures Inc., réduites et annotées de repères.
+Elles viennent des fichiers « `<lieu> XY.png` » de [Bulbapedia](https://bulbapedia.bulbagarden.net), qui les
+héberge au titre de l'utilisation équitable (*fair use*) ; elles ne servent qu'à situer les checks dans le tracker,
+sans but commercial. Les positions des objets viennent de la ROM de l'utilisateur (`tools/extract_ball_positions.py`).
+Les titulaires des droits peuvent demander leur retrait : ouvre une issue et elles seront supprimées. Les images
+d'origine ne sont pas dans le dépôt (`tools/fetch_topdown_maps.py` les télécharge pour refaire le pack).
+
 Le pack PopTracker s'inspire de celui de [darkfire006](https://github.com/darkfire006/xy-manual-ap-tracker) (licence MIT, prévu pour un autre monde) : sa carte de Kalos et les positions de ses zones sont reprises dans `tools/assets/` avec sa licence.
 
 Ce projet reprend l'APWorld communautaire de **uhsfiuh (Zaitz)** :

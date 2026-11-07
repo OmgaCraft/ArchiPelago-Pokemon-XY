@@ -1,6 +1,6 @@
 """
 [FR] Cale les positions de la ROM (tools/assets/ball_positions.json) sur les cartes vues du dessus
-de Poképédia (tools/assets/topmaps/, voir fetch_topdown_maps.py).
+de Bulbapedia (tools/assets/topmaps/, voir fetch_topdown_maps.py).
 
 Ces cartes dessinent chaque Poké Ball au sol. On détecte ces icônes, puis, pour chaque zone du jeu,
 on cherche la transformation (échelle x/y + décalage) qui fait tomber les objets de la ROM sur les
@@ -25,7 +25,7 @@ sys.path.insert(0, HERE)
 import build_tracker as bt  # noqa: E402
 
 # Modèles d'icône (10 x 12 px) pris sur Route 9 : une balle posée sur deux fonds différents.
-_REF = np.asarray(Image.open(os.path.join(MAPS, "Route 9.png")).convert("RGB")).astype(float)
+_REF = np.asarray(Image.open(os.path.join(MAPS, "Kalos Route 9.png")).convert("RGB")).astype(float)
 TEMPLATES = [_REF[127:137, 488:500], _REF[180:190, 629:641]]
 _yy, _xx = np.mgrid[0:10, 0:12]
 MASK = (((_yy - 4.5) / 4.3) ** 2 + ((_xx - 5.5) / 5.3) ** 2) <= 1.0
@@ -37,10 +37,26 @@ def _box_sums(mask, h, w):
     return ii[h:, w:] - ii[:-h, w:] - ii[h:, :-w] + ii[:-h, :-w]
 
 
-def detect(path, threshold=0.30, limit=30):
-    """Icônes de Poké Ball d'une carte, à plusieurs échelles (les cartes n'ont pas toutes la même taille).
-    Pré-filtre par couleur (rouge au-dessus, blanc en dessous), puis comparaison avec les modèles."""
-    a = np.asarray(Image.open(path).convert("RGB")).astype(np.float32)
+def detect(path):
+    """Icônes d'une carte, en pixels de l'image d'origine. Les très grandes cartes sont d'abord réduites
+    (les icônes ont la taille du jeu à une échelle près) : on garde la réduction qui en trouve le plus."""
+    image = Image.open(path).convert("RGB")
+    best = []
+    for shrink in (1.0, 0.75, 0.5, 0.4, 0.3, 0.25, 0.2):
+        if shrink < 1.0 and image.width * shrink < 400:
+            break
+        small = image if shrink == 1.0 else image.resize((round(image.width * shrink), round(image.height * shrink)),
+                                                           Image.LANCZOS)
+        found = [(round(x / shrink), round(y / shrink)) for x, y in _detect(small)]
+        if len(found) > len(best):
+            best = found
+        if image.width * shrink <= 1100 and best:
+            break
+    return best
+
+
+def _detect(image, threshold=0.30, limit=30):
+    a = np.asarray(image).astype(np.float32)
     R, G, B = a[..., 0], a[..., 1], a[..., 2]
     red = (R > 140) & (G < 120) & (B < 120) & (R - G > 70)
     white = np.minimum(np.minimum(R, G), B) > 180

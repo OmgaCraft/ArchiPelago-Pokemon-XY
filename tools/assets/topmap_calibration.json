@@ -1,6 +1,6 @@
 {
  "Azure Bay": {
-  "image": "Baie Azur.png",
+  "image": "Azure Bay.png",
   "zones": {
    "357": [
     3.857,
@@ -11,29 +11,29 @@
   }
  },
  "Camphrier Town": {
-  "image": "Fort-Vanitas.png",
+  "image": "Camphrier Town.png",
   "zones": {
    "12": [
-    8.375,
-    7.444,
-    -5315.125,
-    -3498.222
+    9.188,
+    8.222,
+    -5830.562,
+    -3863.111
    ]
   }
  },
  "Frost Cavern": {
-  "image": "Caverne Gelée 1.png",
+  "image": "Frost Cavern 2F.png",
   "zones": {
    "315": [
-    5.116,
-    4.667,
-    3.256,
-    81.333
+    5.744,
+    5.2,
+    1.837,
+    89.6
    ]
   }
  },
  "Geosenge Town": {
-  "image": "Cromlach.png",
+  "image": "Geosenge Town.png",
   "zones": {
    "21": [
     6.519,
@@ -44,7 +44,7 @@
   }
  },
  "Lost Hotel": {
-  "image": "Hôtel Désolation.png",
+  "image": "Lost Hotel.png",
   "zones": {
    "349": [
     12.188,
@@ -55,7 +55,7 @@
   }
  },
  "Pokémon Village": {
-  "image": "Village Pokémon.png",
+  "image": "Pokémon Village.png",
   "zones": {
    "318": [
     6.644,
@@ -66,7 +66,7 @@
   }
  },
  "Reflection Cave": {
-  "image": "Grotte Miroitante RdC.png",
+  "image": "Reflection Cave 1F.png",
   "zones": {
    "305": [
     5.867,
@@ -77,7 +77,7 @@
   }
  },
  "Route 10": {
-  "image": "Route 10.png",
+  "image": "Kalos Route 10.png",
   "zones": {
    "268": [
     6.111,
@@ -88,7 +88,7 @@
   }
  },
  "Route 12": {
-  "image": "Route 12.png",
+  "image": "Kalos Route 12.png",
   "zones": {
    "270": [
     4.333,
@@ -99,7 +99,7 @@
   }
  },
  "Route 13": {
-  "image": "Route 13.png",
+  "image": "Kalos Route 13.png",
   "zones": {
    "272": [
     6.571,
@@ -110,7 +110,7 @@
   }
  },
  "Route 14": {
-  "image": "Route 14.png",
+  "image": "Kalos Route 14.png",
   "zones": {
    "273": [
     8.0,
@@ -121,7 +121,7 @@
   }
  },
  "Route 15": {
-  "image": "Route 15.png",
+  "image": "Kalos Route 15.png",
   "zones": {
    "275": [
     4.133,
@@ -132,7 +132,7 @@
   }
  },
  "Route 16": {
-  "image": "Route 16.png",
+  "image": "Kalos Route 16.png",
   "zones": {
    "276": [
     4.167,
@@ -143,7 +143,7 @@
   }
  },
  "Route 17": {
-  "image": "Route 17.png",
+  "image": "Kalos Route 17.png",
   "zones": {
    "278": [
     4.958,
@@ -154,7 +154,7 @@
   }
  },
  "Route 18": {
-  "image": "Route 18.png",
+  "image": "Kalos Route 18.png",
   "zones": {
    "279": [
     6.381,
@@ -165,7 +165,7 @@
   }
  },
  "Route 19": {
-  "image": "Route 19.png",
+  "image": "Kalos Route 19.png",
   "zones": {
    "281": [
     6.226,
@@ -176,7 +176,7 @@
   }
  },
  "Route 21": {
-  "image": "Route 21.png",
+  "image": "Kalos Route 21.png",
   "zones": {
    "283": [
     5.952,
@@ -187,7 +187,7 @@
   }
  },
  "Route 22": {
-  "image": "Route 22.png",
+  "image": "Kalos Route 22.png",
   "zones": {
    "285": [
     5.162,
@@ -198,7 +198,7 @@
   }
  },
  "Route 3": {
-  "image": "Route 3.png",
+  "image": "Kalos Route 3.png",
   "zones": {
    "260": [
     12.609,
@@ -209,7 +209,7 @@
   }
  },
  "Route 4": {
-  "image": "Route 4.png",
+  "image": "Kalos Route 4.png",
   "zones": {
    "261": [
     6.333,
@@ -220,7 +220,7 @@
   }
  },
  "Route 5": {
-  "image": "Route 5.png",
+  "image": "Kalos Route 5.png",
   "zones": {
    "262": [
     3.78,
@@ -231,7 +231,7 @@
   }
  },
  "Route 6": {
-  "image": "Route 6.png",
+  "image": "Kalos Route 6.png",
   "zones": {
    "263": [
     5.898,
@@ -242,7 +242,7 @@
   }
  },
  "Route 7": {
-  "image": "Route 7.png",
+  "image": "Kalos Route 7.png",
   "zones": {
    "264": [
     3.753,
@@ -253,7 +253,7 @@
   }
  },
  "Route 8": {
-  "image": "Route 8.png",
+  "image": "Kalos Route 8.png",
   "zones": {
    "266": [
     4.579,
@@ -264,7 +264,7 @@
   }
  },
  "Route 9": {
-  "image": "Route 9.png",
+  "image": "Kalos Route 9.png",
   "zones": {
    "267": [
     8.474,
@@ -275,13 +275,24 @@
   }
  },
  "Santalune Forest": {
-  "image": "Forêt de Neuvartault.png",
+  "image": "Santalune Forest.png",
   "zones": {
    "286": [
     5.909,
     6.125,
     43.182,
     33.875
+   ]
+  }
+ },
+ "Terminus Cave": {
+  "image": "Terminus Cave B2F.png",
+  "zones": {
+   "345": [
+    4.65,
+    4.409,
+    10.75,
+    9.318
    ]
   }
  }

@@ -1,16 +1,33 @@
 """
-[FR] Télécharge dans tools/assets/topmaps/ les cartes vues du dessus de Poképédia (« <lieu> carte XY.png »).
+[FR] Télécharge dans tools/assets/topmaps/ les cartes vues du dessus de Pokémon X/Y depuis Bulbapedia
+(fichiers « <lieu> XY.png » : captures d'écran du jeu, © Nintendo / Game Freak / Creatures, déposées
+sur Bulbapedia au titre de l'utilisation équitable).
 
-Ces images appartiennent à leurs auteurs et à Nintendo : elles ne sont jamais ajoutées au dépôt
-(dossier ignoré par git), seule la version locale du tracker s'en sert.
+Ces images servent uniquement à situer les checks dans le tracker (voir « Cartes » dans le README).
+Dossier ignoré par git ; ce sont les images recomposées dans tracker/images/maps/ qui sont publiées.
 
 Usage : py -3.13 tools/fetch_topdown_maps.py
 """
-import json, os, re, time, urllib.parse, urllib.request
+import json
+import os
+import time
+import urllib.parse
+import urllib.request
 
-API = "https://www.pokepedia.fr/api.php"
+
+API = "https://bulbapedia.bulbagarden.net/w/api.php"
 TARGET = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "topmaps")
-HEADERS = {"User-Agent": "Mozilla/5.0 (Pokemon-XY-Archipelago tracker, usage personnel)"}
+HEADERS = {"User-Agent": "Pokemon-XY-Archipelago-tracker/1.0 (projet personnel, GitHub OmgaCraft)"}
+
+PLACES = [
+    "Vaniville Town", "Aquacorde Town", "Santalune City", "Camphrier Town", "Cyllage City", "Ambrette Town",
+    "Geosenge Town", "Shalour City", "Coumarine City", "Laverre City", "Dendemille Town", "Anistar City",
+    "Couriway Town", "Snowbelle City", "Pokémon Village", "Azure Bay", "Lost Hotel", "Santalune Forest",
+    "Connecting Cave", "Glittering Cave", "Kalos Power Plant", "Parfum Palace", "Poké Ball Factory",
+    "Tower of Mastery", "Lumiose City", "Kiloude City", "Victory Road", "Pokémon League", "Chamber of Emptiness",
+    "Unknown Dungeon", "Lysandre Labs", "Terminus Cave", "Frost Cavern", "Reflection Cave",
+]
+FLOORS = ["1F", "2F", "3F", "4F", "B1F", "B2F", "B3F", "Entrance", "Outside"]
 
 
 def api(**params):
@@ -20,56 +37,35 @@ def api(**params):
         return json.load(response)
 
 
-def titles():
-    """Tous les fichiers « … carte XY.png » (balayage de l'espace Fichier par préfixes)."""
-    found = set()
-    for prefix in ["Route", "Bourg", "Baie", "Cromlac", "Flusselles", "Fort", "H", "La ", "Mozheim", "Neuvartault",
-                   "Port", "Quarellis", "Relifac", "Roche", "Romant", "Village", "Yantreizh", "Auffrac"]:
-        cont = {}
-        while True:
-            data = api(action="query", list="allpages", apnamespace=6, apprefix=prefix, aplimit=500, **cont)
-            for page in data["query"]["allpages"]:
-                if re.search(r" carte XY\.png$", page["title"]):
-                    found.add(page["title"])
-            if "continue" not in data:
-                break
-            cont = data["continue"]
-    return sorted(found)
-
-
-# Autres cartes vues du dessus, sous un nom différent : titre du fichier -> nom enregistré.
-EXTRA = {
-    "Route 3 Vue d'ensemble XY.png": "Route 3",
-    "Forêt de Neuvartault Vue d'ensemble XY.png": "Forêt de Neuvartault",
-    "Cave Connecterre Vue d'Ensemble XY.png": "Cave Connecterre",
-    "Caverne Gelée 1 XY.png": "Caverne Gelée 1", "Caverne Gelée 2 XY.png": "Caverne Gelée 2",
-    "Caverne Gelée RdC XY.png": "Caverne Gelée RdC", "Caverne Gelée extérieur XY.png": "Caverne Gelée extérieur",
-    "Grotte Miroitante -1 XY.png": "Grotte Miroitante -1", "Grotte Miroitante -2 XY.png": "Grotte Miroitante -2",
-    "Grotte Miroitante RdC XY.png": "Grotte Miroitante RdC",
-    "Grotte Étincelante 1 XY.png": "Grotte Étincelante 1", "Grotte Étincelante 2 XY.png": "Grotte Étincelante 2",
-    "Labos Lysandre Vue d'ensemble Premier Sous-Sol XY.png": "Labos Lysandre 1",
-    "Labos Lysandre Vue d'Ensemble Deuxième Sous-Sol XY.png": "Labos Lysandre 2",
-    "Labos Lysandre Vue d'Ensemble Troisième Sous-Sol XY.png": "Labos Lysandre 3",
-}
+def candidates():
+    names = [f"Kalos Route {n}" for n in range(1, 23)] + PLACES
+    names += [f"{place} {floor}" for place in ("Frost Cavern", "Reflection Cave", "Terminus Cave", "Glittering Cave",
+                                              "Victory Road", "Lysandre Labs", "Kalos Power Plant", "Poké Ball Factory")
+              for floor in FLOORS]
+    return [f"File:{name} XY.png" for name in names]
 
 
 def main():
     os.makedirs(TARGET, exist_ok=True)
-    wanted = [(t, t.split(":", 1)[1].replace(" carte XY.png", "").replace("'", "")) for t in titles()]
-    wanted += [("Fichier:" + title, name) for title, name in EXTRA.items()]
-    for title, name in wanted:
-        info = api(action="query", titles=title, prop="imageinfo", iiprop="url")
-        page = next(iter(info["query"]["pages"].values()))
-        if "imageinfo" not in page:
-            print("introuvable :", title)
+    titles = candidates()
+    found = {}
+    for start in range(0, len(titles), 40):
+        data = api(action="query", titles="|".join(titles[start:start + 40]), prop="imageinfo", iiprop="url|size", iilimit=5)
+        for page in data["query"]["pages"].values():
+            if "imageinfo" in page:
+                # Version la plus récente de taille raisonnable : les versions « propres » de 3500 px n'ont pas
+                # les icônes (objets, entrées) qui servent au calage ; les anciennes versions les gardent.
+                versions = page["imageinfo"]
+                found[page["title"]] = next((v for v in versions if v["width"] <= 1100), versions[0])
+    for title, info in sorted(found.items()):
+        stem = title.split(":", 1)[1][:-len(" XY.png")]
+        target = os.path.join(TARGET, stem + ".png")
+        if os.path.exists(target):
             continue
-        url = page["imageinfo"][0]["url"]
-        target = os.path.join(TARGET, name + ".png")
-        if not os.path.exists(target):
-            request = urllib.request.Request(url, headers=HEADERS)
-            with urllib.request.urlopen(request, timeout=30) as response, open(target, "wb") as handle:
-                handle.write(response.read())
-            time.sleep(0.4)
+        request = urllib.request.Request(info["url"], headers=HEADERS)
+        with urllib.request.urlopen(request, timeout=60) as response, open(target, "wb") as handle:
+            handle.write(response.read())
+        time.sleep(0.4)
     print(len(os.listdir(TARGET)), "cartes dans", TARGET)
 
 

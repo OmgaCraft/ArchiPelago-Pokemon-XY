@@ -3,49 +3,49 @@
     "name": "Lieu : Santalune Area",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Santalune_Area.png"
+    "img": "images/maps/lieu_Santalune_Area.jpg"
   },
   {
     "name": "Lieu : Aquacorde Town",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Aquacorde_Town.png"
+    "img": "images/maps/lieu_Aquacorde_Town.jpg"
   },
   {
     "name": "Lieu : Santalune City",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Santalune_City.png"
+    "img": "images/maps/lieu_Santalune_City.jpg"
   },
   {
     "name": "Lieu : Santalune Forest",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Santalune_Forest.png"
+    "img": "images/maps/lieu_Santalune_Forest.jpg"
   },
   {
     "name": "Lieu : Route 22",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_22.png"
+    "img": "images/maps/lieu_Route_22.jpg"
   },
   {
     "name": "Lieu : Route 3",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_3.png"
+    "img": "images/maps/lieu_Route_3.jpg"
   },
   {
     "name": "Lieu : Route 2",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_2.png"
+    "img": "images/maps/lieu_Route_2.jpg"
   },
   {
     "name": "Lieu : Santalune City (Gym)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Santalune_City_Gym.png"
+    "img": "images/maps/lieu_Santalune_City_Gym.jpg"
   },
   {
     "name": "Santalune Area (carte)",
@@ -57,43 +57,43 @@
     "name": "Lieu : Shabboneau Castle",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Shabboneau_Castle.png"
+    "img": "images/maps/lieu_Shabboneau_Castle.jpg"
   },
   {
     "name": "Lieu : Camphrier Town",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Camphrier_Town.png"
+    "img": "images/maps/lieu_Camphrier_Town.jpg"
   },
   {
     "name": "Lieu : Parfum Palace",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Parfum_Palace.png"
+    "img": "images/maps/lieu_Parfum_Palace.jpg"
   },
   {
     "name": "Lieu : Route 4",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_4.png"
+    "img": "images/maps/lieu_Route_4.jpg"
   },
   {
     "name": "Lieu : Route 5",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_5.png"
+    "img": "images/maps/lieu_Route_5.jpg"
   },
   {
     "name": "Lieu : Route 6",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_6.png"
+    "img": "images/maps/lieu_Route_6.jpg"
   },
   {
     "name": "Lieu : Route 7",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_7.png"
+    "img": "images/maps/lieu_Route_7.jpg"
   },
   {
     "name": "Camphrier Area (carte)",
@@ -105,73 +105,73 @@
     "name": "Lieu : Cyllage Area",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Cyllage_Area.png"
+    "img": "images/maps/lieu_Cyllage_Area.jpg"
   },
   {
     "name": "Lieu : Cyllage City",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Cyllage_City.png"
+    "img": "images/maps/lieu_Cyllage_City.jpg"
   },
   {
     "name": "Lieu : Route 8",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_8.png"
+    "img": "images/maps/lieu_Route_8.jpg"
   },
   {
     "name": "Lieu : Ambrette Town",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Ambrette_Town.png"
+    "img": "images/maps/lieu_Ambrette_Town.jpg"
   },
   {
     "name": "Lieu : Ambrette Gate",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Ambrette_Gate.png"
+    "img": "images/maps/lieu_Ambrette_Gate.jpg"
   },
   {
     "name": "Lieu : Connecting Cave",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Connecting_Cave.png"
+    "img": "images/maps/lieu_Connecting_Cave.jpg"
   },
   {
     "name": "Lieu : Route 9",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_9.png"
+    "img": "images/maps/lieu_Route_9.jpg"
   },
   {
     "name": "Lieu : Route 7",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_7.png"
+    "img": "images/maps/lieu_Route_7.jpg"
   },
   {
     "name": "Lieu : Glittering Cave",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Glittering_Cave.png"
+    "img": "images/maps/lieu_Glittering_Cave.jpg"
   },
   {
     "name": "Lieu : Route 8 (Cliffside)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_8_Cliffside.png"
+    "img": "images/maps/lieu_Route_8_Cliffside.jpg"
   },
   {
     "name": "Lieu : Cyllage City (Gym)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Cyllage_City_Gym.png"
+    "img": "images/maps/lieu_Cyllage_City_Gym.jpg"
   },
   {
     "name": "Lieu : Route 8 (Coast)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_8_Coast.png"
+    "img": "images/maps/lieu_Route_8_Coast.jpg"
   },
   {
     "name": "Cyllage Area (carte)",
@@ -183,61 +183,61 @@
     "name": "Lieu : Shalour Area",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Shalour_Area.png"
+    "img": "images/maps/lieu_Shalour_Area.jpg"
   },
   {
     "name": "Lieu : Shalour City",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Shalour_City.png"
+    "img": "images/maps/lieu_Shalour_City.jpg"
   },
   {
     "name": "Lieu : Tower of Mastery",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Tower_of_Mastery.png"
+    "img": "images/maps/lieu_Tower_of_Mastery.jpg"
   },
   {
     "name": "Lieu : Geosenge Town",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Geosenge_Town.png"
+    "img": "images/maps/lieu_Geosenge_Town.jpg"
   },
   {
     "name": "Lieu : Route 10",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_10.png"
+    "img": "images/maps/lieu_Route_10.jpg"
   },
   {
     "name": "Lieu : Route 11",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_11.png"
+    "img": "images/maps/lieu_Route_11.jpg"
   },
   {
     "name": "Lieu : Reflection Cave",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Reflection_Cave.png"
+    "img": "images/maps/lieu_Reflection_Cave.jpg"
   },
   {
     "name": "Lieu : Reflection Cave (B1F)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Reflection_Cave_B1F.png"
+    "img": "images/maps/lieu_Reflection_Cave_B1F.jpg"
   },
   {
     "name": "Lieu : Shalour City (Gym)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Shalour_City_Gym.png"
+    "img": "images/maps/lieu_Shalour_City_Gym.jpg"
   },
   {
     "name": "Lieu : Reflection Cave (1F)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Reflection_Cave_1F.png"
+    "img": "images/maps/lieu_Reflection_Cave_1F.jpg"
   },
   {
     "name": "Shalour Area (carte)",
@@ -249,37 +249,37 @@
     "name": "Lieu : Coumarine Area",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Coumarine_Area.png"
+    "img": "images/maps/lieu_Coumarine_Area.jpg"
   },
   {
     "name": "Lieu : Coumarine City",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Coumarine_City.png"
+    "img": "images/maps/lieu_Coumarine_City.jpg"
   },
   {
     "name": "Lieu : Azure Bay",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Azure_Bay.png"
+    "img": "images/maps/lieu_Azure_Bay.jpg"
   },
   {
     "name": "Lieu : Coumarine Gate",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Coumarine_Gate.png"
+    "img": "images/maps/lieu_Coumarine_Gate.jpg"
   },
   {
     "name": "Lieu : Route 12",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_12.png"
+    "img": "images/maps/lieu_Route_12.jpg"
   },
   {
     "name": "Lieu : Coumarine City (Gym)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Coumarine_City_Gym.png"
+    "img": "images/maps/lieu_Coumarine_City_Gym.jpg"
   },
   {
     "name": "Coumarine Area (carte)",
@@ -291,61 +291,61 @@
     "name": "Lieu : Lumiose Area",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Lumiose_Area.png"
+    "img": "images/maps/lieu_Lumiose_Area.jpg"
   },
   {
     "name": "Lieu : Lumiose City (South Boulevard)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Lumiose_City_South_Boulevard.png"
+    "img": "images/maps/lieu_Lumiose_City_South_Boulevard.jpg"
   },
   {
     "name": "Lieu : Route 13",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_13.png"
+    "img": "images/maps/lieu_Route_13.jpg"
   },
   {
     "name": "Lieu : Kalos Power Plant",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Kalos_Power_Plant.png"
+    "img": "images/maps/lieu_Kalos_Power_Plant.jpg"
   },
   {
     "name": "Lieu : Lumiose City (Lysandre Cafe)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Lumiose_City_Lysandre_Cafe.png"
+    "img": "images/maps/lieu_Lumiose_City_Lysandre_Cafe.jpg"
   },
   {
     "name": "Lieu : Lumiose City (Gym 4F)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Lumiose_City_Gym_4F.png"
+    "img": "images/maps/lieu_Lumiose_City_Gym_4F.jpg"
   },
   {
     "name": "Lieu : Power Plant",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Power_Plant.png"
+    "img": "images/maps/lieu_Power_Plant.jpg"
   },
   {
     "name": "Lieu : Lumiose City (Gym 2F)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Lumiose_City_Gym_2F.png"
+    "img": "images/maps/lieu_Lumiose_City_Gym_2F.jpg"
   },
   {
     "name": "Lieu : Lumiose City (Gym 3F)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Lumiose_City_Gym_3F.png"
+    "img": "images/maps/lieu_Lumiose_City_Gym_3F.jpg"
   },
   {
     "name": "Lieu : Lumiose City (Gym 5F)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Lumiose_City_Gym_5F.png"
+    "img": "images/maps/lieu_Lumiose_City_Gym_5F.jpg"
   },
   {
     "name": "Lumiose Area (carte)",
@@ -357,25 +357,25 @@
     "name": "Lieu : Laverre Area",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Laverre_Area.png"
+    "img": "images/maps/lieu_Laverre_Area.jpg"
   },
   {
     "name": "Lieu : Route 14",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_14.png"
+    "img": "images/maps/lieu_Route_14.jpg"
   },
   {
     "name": "Lieu : Laverre City",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Laverre_City.png"
+    "img": "images/maps/lieu_Laverre_City.jpg"
   },
   {
     "name": "Lieu : Laverre City (Gym)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Laverre_City_Gym.png"
+    "img": "images/maps/lieu_Laverre_City_Gym.jpg"
   },
   {
     "name": "Laverre Area (carte)",
@@ -387,91 +387,91 @@
     "name": "Lieu : Anistar Area",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Anistar_Area.png"
+    "img": "images/maps/lieu_Anistar_Area.jpg"
   },
   {
     "name": "Lieu : Poké Ball Factory",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Poke_Ball_Factory.png"
+    "img": "images/maps/lieu_Poke_Ball_Factory.jpg"
   },
   {
     "name": "Lieu : Route 15",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_15.png"
+    "img": "images/maps/lieu_Route_15.jpg"
   },
   {
     "name": "Lieu : Route 16",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_16.png"
+    "img": "images/maps/lieu_Route_16.jpg"
   },
   {
     "name": "Lieu : Dendemille Town",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Dendemille_Town.png"
+    "img": "images/maps/lieu_Dendemille_Town.jpg"
   },
   {
     "name": "Lieu : Frost Cavern",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Frost_Cavern.png"
+    "img": "images/maps/lieu_Frost_Cavern.jpg"
   },
   {
     "name": "Lieu : Route 17",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_17.png"
+    "img": "images/maps/lieu_Route_17.jpg"
   },
   {
     "name": "Lieu : Anistar City",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Anistar_City.png"
+    "img": "images/maps/lieu_Anistar_City.jpg"
   },
   {
     "name": "Lieu : Lost Hotel",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Lost_Hotel.png"
+    "img": "images/maps/lieu_Lost_Hotel.jpg"
   },
   {
     "name": "Lieu : Anistar City (Gym)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Anistar_City_Gym.png"
+    "img": "images/maps/lieu_Anistar_City_Gym.jpg"
   },
   {
     "name": "Lieu : PokeBall Factory",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_PokeBall_Factory.png"
+    "img": "images/maps/lieu_PokeBall_Factory.jpg"
   },
   {
     "name": "Lieu : Frost Cavern (1F)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Frost_Cavern_1F.png"
+    "img": "images/maps/lieu_Frost_Cavern_1F.jpg"
   },
   {
     "name": "Lieu : Frost Cavern (2F)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Frost_Cavern_2F.png"
+    "img": "images/maps/lieu_Frost_Cavern_2F.jpg"
   },
   {
     "name": "Lieu : Frost Cavern (3F)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Frost_Cavern_3F.png"
+    "img": "images/maps/lieu_Frost_Cavern_3F.jpg"
   },
   {
     "name": "Lieu : Frost Cavern (Outside)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Frost_Cavern_Outside.png"
+    "img": "images/maps/lieu_Frost_Cavern_Outside.jpg"
   },
   {
     "name": "Anistar Area (carte)",
@@ -483,97 +483,97 @@
     "name": "Lieu : Snowbelle Area",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Snowbelle_Area.png"
+    "img": "images/maps/lieu_Snowbelle_Area.jpg"
   },
   {
     "name": "Lieu : Route 19",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_19.png"
+    "img": "images/maps/lieu_Route_19.jpg"
   },
   {
     "name": "Lieu : Lysandre Labs",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Lysandre_Labs.png"
+    "img": "images/maps/lieu_Lysandre_Labs.jpg"
   },
   {
     "name": "Lieu : Route 18",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_18.png"
+    "img": "images/maps/lieu_Route_18.jpg"
   },
   {
     "name": "Lieu : Terminus Cave",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Terminus_Cave.png"
+    "img": "images/maps/lieu_Terminus_Cave.jpg"
   },
   {
     "name": "Lieu : Couriway Town",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Couriway_Town.png"
+    "img": "images/maps/lieu_Couriway_Town.jpg"
   },
   {
     "name": "Lieu : Snowbelle City",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Snowbelle_City.png"
+    "img": "images/maps/lieu_Snowbelle_City.jpg"
   },
   {
     "name": "Lieu : Route 20",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_20.png"
+    "img": "images/maps/lieu_Route_20.jpg"
   },
   {
     "name": "Lieu : Pokémon Village",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Poke_mon_Village.png"
+    "img": "images/maps/lieu_Poke_mon_Village.jpg"
   },
   {
     "name": "Lieu : Unknown Dungeon",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Unknown_Dungeon.png"
+    "img": "images/maps/lieu_Unknown_Dungeon.jpg"
   },
   {
     "name": "Lieu : Route 21",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_21.png"
+    "img": "images/maps/lieu_Route_21.jpg"
   },
   {
     "name": "Lieu : Chamber of Emptiness",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Chamber_of_Emptiness.png"
+    "img": "images/maps/lieu_Chamber_of_Emptiness.jpg"
   },
   {
     "name": "Lieu : Snowbelle City (Gym)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Snowbelle_City_Gym.png"
+    "img": "images/maps/lieu_Snowbelle_City_Gym.jpg"
   },
   {
     "name": "Lieu : Lysandre Lab",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Lysandre_Lab.png"
+    "img": "images/maps/lieu_Lysandre_Lab.jpg"
   },
   {
     "name": "Lieu : Terminus Cave (B2F)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Terminus_Cave_B2F.png"
+    "img": "images/maps/lieu_Terminus_Cave_B2F.jpg"
   },
   {
     "name": "Lieu : Terminus Cave (B1F)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Terminus_Cave_B1F.png"
+    "img": "images/maps/lieu_Terminus_Cave_B1F.jpg"
   },
   {
     "name": "Snowbelle Area (carte)",
@@ -585,73 +585,73 @@
     "name": "Lieu : Pokémon League",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Poke_mon_League.png"
+    "img": "images/maps/lieu_Poke_mon_League.jpg"
   },
   {
     "name": "Lieu : Route 21",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Route_21.png"
+    "img": "images/maps/lieu_Route_21.jpg"
   },
   {
     "name": "Lieu : Victory Road",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Victory_Road.png"
+    "img": "images/maps/lieu_Victory_Road.jpg"
   },
   {
     "name": "Lieu : Kiloude City",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Kiloude_City.png"
+    "img": "images/maps/lieu_Kiloude_City.jpg"
   },
   {
     "name": "Lieu : Victory Road (Entrance)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Victory_Road_Entrance.png"
+    "img": "images/maps/lieu_Victory_Road_Entrance.jpg"
   },
   {
     "name": "Lieu : Victory Road (Inside 1)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Victory_Road_Inside_1.png"
+    "img": "images/maps/lieu_Victory_Road_Inside_1.jpg"
   },
   {
     "name": "Lieu : Victory Road (Inside 2)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Victory_Road_Inside_2.png"
+    "img": "images/maps/lieu_Victory_Road_Inside_2.jpg"
   },
   {
     "name": "Lieu : Victory Road (Outside 2)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Victory_Road_Outside_2.png"
+    "img": "images/maps/lieu_Victory_Road_Outside_2.jpg"
   },
   {
     "name": "Lieu : Victory Road (Outside 3)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Victory_Road_Outside_3.png"
+    "img": "images/maps/lieu_Victory_Road_Outside_3.jpg"
   },
   {
     "name": "Lieu : Victory Road (Inside 3)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Victory_Road_Inside_3.png"
+    "img": "images/maps/lieu_Victory_Road_Inside_3.jpg"
   },
   {
     "name": "Lieu : Victory Road (Inside 4)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Victory_Road_Inside_4.png"
+    "img": "images/maps/lieu_Victory_Road_Inside_4.jpg"
   },
   {
     "name": "Lieu : Victory Road (Outside 4)",
     "location_size": 24,
     "location_border_thickness": 3,
-    "img": "images/maps/lieu_Victory_Road_Outside_4.png"
+    "img": "images/maps/lieu_Victory_Road_Outside_4.jpg"
   },
   {
     "name": "Victory Road (carte)",

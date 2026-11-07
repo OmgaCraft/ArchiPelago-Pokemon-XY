@@ -204,17 +204,17 @@ et objets clés reçus, et les lieux déjà validés. Deux onglets : **Monde** (
 4. Sur la carte, les groupes de repères se recouvrent parfois un peu : zoome avec la molette. Les icônes du bas à gauche (cachés, dresseurs, Machine Cherch'Objet) reprennent les options de
    ton YAML : elles se règlent seules à la connexion, et tu peux les basculer à la main.
 
-**Plans et cartes.** Chaque route, ville ou lieu a son propre plan, avec les objets au sol
-à leur vraie place (positions lues dans la ROM). Version facultative, avec la vraie carte du jeu vue du dessus
-(Poképédia) sous chaque repère quand elle existe : ces cartes appartiennent à leurs auteurs, elles ne sont pas
-dans le pack publié, et se récupèrent chez toi :
+**Plans et cartes.** Chaque route, ville ou lieu a sa propre carte, avec les objets au sol à leur vraie place
+(positions lues dans la ROM). Quand le jeu a une carte vue du dessus (routes, villes, forêt, plusieurs grottes), c'est
+elle qui sert de fond ; sinon, un plan schématique. Les images viennent de Bulbapedia, voir « Crédits » du README.
+
+Pour refaire le pack avec les dernières cartes :
 
 ```
 py -3.13 tools/fetch_topdown_maps.py
+py -3.13 tools/calibrate_topmaps.py
 py -3.13 tools/build_tracker.py
 ```
-
-Le pack complet est alors dans `local/Pokemon_XY_Tracker.zip` : copie-le dans le dossier `packs` de PopTracker.
 
 Le pack ne valide aucun check lui-même : cliquer sur un repère ne sert qu'à te repérer, les checks
 partent du client BizHawk.
