@@ -435,7 +435,7 @@ def spread(points, size, gap=22):
     return [(p[0], p[1]) for p in pts]
 
 
-def plan_layout(entries, positions, size):
+def plan_layout(entries, positions, size, max_scale=14):
     """Plans de zone : un cadre par zone du jeu, les objets au sol à leur vraie place relative.
     Renvoie [(liste de (nom, x, y) dans le cadre)] ; les objets sans position sont ignorés ici."""
     by_zone = OrderedDict()
@@ -448,7 +448,7 @@ def plan_layout(entries, positions, size):
     for zone, items in by_zone.items():
         xs, ys = [i[1] for i in items], [i[2] for i in items]
         span_x, span_y = max(max(xs) - min(xs), 14), max(max(ys) - min(ys), 14)
-        scale = min((size[0] - 2 * margin) / span_x, (size[1] - 2 * margin) / span_y, 14)
+        scale = min((size[0] - 2 * margin) / span_x, (size[1] - 2 * margin) / span_y, max_scale)
         cx, cy = (max(xs) + min(xs)) / 2, (max(ys) + min(ys)) / 2
         pts = [(size[0] / 2 + (x - cx) * scale, size[1] / 2 + (y - cy) * scale) for _n, x, y in items]
         pts = spread(pts, size)
@@ -479,8 +479,9 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
     Renvoie la position de chaque check dans l'image."""
     positions, zone_of = positions or {}, zone_of or {}
     calib = load_topmaps().get(group) or {}
-    width, margin, pitch = 980, 16, 30
-    plan_size = (290, 200)
+    gym = "(Gym" in group      # pas de plan vu du dessus des arènes : plan dessiné depuis la ROM
+    width, margin, pitch = (640 if gym else 980), 16, 30
+    plan_size = (600, 380) if gym else (290, 200)
     y = margin
     placed = OrderedDict()
     pictures = []  # (image, y)
@@ -495,14 +496,14 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
                 placed[entry] = (int(margin + px), int(y + py))
         pictures.append((picture, y))
         y += picture.height + 10
-    if not calib and USE_ZONES:  # carte(s) sans calage : affichées quand même, les checks restent en dessous
+    if not calib and USE_ZONES and not gym:  # carte(s) sans calage : affichées quand même, les checks restent en dessous
         names = images_for(group)
         for name in (names if len(names) <= 3 else []):
             if os.path.exists(os.path.join(ASSETS_DIR, "topmaps", f"{name}.png")):
                 picture, _factor = fitted_picture(f"{name}.png", width, margin)
                 pictures.append((picture, y))
                 y += picture.height + 10
-    plans = plan_layout([e for e in entries if e not in placed], positions, plan_size)
+    plans = plan_layout([e for e in entries if e not in placed], positions, plan_size, 26 if gym else 14)
     per_row = max(1, (width - 2 * margin) // (plan_size[0] + 12))
     frames = []
     for index, plan in enumerate(plans):
@@ -512,6 +513,8 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
         for name, px, py in plan:
             placed[name] = (int(ox + px), int(oy + py))
     y += ((len(plans) - 1) // per_row + 1) * (plan_size[1] + 12) if plans else 0
+    if gym and plans:
+        y += 14   # place de la légende
     rest = [e for e in entries if e not in placed]
     columns = max(1, (width - 2 * margin) // pitch)
     for index, entry in enumerate(rest):
@@ -529,6 +532,9 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
             draw.line((gx, oy + 4, gx, oy + plan_size[1] - 4), fill="#16233f")
         for gy in range(oy + 30, oy + plan_size[1], 30):
             draw.line((ox + 4, gy, ox + plan_size[0] - 4, gy), fill="#16233f")
+    if gym and frames:
+        draw.text((frames[0][0] + 4, frames[0][1] + plan_size[1] + 2),
+                  "Plan de l'arène : positions des dresseurs lues dans la ROM (haut = nord)", font=font(12), fill="#94a3b8")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     image.save(path, quality=82, optimize=True)
     return placed
@@ -648,6 +654,7 @@ def build(out_dir=None, zones=False):
     # Position de chaque objet au sol, lue dans la ROM (tools/extract_ball_positions.py) :
     # la Poké Ball n lève le drapeau FIELD_ITEM_FLAG + n.
     ball_positions, ball_zones = {}, {}
+    trainer_raw = json.load(open(os.path.join(ASSETS_DIR, "trainer_positions.json"), encoding="utf-8"))
     raw = json.load(open(os.path.join(ASSETS_DIR, "ball_positions.json"), encoding="utf-8"))
     for by_group in by_region.values():
         for entries in by_group.values():
@@ -656,7 +663,11 @@ def build(out_dir=None, zones=False):
                 if "FIELD ITEM" in data.category and str(n) in raw:
                     ball_positions[name] = (raw[str(n)]["zone"], raw[str(n)]["x"], raw[str(n)]["y"])
                     ball_zones[name] = raw[str(n)]["zone"]
-    print("objets au sol placés sur un plan :", len(ball_positions))
+                elif "TRAINER" in data.category and str(data.flag_id) in trainer_raw:
+                    t = trainer_raw[str(data.flag_id)]
+                    ball_positions[name] = (t["zone"], t["x"], t["y"])
+                    ball_zones[name] = t["zone"]
+    print("objets au sol et dresseurs placés sur un plan :", len(ball_positions))
 
     cumulative, required = [], {}
     for region in REGION_ORDER:

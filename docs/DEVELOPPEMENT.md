@@ -12,6 +12,7 @@
 | `tools/bizhawk_probe.py` | Sonde mémoire (lecture, écriture, recherche, snapshots) via le script connecteur |
 | `tools/build_tracker.py` | Génère `tracker/` (pack PopTracker) et `dist/Pokemon_XY_Tracker.zip` depuis les données du monde |
 | `tools/extract_ball_positions.py` | Lit dans la ROM la zone et la position (X, Y) des 207 Poké Balls -> `tools/assets/ball_positions.json` |
+| `tools/extract_trainer_positions.py` | Lit dans la ROM la zone et la position des dresseurs ayant un check (personnage = drapeau + 1260) -> `tools/assets/trainer_positions.json` |
 | `tools/fetch_topdown_maps.py` | Télécharge les cartes vues du dessus de Bulbapedia dans `tools/assets/topmaps/` (ignoré par git) |
 | `tools/calibrate_topmaps.py` | Cale les positions de la ROM sur les icônes de Poké Ball de ces cartes -> `tools/assets/topmap_calibration.json` |
 | `tools/check_tracker.py` | Contrôle le pack avec un simulateur de l'API PopTracker (nécessite `lupa`) |
