@@ -110,11 +110,9 @@ def main():
     images = {f: detect(os.path.join(MAPS, f)) for f in sorted(os.listdir(MAPS)) if f.endswith(".png")}
     result = {}
     for group, zones in sorted(groups.items()):
-        base = group.split(" (")[0]
-        name = f"{group}.png" if f"{group}.png" in images else f"{bt.IMAGE_OF.get(base, base)}.png"
-        if name not in images:
+        candidates = [f"{group}.png"] if f"{group}.png" in images else             [f"{n}.png" for n in bt.images_for(group) if f"{n}.png" in images]
+        if not candidates:
             continue
-        candidates = [name]
         for zone, points in zones.items():
             if len(points) < 2:
                 continue
@@ -124,13 +122,15 @@ def main():
                 if params and count > best[0]:
                     best = (count, image, params)
             count, image, params = best
-            solid = count >= 3 or (count == 2 and len(points) == 2 and len(images.get(image, [])) == 2)
+            solid = count >= 3 or (count == 2 and len(points) == 2 and len(candidates) == 1
+                                   and len(images.get(image, [])) == 2)
             if not (solid and count >= len(points) - 2) and len(points) >= 3:
                 # Cartes un peu déformées (falaises, relief) : tolérance plus large, mais presque tous les objets
                 # doivent concorder (la carte est connue par son nom, pas devinée).
-                loose, loose_params = fit(points, images[candidates[0]], tol=14.0, ratio=0.35)
-                if loose_params and loose >= max(3, round(len(points) * 0.8)):
-                    count, image, params, solid = loose, candidates[0], loose_params, True
+                for image_name in candidates:
+                    loose, loose_params = fit(points, images[image_name], tol=14.0, ratio=0.35)
+                    if loose_params and loose >= max(3, round(len(points) * 0.8)) and loose > count:
+                        count, image, params, solid = loose, image_name, loose_params, True
             if solid and count >= len(points) - 2:
                 entry = result.setdefault(group, {"image": image, "zones": {}})
                 if entry["image"] == image:

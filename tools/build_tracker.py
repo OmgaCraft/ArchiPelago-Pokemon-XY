@@ -137,6 +137,23 @@ IMAGE_OF = {
     "Snowbelle City": "Auffrac-les-Congères", "Pokémon Village": "Village Pokémon",
     "Azure Bay": "Baie Azur", "Lost Hotel": "Hôtel Désolation", "Vaniville Town": "Bourg Croquis",
 }
+# Plusieurs cartes possibles pour un même lieu (étages) : le calage choisit celle qui concorde.
+IMAGES_OF = {
+    "Route 3": ["Route 3"], "Santalune Forest": ["Forêt de Neuvartault"], "Connecting Cave": ["Cave Connecterre"],
+    "Frost Cavern": ["Caverne Gelée 1", "Caverne Gelée 2", "Caverne Gelée RdC", "Caverne Gelée extérieur"],
+    "Reflection Cave": ["Grotte Miroitante -1", "Grotte Miroitante -2", "Grotte Miroitante RdC"],
+    "Glittering Cave": ["Grotte Étincelante 1", "Grotte Étincelante 2"],
+    "Lysandre Labs": ["Labos Lysandre 1", "Labos Lysandre 2", "Labos Lysandre 3"],
+    "Lysandre Lab": ["Labos Lysandre 1", "Labos Lysandre 2", "Labos Lysandre 3"],
+}
+
+
+def images_for(group):
+    """Noms (sans extension) des cartes de Poképédia possibles pour un groupe de checks."""
+    base = group.split(" (")[0]
+    return IMAGES_OF.get(base) or [IMAGE_OF.get(base, base)]
+
+
 EXTRA_TRACKED_ITEMS = ["HM02 Fly", "Mega Ring"]
 SKIPPED_PREFIXES = ("FE_", "TMFLG_", "FLAG_")
 
@@ -302,8 +319,9 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
     base = group.split(" (")[0]
     plain_map = None  # carte sans calage : affichée quand même, les checks restent en dessous
     if not calib and USE_ZONES:
-        candidate = os.path.join(ASSETS_DIR, "topmaps", f"{IMAGE_OF.get(base, base)}.png")
-        plain_map = candidate if os.path.exists(candidate) else None
+        names = images_for(group)
+        candidate = os.path.join(ASSETS_DIR, "topmaps", f"{names[0]}.png")
+        plain_map = candidate if len(names) == 1 and os.path.exists(candidate) else None
     plan_size = (290, 200)
     y = margin
     placed = OrderedDict()

@@ -37,13 +37,33 @@ def titles():
     return sorted(found)
 
 
+# Autres cartes vues du dessus, sous un nom différent : titre du fichier -> nom enregistré.
+EXTRA = {
+    "Route 3 Vue d'ensemble XY.png": "Route 3",
+    "Forêt de Neuvartault Vue d'ensemble XY.png": "Forêt de Neuvartault",
+    "Cave Connecterre Vue d'Ensemble XY.png": "Cave Connecterre",
+    "Caverne Gelée 1 XY.png": "Caverne Gelée 1", "Caverne Gelée 2 XY.png": "Caverne Gelée 2",
+    "Caverne Gelée RdC XY.png": "Caverne Gelée RdC", "Caverne Gelée extérieur XY.png": "Caverne Gelée extérieur",
+    "Grotte Miroitante -1 XY.png": "Grotte Miroitante -1", "Grotte Miroitante -2 XY.png": "Grotte Miroitante -2",
+    "Grotte Miroitante RdC XY.png": "Grotte Miroitante RdC",
+    "Grotte Étincelante 1 XY.png": "Grotte Étincelante 1", "Grotte Étincelante 2 XY.png": "Grotte Étincelante 2",
+    "Labos Lysandre Vue d'ensemble Premier Sous-Sol XY.png": "Labos Lysandre 1",
+    "Labos Lysandre Vue d'Ensemble Deuxième Sous-Sol XY.png": "Labos Lysandre 2",
+    "Labos Lysandre Vue d'Ensemble Troisième Sous-Sol XY.png": "Labos Lysandre 3",
+}
+
+
 def main():
     os.makedirs(TARGET, exist_ok=True)
-    for title in titles():
+    wanted = [(t, t.split(":", 1)[1].replace(" carte XY.png", "").replace("'", "")) for t in titles()]
+    wanted += [("Fichier:" + title, name) for title, name in EXTRA.items()]
+    for title, name in wanted:
         info = api(action="query", titles=title, prop="imageinfo", iiprop="url")
         page = next(iter(info["query"]["pages"].values()))
+        if "imageinfo" not in page:
+            print("introuvable :", title)
+            continue
         url = page["imageinfo"][0]["url"]
-        name = title.split(":", 1)[1].replace(" carte XY.png", "").replace("'", "")
         target = os.path.join(TARGET, name + ".png")
         if not os.path.exists(target):
             request = urllib.request.Request(url, headers=HEADERS)
