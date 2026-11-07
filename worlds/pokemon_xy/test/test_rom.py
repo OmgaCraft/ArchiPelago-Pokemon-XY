@@ -136,6 +136,14 @@ class TestLz11(unittest.TestCase):
         data = bytes(range(256)) * 3 + b"fin"
         self.assertEqual(lz11.decompress(lz11.compress(data)), data)
 
+    def test_compression_really_shrinks_repetitive_data(self):
+        from worlds.pokemon_xy.rom import lz11
+        data = (b"Pokemon " * 200) + bytes(range(64)) + (b"Kalos " * 100)
+        packed = lz11.compress(data)
+        self.assertLess(len(packed), len(data) // 4)
+        self.assertEqual(lz11.decompress(packed), data)
+        self.assertEqual(lz11.decompress(lz11.compress(b"")), b"")
+
     def test_decodes_back_references(self):
         from worlds.pokemon_xy.rom import lz11
         # « ab » en littéraux, puis une référence de longueur 6 à distance 2 : « abababab ».

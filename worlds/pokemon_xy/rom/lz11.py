@@ -1,8 +1,8 @@
 """
 [FR] Compression LZ11 (en-tête 0x11) utilisée par certaines archives du jeu (rencontres sauvages).
 
-Décodage complet ; l'encodeur écrit uniquement des octets littéraux (aucune référence arrière) :
-le fichier est un peu plus gros mais reste un LZ11 valide, que le jeu décompresse normalement.
+Décodage complet et encodeur avec références arrière (glouton, fenêtre de 4 Kio) : les fichiers
+recompressés ont une taille proche de l'original, comme ceux que le jeu attend.
 """
 
 import struct
@@ -57,14 +57,61 @@ def decompress(data: bytes) -> bytes:
 
 
 def compress(data: bytes) -> bytes:
+    """
+    Compresse en LZ11 avec références arrière (recherche gloutonne du plus long motif dans les 4 Kio
+    précédents), pour produire des fichiers de taille proche de l'original.
+    """
     size = len(data)
-    if size > 0xFFFFFF:
-        header = b"\x11\x00\x00\x00" + struct.pack("<I", size)
+    if size > 0xFFFFFF or size == 0:
+        out = bytearray([0x11, 0, 0, 0]) + struct.pack("<I", size)
     else:
-        header = bytes([0x11, size & 0xFF, (size >> 8) & 0xFF, (size >> 16) & 0xFF])
-    out = bytearray(header)
-    for start in range(0, size, 8):
-        block = data[start:start + 8]
-        out.append(0)  # huit octets littéraux : tous les bits de contrôle à 0
-        out += block
+        out = bytearray([0x11, size & 0xFF, (size >> 8) & 0xFF, (size >> 16) & 0xFF])
+    window, max_length = 0x1000, 0x10110
+    table = {}
+    position = 0
+    while position < size:
+        flag_index = len(out)
+        out.append(0)
+        flags = 0
+        for bit in range(7, -1, -1):
+            if position >= size:
+                break
+            best_length = best_distance = 0
+            if position + 3 <= size:
+                key = data[position:position + 3]
+                for candidate in reversed(table.get(key, ())):
+                    distance = position - candidate
+                    if distance > window:
+                        break
+                    length = 3
+                    limit = min(max_length, size - position)
+                    while length < limit and data[candidate + length] == data[position + length]:
+                        length += 1
+                    if length > best_length:
+                        best_length, best_distance = length, distance
+                        if length == limit:
+                            break
+            if best_length >= 3:
+                flags |= 1 << bit
+                offset = best_distance - 1
+                if best_length <= 0x10:
+                    out += bytes([((best_length - 1) << 4) | (offset >> 8), offset & 0xFF])
+                elif best_length <= 0x110:
+                    value = best_length - 0x11
+                    out += bytes([value >> 4, ((value & 0xF) << 4) | (offset >> 8), offset & 0xFF])
+                else:
+                    value = best_length - 0x111
+                    out += bytes([0x10 | (value >> 12), (value >> 4) & 0xFF, ((value & 0xF) << 4) | (offset >> 8),
+                                  offset & 0xFF])
+                step = best_length
+            else:
+                out.append(data[position])
+                step = 1
+            for covered in range(position, min(position + step, size - 2)):
+                bucket = table.setdefault(data[covered:covered + 3], [])
+                bucket.append(covered)
+                if len(bucket) > 64:
+                    del bucket[0]
+            position += step
+        out[flag_index] = flags
     return bytes(out)

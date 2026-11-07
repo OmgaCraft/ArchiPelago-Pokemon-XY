@@ -1,4 +1,4 @@
-# Guide — Pokémon X/Y Archipelago (v1.4.0)
+# Guide — Pokémon X/Y Archipelago (v1.4.1)
 
 ## Ce qu'il te faut
 
@@ -149,6 +149,21 @@ Dans le YAML, chaque option est indépendante (toutes désactivées par défaut)
   est autre chose).
 - Le fichier du jeu est demandé comme pour le patch des Poké Balls (voir plus haut). Sans lui, les options
   sont ignorées et le jeu reste normal.
+
+### Le jeu plante après la randomisation ?
+
+Dis-moi à quel endroit exactement, puis cherche le coupable en retirant des fichiers du dossier de mods
+(`3DS\User\load\mods\0004000000055E00\romfs`), **BizHawk fermé**, puis en relançant le jeu :
+
+| Fichier à supprimer | Désactive |
+|---|---|
+| `a\0\1\2` | Pokémon sauvages |
+| `a\0\3\8` **et** `a\0\4\0` (ensemble) | dresseurs |
+| `DllField.cro` **et** `DllPoke3Select.cro` (ensemble) | starters |
+| `a\2\1\4` | capacités |
+| `a\2\1\8` | talents et expérience |
+
+Garde la sauvegarde du jeu lors de ces essais : les fichiers se reconstruisent à la connexion suivante.
 
 ## Les cadeaux des personnages et la Poké Flûte
 
