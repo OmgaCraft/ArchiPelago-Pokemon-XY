@@ -15,6 +15,7 @@
 | `tools/extract_trainer_positions.py` | Lit dans la ROM la zone et la position des dresseurs ayant un check (personnage = drapeau + 1260) -> `tools/assets/trainer_positions.json` |
 | `tools/fetch_topdown_maps.py` | Télécharge les cartes vues du dessus de Bulbapedia dans `tools/assets/topmaps/` (ignoré par git) |
 | `tools/calibrate_topmaps.py` | Cale les positions de la ROM sur les icônes de Poké Ball de ces cartes -> `tools/assets/topmap_calibration.json` |
+| `tools/calibrate_zone_plans.py` | Cale les plans de zone fournis (`tools/assets/pack/zones/`, terrain lu dans la ROM) sur les coordonnées des personnages -> `tools/assets/zone_plan_calibration.json` |
 | `tools/check_tracker.py` | Contrôle le pack avec un simulateur de l'API PopTracker (nécessite `lupa`) |
 | `tools/rom_explore.py` | Explore la RomFS d'un dump : fichiers des noms d'objets, recherche de texte |
 | `tools/patch_check.py` | Contrôle le patch des Poké Balls sur un vrai dump (lecture seule) |

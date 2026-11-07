@@ -113,8 +113,7 @@ BADGE_GYM = {"Bug Badge": "Santalune City (Gym)", "Cliff Badge": "Cyllage City (
              "Psychic Badge": "Anistar City (Gym)"}
 # Arènes dont les dresseurs n'ont pas de position lisible dans la ROM (personnages mobiles) : plan schématique,
 # dresseurs dans l'ordre de la liste de Bulbapedia (Coumarine Gym, Anistar Gym), chef et badge en haut.
-SCHEMATIC_GYMS = {"Coumarine City (Gym)": ["Chaise", "Maurice", "Brooke", "Twiggy"],
-                  "Anistar City (Gym)": ["Paschal", "Harry", "Arthur", "Arachna", "Melanie"]}
+SCHEMATIC_GYMS = {"Anistar City (Gym)": ["Paschal", "Harry", "Arthur", "Arachna", "Melanie"]}
 FIELD_ITEM_FLAG = 0x051A  # drapeau de la première Poké Ball au sol
 # Villes (onglet « Villes ») et lieux rattachés à une ville.
 TOWNS = ["Aquacorde Town", "Santalune City", "Camphrier Town", "Cyllage City", "Ambrette Town", "Geosenge Town",
@@ -452,6 +451,13 @@ def make_icons(tracked):
     icon(f"{base}/items/opt_hidden.png", "#a855f7", "Cach")
     icon(f"{base}/items/opt_trainers.png", "#f97316", "Dres")
     icon(f"{base}/items/opt_dowsing.png", "#0ea5e9", "Cherch")
+    # Icônes dessinées fournies (tools/assets/pack) : elles remplacent celles générées ci-dessus quand elles existent.
+    for folder in ("items", "checks"):
+        source = os.path.join(ASSETS_DIR, "pack", folder)
+        if os.path.isdir(source):
+            for name in os.listdir(source):
+                if os.path.exists(f"{base}/{folder}/{name}"):
+                    shutil.copyfile(os.path.join(source, name), f"{base}/{folder}/{name}")
 
 
 def spread(points, size, gap=22):
@@ -511,10 +517,31 @@ def load_topmaps():
             for g, c in data.items()}
 
 
-def fitted_picture(name, width, margin):
-    picture = Image.open(os.path.join(ASSETS_DIR, "topmaps", name)).convert("RGB")
-    factor = min((width - 2 * margin) / picture.width, 640 / picture.height, 1.6)
+def picture_path(name):
+    """Carte de Bulbapedia (téléchargée) ou plan de zone du pack (tools/assets/pack/zones)."""
+    for folder in (os.path.join(ASSETS_DIR, "topmaps"), os.path.join(ASSETS_DIR, "pack", "zones")):
+        if os.path.exists(os.path.join(folder, name)):
+            return os.path.join(folder, name)
+    return None
+
+
+def fitted_picture(name, width, margin, max_height=640):
+    picture = Image.open(picture_path(name)).convert("RGB")
+    factor = min((width - 2 * margin) / picture.width, max_height / picture.height, 1.6)
     return picture.resize((int(picture.width * factor), int(picture.height * factor)), Image.LANCZOS), factor
+
+
+def zone_plans():
+    """Plans de zone du pack calés sur la ROM (tools/calibrate_zone_plans.py) : {zone: [image, sx, sy, tx, ty, n]}."""
+    path = os.path.join(ASSETS_DIR, "zone_plan_calibration.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as handle:
+        return {z: v for z, v in json.load(handle).items() if os.path.exists(os.path.join(ASSETS_DIR, "pack", "zones", v[0]))}
+
+
+# Images sans plan (solution d'énigme écrite) ajoutées sous le titre de ces arènes.
+EXTRA_PICTURES = {"Anistar City (Gym)": ["anistar_gym.png"], **{f"Lumiose City (Gym {f}F)": ["lumiose_gym.png"] for f in range(2, 7)}}
 
 
 def make_group_map(path, group, entries, positions=None, zone_of=None):
@@ -523,14 +550,23 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
     Renvoie la position de chaque check dans l'image."""
     positions, zone_of = positions or {}, zone_of or {}
     calib = load_topmaps().get(group) or {}
-    gym = "(Gym" in group      # pas de plan vu du dessus des arènes : plan dessiné depuis la ROM
-    width, margin, pitch = (640 if gym else 980), 16, 30
+    gym = "(Gym" in group      # plan de la ROM s'il existe, sinon plan dessiné
+    if not calib:              # pas de carte de Bulbapedia : plans de zone du pack pour les zones des checks
+        plans_pack = zone_plans()
+        calib = {z: plans_pack[z] for z in OrderedDict.fromkeys(str(zone_of.get(e)) for e in entries) if z in plans_pack}
+        calib = {z: v[:5] for z, v in calib.items()}
+    pack_plans = bool(calib) and all(v[0].startswith("z") and v[0][1:4].isdigit() for v in calib.values())
+    width, margin, pitch = (640 if gym and not calib and group not in EXTRA_PICTURES else 980), 16, 30
     plan_size = (600, 380) if gym else (290, 200)
     y = margin
     placed = OrderedDict()
     pictures = []  # (image, y)
+    for name in EXTRA_PICTURES.get(group, []):
+        picture, _factor = fitted_picture(name, width, margin)
+        pictures.append((picture, y))
+        y += picture.height + 10
     for name in OrderedDict.fromkeys(v[0] for v in calib.values()):
-        picture, factor = fitted_picture(name, width, margin)
+        picture, factor = fitted_picture(name, width, margin, 1000 if pack_plans else 640)
         for entry in entries:
             transform = calib.get(str(zone_of.get(entry)))
             if transform and transform[0] == name and entry in positions:
@@ -543,7 +579,7 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
     if not calib and USE_ZONES and not gym:  # carte(s) sans calage : affichées quand même, les checks restent en dessous
         names = images_for(group)
         for name in (names if len(names) <= 3 else []):
-            if os.path.exists(os.path.join(ASSETS_DIR, "topmaps", f"{name}.png")):
+            if picture_path(f"{name}.png"):
                 picture, _factor = fitted_picture(f"{name}.png", width, margin)
                 pictures.append((picture, y))
                 y += picture.height + 10
@@ -683,6 +719,7 @@ def navigation(group_region):
         return {"type": "tabbed", "tabs": out}
 
     return [{"title": "Guide", "content": {"type": "map", "maps": ["Guide (carte)"]}},
+            {"title": "Aide", "content": {"type": "map", "maps": ["Aide (carte)"]}},
             {"title": "Kalos", "content": {"type": "map", "maps": ["Kalos (carte)"]}},
             {"title": "Régions", "content": {"type": "tabbed", "tabs": regions}},
             {"title": "Arènes", "content": {"type": "tabbed", "tabs": [
@@ -758,8 +795,11 @@ def build(out_dir=None, zones=False):
     world_maps, on_map = render_world_maps(f"{TRACKER_DIR}/images/maps", os.path.join(ASSETS_DIR, KALOS_MAP),
                                            by_region, pins)
     render_guide(f"{TRACKER_DIR}/images/maps/guide.png")
+    shutil.copyfile(os.path.join(ASSETS_DIR, "pack", "guide_progression.png"), f"{TRACKER_DIR}/images/maps/guide_progression.png")
     maps, location_nodes, item_map, location_map = [], [], {}, {}
-    maps.append({"name": "Guide (carte)", "location_size": 10, "location_border_thickness": 1, "img": "images/maps/guide.png"})
+    maps.append({"name": "Aide (carte)", "location_size": 10, "location_border_thickness": 1, "img": "images/maps/guide.png"})
+    maps.append({"name": "Guide (carte)", "location_size": 10, "location_border_thickness": 1,
+                 "img": "images/maps/guide_progression.png"})
     for name, (img, pin) in world_maps.items():
         maps.append({"name": name, "location_size": pin, "location_border_thickness": 3, "img": img})
     group_region = OrderedDict()

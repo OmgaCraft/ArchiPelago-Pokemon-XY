@@ -12,8 +12,8 @@
           },
           {
             "map": "Lieu : Santalune City (Gym)",
-            "x": 268,
-            "y": 30
+            "x": 226,
+            "y": 301
           }
         ],
         "sections": [
@@ -1265,8 +1265,8 @@
         "map_locations": [
           {
             "map": "Lieu : Santalune City (Gym)",
-            "x": 431,
-            "y": 382
+            "x": 411,
+            "y": 702
           }
         ],
         "sections": [
@@ -1286,8 +1286,8 @@
         "map_locations": [
           {
             "map": "Lieu : Santalune City (Gym)",
-            "x": 200,
-            "y": 327
+            "x": 149,
+            "y": 640
           }
         ],
         "sections": [
@@ -1307,8 +1307,8 @@
         "map_locations": [
           {
             "map": "Lieu : Santalune City (Gym)",
-            "x": 309,
-            "y": 178
+            "x": 272,
+            "y": 470
           }
         ],
         "sections": [
@@ -1724,7 +1724,7 @@
           {
             "map": "Lieu : Parfum Palace",
             "x": 31,
-            "y": 893
+            "y": 2124
           }
         ],
         "sections": [
@@ -1745,7 +1745,7 @@
           {
             "map": "Lieu : Parfum Palace",
             "x": 61,
-            "y": 893
+            "y": 2124
           }
         ],
         "sections": [
@@ -1769,7 +1769,7 @@
           {
             "map": "Lieu : Parfum Palace",
             "x": 91,
-            "y": 893
+            "y": 2124
           }
         ],
         "sections": [
@@ -1793,7 +1793,7 @@
           {
             "map": "Lieu : Parfum Palace",
             "x": 121,
-            "y": 893
+            "y": 2124
           }
         ],
         "sections": [
@@ -1816,8 +1816,8 @@
         "map_locations": [
           {
             "map": "Lieu : Parfum Palace",
-            "x": 52,
-            "y": 680
+            "x": 47,
+            "y": 97
           }
         ],
         "sections": [
@@ -1837,8 +1837,8 @@
         "map_locations": [
           {
             "map": "Lieu : Parfum Palace",
-            "x": 463,
-            "y": 766
+            "x": 103,
+            "y": 1356
           }
         ],
         "sections": [
@@ -1858,8 +1858,8 @@
         "map_locations": [
           {
             "map": "Lieu : Parfum Palace",
-            "x": 765,
-            "y": 766
+            "x": 161,
+            "y": 1997
           }
         ],
         "sections": [
@@ -1879,8 +1879,8 @@
         "map_locations": [
           {
             "map": "Lieu : Parfum Palace",
-            "x": 213,
-            "y": 833
+            "x": 418,
+            "y": 448
           }
         ],
         "sections": [
@@ -1900,8 +1900,8 @@
         "map_locations": [
           {
             "map": "Lieu : Parfum Palace",
-            "x": 269,
-            "y": 747
+            "x": 547,
+            "y": 251
           }
         ],
         "sections": [
@@ -1921,8 +1921,8 @@
         "map_locations": [
           {
             "map": "Lieu : Parfum Palace",
-            "x": 92,
-            "y": 822
+            "x": 140,
+            "y": 424
           }
         ],
         "sections": [
@@ -1942,8 +1942,8 @@
         "map_locations": [
           {
             "map": "Lieu : Parfum Palace",
-            "x": 116,
-            "y": 852
+            "x": 195,
+            "y": 492
           }
         ],
         "sections": [
@@ -4116,8 +4116,8 @@
           },
           {
             "map": "Lieu : Cyllage City (Gym)",
-            "x": 292,
-            "y": 170
+            "x": 300,
+            "y": 300
           }
         ],
         "sections": [
@@ -4164,7 +4164,7 @@
           {
             "map": "Lieu : Cyllage City",
             "x": 31,
-            "y": 893
+            "y": 716
           }
         ],
         "sections": [
@@ -4185,7 +4185,7 @@
           {
             "map": "Lieu : Cyllage City",
             "x": 61,
-            "y": 893
+            "y": 716
           }
         ],
         "sections": [
@@ -4206,7 +4206,7 @@
           {
             "map": "Lieu : Cyllage City",
             "x": 91,
-            "y": 893
+            "y": 716
           }
         ],
         "sections": [
@@ -4227,7 +4227,7 @@
           {
             "map": "Lieu : Cyllage City",
             "x": 121,
-            "y": 893
+            "y": 716
           }
         ],
         "sections": [
@@ -4248,7 +4248,7 @@
           {
             "map": "Lieu : Cyllage City",
             "x": 151,
-            "y": 893
+            "y": 716
           }
         ],
         "sections": [
@@ -4269,7 +4269,7 @@
           {
             "map": "Lieu : Cyllage City",
             "x": 181,
-            "y": 893
+            "y": 716
           }
         ],
         "sections": [
@@ -4290,7 +4290,7 @@
           {
             "map": "Lieu : Cyllage City",
             "x": 211,
-            "y": 893
+            "y": 716
           }
         ],
         "sections": [
@@ -4314,7 +4314,7 @@
           {
             "map": "Lieu : Cyllage City",
             "x": 241,
-            "y": 893
+            "y": 716
           }
         ],
         "sections": [
@@ -4338,7 +4338,7 @@
           {
             "map": "Lieu : Cyllage City",
             "x": 271,
-            "y": 893
+            "y": 716
           }
         ],
         "sections": [
@@ -4362,7 +4362,7 @@
           {
             "map": "Lieu : Cyllage City",
             "x": 301,
-            "y": 893
+            "y": 716
           }
         ],
         "sections": [
@@ -4385,8 +4385,8 @@
         "map_locations": [
           {
             "map": "Lieu : Cyllage City",
-            "x": 151,
-            "y": 677
+            "x": 480,
+            "y": 234
           }
         ],
         "sections": [
@@ -4406,8 +4406,8 @@
         "map_locations": [
           {
             "map": "Lieu : Cyllage City",
-            "x": 170,
-            "y": 690
+            "x": 502,
+            "y": 248
           }
         ],
         "sections": [
@@ -4427,8 +4427,8 @@
         "map_locations": [
           {
             "map": "Lieu : Cyllage City",
-            "x": 162,
-            "y": 852
+            "x": 495,
+            "y": 551
           }
         ],
         "sections": [
@@ -5044,7 +5044,7 @@
           {
             "map": "Lieu : Ambrette Town",
             "x": 31,
-            "y": 893
+            "y": 800
           }
         ],
         "sections": [
@@ -5065,7 +5065,7 @@
           {
             "map": "Lieu : Ambrette Town",
             "x": 61,
-            "y": 893
+            "y": 800
           }
         ],
         "sections": [
@@ -5086,7 +5086,7 @@
           {
             "map": "Lieu : Ambrette Town",
             "x": 91,
-            "y": 893
+            "y": 800
           }
         ],
         "sections": [
@@ -5107,7 +5107,7 @@
           {
             "map": "Lieu : Ambrette Town",
             "x": 121,
-            "y": 893
+            "y": 800
           }
         ],
         "sections": [
@@ -5131,7 +5131,7 @@
           {
             "map": "Lieu : Ambrette Town",
             "x": 151,
-            "y": 893
+            "y": 800
           }
         ],
         "sections": [
@@ -5154,8 +5154,8 @@
         "map_locations": [
           {
             "map": "Lieu : Ambrette Town",
-            "x": 161,
-            "y": 766
+            "x": 286,
+            "y": 652
           }
         ],
         "sections": [
@@ -5300,7 +5300,7 @@
           {
             "map": "Lieu : Connecting Cave",
             "x": 31,
-            "y": 869
+            "y": 596
           }
         ],
         "sections": [
@@ -5320,8 +5320,8 @@
         "map_locations": [
           {
             "map": "Lieu : Connecting Cave",
-            "x": 32,
-            "y": 656
+            "x": 172,
+            "y": 84
           }
         ],
         "sections": [
@@ -5341,8 +5341,8 @@
         "map_locations": [
           {
             "map": "Lieu : Connecting Cave",
-            "x": 290,
-            "y": 828
+            "x": 416,
+            "y": 246
           }
         ],
         "sections": [
@@ -5866,8 +5866,8 @@
         "map_locations": [
           {
             "map": "Lieu : Glittering Cave",
-            "x": 156,
-            "y": 852
+            "x": 164,
+            "y": 819
           }
         ],
         "sections": [
@@ -5887,8 +5887,8 @@
         "map_locations": [
           {
             "map": "Lieu : Glittering Cave",
-            "x": 165,
-            "y": 680
+            "x": 201,
+            "y": 128
           }
         ],
         "sections": [
@@ -5908,8 +5908,8 @@
         "map_locations": [
           {
             "map": "Lieu : Glittering Cave",
-            "x": 332,
-            "y": 776
+            "x": 166,
+            "y": 1606
           }
         ],
         "sections": [
@@ -5929,8 +5929,8 @@
         "map_locations": [
           {
             "map": "Lieu : Glittering Cave",
-            "x": 594,
-            "y": 755
+            "x": 663,
+            "y": 1566
           }
         ],
         "sections": [
@@ -6010,7 +6010,7 @@
           {
             "map": "Lieu : Route 8 (Cliffside)",
             "x": 31,
-            "y": 893
+            "y": 949
           }
         ],
         "sections": [
@@ -6033,8 +6033,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 8 (Cliffside)",
-            "x": 92,
-            "y": 852
+            "x": 368,
+            "y": 505
           }
         ],
         "sections": [
@@ -6057,8 +6057,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 8 (Cliffside)",
-            "x": 229,
-            "y": 751
+            "x": 492,
+            "y": 414
           }
         ],
         "sections": [
@@ -6081,8 +6081,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 8 (Cliffside)",
-            "x": 157,
-            "y": 680
+            "x": 427,
+            "y": 348
           }
         ],
         "sections": [
@@ -6170,8 +6170,8 @@
         "map_locations": [
           {
             "map": "Lieu : Cyllage City (Gym)",
-            "x": 316,
-            "y": 30
+            "x": 317,
+            "y": 202
           }
         ],
         "sections": [
@@ -6194,8 +6194,8 @@
         "map_locations": [
           {
             "map": "Lieu : Cyllage City (Gym)",
-            "x": 550,
-            "y": 358
+            "x": 480,
+            "y": 431
           }
         ],
         "sections": [
@@ -6218,8 +6218,8 @@
         "map_locations": [
           {
             "map": "Lieu : Cyllage City (Gym)",
-            "x": 409,
-            "y": 382
+            "x": 382,
+            "y": 448
           }
         ],
         "sections": [
@@ -6242,8 +6242,8 @@
         "map_locations": [
           {
             "map": "Lieu : Cyllage City (Gym)",
-            "x": 81,
-            "y": 100
+            "x": 153,
+            "y": 251
           }
         ],
         "sections": [
@@ -6331,8 +6331,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 8 (Coast)",
-            "x": 235,
-            "y": 836
+            "x": 335,
+            "y": 407
           }
         ],
         "sections": [
@@ -6355,8 +6355,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 8 (Coast)",
-            "x": 201,
-            "y": 779
+            "x": 277,
+            "y": 309
           }
         ],
         "sections": [
@@ -6379,8 +6379,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 8 (Coast)",
-            "x": 254,
-            "y": 852
+            "x": 368,
+            "y": 433
           }
         ],
         "sections": [
@@ -6403,8 +6403,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 8 (Coast)",
-            "x": 224,
-            "y": 718
+            "x": 316,
+            "y": 205
           }
         ],
         "sections": [
@@ -6427,8 +6427,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 8 (Coast)",
-            "x": 159,
-            "y": 752
+            "x": 205,
+            "y": 264
           }
         ],
         "sections": [
@@ -6451,8 +6451,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 8 (Coast)",
-            "x": 67,
-            "y": 680
+            "x": 49,
+            "y": 140
           }
         ],
         "sections": [
@@ -6476,7 +6476,7 @@
           {
             "map": "Lieu : Route 8 (Coast)",
             "x": 31,
-            "y": 893
+            "y": 949
           }
         ],
         "sections": [
@@ -6500,7 +6500,7 @@
           {
             "map": "Lieu : Route 8 (Coast)",
             "x": 61,
-            "y": 893
+            "y": 949
           }
         ],
         "sections": [
@@ -6646,8 +6646,8 @@
           },
           {
             "map": "Lieu : Shalour City (Gym)",
-            "x": 308,
-            "y": 88
+            "x": 333,
+            "y": 184
           }
         ],
         "sections": [
@@ -6694,7 +6694,7 @@
           {
             "map": "Lieu : Shalour City",
             "x": 31,
-            "y": 893
+            "y": 805
           }
         ],
         "sections": [
@@ -6715,7 +6715,7 @@
           {
             "map": "Lieu : Shalour City",
             "x": 61,
-            "y": 893
+            "y": 805
           }
         ],
         "sections": [
@@ -6736,7 +6736,7 @@
           {
             "map": "Lieu : Shalour City",
             "x": 91,
-            "y": 893
+            "y": 805
           }
         ],
         "sections": [
@@ -6757,7 +6757,7 @@
           {
             "map": "Lieu : Shalour City",
             "x": 121,
-            "y": 893
+            "y": 805
           }
         ],
         "sections": [
@@ -6778,7 +6778,7 @@
           {
             "map": "Lieu : Shalour City",
             "x": 151,
-            "y": 893
+            "y": 805
           }
         ],
         "sections": [
@@ -6799,7 +6799,7 @@
           {
             "map": "Lieu : Shalour City",
             "x": 181,
-            "y": 893
+            "y": 805
           }
         ],
         "sections": [
@@ -6823,7 +6823,7 @@
           {
             "map": "Lieu : Shalour City",
             "x": 211,
-            "y": 893
+            "y": 805
           }
         ],
         "sections": [
@@ -6847,7 +6847,7 @@
           {
             "map": "Lieu : Shalour City",
             "x": 241,
-            "y": 893
+            "y": 805
           }
         ],
         "sections": [
@@ -6870,8 +6870,8 @@
         "map_locations": [
           {
             "map": "Lieu : Shalour City",
-            "x": 161,
-            "y": 766
+            "x": 346,
+            "y": 199
           }
         ],
         "sections": [
@@ -7644,7 +7644,7 @@
           {
             "map": "Lieu : Route 11",
             "x": 31,
-            "y": 709
+            "y": 436
           }
         ],
         "sections": [
@@ -7668,7 +7668,7 @@
           {
             "map": "Lieu : Route 11",
             "x": 61,
-            "y": 709
+            "y": 436
           }
         ],
         "sections": [
@@ -7691,8 +7691,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 11",
-            "x": 63,
-            "y": 496
+            "x": 179,
+            "y": 178
           }
         ],
         "sections": [
@@ -7712,8 +7712,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 11",
-            "x": 281,
-            "y": 668
+            "x": 379,
+            "y": 335
           }
         ],
         "sections": [
@@ -7733,8 +7733,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 11",
-            "x": 212,
-            "y": 541
+            "x": 316,
+            "y": 220
           }
         ],
         "sections": [
@@ -7757,8 +7757,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 11",
-            "x": 40,
-            "y": 610
+            "x": 159,
+            "y": 283
           }
         ],
         "sections": [
@@ -7781,8 +7781,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 11",
-            "x": 155,
-            "y": 656
+            "x": 263,
+            "y": 325
           }
         ],
         "sections": [
@@ -7806,7 +7806,7 @@
           {
             "map": "Lieu : Route 11",
             "x": 91,
-            "y": 709
+            "y": 436
           }
         ],
         "sections": [
@@ -8223,8 +8223,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave (B1F)",
-            "x": 122,
-            "y": 675
+            "x": 405,
+            "y": 209
           }
         ],
         "sections": [
@@ -8247,8 +8247,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave (B1F)",
-            "x": 172,
-            "y": 659
+            "x": 640,
+            "y": 130
           }
         ],
         "sections": [
@@ -8271,8 +8271,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave (B1F)",
-            "x": 196,
-            "y": 689
+            "x": 749,
+            "y": 271
           }
         ],
         "sections": [
@@ -8295,8 +8295,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave (B1F)",
-            "x": 115,
-            "y": 773
+            "x": 373,
+            "y": 663
           }
         ],
         "sections": [
@@ -8319,8 +8319,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave (B1F)",
-            "x": 206,
-            "y": 800
+            "x": 796,
+            "y": 788
           }
         ],
         "sections": [
@@ -8343,8 +8343,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave (B1F)",
-            "x": 152,
-            "y": 831
+            "x": 546,
+            "y": 929
           }
         ],
         "sections": [
@@ -8456,8 +8456,8 @@
         "map_locations": [
           {
             "map": "Lieu : Shalour City (Gym)",
-            "x": 572,
-            "y": 235
+            "x": 513,
+            "y": 284
           }
         ],
         "sections": [
@@ -8480,8 +8480,8 @@
         "map_locations": [
           {
             "map": "Lieu : Shalour City (Gym)",
-            "x": 59,
-            "y": 30
+            "x": 163,
+            "y": 144
           }
         ],
         "sections": [
@@ -8504,8 +8504,8 @@
         "map_locations": [
           {
             "map": "Lieu : Shalour City (Gym)",
-            "x": 338,
-            "y": 382
+            "x": 353,
+            "y": 384
           }
         ],
         "sections": [
@@ -8528,8 +8528,8 @@
         "map_locations": [
           {
             "map": "Lieu : Shalour City (Gym)",
-            "x": 59,
-            "y": 308
+            "x": 163,
+            "y": 334
           }
         ],
         "sections": [
@@ -8617,8 +8617,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave (1F)",
-            "x": 38,
-            "y": 680
+            "x": 171,
+            "y": 395
           }
         ],
         "sections": [
@@ -8641,8 +8641,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave (1F)",
-            "x": 283,
-            "y": 726
+            "x": 695,
+            "y": 494
           }
         ],
         "sections": [
@@ -8665,8 +8665,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave (1F)",
-            "x": 210,
-            "y": 845
+            "x": 539,
+            "y": 749
           }
         ],
         "sections": [
@@ -8689,8 +8689,8 @@
         "map_locations": [
           {
             "map": "Lieu : Reflection Cave (1F)",
-            "x": 111,
-            "y": 852
+            "x": 327,
+            "y": 764
           }
         ],
         "sections": [
@@ -8788,8 +8788,8 @@
           },
           {
             "map": "Lieu : Coumarine City (Gym)",
-            "x": 316,
-            "y": 56
+            "x": 143,
+            "y": 167
           }
         ],
         "sections": [
@@ -8836,7 +8836,7 @@
           {
             "map": "Lieu : Coumarine City",
             "x": 31,
-            "y": 893
+            "y": 870
           }
         ],
         "sections": [
@@ -8857,7 +8857,7 @@
           {
             "map": "Lieu : Coumarine City",
             "x": 61,
-            "y": 893
+            "y": 870
           }
         ],
         "sections": [
@@ -8878,7 +8878,7 @@
           {
             "map": "Lieu : Coumarine City",
             "x": 91,
-            "y": 893
+            "y": 870
           }
         ],
         "sections": [
@@ -8899,7 +8899,7 @@
           {
             "map": "Lieu : Coumarine City",
             "x": 121,
-            "y": 893
+            "y": 870
           }
         ],
         "sections": [
@@ -8920,7 +8920,7 @@
           {
             "map": "Lieu : Coumarine City",
             "x": 151,
-            "y": 893
+            "y": 870
           }
         ],
         "sections": [
@@ -8944,7 +8944,7 @@
           {
             "map": "Lieu : Coumarine City",
             "x": 181,
-            "y": 893
+            "y": 870
           }
         ],
         "sections": [
@@ -8968,7 +8968,7 @@
           {
             "map": "Lieu : Coumarine City",
             "x": 211,
-            "y": 893
+            "y": 870
           }
         ],
         "sections": [
@@ -8991,8 +8991,8 @@
         "map_locations": [
           {
             "map": "Lieu : Coumarine City",
-            "x": 161,
-            "y": 766
+            "x": 292,
+            "y": 111
           }
         ],
         "sections": [
@@ -10235,8 +10235,8 @@
         "map_locations": [
           {
             "map": "Lieu : Coumarine City (Gym)",
-            "x": 184,
-            "y": 179
+            "x": 31,
+            "y": 796
           }
         ],
         "sections": [
@@ -10259,8 +10259,8 @@
         "map_locations": [
           {
             "map": "Lieu : Coumarine City (Gym)",
-            "x": 448,
-            "y": 96
+            "x": 61,
+            "y": 796
           }
         ],
         "sections": [
@@ -10283,8 +10283,8 @@
         "map_locations": [
           {
             "map": "Lieu : Coumarine City (Gym)",
-            "x": 184,
-            "y": 346
+            "x": 91,
+            "y": 796
           }
         ],
         "sections": [
@@ -10307,8 +10307,8 @@
         "map_locations": [
           {
             "map": "Lieu : Coumarine City (Gym)",
-            "x": 448,
-            "y": 262
+            "x": 121,
+            "y": 796
           }
         ],
         "sections": [
@@ -10407,7 +10407,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 6F)",
             "x": 316,
-            "y": 206
+            "y": 534
           }
         ],
         "sections": [
@@ -11147,8 +11147,8 @@
         "map_locations": [
           {
             "map": "Lieu : Kalos Power Plant",
-            "x": 161,
-            "y": 766
+            "x": 459,
+            "y": 286
           }
         ],
         "sections": [
@@ -11284,7 +11284,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 4F)",
             "x": 166,
-            "y": 96
+            "y": 424
           }
         ],
         "sections": [
@@ -11308,7 +11308,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 4F)",
             "x": 316,
-            "y": 96
+            "y": 424
           }
         ],
         "sections": [
@@ -11332,7 +11332,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 4F)",
             "x": 466,
-            "y": 96
+            "y": 424
           }
         ],
         "sections": [
@@ -11642,7 +11642,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 2F)",
             "x": 166,
-            "y": 96
+            "y": 424
           }
         ],
         "sections": [
@@ -11666,7 +11666,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 2F)",
             "x": 316,
-            "y": 96
+            "y": 424
           }
         ],
         "sections": [
@@ -11690,7 +11690,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 2F)",
             "x": 466,
-            "y": 96
+            "y": 424
           }
         ],
         "sections": [
@@ -11767,7 +11767,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 3F)",
             "x": 166,
-            "y": 96
+            "y": 424
           }
         ],
         "sections": [
@@ -11791,7 +11791,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 3F)",
             "x": 316,
-            "y": 96
+            "y": 424
           }
         ],
         "sections": [
@@ -11815,7 +11815,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 3F)",
             "x": 466,
-            "y": 96
+            "y": 424
           }
         ],
         "sections": [
@@ -11892,7 +11892,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 5F)",
             "x": 166,
-            "y": 96
+            "y": 424
           }
         ],
         "sections": [
@@ -11916,7 +11916,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 5F)",
             "x": 316,
-            "y": 96
+            "y": 424
           }
         ],
         "sections": [
@@ -11940,7 +11940,7 @@
           {
             "map": "Lieu : Lumiose City (Gym 5F)",
             "x": 466,
-            "y": 96
+            "y": 424
           }
         ],
         "sections": [
@@ -12026,8 +12026,8 @@
           },
           {
             "map": "Lieu : Laverre City (Gym)",
-            "x": 316,
-            "y": 155
+            "x": 303,
+            "y": 145
           }
         ],
         "sections": [
@@ -12589,7 +12589,7 @@
           {
             "map": "Lieu : Laverre City",
             "x": 31,
-            "y": 893
+            "y": 798
           }
         ],
         "sections": [
@@ -12613,7 +12613,7 @@
           {
             "map": "Lieu : Laverre City",
             "x": 61,
-            "y": 893
+            "y": 798
           }
         ],
         "sections": [
@@ -12637,7 +12637,7 @@
           {
             "map": "Lieu : Laverre City",
             "x": 91,
-            "y": 893
+            "y": 798
           }
         ],
         "sections": [
@@ -12660,8 +12660,8 @@
         "map_locations": [
           {
             "map": "Lieu : Laverre City",
-            "x": 161,
-            "y": 766
+            "x": 222,
+            "y": 534
           }
         ],
         "sections": [
@@ -12743,8 +12743,8 @@
         "map_locations": [
           {
             "map": "Lieu : Laverre City (Gym)",
-            "x": 542,
-            "y": 206
+            "x": 479,
+            "y": 184
           }
         ],
         "sections": [
@@ -12767,8 +12767,8 @@
         "map_locations": [
           {
             "map": "Lieu : Laverre City (Gym)",
-            "x": 290,
-            "y": 206
+            "x": 283,
+            "y": 184
           }
         ],
         "sections": [
@@ -12791,8 +12791,8 @@
         "map_locations": [
           {
             "map": "Lieu : Laverre City (Gym)",
-            "x": 89,
-            "y": 256
+            "x": 127,
+            "y": 223
           }
         ],
         "sections": [
@@ -12815,8 +12815,8 @@
         "map_locations": [
           {
             "map": "Lieu : Laverre City (Gym)",
-            "x": 517,
-            "y": 256
+            "x": 459,
+            "y": 223
           }
         ],
         "sections": [
@@ -12915,7 +12915,7 @@
           {
             "map": "Lieu : Anistar City (Gym)",
             "x": 316,
-            "y": 56
+            "y": 598
           }
         ],
         "sections": [
@@ -12962,7 +12962,7 @@
           {
             "map": "Lieu : Poké Ball Factory",
             "x": 31,
-            "y": 893
+            "y": 1785
           }
         ],
         "sections": [
@@ -12986,7 +12986,7 @@
           {
             "map": "Lieu : Poké Ball Factory",
             "x": 61,
-            "y": 893
+            "y": 1785
           }
         ],
         "sections": [
@@ -13010,7 +13010,7 @@
           {
             "map": "Lieu : Poké Ball Factory",
             "x": 91,
-            "y": 893
+            "y": 1785
           }
         ],
         "sections": [
@@ -13034,7 +13034,7 @@
           {
             "map": "Lieu : Poké Ball Factory",
             "x": 121,
-            "y": 893
+            "y": 1785
           }
         ],
         "sections": [
@@ -13057,8 +13057,8 @@
         "map_locations": [
           {
             "map": "Lieu : Poké Ball Factory",
-            "x": 292,
-            "y": 760
+            "x": 574,
+            "y": 378
           }
         ],
         "sections": [
@@ -13078,8 +13078,8 @@
         "map_locations": [
           {
             "map": "Lieu : Poké Ball Factory",
-            "x": 30,
-            "y": 771
+            "x": 159,
+            "y": 394
           }
         ],
         "sections": [
@@ -13099,8 +13099,8 @@
         "map_locations": [
           {
             "map": "Lieu : Poké Ball Factory",
-            "x": 332,
-            "y": 687
+            "x": 69,
+            "y": 1116
           }
         ],
         "sections": [
@@ -13120,8 +13120,8 @@
         "map_locations": [
           {
             "map": "Lieu : Poké Ball Factory",
-            "x": 573,
-            "y": 844
+            "x": 422,
+            "y": 1346
           }
         ],
         "sections": [
@@ -13141,8 +13141,8 @@
         "map_locations": [
           {
             "map": "Lieu : Poké Ball Factory",
-            "x": 594,
-            "y": 771
+            "x": 453,
+            "y": 1239
           }
         ],
         "sections": [
@@ -14741,7 +14741,7 @@
           {
             "map": "Lieu : Dendemille Town",
             "x": 31,
-            "y": 893
+            "y": 991
           }
         ],
         "sections": [
@@ -14765,7 +14765,7 @@
           {
             "map": "Lieu : Dendemille Town",
             "x": 61,
-            "y": 893
+            "y": 991
           }
         ],
         "sections": [
@@ -14789,7 +14789,7 @@
           {
             "map": "Lieu : Dendemille Town",
             "x": 91,
-            "y": 893
+            "y": 991
           }
         ],
         "sections": [
@@ -14812,8 +14812,8 @@
         "map_locations": [
           {
             "map": "Lieu : Dendemille Town",
-            "x": 161,
-            "y": 766
+            "x": 353,
+            "y": 806
           }
         ],
         "sections": [
@@ -16332,7 +16332,7 @@
           {
             "map": "Lieu : Anistar City (Gym)",
             "x": 184,
-            "y": 346
+            "y": 888
           }
         ],
         "sections": [
@@ -16356,7 +16356,7 @@
           {
             "map": "Lieu : Anistar City (Gym)",
             "x": 448,
-            "y": 283
+            "y": 825
           }
         ],
         "sections": [
@@ -16380,7 +16380,7 @@
           {
             "map": "Lieu : Anistar City (Gym)",
             "x": 184,
-            "y": 221
+            "y": 763
           }
         ],
         "sections": [
@@ -16404,7 +16404,7 @@
           {
             "map": "Lieu : Anistar City (Gym)",
             "x": 184,
-            "y": 96
+            "y": 638
           }
         ],
         "sections": [
@@ -16428,7 +16428,7 @@
           {
             "map": "Lieu : Anistar City (Gym)",
             "x": 448,
-            "y": 158
+            "y": 700
           }
         ],
         "sections": [
@@ -16528,8 +16528,8 @@
         "map_locations": [
           {
             "map": "Lieu : PokeBall Factory",
-            "x": 56,
-            "y": 809
+            "x": 69,
+            "y": 336
           }
         ],
         "sections": [
@@ -16552,8 +16552,8 @@
         "map_locations": [
           {
             "map": "Lieu : PokeBall Factory",
-            "x": 253,
-            "y": 845
+            "x": 315,
+            "y": 382
           }
         ],
         "sections": [
@@ -16576,8 +16576,8 @@
         "map_locations": [
           {
             "map": "Lieu : PokeBall Factory",
-            "x": 228,
-            "y": 735
+            "x": 284,
+            "y": 244
           }
         ],
         "sections": [
@@ -16600,8 +16600,8 @@
         "map_locations": [
           {
             "map": "Lieu : PokeBall Factory",
-            "x": 265,
-            "y": 686
+            "x": 330,
+            "y": 182
           }
         ],
         "sections": [
@@ -16975,8 +16975,8 @@
         "map_locations": [
           {
             "map": "Lieu : Frost Cavern (3F)",
-            "x": 89,
-            "y": 680
+            "x": 226,
+            "y": 472
           }
         ],
         "sections": [
@@ -16999,8 +16999,8 @@
         "map_locations": [
           {
             "map": "Lieu : Frost Cavern (3F)",
-            "x": 194,
-            "y": 852
+            "x": 398,
+            "y": 754
           }
         ],
         "sections": [
@@ -17023,8 +17023,8 @@
         "map_locations": [
           {
             "map": "Lieu : Frost Cavern (3F)",
-            "x": 232,
-            "y": 687
+            "x": 460,
+            "y": 484
           }
         ],
         "sections": [
@@ -17100,8 +17100,8 @@
         "map_locations": [
           {
             "map": "Lieu : Frost Cavern (Outside)",
-            "x": 164,
-            "y": 680
+            "x": 114,
+            "y": 515
           }
         ],
         "sections": [
@@ -17125,7 +17125,7 @@
           {
             "map": "Lieu : Frost Cavern (Outside)",
             "x": 31,
-            "y": 893
+            "y": 853
           }
         ],
         "sections": [
@@ -17149,7 +17149,7 @@
           {
             "map": "Lieu : Frost Cavern (Outside)",
             "x": 61,
-            "y": 893
+            "y": 853
           }
         ],
         "sections": [
@@ -17172,8 +17172,8 @@
         "map_locations": [
           {
             "map": "Lieu : Frost Cavern (Outside)",
-            "x": 157,
-            "y": 852
+            "x": 106,
+            "y": 704
           }
         ],
         "sections": [
@@ -17271,8 +17271,8 @@
           },
           {
             "map": "Lieu : Snowbelle City (Gym)",
-            "x": 316,
-            "y": 30
+            "x": 168,
+            "y": 122
           }
         ],
         "sections": [
@@ -18014,7 +18014,7 @@
           {
             "map": "Lieu : Lysandre Labs",
             "x": 31,
-            "y": 243
+            "y": 814
           }
         ],
         "sections": [
@@ -18034,8 +18034,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lysandre Labs",
-            "x": 30,
-            "y": 148
+            "x": 184,
+            "y": 263
           }
         ],
         "sections": [
@@ -18055,8 +18055,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lysandre Labs",
-            "x": 292,
-            "y": 83
+            "x": 587,
+            "y": 162
           }
         ],
         "sections": [
@@ -18076,8 +18076,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lysandre Labs",
-            "x": 463,
-            "y": 116
+            "x": 161,
+            "y": 687
           }
         ],
         "sections": [
@@ -18097,8 +18097,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lysandre Labs",
-            "x": 765,
-            "y": 116
+            "x": 463,
+            "y": 687
           }
         ],
         "sections": [
@@ -19469,7 +19469,7 @@
           {
             "map": "Lieu : Couriway Town",
             "x": 31,
-            "y": 893
+            "y": 744
           }
         ],
         "sections": [
@@ -19493,7 +19493,7 @@
           {
             "map": "Lieu : Couriway Town",
             "x": 61,
-            "y": 893
+            "y": 744
           }
         ],
         "sections": [
@@ -19517,7 +19517,7 @@
           {
             "map": "Lieu : Couriway Town",
             "x": 91,
-            "y": 893
+            "y": 744
           }
         ],
         "sections": [
@@ -19541,7 +19541,7 @@
           {
             "map": "Lieu : Couriway Town",
             "x": 121,
-            "y": 893
+            "y": 744
           }
         ],
         "sections": [
@@ -19565,7 +19565,7 @@
           {
             "map": "Lieu : Couriway Town",
             "x": 151,
-            "y": 893
+            "y": 744
           }
         ],
         "sections": [
@@ -19588,8 +19588,8 @@
         "map_locations": [
           {
             "map": "Lieu : Couriway Town",
-            "x": 137,
-            "y": 680
+            "x": 417,
+            "y": 171
           }
         ],
         "sections": [
@@ -19609,8 +19609,8 @@
         "map_locations": [
           {
             "map": "Lieu : Couriway Town",
-            "x": 172,
-            "y": 773
+            "x": 506,
+            "y": 406
           }
         ],
         "sections": [
@@ -19630,8 +19630,8 @@
         "map_locations": [
           {
             "map": "Lieu : Couriway Town",
-            "x": 184,
-            "y": 852
+            "x": 535,
+            "y": 603
           }
         ],
         "sections": [
@@ -19756,7 +19756,7 @@
           {
             "map": "Lieu : Snowbelle City",
             "x": 31,
-            "y": 893
+            "y": 539
           }
         ],
         "sections": [
@@ -19780,7 +19780,7 @@
           {
             "map": "Lieu : Snowbelle City",
             "x": 61,
-            "y": 893
+            "y": 539
           }
         ],
         "sections": [
@@ -19804,7 +19804,7 @@
           {
             "map": "Lieu : Snowbelle City",
             "x": 91,
-            "y": 893
+            "y": 539
           }
         ],
         "sections": [
@@ -19827,8 +19827,8 @@
         "map_locations": [
           {
             "map": "Lieu : Snowbelle City",
-            "x": 161,
-            "y": 766
+            "x": 191,
+            "y": 340
           }
         ],
         "sections": [
@@ -19911,7 +19911,7 @@
           {
             "map": "Lieu : Route 20",
             "x": 31,
-            "y": 893
+            "y": 577
           }
         ],
         "sections": [
@@ -19935,7 +19935,7 @@
           {
             "map": "Lieu : Route 20",
             "x": 61,
-            "y": 893
+            "y": 577
           }
         ],
         "sections": [
@@ -19959,7 +19959,7 @@
           {
             "map": "Lieu : Route 20",
             "x": 91,
-            "y": 893
+            "y": 577
           }
         ],
         "sections": [
@@ -19983,7 +19983,7 @@
           {
             "map": "Lieu : Route 20",
             "x": 121,
-            "y": 893
+            "y": 577
           }
         ],
         "sections": [
@@ -20007,7 +20007,7 @@
           {
             "map": "Lieu : Route 20",
             "x": 151,
-            "y": 893
+            "y": 577
           }
         ],
         "sections": [
@@ -20030,8 +20030,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 20",
-            "x": 245,
-            "y": 698
+            "x": 523,
+            "y": 142
           }
         ],
         "sections": [
@@ -20051,8 +20051,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 20",
-            "x": 150,
-            "y": 721
+            "x": 320,
+            "y": 203
           }
         ],
         "sections": [
@@ -20072,8 +20072,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 20",
-            "x": 113,
-            "y": 758
+            "x": 229,
+            "y": 289
           }
         ],
         "sections": [
@@ -20093,8 +20093,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 20",
-            "x": 30,
-            "y": 680
+            "x": 42,
+            "y": 103
           }
         ],
         "sections": [
@@ -20114,8 +20114,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 20",
-            "x": 132,
-            "y": 778
+            "x": 281,
+            "y": 337
           }
         ],
         "sections": [
@@ -20135,8 +20135,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 20",
-            "x": 292,
-            "y": 851
+            "x": 628,
+            "y": 484
           }
         ],
         "sections": [
@@ -20159,8 +20159,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 20",
-            "x": 165,
-            "y": 739
+            "x": 337,
+            "y": 224
           }
         ],
         "sections": [
@@ -20183,8 +20183,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 20",
-            "x": 185,
-            "y": 841
+            "x": 389,
+            "y": 463
           }
         ],
         "sections": [
@@ -20207,8 +20207,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 20",
-            "x": 110,
-            "y": 781
+            "x": 229,
+            "y": 315
           }
         ],
         "sections": [
@@ -20231,8 +20231,8 @@
         "map_locations": [
           {
             "map": "Lieu : Route 20",
-            "x": 147,
-            "y": 796
+            "x": 289,
+            "y": 346
           }
         ],
         "sections": [
@@ -21129,8 +21129,8 @@
         "map_locations": [
           {
             "map": "Lieu : Snowbelle City (Gym)",
-            "x": 234,
-            "y": 283
+            "x": 52,
+            "y": 480
           }
         ],
         "sections": [
@@ -21153,8 +21153,8 @@
         "map_locations": [
           {
             "map": "Lieu : Snowbelle City (Gym)",
-            "x": 365,
-            "y": 382
+            "x": 237,
+            "y": 619
           }
         ],
         "sections": [
@@ -21177,8 +21177,8 @@
         "map_locations": [
           {
             "map": "Lieu : Snowbelle City (Gym)",
-            "x": 397,
-            "y": 283
+            "x": 283,
+            "y": 480
           }
         ],
         "sections": [
@@ -21201,8 +21201,8 @@
         "map_locations": [
           {
             "map": "Lieu : Snowbelle City (Gym)",
-            "x": 266,
-            "y": 382
+            "x": 98,
+            "y": 619
           }
         ],
         "sections": [
@@ -21290,8 +21290,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lysandre Lab",
-            "x": 97,
-            "y": 97
+            "x": 247,
+            "y": 263
           }
         ],
         "sections": [
@@ -21314,8 +21314,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lysandre Lab",
-            "x": 52,
-            "y": 30
+            "x": 172,
+            "y": 149
           }
         ],
         "sections": [
@@ -21338,8 +21338,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lysandre Lab",
-            "x": 261,
-            "y": 202
+            "x": 524,
+            "y": 439
           }
         ],
         "sections": [
@@ -21362,8 +21362,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lysandre Lab",
-            "x": 75,
-            "y": 164
+            "x": 209,
+            "y": 376
           }
         ],
         "sections": [
@@ -21386,8 +21386,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lysandre Lab",
-            "x": 142,
-            "y": 59
+            "x": 323,
+            "y": 200
           }
         ],
         "sections": [
@@ -21410,8 +21410,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lysandre Lab",
-            "x": 269,
-            "y": 44
+            "x": 537,
+            "y": 174
           }
         ],
         "sections": [
@@ -21434,8 +21434,8 @@
         "map_locations": [
           {
             "map": "Lieu : Lysandre Lab",
-            "x": 209,
-            "y": 112
+            "x": 436,
+            "y": 288
           }
         ],
         "sections": [
@@ -21559,8 +21559,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave (B2F)",
-            "x": 205,
-            "y": 652
+            "x": 444,
+            "y": 316
           }
         ],
         "sections": [
@@ -21583,8 +21583,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave (B2F)",
-            "x": 105,
-            "y": 619
+            "x": 296,
+            "y": 266
           }
         ],
         "sections": [
@@ -21607,8 +21607,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave (B2F)",
-            "x": 99,
-            "y": 775
+            "x": 288,
+            "y": 497
           }
         ],
         "sections": [
@@ -21631,8 +21631,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave (B2F)",
-            "x": 138,
-            "y": 603
+            "x": 345,
+            "y": 242
           }
         ],
         "sections": [
@@ -21655,8 +21655,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave (B2F)",
-            "x": 222,
-            "y": 775
+            "x": 469,
+            "y": 497
           }
         ],
         "sections": [
@@ -21756,8 +21756,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave (B1F)",
-            "x": 142,
-            "y": 959
+            "x": 452,
+            "y": 367
           }
         ],
         "sections": [
@@ -21780,8 +21780,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave (B1F)",
-            "x": 34,
-            "y": 1002
+            "x": 209,
+            "y": 464
           }
         ],
         "sections": [
@@ -21804,8 +21804,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave (B1F)",
-            "x": 287,
-            "y": 916
+            "x": 780,
+            "y": 269
           }
         ],
         "sections": [
@@ -21828,8 +21828,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave (B1F)",
-            "x": 99,
-            "y": 1023
+            "x": 355,
+            "y": 513
           }
         ],
         "sections": [
@@ -21852,8 +21852,8 @@
         "map_locations": [
           {
             "map": "Lieu : Terminus Cave (B1F)",
-            "x": 131,
-            "y": 1088
+            "x": 428,
+            "y": 659
           }
         ],
         "sections": [
@@ -22946,7 +22946,7 @@
           {
             "map": "Lieu : Kiloude City",
             "x": 31,
-            "y": 893
+            "y": 649
           }
         ],
         "sections": [
@@ -22970,7 +22970,7 @@
           {
             "map": "Lieu : Kiloude City",
             "x": 61,
-            "y": 893
+            "y": 649
           }
         ],
         "sections": [
@@ -22993,8 +22993,8 @@
         "map_locations": [
           {
             "map": "Lieu : Kiloude City",
-            "x": 161,
-            "y": 766
+            "x": 623,
+            "y": 396
           }
         ],
         "sections": [
@@ -23278,8 +23278,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road (Inside 2)",
-            "x": 159,
-            "y": 680
+            "x": 288,
+            "y": 255
           }
         ],
         "sections": [
@@ -23302,8 +23302,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road (Inside 2)",
-            "x": 131,
-            "y": 852
+            "x": 198,
+            "y": 810
           }
         ],
         "sections": [
@@ -23326,8 +23326,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road (Inside 2)",
-            "x": 207,
-            "y": 740
+            "x": 443,
+            "y": 448
           }
         ],
         "sections": [
@@ -23350,8 +23350,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road (Inside 2)",
-            "x": 115,
-            "y": 716
+            "x": 146,
+            "y": 371
           }
         ],
         "sections": [
@@ -23492,8 +23492,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road (Outside 3)",
-            "x": 167,
-            "y": 48
+            "x": 199,
+            "y": 184
           }
         ],
         "sections": [
@@ -23516,8 +23516,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road (Outside 3)",
-            "x": 154,
-            "y": 183
+            "x": 188,
+            "y": 306
           }
         ],
         "sections": [
@@ -23581,8 +23581,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road (Inside 3)",
-            "x": 247,
-            "y": 802
+            "x": 856,
+            "y": 402
           }
         ],
         "sections": [
@@ -23605,8 +23605,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road (Inside 3)",
-            "x": 222,
-            "y": 685
+            "x": 801,
+            "y": 139
           }
         ],
         "sections": [
@@ -23629,8 +23629,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road (Inside 3)",
-            "x": 167,
-            "y": 845
+            "x": 676,
+            "y": 499
           }
         ],
         "sections": [
@@ -23653,8 +23653,8 @@
         "map_locations": [
           {
             "map": "Lieu : Victory Road (Inside 3)",
-            "x": 75,
-            "y": 673
+            "x": 469,
+            "y": 111
           }
         ],
         "sections": [
