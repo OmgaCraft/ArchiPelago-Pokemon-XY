@@ -204,12 +204,13 @@ et objets clés reçus, et les lieux déjà validés. Chaque région a un onglet
 4. Sur la carte, les groupes de repères se recouvrent parfois un peu : zoome avec la molette. Les icônes du bas à gauche (cachés, dresseurs, Machine Cherch'Objet) reprennent les options de
    ton YAML : elles se règlent seules à la connexion, et tu peux les basculer à la main.
 
-**Version avec le visuel des routes (facultatif).** L'onglet **Liste** de chaque région peut montrer
-une capture d'écran de chaque route, ville ou grotte à côté de ses checks. Ces captures (Serebii)
-appartiennent à leurs auteurs : elles ne sont pas dans le pack publié, et se récupèrent chez toi :
+**Plans et cartes.** L'onglet **Liste** de chaque région montre, pour chaque zone, un plan avec les objets au sol
+à leur vraie place (positions lues dans la ROM). Version facultative, avec la vraie carte du jeu vue du dessus
+(Poképédia) sous chaque repère quand elle existe : ces cartes appartiennent à leurs auteurs, elles ne sont pas
+dans le pack publié, et se récupèrent chez toi :
 
 ```
-py -3.13 tools/fetch_zone_images.py
+py -3.13 tools/fetch_topdown_maps.py
 py -3.13 tools/build_tracker.py
 ```
 

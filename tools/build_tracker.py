@@ -28,12 +28,10 @@ from PIL import Image, ImageDraw, ImageFont
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WORLD_DIR = os.path.join(PROJECT_DIR, "worlds", "pokemon_xy")
-TRACKER_DIR = os.path.join(PROJECT_DIR, "tracker")          # pack public (sans captures d'écran)
-LOCAL_DIR = os.path.join(PROJECT_DIR, "local", "tracker")   # pack local, avec les captures (jamais publié)
+TRACKER_DIR = os.path.join(PROJECT_DIR, "tracker")          # pack public (plans schématiques)
+LOCAL_DIR = os.path.join(PROJECT_DIR, "local", "tracker")   # pack local, avec les cartes vues du dessus (jamais publié)
 PUBLIC_DIR = TRACKER_DIR
-ZONE_IMAGES_DIR = os.path.join(PROJECT_DIR, "tools", "assets", "zones")  # voir tools/fetch_zone_images.py
 USE_ZONES = False
-THUMB = (320, 192)
 STATIC_SCRIPTS = ("scripts/init.lua", "scripts/logic.lua", "scripts/autotracking/archipelago.lua")
 DIST_DIR = os.path.join(PROJECT_DIR, "dist")
 GAME_NAME = "Pokemon X and Y"
@@ -209,18 +207,6 @@ def make_icons(tracked):
     icon(f"{base}/items/opt_dowsing.png", "#0ea5e9", "Cherch")
 
 
-def zone_image(group):
-    """Première capture d'écran de la zone (téléchargée par tools/fetch_zone_images.py), ou None."""
-    if not USE_ZONES or not os.path.isdir(ZONE_IMAGES_DIR):
-        return None
-    base = plain(re.sub(r"\s*\(.*?\)", "", group))
-    base = {"powerplant": "kalospowerplant"}.get(base, base)
-    for name in sorted(os.listdir(ZONE_IMAGES_DIR)):
-        if name.endswith((".jpg", ".png")) and plain(name.rsplit("_", 1)[0]) == base:
-            return os.path.join(ZONE_IMAGES_DIR, name)
-    return None
-
-
 def spread(points, size, gap=22):
     """Écarte les repères trop proches (même case de la grille, quelques pixels d'écart)."""
     pts = [list(p) for p in points]
@@ -267,53 +253,70 @@ def plan_layout(entries, positions, size):
     return plans
 
 
-def make_map(path, region, groups, positions=None):
-    """Liste d'une région : par zone, la capture d'écran (si on l'a), les plans des objets au sol
-    (positions lues dans la ROM) puis les autres repères en grille."""
-    positions = positions or {}
+def load_topmaps():
+    """Calage des cartes vues du dessus (tools/calibrate_topmaps.py) ; vide hors version locale."""
+    path = os.path.join(ASSETS_DIR, "topmap_calibration.json")
+    if not USE_ZONES or not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as handle:
+        return {g: c for g, c in json.load(handle).items()
+                if os.path.exists(os.path.join(ASSETS_DIR, "topmaps", c["image"]))}
+
+
+def make_map(path, region, groups, positions=None, zone_of=None):
+    """Liste d'une région, par zone : la carte vue du dessus (version locale) avec les objets au sol
+    à leur place exacte, sinon un plan schématique (positions lues dans la ROM), puis les autres
+    repères en grille."""
+    positions, zone_of = positions or {}, zone_of or {}
+    topmaps = load_topmaps()
     width, margin, pitch = 980, 16, 30
     plan_size = (290, 200)
     head = font(15)
     y = margin + 26
     placed = OrderedDict()
     blocks = []
-    seen = set()
     for group, entries in groups.items():
-        base = plain(re.sub(r"\s*\(.*?\)", "", group))
-        image_path = zone_image(group) if base not in seen else None
-        seen.add(base)
-        left = margin + THUMB[0] + 16 if image_path else margin
-        blocks.append((y, group, image_path))
+        calib = topmaps.get(group)
+        blocks.append([y, group, None, [], 1.0])
         y += 22
-        plans = plan_layout(entries, positions, plan_size)
+        if calib:
+            picture = Image.open(os.path.join(ASSETS_DIR, "topmaps", calib["image"])).convert("RGB")
+            factor = min((width - 2 * margin) / picture.width, 600 / picture.height, 1.6)
+            picture = picture.resize((int(picture.width * factor), int(picture.height * factor)), Image.LANCZOS)
+            blocks[-1][2] = (picture, y)
+            for name in entries:
+                transform = calib["zones"].get(str(zone_of.get(name)))
+                if transform and name in positions:
+                    sx, sy, tx, ty = transform
+                    px = min(max((sx * positions[name][1] + tx) * factor, 8), picture.width - 8)
+                    py = min(max((sy * positions[name][2] + ty) * factor, 8), picture.height - 8)
+                    placed[name] = (int(margin + px), int(y + py))
+            y += picture.height + 10
+        left = margin
+        plans = plan_layout([e for e in entries if e not in placed], positions, plan_size)
         per_row = max(1, (width - margin - left) // (plan_size[0] + 12))
-        frames = []
         for index, plan in enumerate(plans):
             row, col = divmod(index, per_row)
             ox, oy = left + col * (plan_size[0] + 12), y + row * (plan_size[1] + 12)
-            frames.append((ox, oy))
+            blocks[-1][3].append((ox, oy))
             for name, px, py in plan:
                 placed[name] = (int(ox + px), int(oy + py))
-        plans_height = ((len(plans) - 1) // per_row + 1) * (plan_size[1] + 12) if plans else 0
-        blocks[-1] = (blocks[-1][0], group, image_path, frames)
+        y += ((len(plans) - 1) // per_row + 1) * (plan_size[1] + 12) if plans else 0
         rest = [e for e in entries if e not in placed]
         columns = max(1, (width - margin - left) // pitch)
-        rest_top = y + plans_height
         for index, entry in enumerate(rest):
             row, col = divmod(index, columns)
-            placed[entry] = (left + col * pitch + pitch // 2, rest_top + row * pitch + pitch // 2)
-        rest_height = ((len(rest) - 1) // columns + 1) * pitch if rest else 0
-        y += max(plans_height + rest_height, THUMB[1] if image_path else 0) + 14
+            placed[entry] = (left + col * pitch + pitch // 2, y + row * pitch + pitch // 2)
+        y += (((len(rest) - 1) // columns + 1) * pitch if rest else 0) + 14
     height = y + margin
     image = Image.new("RGB", (width, height), "#0f172a")
     draw = ImageDraw.Draw(image)
     draw.text((margin, 6), region, font=font(18), fill="#e2e8f0")
-    for label_y, group, image_path, frames in blocks:
+    for label_y, group, picture, frames, _factor in blocks:
         draw.text((margin, label_y), group, font=head, fill="#94a3b8")
         draw.line((margin, label_y + 19, width - margin, label_y + 19), fill="#1e293b")
-        if image_path:
-            thumb = Image.open(image_path).convert("RGB").resize(THUMB)
-            image.paste(thumb, (margin, label_y + 22))
+        if picture:
+            image.paste(picture[0], (margin, picture[1]))
         for ox, oy in frames:
             draw.rounded_rectangle((ox, oy, ox + plan_size[0], oy + plan_size[1]), radius=8,
                                    fill="#111c33", outline="#334155", width=2)
@@ -360,7 +363,7 @@ def build(out_dir=None, zones=False):
 
     # Position de chaque objet au sol, lue dans la ROM (tools/extract_ball_positions.py) :
     # la Poké Ball n lève le drapeau FIELD_ITEM_FLAG + n.
-    ball_positions = {}
+    ball_positions, ball_zones = {}, {}
     raw = json.load(open(os.path.join(ASSETS_DIR, "ball_positions.json"), encoding="utf-8"))
     for by_group in by_region.values():
         for entries in by_group.values():
@@ -368,6 +371,7 @@ def build(out_dir=None, zones=False):
                 n = (data.flag_id or 0) - FIELD_ITEM_FLAG
                 if "FIELD ITEM" in data.category and str(n) in raw:
                     ball_positions[name] = (raw[str(n)]["zone"], raw[str(n)]["x"], raw[str(n)]["y"])
+                    ball_zones[name] = raw[str(n)]["zone"]
     print("objets au sol placés sur un plan :", len(ball_positions))
 
     cumulative, required = [], {}
@@ -386,7 +390,7 @@ def build(out_dir=None, zones=False):
             continue
         placed, _size = make_map(f"{TRACKER_DIR}/images/maps/{code_of(region)}.png", region,
                                  OrderedDict((g, [e[0] for e in entries]) for g, entries in groups.items()),
-                                 ball_positions)
+                                 ball_positions, ball_zones)
         maps.append({"name": region, "location_size": 24, "location_border_thickness": 3,
                      "img": f"images/maps/{code_of(region)}.png"})
         maps.append({"name": f"{region} (carte)", "location_size": MAP_PIN, "location_border_thickness": 2,
@@ -498,8 +502,8 @@ if __name__ == "__main__":
     version, maps, location_map, item_map = build()
     print(f"{len(maps)} cartes, {len(location_map)} lieux, {len(item_map)} objets suivis")
     package(version, PUBLIC_DIR, os.path.join(DIST_DIR, "Pokemon_XY_Tracker.zip"))
-    # Version locale avec les captures d'écran des zones : à garder chez soi (droits d'auteur).
-    if os.path.isdir(ZONE_IMAGES_DIR) and any(n.endswith((".jpg", ".png")) for n in os.listdir(ZONE_IMAGES_DIR)):
+    # Version locale avec les cartes vues du dessus (Poképédia) : à garder chez soi (droits d'auteur).
+    if os.path.isdir(os.path.join(ASSETS_DIR, "topmaps")) and os.path.exists(os.path.join(ASSETS_DIR, "topmap_calibration.json")):
         if os.path.isdir(LOCAL_DIR):
             shutil.rmtree(LOCAL_DIR)
         build(LOCAL_DIR, zones=True)

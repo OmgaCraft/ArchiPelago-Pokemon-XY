@@ -3,3 +3,4 @@ __pycache__/
 tools/.probe_state/
 local/
 tools/assets/zones/
+tools/assets/topmaps/
