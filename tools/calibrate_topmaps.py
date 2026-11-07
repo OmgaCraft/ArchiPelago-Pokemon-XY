@@ -31,27 +31,49 @@ _yy, _xx = np.mgrid[0:10, 0:12]
 MASK = (((_yy - 4.5) / 4.3) ** 2 + ((_xx - 5.5) / 5.3) ** 2) <= 1.0
 
 
-INDOOR = ("Cave", "Cavern", "Factory", "Gym", "Lab", "Power", "Palace", "Tower", "Dungeon", "Chamber",
-          "Road", "League", "Area")
+def _box_sums(mask, h, w):
+    """Somme du masque dans chaque fenêtre h x w (image intégrale)."""
+    ii = np.pad(mask.astype(np.int32).cumsum(0).cumsum(1), ((1, 0), (1, 0)))
+    return ii[h:, w:] - ii[:-h, w:] - ii[h:, :-w] + ii[:-h, :-w]
 
 
-def detect(path, threshold=0.30):
-    a = np.asarray(Image.open(path).convert("RGB")).astype(float)
-    if a.shape[0] < 10 or a.shape[1] < 12:
-        return []
-    windows = swv(a, (10, 12, 3))[:, :, 0]
-    score = None
-    for template in TEMPLATES:
-        diff = np.abs(windows - template).sum(axis=4)
-        part = 1 - ((diff < 120) & MASK).sum(axis=(2, 3)) / MASK.sum()
-        score = part if score is None else np.minimum(score, part)
-    points = []
-    for y, x in np.dstack(np.unravel_index(np.argsort(score, axis=None), score.shape))[0]:
-        if score[y, x] > threshold:
-            break
-        if all(abs(y - py) > 6 or abs(x - px) > 6 for py, px in points):
-            points.append((int(y), int(x)))
-    return sorted((x + 6, y + 5) for y, x in points)
+def detect(path, threshold=0.30, limit=30):
+    """Icônes de Poké Ball d'une carte, à plusieurs échelles (les cartes n'ont pas toutes la même taille).
+    Pré-filtre par couleur (rouge au-dessus, blanc en dessous), puis comparaison avec les modèles."""
+    a = np.asarray(Image.open(path).convert("RGB")).astype(np.float32)
+    R, G, B = a[..., 0], a[..., 1], a[..., 2]
+    red = (R > 140) & (G < 120) & (B < 120) & (R - G > 70)
+    white = np.minimum(np.minimum(R, G), B) > 180
+    found = []  # (score, x, y, largeur de l'icône)
+    for factor in (0.8, 0.9, 1.0, 1.1, 1.2, 1.35, 1.5, 1.7):
+        w, h = round(12 * factor), round(10 * factor)
+        if a.shape[0] < h or a.shape[1] < w:
+            continue
+        top, bottom = max(1, round(h * 0.25)), max(2, round(h * 0.55))
+        red_top = _box_sums(red, bottom - top, w)[top:top + a.shape[0] - h + 1]
+        white_bottom = _box_sums(white, h - bottom - 1, w)[bottom:bottom + a.shape[0] - h + 1]
+        ys, xs = np.where((red_top >= 0.15 * (bottom - top) * w) & (white_bottom >= 0.15 * (h - bottom - 1) * w))
+        if len(ys) == 0:
+            continue
+        yy, xx = np.mgrid[0:h, 0:w]
+        mask = (((yy - (h - 1) / 2) / (h * 0.43)) ** 2 + ((xx - (w - 1) / 2) / (w * 0.44)) ** 2) <= 1.0
+        best = None
+        for template in TEMPLATES:
+            resized = np.asarray(Image.fromarray(template.astype("uint8")).resize((w, h), Image.BICUBIC)).astype(np.float32)
+            scores = np.empty(len(ys), np.float32)
+            for i, (y, x) in enumerate(zip(ys, xs)):
+                diff = np.abs(a[y:y + h, x:x + w] - resized).sum(axis=2)
+                scores[i] = 1 - ((diff < 120) & mask).sum() / mask.sum()
+            best = scores if best is None else np.minimum(best, scores)
+        for score, y, x in zip(best, ys, xs):
+            if score <= threshold:
+                found.append((float(score), x + w / 2, y + h / 2, w))
+    found.sort()
+    kept = []
+    for sc, x, y, w in found:
+        if all(abs(x - kx) > w * 0.7 or abs(y - ky) > w * 0.7 for _s, kx, ky, _w in kept):
+            kept.append((sc, x, y, w))
+    return sorted((round(x), round(y)) for _s, x, y, _w in kept[:limit])
 
 
 def fit(points, icons, tol=6.0, smin=3.0, smax=14.0, ratio=0.18):
@@ -88,12 +110,11 @@ def main():
     images = {f: detect(os.path.join(MAPS, f)) for f in sorted(os.listdir(MAPS)) if f.endswith(".png")}
     result = {}
     for group, zones in sorted(groups.items()):
-        if f"{group}.png" in images:
-            candidates = [f"{group}.png"]
-        elif any(word in group for word in INDOOR):  # souterrains, bâtiments : pas de carte extérieure
+        base = group.split(" (")[0]
+        name = f"{group}.png" if f"{group}.png" in images else f"{bt.IMAGE_OF.get(base, base)}.png"
+        if name not in images:
             continue
-        else:
-            candidates = sorted(images)
+        candidates = [name]
         for zone, points in zones.items():
             if len(points) < 2:
                 continue
@@ -104,6 +125,12 @@ def main():
                     best = (count, image, params)
             count, image, params = best
             solid = count >= 3 or (count == 2 and len(points) == 2 and len(images.get(image, [])) == 2)
+            if not (solid and count >= len(points) - 2) and len(points) >= 3:
+                # Cartes un peu déformées (falaises, relief) : tolérance plus large, mais presque tous les objets
+                # doivent concorder (la carte est connue par son nom, pas devinée).
+                loose, loose_params = fit(points, images[candidates[0]], tol=14.0, ratio=0.35)
+                if loose_params and loose >= max(3, round(len(points) * 0.8)):
+                    count, image, params, solid = loose, candidates[0], loose_params, True
             if solid and count >= len(points) - 2:
                 entry = result.setdefault(group, {"image": image, "zones": {}})
                 if entry["image"] == image:

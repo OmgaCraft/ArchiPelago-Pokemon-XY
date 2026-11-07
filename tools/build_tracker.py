@@ -128,6 +128,15 @@ ROUTE_LINKS = {
     "Route 22": ["Santalune City"],
 }
 EXTRA_TOWN_LINKS = {"Kiloude City": ["Victory Road", "Pokémon League"]}  # on y arrive par la Route Victoire
+# Carte de Poképédia de chaque ville / lieu (noms français des fiches, via les liens inter-wikis).
+IMAGE_OF = {
+    "Aquacorde Town": "Quarellis", "Santalune City": "Neuvartault", "Camphrier Town": "Fort-Vanitas",
+    "Cyllage City": "Relifac-le-Haut", "Ambrette Town": "Roche-sur-Gliffe", "Geosenge Town": "Cromlach",
+    "Shalour City": "Yantreizh", "Coumarine City": "Port Tempères", "Laverre City": "Romant-sous-Bois",
+    "Dendemille Town": "La Frescale", "Anistar City": "Flusselles", "Couriway Town": "Mozheim",
+    "Snowbelle City": "Auffrac-les-Congères", "Pokémon Village": "Village Pokémon",
+    "Azure Bay": "Baie Azur", "Lost Hotel": "Hôtel Désolation", "Vaniville Town": "Bourg Croquis",
+}
 EXTRA_TRACKED_ITEMS = ["HM02 Fly", "Mega Ring"]
 SKIPPED_PREFIXES = ("FE_", "TMFLG_", "FLAG_")
 
@@ -290,6 +299,11 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
     positions, zone_of = positions or {}, zone_of or {}
     calib = load_topmaps().get(group)
     width, margin, pitch = 980, 16, 30
+    base = group.split(" (")[0]
+    plain_map = None  # carte sans calage : affichée quand même, les checks restent en dessous
+    if not calib and USE_ZONES:
+        candidate = os.path.join(ASSETS_DIR, "topmaps", f"{IMAGE_OF.get(base, base)}.png")
+        plain_map = candidate if os.path.exists(candidate) else None
     plan_size = (290, 200)
     y = margin
     placed = OrderedDict()
@@ -305,6 +319,12 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
                 px = min(max((sx * positions[name][1] + tx) * factor, 8), picture.width - 8)
                 py = min(max((sy * positions[name][2] + ty) * factor, 8), picture.height - 8)
                 placed[name] = (int(margin + px), int(y + py))
+        picture_y = y
+        y += picture.height + 10
+    if plain_map:
+        picture = Image.open(plain_map).convert("RGB")
+        factor = min((width - 2 * margin) / picture.width, 640 / picture.height, 1.6)
+        picture = picture.resize((int(picture.width * factor), int(picture.height * factor)), Image.LANCZOS)
         picture_y = y
         y += picture.height + 10
     plans = plan_layout([e for e in entries if e not in placed], positions, plan_size)

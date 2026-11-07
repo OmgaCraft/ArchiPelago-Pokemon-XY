@@ -953,20 +953,20 @@
                     }
                   },
                   {
-                    "title": "Route 8",
-                    "content": {
-                      "type": "map",
-                      "maps": [
-                        "Lieu : Route 8"
-                      ]
-                    }
-                  },
-                  {
                     "title": "Route 8 (Coast)",
                     "content": {
                       "type": "map",
                       "maps": [
                         "Lieu : Route 8 (Coast)"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 8",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 8"
                       ]
                     }
                   },
@@ -1015,20 +1015,20 @@
                     }
                   },
                   {
-                    "title": "Route 8",
-                    "content": {
-                      "type": "map",
-                      "maps": [
-                        "Lieu : Route 8"
-                      ]
-                    }
-                  },
-                  {
                     "title": "Route 8 (Coast)",
                     "content": {
                       "type": "map",
                       "maps": [
                         "Lieu : Route 8 (Coast)"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 8",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 8"
                       ]
                     }
                   },
