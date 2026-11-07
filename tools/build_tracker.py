@@ -108,6 +108,26 @@ CATEGORY_STYLE = OrderedDict([  # catégorie -> (code d'image, couleur, libellé
     ("Goal", ("badge", "#facc15", "Objectif")),
 ])
 FIELD_ITEM_FLAG = 0x051A  # drapeau de la première Poké Ball au sol
+# Villes (onglet « Villes ») et lieux rattachés à une ville.
+TOWNS = ["Aquacorde Town", "Santalune City", "Camphrier Town", "Cyllage City", "Ambrette Town", "Geosenge Town",
+         "Shalour City", "Coumarine City", "Lumiose City", "Laverre City", "Dendemille Town", "Anistar City",
+         "Couriway Town", "Snowbelle City", "Pokémon Village", "Kiloude City"]
+TOWN_PARTS = {"Ambrette Gate": "Ambrette Town", "Coumarine Gate": "Coumarine City",
+              "Shabboneau Castle": "Camphrier Town"}
+# Sorties de chaque route (Poképédia, fiche de la route) : les villes qu'elle relie.
+ROUTE_LINKS = {
+    "Route 1": ["Aquacorde Town"], "Route 2": ["Aquacorde Town"], "Route 3": ["Santalune City"],
+    "Route 4": ["Santalune City", "Lumiose City"], "Route 5": ["Camphrier Town", "Lumiose City"],
+    "Route 6": ["Camphrier Town"], "Route 7": ["Camphrier Town"], "Route 8": ["Cyllage City", "Ambrette Town"],
+    "Route 9": ["Ambrette Town"], "Route 10": ["Geosenge Town", "Cyllage City"], "Route 11": ["Geosenge Town"],
+    "Route 12": ["Shalour City", "Coumarine City"], "Route 13": ["Coumarine City", "Lumiose City"],
+    "Route 14": ["Laverre City", "Lumiose City"], "Route 15": ["Laverre City", "Dendemille Town"],
+    "Route 16": ["Lumiose City"], "Route 17": ["Dendemille Town", "Anistar City"],
+    "Route 18": ["Anistar City", "Couriway Town"], "Route 19": ["Couriway Town", "Snowbelle City"],
+    "Route 20": ["Snowbelle City", "Pokémon Village"], "Route 21": ["Snowbelle City"],
+    "Route 22": ["Santalune City"],
+}
+EXTRA_TOWN_LINKS = {"Kiloude City": ["Victory Road", "Pokémon League"]}  # on y arrive par la Route Victoire
 EXTRA_TRACKED_ITEMS = ["HM02 Fly", "Mega Ring"]
 SKIPPED_PREFIXES = ("FE_", "TMFLG_", "FLAG_")
 
@@ -263,70 +283,102 @@ def load_topmaps():
                 if os.path.exists(os.path.join(ASSETS_DIR, "topmaps", c["image"]))}
 
 
-def make_map(path, region, groups, positions=None, zone_of=None):
-    """Liste d'une région, par zone : la carte vue du dessus (version locale) avec les objets au sol
-    à leur place exacte, sinon un plan schématique (positions lues dans la ROM), puis les autres
-    repères en grille."""
+def make_group_map(path, group, entries, positions=None, zone_of=None):
+    """Image d'un lieu (route, ville, grotte...) : la carte vue du dessus (version locale) avec les objets
+    au sol à leur place exacte, sinon un plan schématique (positions lues dans la ROM), puis les autres
+    repères en grille. Renvoie la position de chaque check dans l'image."""
     positions, zone_of = positions or {}, zone_of or {}
-    topmaps = load_topmaps()
+    calib = load_topmaps().get(group)
     width, margin, pitch = 980, 16, 30
     plan_size = (290, 200)
-    head = font(15)
-    y = margin + 26
+    y = margin
     placed = OrderedDict()
-    blocks = []
-    for group, entries in groups.items():
-        calib = topmaps.get(group)
-        blocks.append([y, group, None, [], 1.0])
-        y += 22
-        if calib:
-            picture = Image.open(os.path.join(ASSETS_DIR, "topmaps", calib["image"])).convert("RGB")
-            factor = min((width - 2 * margin) / picture.width, 600 / picture.height, 1.6)
-            picture = picture.resize((int(picture.width * factor), int(picture.height * factor)), Image.LANCZOS)
-            blocks[-1][2] = (picture, y)
-            for name in entries:
-                transform = calib["zones"].get(str(zone_of.get(name)))
-                if transform and name in positions:
-                    sx, sy, tx, ty = transform
-                    px = min(max((sx * positions[name][1] + tx) * factor, 8), picture.width - 8)
-                    py = min(max((sy * positions[name][2] + ty) * factor, 8), picture.height - 8)
-                    placed[name] = (int(margin + px), int(y + py))
-            y += picture.height + 10
-        left = margin
-        plans = plan_layout([e for e in entries if e not in placed], positions, plan_size)
-        per_row = max(1, (width - margin - left) // (plan_size[0] + 12))
-        for index, plan in enumerate(plans):
-            row, col = divmod(index, per_row)
-            ox, oy = left + col * (plan_size[0] + 12), y + row * (plan_size[1] + 12)
-            blocks[-1][3].append((ox, oy))
-            for name, px, py in plan:
-                placed[name] = (int(ox + px), int(oy + py))
-        y += ((len(plans) - 1) // per_row + 1) * (plan_size[1] + 12) if plans else 0
-        rest = [e for e in entries if e not in placed]
-        columns = max(1, (width - margin - left) // pitch)
-        for index, entry in enumerate(rest):
-            row, col = divmod(index, columns)
-            placed[entry] = (left + col * pitch + pitch // 2, y + row * pitch + pitch // 2)
-        y += (((len(rest) - 1) // columns + 1) * pitch if rest else 0) + 14
-    height = y + margin
-    image = Image.new("RGB", (width, height), "#0f172a")
+    picture = None
+    if calib:
+        picture = Image.open(os.path.join(ASSETS_DIR, "topmaps", calib["image"])).convert("RGB")
+        factor = min((width - 2 * margin) / picture.width, 640 / picture.height, 1.6)
+        picture = picture.resize((int(picture.width * factor), int(picture.height * factor)), Image.LANCZOS)
+        for name in entries:
+            transform = calib["zones"].get(str(zone_of.get(name)))
+            if transform and name in positions:
+                sx, sy, tx, ty = transform
+                px = min(max((sx * positions[name][1] + tx) * factor, 8), picture.width - 8)
+                py = min(max((sy * positions[name][2] + ty) * factor, 8), picture.height - 8)
+                placed[name] = (int(margin + px), int(y + py))
+        picture_y = y
+        y += picture.height + 10
+    plans = plan_layout([e for e in entries if e not in placed], positions, plan_size)
+    per_row = max(1, (width - 2 * margin) // (plan_size[0] + 12))
+    frames = []
+    for index, plan in enumerate(plans):
+        row, col = divmod(index, per_row)
+        ox, oy = margin + col * (plan_size[0] + 12), y + row * (plan_size[1] + 12)
+        frames.append((ox, oy))
+        for name, px, py in plan:
+            placed[name] = (int(ox + px), int(oy + py))
+    y += ((len(plans) - 1) // per_row + 1) * (plan_size[1] + 12) if plans else 0
+    rest = [e for e in entries if e not in placed]
+    columns = max(1, (width - 2 * margin) // pitch)
+    for index, entry in enumerate(rest):
+        row, col = divmod(index, columns)
+        placed[entry] = (margin + col * pitch + pitch // 2, y + row * pitch + pitch // 2)
+    y += ((len(rest) - 1) // columns + 1) * pitch if rest else 0
+    image = Image.new("RGB", (width, max(y + margin, 120)), "#0f172a")
     draw = ImageDraw.Draw(image)
-    draw.text((margin, 6), region, font=font(18), fill="#e2e8f0")
-    for label_y, group, picture, frames, _factor in blocks:
-        draw.text((margin, label_y), group, font=head, fill="#94a3b8")
-        draw.line((margin, label_y + 19, width - margin, label_y + 19), fill="#1e293b")
-        if picture:
-            image.paste(picture[0], (margin, picture[1]))
-        for ox, oy in frames:
-            draw.rounded_rectangle((ox, oy, ox + plan_size[0], oy + plan_size[1]), radius=8,
-                                   fill="#111c33", outline="#334155", width=2)
-            for gx in range(ox + 30, ox + plan_size[0], 30):
-                draw.line((gx, oy + 4, gx, oy + plan_size[1] - 4), fill="#16233f")
-            for gy in range(oy + 30, oy + plan_size[1], 30):
-                draw.line((ox + 4, gy, ox + plan_size[0] - 4, gy), fill="#16233f")
+    if picture:
+        image.paste(picture, (margin, picture_y))
+    for ox, oy in frames:
+        draw.rounded_rectangle((ox, oy, ox + plan_size[0], oy + plan_size[1]), radius=8,
+                               fill="#111c33", outline="#334155", width=2)
+        for gx in range(ox + 30, ox + plan_size[0], 30):
+            draw.line((gx, oy + 4, gx, oy + plan_size[1] - 4), fill="#16233f")
+        for gy in range(oy + 30, oy + plan_size[1], 30):
+            draw.line((ox + 4, gy, ox + plan_size[0] - 4, gy), fill="#16233f")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     image.save(path)
-    return placed, (width, height)
+    return placed
+
+
+def town_of(group):
+    """Ville à laquelle appartient un lieu (« Santalune City (Gym) » -> Santalune City), ou None."""
+    base = re.sub(r"\s*\(.*?\)", "", group).strip()
+    base = TOWN_PARTS.get(base, base)
+    return base if base in TOWNS else None
+
+
+def map_tab(title, group):
+    return {"title": title, "content": {"type": "map", "maps": [f"Lieu : {group}"]}}
+
+
+def navigation(group_region):
+    """Onglets : « Monde » (carte de chaque région, puis ses routes et lieux) et « Villes » (chaque ville,
+    puis les routes qui y mènent)."""
+    groups = list(group_region)
+    routes = {g for g in groups if g.startswith("Route ")}
+    monde = []
+    for region in REGION_ORDER:
+        subs = [{"title": "Carte", "content": {"type": "map", "maps": [f"{region} (carte)"]}}]
+        for group in groups:
+            if group_region[group] == region and town_of(group) is None:
+                subs.append(map_tab("Divers" if group == region else group, group))
+        monde.append({"title": region.replace(" Area", ""), "content": {"type": "tabbed", "tabs": subs}})
+    villes = []
+    for town in sorted(TOWNS, key=lambda t: min((REGION_ORDER.index(group_region[g]) for g in groups
+                                                  if town_of(g) == t), default=99)):
+        own = [g for g in groups if town_of(g) == town]
+        if not own:
+            continue
+        subs = []
+        for group in own:
+            label = re.search(r"\((.*?)\)", group)
+            subs.append(map_tab(label.group(1) if label else ("Ville" if group == town else group), group))
+        linked = [r for r in sorted(routes, key=lambda r: int(r.split()[1])) if town in ROUTE_LINKS.get(r.split(" (")[0], [])]
+        linked += [g for g in groups if g not in routes and g.split(" (")[0] in EXTRA_TOWN_LINKS.get(town, [])]
+        subs += [map_tab(g, g) for g in linked]
+        villes.append({"title": town.replace(" Town", "").replace(" City", ""),
+                       "content": {"type": "tabbed", "tabs": subs}})
+    return [{"title": "Monde", "content": {"type": "tabbed", "tabs": monde}},
+            {"title": "Villes", "content": {"type": "tabbed", "tabs": villes}}]
 
 
 # ---------------------------------------------------------------------------
@@ -384,15 +436,19 @@ def build(out_dir=None, zones=False):
     os.makedirs(f"{TRACKER_DIR}/images/maps", exist_ok=True)
     shutil.copyfile(os.path.join(ASSETS_DIR, KALOS_MAP), f"{TRACKER_DIR}/images/maps/kalos.png")
     maps, location_nodes, item_map, location_map = [], [], {}, {}
+    group_region = OrderedDict()
     for region in REGION_ORDER:
         groups = by_region[region]
         if not groups:
             continue
-        placed, _size = make_map(f"{TRACKER_DIR}/images/maps/{code_of(region)}.png", region,
-                                 OrderedDict((g, [e[0] for e in entries]) for g, entries in groups.items()),
-                                 ball_positions, ball_zones)
-        maps.append({"name": region, "location_size": 24, "location_border_thickness": 3,
-                     "img": f"images/maps/{code_of(region)}.png"})
+        placed = {}
+        for group, entries in groups.items():
+            slug = re.sub(r"[^A-Za-z0-9]+", "_", unicodedata.normalize("NFKD", group)).strip("_")
+            placed.update(make_group_map(f"{TRACKER_DIR}/images/maps/lieu_{slug}.png", group,
+                                         [e[0] for e in entries], ball_positions, ball_zones))
+            maps.append({"name": f"Lieu : {group}", "location_size": 24, "location_border_thickness": 3,
+                         "img": f"images/maps/lieu_{slug}.png"})
+            group_region[group] = region
         maps.append({"name": f"{region} (carte)", "location_size": MAP_PIN, "location_border_thickness": 2,
                      "img": "images/maps/kalos.png"})
         # Position de chaque lieu sur la carte de Kalos : groupes autour de leur zone.
@@ -417,7 +473,7 @@ def build(out_dir=None, zones=False):
                         rules += parts
                 node = {
                     "name": clean(name),
-                    "map_locations": [{"map": region, "x": x, "y": y},
+                    "map_locations": [{"map": f"Lieu : {group}", "x": x, "y": y},
                                       {"map": f"{region} (carte)", "x": on_map[name][0], "y": on_map[name][1]}],
                     "sections": [{"name": "Check", "item_count": 1,
                                   "chest_unopened_img": f"images/checks/{CATEGORY_STYLE[category][0]}.png",
@@ -446,11 +502,7 @@ def build(out_dir=None, zones=False):
             ["opt_hidden", "opt_trainers", "opt_dowsing"]]
     grid = {"type": "itemgrid", "item_margin": "2,2", "h_alignment": "left", "item_h_alignment": "center",
             "item_v_alignment": "center", "item_height": 36, "item_width": 36, "rows": rows}
-    region_maps = [m["name"] for m in maps if not m["name"].endswith("(carte)")]
-    tabs = {"tabbed_maps": {"type": "tabbed", "tabs": [
-        {"title": r.replace(" Area", ""), "content": {"type": "tabbed", "tabs": [
-            {"title": "Carte", "content": {"type": "map", "maps": [f"{r} (carte)"]}},
-            {"title": "Liste", "content": {"type": "map", "maps": [r]}}]}} for r in region_maps]}}
+    tabs = {"tabbed_maps": {"type": "tabbed", "tabs": navigation(group_region)}}
     layout = {"tracker_default": {"type": "container", "background": "#00000000", "content": {
         "type": "dock", "dropshadow": True, "content": [
             {"type": "dock", "dock": "left", "v_alignment": "stretch", "content": [

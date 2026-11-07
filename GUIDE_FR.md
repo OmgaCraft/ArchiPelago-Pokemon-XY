@@ -193,7 +193,7 @@ Il n'y a plus de fenêtre d'aide : tout est automatique.
 ## Le tracker (PopTracker)
 
 Un pack [PopTracker](https://github.com/black-sliver/PopTracker) suit ta partie en direct : badges, CS
-et objets clés reçus, et les lieux déjà validés. Chaque région a un onglet avec deux vues : **Carte** (la carte de Kalos, les checks groupés autour de leur zone) et **Liste** (tous les checks rangés par zone).
+et objets clés reçus, et les lieux déjà validés. Deux onglets : **Monde** (une sous-carte par région : la carte de Kalos avec les checks autour de leur zone, puis, en sous-onglets, chaque route et chaque lieu de la région) et **Villes** (une sous-carte par ville, avec son arène et les routes qui y mènent).
 
 1. Télécharge `Pokemon_XY_Tracker.zip` (dossier [`dist/`](dist)) **sans le décompresser** et mets-le
    dans le dossier `packs` de PopTracker.
@@ -204,7 +204,7 @@ et objets clés reçus, et les lieux déjà validés. Chaque région a un onglet
 4. Sur la carte, les groupes de repères se recouvrent parfois un peu : zoome avec la molette. Les icônes du bas à gauche (cachés, dresseurs, Machine Cherch'Objet) reprennent les options de
    ton YAML : elles se règlent seules à la connexion, et tu peux les basculer à la main.
 
-**Plans et cartes.** L'onglet **Liste** de chaque région montre, pour chaque zone, un plan avec les objets au sol
+**Plans et cartes.** Chaque route, ville ou lieu a son propre plan, avec les objets au sol
 à leur vraie place (positions lues dans la ROM). Version facultative, avec la vraie carte du jeu vue du dessus
 (Poképédia) sous chaque repère quand elle existe : ces cartes appartiennent à leurs auteurs, elles ne sont pas
 dans le pack publié, et se récupèrent chez toi :
