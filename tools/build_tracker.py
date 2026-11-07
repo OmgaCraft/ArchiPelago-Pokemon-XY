@@ -574,16 +574,43 @@ def navigation(group_region):
         return (int(number.group()) if number else 0, group)
 
     other = [g for g in groups if g not in routes and g not in gyms and town_of(g) is None]
+
+    def family(group):
+        base = re.sub(r"\s*\(.*?\)", "", group).strip()
+        return MAP_ALIASES.get(base, base)
+
+    def nested(members, title):
+        """Sous-menus : une région par onglet, puis une famille (étages, parties) par sous-onglet."""
+        out = []
+        for region in REGION_ORDER:
+            mine = [g for g in members if group_region[g] == region]
+            if not mine:
+                continue
+            families = OrderedDict()
+            for g in mine:
+                families.setdefault(family(g), []).append(g)
+            tabs = []
+            for name, parts in families.items():
+                if len(parts) == 1:
+                    tabs.append(map_tab(title(parts[0]), parts[0]))
+                else:
+                    subs = []
+                    for g in parts:
+                        label = re.search(r"\((.*?)\)", g)
+                        subs.append(map_tab(label.group(1) if label else "Général", g))
+                    tabs.append({"title": name, "content": {"type": "tabbed", "tabs": subs}})
+            out.append({"title": region.replace(" Area", ""), "content": {"type": "tabbed", "tabs": tabs}})
+        return {"type": "tabbed", "tabs": out}
+
     return [{"title": "Kalos", "content": {"type": "map", "maps": ["Kalos (carte)"]}},
             {"title": "Régions", "content": {"type": "tabbed", "tabs": regions}},
             {"title": "Arènes", "content": {"type": "tabbed", "tabs": [
                 map_tab(re.sub(r"\s*\(Gym\)", "", g).replace(" City", "").replace("(Gym ", "(") if g.endswith("(Gym)")
                         else g.replace("Lumiose City (Gym ", "Lumiose ").rstrip(")"), g) for g in gyms]}},
             {"title": "Villes", "content": {"type": "tabbed", "tabs": villes}},
-            {"title": "Routes", "content": {"type": "tabbed", "tabs": [
-                map_tab(g, g) for g in sorted(routes, key=sort_route)]}},
-            {"title": "Grottes & lieux", "content": {"type": "tabbed", "tabs": [
-                map_tab(f"Divers ({g.replace(' Area', '')})" if g.endswith(" Area") else g, g) for g in other]}}]
+            {"title": "Routes", "content": nested(sorted(routes, key=sort_route), lambda g: g)},
+            {"title": "Grottes & lieux", "content": nested(
+                other, lambda g: "Divers" if g.endswith(" Area") else g)}]
 
 
 # ---------------------------------------------------------------------------

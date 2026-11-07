@@ -377,15 +377,6 @@
                     }
                   },
                   {
-                    "title": "Route 8",
-                    "content": {
-                      "type": "map",
-                      "maps": [
-                        "Lieu : Route 8"
-                      ]
-                    }
-                  },
-                  {
                     "title": "Route 8 (Cliffside)",
                     "content": {
                       "type": "map",
@@ -400,6 +391,15 @@
                       "type": "map",
                       "maps": [
                         "Lieu : Route 8 (Coast)"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 8",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 8"
                       ]
                     }
                   },
@@ -439,15 +439,6 @@
                     }
                   },
                   {
-                    "title": "Route 8",
-                    "content": {
-                      "type": "map",
-                      "maps": [
-                        "Lieu : Route 8"
-                      ]
-                    }
-                  },
-                  {
                     "title": "Route 8 (Cliffside)",
                     "content": {
                       "type": "map",
@@ -462,6 +453,15 @@
                       "type": "map",
                       "maps": [
                         "Lieu : Route 8 (Coast)"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 8",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 8"
                       ]
                     }
                   },
@@ -1060,209 +1060,297 @@
           "type": "tabbed",
           "tabs": [
             {
-              "title": "Route 2",
+              "title": "Santalune",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 2"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Route 2",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 2"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 3",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 3"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 22",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 22"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Route 3",
+              "title": "Camphrier",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 3"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Route 4",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 4"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 5",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 5"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 6",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 6"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Route 4",
+              "title": "Cyllage",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 4"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Route 7",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 7"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 8",
+                    "content": {
+                      "type": "tabbed",
+                      "tabs": [
+                        {
+                          "title": "Général",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Route 8"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "Cliffside",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Route 8 (Cliffside)"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "Coast",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Route 8 (Coast)"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 9",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 9"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Route 5",
+              "title": "Shalour",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 5"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Route 10",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 10"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 11",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 11"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Route 6",
+              "title": "Coumarine",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 6"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Route 12",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 12"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Route 7",
+              "title": "Lumiose",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 7"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Route 13",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 13"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Route 8",
+              "title": "Laverre",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 8"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Route 14",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 14"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Route 8 (Cliffside)",
+              "title": "Anistar",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 8 (Cliffside)"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Route 15",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 15"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 16",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 16"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 17",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 17"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Route 8 (Coast)",
+              "title": "Snowbelle",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 8 (Coast)"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Route 18",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 18"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 19",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 19"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Route 20",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 20"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Route 9",
+              "title": "Victory Road",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 9"
-                ]
-              }
-            },
-            {
-              "title": "Route 10",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 10"
-                ]
-              }
-            },
-            {
-              "title": "Route 11",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 11"
-                ]
-              }
-            },
-            {
-              "title": "Route 12",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 12"
-                ]
-              }
-            },
-            {
-              "title": "Route 13",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 13"
-                ]
-              }
-            },
-            {
-              "title": "Route 14",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 14"
-                ]
-              }
-            },
-            {
-              "title": "Route 15",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 15"
-                ]
-              }
-            },
-            {
-              "title": "Route 16",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 16"
-                ]
-              }
-            },
-            {
-              "title": "Route 17",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 17"
-                ]
-              }
-            },
-            {
-              "title": "Route 18",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 18"
-                ]
-              }
-            },
-            {
-              "title": "Route 19",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 19"
-                ]
-              }
-            },
-            {
-              "title": "Route 20",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 20"
-                ]
-              }
-            },
-            {
-              "title": "Route 21",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 21"
-                ]
-              }
-            },
-            {
-              "title": "Route 22",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Route 22"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Route 21",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 21"
+                      ]
+                    }
+                  }
                 ]
               }
             }
@@ -1275,398 +1363,526 @@
           "type": "tabbed",
           "tabs": [
             {
-              "title": "Divers (Santalune)",
+              "title": "Santalune",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Santalune Area"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Divers",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Santalune Area"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Santalune Forest",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Santalune Forest"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Santalune Forest",
+              "title": "Camphrier",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Santalune Forest"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Parfum Palace",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Parfum Palace"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Parfum Palace",
+              "title": "Cyllage",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Parfum Palace"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Divers",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Cyllage Area"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Connecting Cave",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Connecting Cave"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Glittering Cave",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Glittering Cave"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Divers (Cyllage)",
+              "title": "Shalour",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Cyllage Area"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Divers",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Shalour Area"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Tower of Mastery",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Tower of Mastery"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Reflection Cave",
+                    "content": {
+                      "type": "tabbed",
+                      "tabs": [
+                        {
+                          "title": "Général",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Reflection Cave"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "B1F",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Reflection Cave (B1F)"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "1F",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Reflection Cave (1F)"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Connecting Cave",
+              "title": "Coumarine",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Connecting Cave"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Divers",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Coumarine Area"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Azure Bay",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Azure Bay"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Glittering Cave",
+              "title": "Lumiose",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Glittering Cave"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Divers",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Lumiose Area"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Kalos Power Plant",
+                    "content": {
+                      "type": "tabbed",
+                      "tabs": [
+                        {
+                          "title": "Général",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Kalos Power Plant"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "Général",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Power Plant"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Divers (Shalour)",
+              "title": "Laverre",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Shalour Area"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Divers",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Laverre Area"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Tower of Mastery",
+              "title": "Anistar",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Tower of Mastery"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Divers",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Anistar Area"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Poké Ball Factory",
+                    "content": {
+                      "type": "tabbed",
+                      "tabs": [
+                        {
+                          "title": "Général",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Poké Ball Factory"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "Général",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : PokeBall Factory"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Frost Cavern",
+                    "content": {
+                      "type": "tabbed",
+                      "tabs": [
+                        {
+                          "title": "Général",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Frost Cavern"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "1F",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Frost Cavern (1F)"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "2F",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Frost Cavern (2F)"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "3F",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Frost Cavern (3F)"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "Outside",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Frost Cavern (Outside)"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Lost Hotel",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Lost Hotel"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
-              "title": "Reflection Cave",
+              "title": "Snowbelle",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Reflection Cave"
-                ]
-              }
-            },
-            {
-              "title": "Reflection Cave (B1F)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Reflection Cave (B1F)"
-                ]
-              }
-            },
-            {
-              "title": "Reflection Cave (1F)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Reflection Cave (1F)"
-                ]
-              }
-            },
-            {
-              "title": "Divers (Coumarine)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Coumarine Area"
-                ]
-              }
-            },
-            {
-              "title": "Azure Bay",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Azure Bay"
-                ]
-              }
-            },
-            {
-              "title": "Divers (Lumiose)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Lumiose Area"
-                ]
-              }
-            },
-            {
-              "title": "Kalos Power Plant",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Kalos Power Plant"
-                ]
-              }
-            },
-            {
-              "title": "Power Plant",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Power Plant"
-                ]
-              }
-            },
-            {
-              "title": "Divers (Laverre)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Laverre Area"
-                ]
-              }
-            },
-            {
-              "title": "Divers (Anistar)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Anistar Area"
-                ]
-              }
-            },
-            {
-              "title": "Poké Ball Factory",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Poké Ball Factory"
-                ]
-              }
-            },
-            {
-              "title": "Frost Cavern",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Frost Cavern"
-                ]
-              }
-            },
-            {
-              "title": "Lost Hotel",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Lost Hotel"
-                ]
-              }
-            },
-            {
-              "title": "PokeBall Factory",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : PokeBall Factory"
-                ]
-              }
-            },
-            {
-              "title": "Frost Cavern (1F)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Frost Cavern (1F)"
-                ]
-              }
-            },
-            {
-              "title": "Frost Cavern (2F)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Frost Cavern (2F)"
-                ]
-              }
-            },
-            {
-              "title": "Frost Cavern (3F)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Frost Cavern (3F)"
-                ]
-              }
-            },
-            {
-              "title": "Frost Cavern (Outside)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Frost Cavern (Outside)"
-                ]
-              }
-            },
-            {
-              "title": "Divers (Snowbelle)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Snowbelle Area"
-                ]
-              }
-            },
-            {
-              "title": "Lysandre Labs",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Lysandre Labs"
-                ]
-              }
-            },
-            {
-              "title": "Terminus Cave",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Terminus Cave"
-                ]
-              }
-            },
-            {
-              "title": "Unknown Dungeon",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Unknown Dungeon"
-                ]
-              }
-            },
-            {
-              "title": "Chamber of Emptiness",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Chamber of Emptiness"
-                ]
-              }
-            },
-            {
-              "title": "Lysandre Lab",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Lysandre Lab"
-                ]
-              }
-            },
-            {
-              "title": "Terminus Cave (B2F)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Terminus Cave (B2F)"
-                ]
-              }
-            },
-            {
-              "title": "Terminus Cave (B1F)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Terminus Cave (B1F)"
-                ]
-              }
-            },
-            {
-              "title": "Pokémon League",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Pokémon League"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Divers",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Snowbelle Area"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Lysandre Labs",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Lysandre Labs"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Terminus Cave",
+                    "content": {
+                      "type": "tabbed",
+                      "tabs": [
+                        {
+                          "title": "Général",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Terminus Cave"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "B2F",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Terminus Cave (B2F)"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "B1F",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Terminus Cave (B1F)"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Unknown Dungeon",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Unknown Dungeon"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Chamber of Emptiness",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Chamber of Emptiness"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Lysandre Lab",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Lysandre Lab"
+                      ]
+                    }
+                  }
                 ]
               }
             },
             {
               "title": "Victory Road",
               "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Victory Road"
-                ]
-              }
-            },
-            {
-              "title": "Victory Road (Entrance)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Victory Road (Entrance)"
-                ]
-              }
-            },
-            {
-              "title": "Victory Road (Inside 1)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Victory Road (Inside 1)"
-                ]
-              }
-            },
-            {
-              "title": "Victory Road (Inside 2)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Victory Road (Inside 2)"
-                ]
-              }
-            },
-            {
-              "title": "Victory Road (Outside 2)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Victory Road (Outside 2)"
-                ]
-              }
-            },
-            {
-              "title": "Victory Road (Outside 3)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Victory Road (Outside 3)"
-                ]
-              }
-            },
-            {
-              "title": "Victory Road (Inside 3)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Victory Road (Inside 3)"
-                ]
-              }
-            },
-            {
-              "title": "Victory Road (Inside 4)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Victory Road (Inside 4)"
-                ]
-              }
-            },
-            {
-              "title": "Victory Road (Outside 4)",
-              "content": {
-                "type": "map",
-                "maps": [
-                  "Lieu : Victory Road (Outside 4)"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Pokémon League",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Pokémon League"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Victory Road",
+                    "content": {
+                      "type": "tabbed",
+                      "tabs": [
+                        {
+                          "title": "Général",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Victory Road"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "Entrance",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Victory Road (Entrance)"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "Inside 1",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Victory Road (Inside 1)"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "Inside 2",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Victory Road (Inside 2)"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "Outside 2",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Victory Road (Outside 2)"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "Outside 3",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Victory Road (Outside 3)"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "Inside 3",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Victory Road (Inside 3)"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "Inside 4",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Victory Road (Inside 4)"
+                            ]
+                          }
+                        },
+                        {
+                          "title": "Outside 4",
+                          "content": {
+                            "type": "map",
+                            "maps": [
+                              "Lieu : Victory Road (Outside 4)"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
                 ]
               }
             }
