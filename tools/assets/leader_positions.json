@@ -1,0 +1,37 @@
+{
+"Bug Badge": {
+"zone": 56,
+"x": 20,
+"y": 42
+},
+"Voltage Badge": {
+"zone": 78,
+"x": 19,
+"y": 13
+},
+"Cliff Badge": {
+"zone": 160,
+"x": 20,
+"y": 16
+},
+"Rumble Badge": {
+"zone": 175,
+"x": 40,
+"y": 38
+},
+"Plant Badge": {
+"zone": 191,
+"x": 60,
+"y": 69
+},
+"Fairy Badge": {
+"zone": 203,
+"x": 15,
+"y": 3
+},
+"Iceberg Badge": {
+"zone": 226,
+"x": 20,
+"y": 6
+}
+}

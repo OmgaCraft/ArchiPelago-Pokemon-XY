@@ -377,6 +377,15 @@
                     }
                   },
                   {
+                    "title": "Route 8 (Coast)",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 8 (Coast)"
+                      ]
+                    }
+                  },
+                  {
                     "title": "Route 8",
                     "content": {
                       "type": "map",
@@ -391,15 +400,6 @@
                       "type": "map",
                       "maps": [
                         "Lieu : Route 8 (Cliffside)"
-                      ]
-                    }
-                  },
-                  {
-                    "title": "Route 8 (Coast)",
-                    "content": {
-                      "type": "map",
-                      "maps": [
-                        "Lieu : Route 8 (Coast)"
                       ]
                     }
                   },
@@ -439,6 +439,15 @@
                     }
                   },
                   {
+                    "title": "Route 8 (Coast)",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "Lieu : Route 8 (Coast)"
+                      ]
+                    }
+                  },
+                  {
                     "title": "Route 8",
                     "content": {
                       "type": "map",
@@ -453,15 +462,6 @@
                       "type": "map",
                       "maps": [
                         "Lieu : Route 8 (Cliffside)"
-                      ]
-                    }
-                  },
-                  {
-                    "title": "Route 8 (Coast)",
-                    "content": {
-                      "type": "map",
-                      "maps": [
-                        "Lieu : Route 8 (Coast)"
                       ]
                     }
                   },

@@ -106,6 +106,15 @@ CATEGORY_STYLE = OrderedDict([  # catégorie -> (code d'image, couleur, libellé
     ("Badge", ("badge", "#facc15", "Badge")),
     ("Goal", ("badge", "#facc15", "Objectif")),
 ])
+# Badge -> arène où le chef se trouve (le badge est aussi placé sur le plan de l'arène).
+BADGE_GYM = {"Bug Badge": "Santalune City (Gym)", "Cliff Badge": "Cyllage City (Gym)",
+             "Rumble Badge": "Shalour City (Gym)", "Plant Badge": "Coumarine City (Gym)",
+             "Fairy Badge": "Laverre City (Gym)", "Iceberg Badge": "Snowbelle City (Gym)",
+             "Psychic Badge": "Anistar City (Gym)"}
+# Arènes dont les dresseurs n'ont pas de position lisible dans la ROM (personnages mobiles) : plan schématique,
+# dresseurs dans l'ordre de la liste de Bulbapedia (Coumarine Gym, Anistar Gym), chef et badge en haut.
+SCHEMATIC_GYMS = {"Coumarine City (Gym)": ["Chaise", "Maurice", "Brooke", "Twiggy"],
+                  "Anistar City (Gym)": ["Paschal", "Harry", "Arthur", "Arachna", "Melanie"]}
 FIELD_ITEM_FLAG = 0x051A  # drapeau de la première Poké Ball au sol
 # Villes (onglet « Villes ») et lieux rattachés à une ville.
 TOWNS = ["Aquacorde Town", "Santalune City", "Camphrier Town", "Cyllage City", "Ambrette Town", "Geosenge Town",
@@ -506,7 +515,17 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
     plans = plan_layout([e for e in entries if e not in placed], positions, plan_size, 26 if gym else 14)
     # Arène de Lumiose (étages 2 à 5) : les dresseurs ne sont pas dans les données de zone de la ROM. D'après
     # Bulbapedia (Lumiose Gym), chaque étage a 3 dresseurs, un devant chacun des 3 ascenseurs, de gauche à droite.
-    elevators = []
+    elevators, route = [], False
+    if group in SCHEMATIC_GYMS and not plans:
+        order = SCHEMATIC_GYMS[group]
+        fighters = sorted((e for e in entries if not e.endswith("Badge")),
+                          key=lambda e: next((i for i, k in enumerate(order) if k in e), 99))
+        leader = [e for e in entries if e.endswith("Badge")]
+        steps = len(fighters)
+        plan = [(name, plan_size[0] * (0.28 if i % 2 == 0 else 0.72), plan_size[1] - 50 - i * (plan_size[1] - 130) / max(steps - 1, 1))
+                for i, name in enumerate(fighters)]
+        plan += [(name, plan_size[0] / 2, 40) for name in leader]
+        plans, route = [plan], True
     if group.startswith("Lumiose City (Gym ") and not plans:
         trainers = [e for e in entries if e not in placed][:3]
         elevators = [plan_size[0] * (k + 1) / (len(trainers) + 1) for k in range(len(trainers))]
@@ -546,6 +565,12 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
             draw.text((ox + ex - 5, oy + 18), str(number), font=bold(22), fill="#7dd3fc")
         draw.text((frames[0][0] + 4, frames[0][1] + plan_size[1] + 2),
                   "Plan schématique (d'après Bulbapedia) : un dresseur devant chaque ascenseur, de gauche à droite", font=font(12), fill="#94a3b8")
+    elif route and frames:
+        ox, oy = frames[0]
+        draw.text((ox + plan_size[0] / 2 - 22, oy + plan_size[1] - 22), "Entrée", font=font(13), fill="#94a3b8")
+        draw.text((frames[0][0] + 4, frames[0][1] + plan_size[1] + 2),
+                  "Plan schématique : dresseurs dans l'ordre de Bulbapedia (positions exactes inconnues), chef et badge en haut",
+                  font=font(12), fill="#94a3b8")
     elif gym and frames:
         draw.text((frames[0][0] + 4, frames[0][1] + plan_size[1] + 2),
                   "Plan de l'arène : positions des dresseurs lues dans la ROM (haut = nord)", font=font(12), fill="#94a3b8")
@@ -669,6 +694,8 @@ def build(out_dir=None, zones=False):
     # la Poké Ball n lève le drapeau FIELD_ITEM_FLAG + n.
     ball_positions, ball_zones = {}, {}
     trainer_raw = json.load(open(os.path.join(ASSETS_DIR, "trainer_positions.json"), encoding="utf-8"))
+    leaders = json.load(open(os.path.join(ASSETS_DIR, "leader_positions.json"), encoding="utf-8"))
+    extra_pins = {}
     raw = json.load(open(os.path.join(ASSETS_DIR, "ball_positions.json"), encoding="utf-8"))
     for by_group in by_region.values():
         for entries in by_group.values():
@@ -705,8 +732,20 @@ def build(out_dir=None, zones=False):
         placed = {}
         for group, entries in groups.items():
             slug = re.sub(r"[^A-Za-z0-9]+", "_", unicodedata.normalize("NFKD", group)).strip("_")
-            placed.update(make_group_map(f"{TRACKER_DIR}/images/maps/lieu_{slug}.jpg", group,
-                                         [e[0] for e in entries], ball_positions, ball_zones))
+            names = [e[0] for e in entries]
+            badge = [n for b, g in BADGE_GYM.items() if g == group and (b in leaders or group in SCHEMATIC_GYMS)
+                     for n in location_table if n.endswith(" - " + b)]
+            gym_positions = dict(ball_positions)
+            for n in badge:   # le badge est aussi posé sur le plan de l'arène, à la place du chef
+                if group not in SCHEMATIC_GYMS:
+                    lead = leaders[n.split(" - ", 1)[1]]
+                    gym_positions[n] = (lead["zone"], lead["x"], lead["y"])
+            result = make_group_map(f"{TRACKER_DIR}/images/maps/lieu_{slug}.jpg", group, names + badge,
+                                    gym_positions, {**ball_zones, **{n: gym_positions[n][0] for n in badge if n in gym_positions}})
+            for n in badge:
+                x, y = result.pop(n)
+                extra_pins[n] = {"map": f"Lieu : {group}", "x": x, "y": y}
+            placed.update(result)
             maps.append({"name": f"Lieu : {group}", "location_size": 24, "location_border_thickness": 3,
                          "img": f"images/maps/lieu_{slug}.jpg"})
             group_region[group] = region
@@ -731,7 +770,7 @@ def build(out_dir=None, zones=False):
                          "chest_opened_img": "images/checks/opened.png"}
                 node = {
                     "name": clean(name),
-                    "map_locations": [{"map": f"Lieu : {group}", "x": x, "y": y}],
+                    "map_locations": [{"map": f"Lieu : {group}", "x": x, "y": y}] + ([extra_pins[name]] if name in extra_pins else []),
                     "sections": [dict({"name": "Check", "item_count": 1}, **style)],
                 }
                 if rules:

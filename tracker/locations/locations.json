@@ -9,6 +9,11 @@
             "map": "Lieu : Santalune Area",
             "x": 31,
             "y": 31
+          },
+          {
+            "map": "Lieu : Santalune City (Gym)",
+            "x": 268,
+            "y": 30
           }
         ],
         "sections": [
@@ -1260,7 +1265,7 @@
         "map_locations": [
           {
             "map": "Lieu : Santalune City (Gym)",
-            "x": 515,
+            "x": 431,
             "y": 382
           }
         ],
@@ -1281,8 +1286,8 @@
         "map_locations": [
           {
             "map": "Lieu : Santalune City (Gym)",
-            "x": 116,
-            "y": 288
+            "x": 200,
+            "y": 327
           }
         ],
         "sections": [
@@ -1302,8 +1307,8 @@
         "map_locations": [
           {
             "map": "Lieu : Santalune City (Gym)",
-            "x": 304,
-            "y": 30
+            "x": 309,
+            "y": 178
           }
         ],
         "sections": [
@@ -4108,6 +4113,11 @@
             "map": "Lieu : Cyllage Area",
             "x": 31,
             "y": 31
+          },
+          {
+            "map": "Lieu : Cyllage City (Gym)",
+            "x": 292,
+            "y": 170
           }
         ],
         "sections": [
@@ -6633,6 +6643,11 @@
             "map": "Lieu : Shalour Area",
             "x": 31,
             "y": 31
+          },
+          {
+            "map": "Lieu : Shalour City (Gym)",
+            "x": 308,
+            "y": 88
           }
         ],
         "sections": [
@@ -8770,6 +8785,11 @@
             "map": "Lieu : Coumarine Area",
             "x": 31,
             "y": 31
+          },
+          {
+            "map": "Lieu : Coumarine City (Gym)",
+            "x": 316,
+            "y": 56
           }
         ],
         "sections": [
@@ -10215,8 +10235,8 @@
         "map_locations": [
           {
             "map": "Lieu : Coumarine City (Gym)",
-            "x": 30,
-            "y": 206
+            "x": 184,
+            "y": 179
           }
         ],
         "sections": [
@@ -10239,8 +10259,8 @@
         "map_locations": [
           {
             "map": "Lieu : Coumarine City (Gym)",
-            "x": 605,
-            "y": 206
+            "x": 448,
+            "y": 96
           }
         ],
         "sections": [
@@ -10263,8 +10283,8 @@
         "map_locations": [
           {
             "map": "Lieu : Coumarine City (Gym)",
-            "x": 560,
-            "y": 206
+            "x": 184,
+            "y": 346
           }
         ],
         "sections": [
@@ -10287,8 +10307,8 @@
         "map_locations": [
           {
             "map": "Lieu : Coumarine City (Gym)",
-            "x": 582,
-            "y": 206
+            "x": 448,
+            "y": 262
           }
         ],
         "sections": [
@@ -11998,6 +12018,11 @@
             "map": "Lieu : Laverre Area",
             "x": 31,
             "y": 31
+          },
+          {
+            "map": "Lieu : Laverre City (Gym)",
+            "x": 316,
+            "y": 155
           }
         ],
         "sections": [
@@ -12714,7 +12739,7 @@
           {
             "map": "Lieu : Laverre City (Gym)",
             "x": 542,
-            "y": 180
+            "y": 206
           }
         ],
         "sections": [
@@ -12738,7 +12763,7 @@
           {
             "map": "Lieu : Laverre City (Gym)",
             "x": 290,
-            "y": 180
+            "y": 206
           }
         ],
         "sections": [
@@ -12762,7 +12787,7 @@
           {
             "map": "Lieu : Laverre City (Gym)",
             "x": 89,
-            "y": 231
+            "y": 256
           }
         ],
         "sections": [
@@ -12786,7 +12811,7 @@
           {
             "map": "Lieu : Laverre City (Gym)",
             "x": 517,
-            "y": 231
+            "y": 256
           }
         ],
         "sections": [
@@ -12881,6 +12906,11 @@
             "map": "Lieu : Anistar Area",
             "x": 31,
             "y": 31
+          },
+          {
+            "map": "Lieu : Anistar City (Gym)",
+            "x": 316,
+            "y": 56
           }
         ],
         "sections": [
@@ -16296,8 +16326,8 @@
         "map_locations": [
           {
             "map": "Lieu : Anistar City (Gym)",
-            "x": 498,
-            "y": 207
+            "x": 184,
+            "y": 346
           }
         ],
         "sections": [
@@ -16320,8 +16350,8 @@
         "map_locations": [
           {
             "map": "Lieu : Anistar City (Gym)",
-            "x": 546,
-            "y": 204
+            "x": 448,
+            "y": 283
           }
         ],
         "sections": [
@@ -16344,8 +16374,8 @@
         "map_locations": [
           {
             "map": "Lieu : Anistar City (Gym)",
-            "x": 602,
-            "y": 204
+            "x": 184,
+            "y": 221
           }
         ],
         "sections": [
@@ -16368,8 +16398,8 @@
         "map_locations": [
           {
             "map": "Lieu : Anistar City (Gym)",
-            "x": 335,
-            "y": 204
+            "x": 184,
+            "y": 96
           }
         ],
         "sections": [
@@ -16392,8 +16422,8 @@
         "map_locations": [
           {
             "map": "Lieu : Anistar City (Gym)",
-            "x": 30,
-            "y": 204
+            "x": 448,
+            "y": 158
           }
         ],
         "sections": [
@@ -17233,6 +17263,11 @@
             "map": "Lieu : Snowbelle Area",
             "x": 31,
             "y": 31
+          },
+          {
+            "map": "Lieu : Snowbelle City (Gym)",
+            "x": 316,
+            "y": 30
           }
         ],
         "sections": [
@@ -21089,8 +21124,8 @@
         "map_locations": [
           {
             "map": "Lieu : Snowbelle City (Gym)",
-            "x": 64,
-            "y": 55
+            "x": 234,
+            "y": 283
           }
         ],
         "sections": [
@@ -21113,8 +21148,8 @@
         "map_locations": [
           {
             "map": "Lieu : Snowbelle City (Gym)",
-            "x": 466,
-            "y": 356
+            "x": 365,
+            "y": 382
           }
         ],
         "sections": [
@@ -21137,8 +21172,8 @@
         "map_locations": [
           {
             "map": "Lieu : Snowbelle City (Gym)",
-            "x": 567,
-            "y": 55
+            "x": 397,
+            "y": 283
           }
         ],
         "sections": [
@@ -21161,8 +21196,8 @@
         "map_locations": [
           {
             "map": "Lieu : Snowbelle City (Gym)",
-            "x": 165,
-            "y": 356
+            "x": 266,
+            "y": 382
           }
         ],
         "sections": [
