@@ -220,6 +220,146 @@ def cluster(count, anchor, size):
         out.append((int(min(max(x, MAP_PIN), size[0] - MAP_PIN)), int(min(max(y, MAP_PIN), size[1] - MAP_PIN))))
     return out
 
+REGION_CITY = {"Santalune Area": "Santalune City", "Camphrier Area": "Camphrier Town", "Cyllage Area": "Cyllage City",
+               "Shalour Area": "Shalour City", "Coumarine Area": "Coumarine City", "Lumiose Area": "Lumiose City (South)",
+               "Laverre Area": "Laverre City", "Anistar Area": "Anistar City", "Snowbelle Area": "Snowbelle City",
+               "Victory Road": "Pokemon League"}
+CROP_SCALE = 2.2                      # agrandissement des cartes de région (pour dimensionner les étiquettes)
+LABEL_PX = 15                         # corps du texte des étiquettes sur les cartes de région
+
+
+def bold(size):
+    for path in ("C:/Windows/Fonts/segoeuib.ttf", "C:/Windows/Fonts/arialbd.ttf", "C:/Windows/Fonts/segoeui.ttf"):
+        if os.path.exists(path):
+            return ImageFont.truetype(path, size)
+    return ImageFont.load_default()
+
+
+def pin_label(group):
+    """Texte affiché à côté du repère d'un lieu."""
+    return "Divers" if group.endswith(" Area") else group
+
+
+def _overlap(a, b):
+    w = min(a[2], b[2]) - max(a[0], b[0])
+    h = min(a[3], b[3]) - max(a[1], b[1])
+    return w * h if w > 0 and h > 0 else 0
+
+
+def layout_pins(by_region, areas, size):
+    """Position (x, y, côté de l'étiquette) de chaque lieu sur la carte de Kalos. Les lieux d'une même zone
+    sont écartés en colonne autour d'elle, sans se recouvrir ni couvrir les autres zones."""
+    measure = ImageDraw.Draw(Image.new("RGB", (4, 4)))
+    face = bold(LABEL_PX)
+    items = []
+    for region, groups in by_region.items():
+        for group in groups:
+            anchor = resolve_anchor(group, areas) or resolve_anchor(REGION_CITY[region], areas)
+            width = measure.textlength(pin_label(group), font=face) / CROP_SCALE + 7
+            items.append({"key": (region, group), "group": group, "anchor": anchor, "width": width})
+    clusters = OrderedDict()
+    for item in items:
+        clusters.setdefault(item["anchor"], []).append(item)
+    for members in clusters.values():
+        plain_first = [m for m in members if "(" not in m["group"] and not m["group"].endswith(" Area")]
+        main = min(plain_first or members, key=lambda m: len(m["group"]))
+        main["main"] = True
+    half, tall = 6.5, 5.5
+    obstacles = {a: (a[0] - 7, a[1] - 7, a[0] + 7, a[1] + 7) for a in clusters}
+    placed, result = [], {}
+
+    def rects(item, x, y, side):
+        label = (x + half + 1, y - tall, x + half + 1 + item["width"], y + tall) if side > 0 else                 (x - half - 1 - item["width"], y - tall, x - half - 1, y + tall)
+        return [(x - half, y - half, x + half, y + half), label]
+
+    def place(item, span, step):
+        ax, ay = item["anchor"]
+        best = None
+        for dy in range(-span, span + 1, step):
+            for dx in range(-span, span + 1, step):
+                for side in (1, -1):
+                    x, y = ax + dx, ay + dy
+                    cost = abs(dx) * 1.3 + abs(dy) + (0 if side > 0 else 1.5)
+                    boxes = rects(item, x, y, side)
+                    for box in boxes:
+                        if box[0] < 4 or box[1] < 4 or box[2] > size[0] - 4 or box[3] > size[1] - 4:
+                            cost += 5000
+                        for other in placed:
+                            cost += _overlap(box, other) * 40
+                        for anchor, hole in obstacles.items():
+                            if anchor != item["anchor"]:
+                                cost += _overlap(box, hole) * 25
+                    if best is None or cost < best[0]:
+                        best = (cost, x, y, side, boxes)
+        _, x, y, side, boxes = best
+        placed.extend(boxes)
+        result[item["key"]] = (x, y, side)
+
+    for item in (i for i in items if i.get("main")):
+        place(item, 0, 1)
+    others = sorted((i for i in items if not i.get("main")), key=lambda i: -len(clusters[i["anchor"]]))
+    for item in others:
+        place(item, 50, 5)
+    return result
+
+
+def render_world_maps(out_dir, base_path, by_region, pins):
+    """Carte de Kalos (noms des villes) et une carte agrandie par région (nom de chaque lieu).
+    Renvoie {nom de carte: (fichier, taille d'un repère)} et la position de chaque repère sur chaque carte."""
+    base = Image.open(base_path).convert("RGB")
+    size = base.size
+    placed, files = {}, {}
+    # --- carte de Kalos entière : étiquettes jaunes pour les villes
+    over = base.copy()
+    draw = ImageDraw.Draw(over)
+    small = bold(13)
+    for (region, group), (x, y, side) in pins.items():
+        if group in TOWNS or group in ("Victory Road", "Lumiose City (South)"):
+            text = pin_label(group).replace(" Town", "").replace(" City", "").replace(" (South)", "")
+            w = draw.textlength(text, font=small)
+            box = (x - w / 2 - 6, y + 11, x + w / 2 + 6, y + 29)
+            draw.rounded_rectangle(box, 8, fill=(246, 184, 0), outline=(60, 40, 0))
+            draw.text((x - w / 2, y + 12), text, font=small, fill=(40, 25, 0))
+    over.save(os.path.join(out_dir, "kalos.png"))
+    files["Kalos (carte)"] = ("images/maps/kalos.png", 20)
+    for region, groups in by_region.items():
+        keys = [(region, g) for g in groups]
+        if not keys:
+            continue
+        xs, ys = [], []
+        for key in keys:
+            x, y, side = pins[key]
+            w = ImageDraw.Draw(Image.new("RGB", (4, 4))).textlength(pin_label(key[1]), font=bold(LABEL_PX)) / CROP_SCALE + 14
+            xs += [x - 8 - (w if side < 0 else 0), x + 8 + (w if side > 0 else 0)]
+            ys += [y - 8, y + 8]
+        bw, bh = max(xs) - min(xs) + 60, max(ys) - min(ys) + 60
+        cw = min(max(bw, bh * 1.5, 340), size[0])
+        ch = cw / 1.5
+        left = min(max((min(xs) + max(xs)) / 2 - cw / 2, 0), size[0] - cw)
+        top = min(max((min(ys) + max(ys)) / 2 - ch / 2, 0), size[1] - ch)
+        scale = 1200 / cw
+        crop = base.crop((int(left), int(top), int(left + cw), int(top + ch))).resize((1200, int(ch * scale)), Image.LANCZOS)
+        draw = ImageDraw.Draw(crop)
+        face = bold(LABEL_PX)
+        for key in keys:
+            x, y, side = pins[key]
+            cx, cy = (x - left) * scale, (y - top) * scale
+            placed[(region, key[1])] = (int(cx), int(cy))
+            text = pin_label(key[1])
+            w = draw.textlength(text, font=face)
+            gap = 15 * scale / CROP_SCALE
+            if side > 0:
+                box = (cx + gap, cy - 12, cx + gap + w + 14, cy + 12)
+            else:
+                box = (cx - gap - w - 14, cy - 12, cx - gap, cy + 12)
+            draw.rounded_rectangle(box, 11, fill=(22, 30, 48), outline=(255, 255, 255))
+            draw.text((box[0] + 7, box[1] + 1), text, font=face, fill=(255, 255, 255))
+        slug = re.sub(r"[^A-Za-z0-9]+", "_", region).strip("_")
+        name = f"images/maps/region_{slug}.jpg"
+        crop.save(os.path.join(out_dir, f"region_{slug}.jpg"), quality=88)
+        files[f"{region} (carte)"] = (name, 28)
+    return files, placed
+
 
 def write_json(path, data):
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -406,17 +546,13 @@ def map_tab(title, group):
 
 
 def navigation(group_region):
-    """Onglets : « Monde » (carte de chaque région, puis ses routes et lieux) et « Villes » (chaque ville,
-    puis les routes qui y mènent)."""
+    """Onglets : Kalos (carte entière), Régions (carte agrandie de chaque région), Arènes, Villes (chaque ville
+    puis les routes qui y mènent), Routes, Grottes et lieux."""
     groups = list(group_region)
     routes = {g for g in groups if g.startswith("Route ")}
-    monde = []
-    for region in REGION_ORDER:
-        subs = [{"title": "Carte", "content": {"type": "map", "maps": [f"{region} (carte)"]}}]
-        for group in groups:
-            if group_region[group] == region and town_of(group) is None:
-                subs.append(map_tab("Divers" if group == region else group, group))
-        monde.append({"title": region.replace(" Area", ""), "content": {"type": "tabbed", "tabs": subs}})
+    gyms = sorted((g for g in groups if "(Gym" in g), key=lambda g: (REGION_ORDER.index(group_region[g]), g))
+    regions = [{"title": r.replace(" Area", ""), "content": {"type": "map", "maps": [f"{r} (carte)"]}}
+               for r in REGION_ORDER if any(group_region[g] == r for g in groups)]
     villes = []
     for town in sorted(TOWNS, key=lambda t: min((REGION_ORDER.index(group_region[g]) for g in groups
                                                   if town_of(g) == t), default=99)):
@@ -432,8 +568,22 @@ def navigation(group_region):
         subs += [map_tab(g, g) for g in linked]
         villes.append({"title": town.replace(" Town", "").replace(" City", ""),
                        "content": {"type": "tabbed", "tabs": subs}})
-    return [{"title": "Monde", "content": {"type": "tabbed", "tabs": monde}},
-            {"title": "Villes", "content": {"type": "tabbed", "tabs": villes}}]
+
+    def sort_route(group):
+        number = re.search(r"\d+", group)
+        return (int(number.group()) if number else 0, group)
+
+    other = [g for g in groups if g not in routes and g not in gyms and town_of(g) is None]
+    return [{"title": "Kalos", "content": {"type": "map", "maps": ["Kalos (carte)"]}},
+            {"title": "Régions", "content": {"type": "tabbed", "tabs": regions}},
+            {"title": "Arènes", "content": {"type": "tabbed", "tabs": [
+                map_tab(re.sub(r"\s*\(Gym\)", "", g).replace(" City", "").replace("(Gym ", "(") if g.endswith("(Gym)")
+                        else g.replace("Lumiose City (Gym ", "Lumiose ").rstrip(")"), g) for g in gyms]}},
+            {"title": "Villes", "content": {"type": "tabbed", "tabs": villes}},
+            {"title": "Routes", "content": {"type": "tabbed", "tabs": [
+                map_tab(g, g) for g in sorted(routes, key=sort_route)]}},
+            {"title": "Grottes & lieux", "content": {"type": "tabbed", "tabs": [
+                map_tab(f"Divers ({g.replace(' Area', '')})" if g.endswith(" Area") else g, g) for g in other]}}]
 
 
 # ---------------------------------------------------------------------------
@@ -489,8 +639,12 @@ def build(out_dir=None, zones=False):
     areas = json.load(open(os.path.join(ASSETS_DIR, "kalos_areas.json"), encoding="utf-8"))
     kalos_size = Image.open(os.path.join(ASSETS_DIR, KALOS_MAP)).size
     os.makedirs(f"{TRACKER_DIR}/images/maps", exist_ok=True)
-    shutil.copyfile(os.path.join(ASSETS_DIR, KALOS_MAP), f"{TRACKER_DIR}/images/maps/kalos.png")
+    pins = layout_pins(by_region, areas, kalos_size)
+    world_maps, on_map = render_world_maps(f"{TRACKER_DIR}/images/maps", os.path.join(ASSETS_DIR, KALOS_MAP),
+                                           by_region, pins)
     maps, location_nodes, item_map, location_map = [], [], {}, {}
+    for name, (img, pin) in world_maps.items():
+        maps.append({"name": name, "location_size": pin, "location_border_thickness": 3, "img": img})
     group_region = OrderedDict()
     for region in REGION_ORDER:
         groups = by_region[region]
@@ -504,20 +658,9 @@ def build(out_dir=None, zones=False):
             maps.append({"name": f"Lieu : {group}", "location_size": 24, "location_border_thickness": 3,
                          "img": f"images/maps/lieu_{slug}.jpg"})
             group_region[group] = region
-        maps.append({"name": f"{region} (carte)", "location_size": MAP_PIN, "location_border_thickness": 2,
-                     "img": "images/maps/kalos.png"})
-        # Position de chaque lieu sur la carte de Kalos : groupes autour de leur zone.
-        anchors = OrderedDict()
-        for group, entries in groups.items():
-            anchors.setdefault(resolve_anchor(group, areas), []).extend(e[0] for e in entries)
-        found = [a for a in anchors if a]
-        fallback = (sum(a[0] for a in found) / len(found), sum(a[1] for a in found) / len(found))             if found else (kalos_size[0] / 2, kalos_size[1] / 2)
-        on_map = {}
-        for anchor, names in anchors.items():
-            for name, xy in zip(names, cluster(len(names), anchor or fallback, kalos_size)):
-                on_map[name] = xy
         children = []
         for group, entries in groups.items():
+            sections, used = [], set()
             for name, data in entries:
                 x, y = placed[name]
                 category = next((c for c in CATEGORY_STYLE if c in data.category), "FIELD ITEM")
@@ -526,23 +669,44 @@ def build(out_dir=None, zones=False):
                 for key, parts in LOCATION_REQUIREMENTS:
                     if key in reqs:
                         rules += parts
+                visibility = []
+                if category == "HIDDEN ITEM":
+                    visibility = ["$show_hidden"]
+                    rules = rules + ["$dowsing_ok"]
+                elif category == "TRAINER":
+                    visibility = ["$show_trainers"]
+                style = {"chest_unopened_img": f"images/checks/{CATEGORY_STYLE[category][0]}.png",
+                         "chest_opened_img": "images/checks/opened.png"}
                 node = {
                     "name": clean(name),
-                    "map_locations": [{"map": f"Lieu : {group}", "x": x, "y": y},
-                                      {"map": f"{region} (carte)", "x": on_map[name][0], "y": on_map[name][1]}],
-                    "sections": [{"name": "Check", "item_count": 1,
-                                  "chest_unopened_img": f"images/checks/{CATEGORY_STYLE[category][0]}.png",
-                                  "chest_opened_img": "images/checks/opened.png"}],
+                    "map_locations": [{"map": f"Lieu : {group}", "x": x, "y": y}],
+                    "sections": [dict({"name": "Check", "item_count": 1}, **style)],
                 }
                 if rules:
                     node["access_rules"] = [",".join(rules)]
-                if category == "HIDDEN ITEM":
-                    node["visibility_rules"] = ["$show_hidden"]
-                    node["access_rules"] = [",".join(rules + ["$dowsing_ok"])]
-                elif category == "TRAINER":
-                    node["visibility_rules"] = ["$show_trainers"]
+                if visibility:
+                    node["visibility_rules"] = visibility
                 children.append(node)
-                location_map[data.code] = f"@{region}/{clean(name)}/Check"
+                path = f"@{region}/{clean(name)}/Check"
+                # Section du lieu entier, affichée sur la carte de Kalos et celle de la région.
+                label = clean(name.split(" - ", 1)[1] if " - " in name else name)
+                while label in used:
+                    label += " "
+                used.add(label)
+                section = dict({"name": label, "item_count": 1}, **style)
+                if rules:
+                    section["access_rules"] = [",".join(rules)]
+                if visibility:
+                    section["visibility_rules"] = visibility
+                sections.append(section)
+                location_map.setdefault(data.code, []).extend([path, f"@{region}/{clean(group)}/{label}"])
+            wx, wy = pins[(region, group)][:2]
+            children.append({
+                "name": clean(group),
+                "map_locations": [{"map": "Kalos (carte)", "x": int(wx), "y": int(wy)},
+                                  {"map": f"{region} (carte)", "x": on_map[(region, group)][0],
+                                   "y": on_map[(region, group)][1]}],
+                "sections": sections})
         location_nodes.append({"name": region, "children": children})
     write_json(f"{TRACKER_DIR}/maps/maps.json", maps)
     write_json(f"{TRACKER_DIR}/locations/locations.json", location_nodes)
@@ -583,9 +747,9 @@ def build(out_dir=None, zones=False):
             handle.write(f"  [{ap_id}] = {lua_value(code)},\n")
         handle.write("}\n")
     with open(f"{scripts}/autotracking/location_mapping.lua", "w", encoding="utf-8", newline="\n") as handle:
-        handle.write("-- Généré par tools/build_tracker.py : id de lieu Archipelago -> section du pack.\nLOCATION_MAPPING = {\n")
-        for ap_id, path in sorted(location_map.items()):
-            handle.write(f"  [{ap_id}] = {lua_value(path)},\n")
+        handle.write("-- Généré par tools/build_tracker.py : id de lieu Archipelago -> sections du pack (carte du lieu, puis carte de Kalos).\nLOCATION_MAPPING = {\n")
+        for ap_id, paths in sorted(location_map.items()):
+            handle.write("  [%d] = {%s},\n" % (ap_id, ", ".join(json.dumps(item, ensure_ascii=False) for item in paths)))
         handle.write("}\n")
     unmatched = [g for r in REGION_ORDER for g in by_region[r] if resolve_anchor(g, areas) is None]
     print("zones sans position sur la carte (placées au centre de leur région) :", unmatched)

@@ -1,5 +1,71 @@
 [
   {
+    "name": "Kalos (carte)",
+    "location_size": 20,
+    "location_border_thickness": 3,
+    "img": "images/maps/kalos.png"
+  },
+  {
+    "name": "Santalune Area (carte)",
+    "location_size": 28,
+    "location_border_thickness": 3,
+    "img": "images/maps/region_Santalune_Area.jpg"
+  },
+  {
+    "name": "Camphrier Area (carte)",
+    "location_size": 28,
+    "location_border_thickness": 3,
+    "img": "images/maps/region_Camphrier_Area.jpg"
+  },
+  {
+    "name": "Cyllage Area (carte)",
+    "location_size": 28,
+    "location_border_thickness": 3,
+    "img": "images/maps/region_Cyllage_Area.jpg"
+  },
+  {
+    "name": "Shalour Area (carte)",
+    "location_size": 28,
+    "location_border_thickness": 3,
+    "img": "images/maps/region_Shalour_Area.jpg"
+  },
+  {
+    "name": "Coumarine Area (carte)",
+    "location_size": 28,
+    "location_border_thickness": 3,
+    "img": "images/maps/region_Coumarine_Area.jpg"
+  },
+  {
+    "name": "Lumiose Area (carte)",
+    "location_size": 28,
+    "location_border_thickness": 3,
+    "img": "images/maps/region_Lumiose_Area.jpg"
+  },
+  {
+    "name": "Laverre Area (carte)",
+    "location_size": 28,
+    "location_border_thickness": 3,
+    "img": "images/maps/region_Laverre_Area.jpg"
+  },
+  {
+    "name": "Anistar Area (carte)",
+    "location_size": 28,
+    "location_border_thickness": 3,
+    "img": "images/maps/region_Anistar_Area.jpg"
+  },
+  {
+    "name": "Snowbelle Area (carte)",
+    "location_size": 28,
+    "location_border_thickness": 3,
+    "img": "images/maps/region_Snowbelle_Area.jpg"
+  },
+  {
+    "name": "Victory Road (carte)",
+    "location_size": 28,
+    "location_border_thickness": 3,
+    "img": "images/maps/region_Victory_Road.jpg"
+  },
+  {
     "name": "Lieu : Santalune Area",
     "location_size": 24,
     "location_border_thickness": 3,
@@ -48,12 +114,6 @@
     "img": "images/maps/lieu_Santalune_City_Gym.jpg"
   },
   {
-    "name": "Santalune Area (carte)",
-    "location_size": 16,
-    "location_border_thickness": 2,
-    "img": "images/maps/kalos.png"
-  },
-  {
     "name": "Lieu : Shabboneau Castle",
     "location_size": 24,
     "location_border_thickness": 3,
@@ -94,12 +154,6 @@
     "location_size": 24,
     "location_border_thickness": 3,
     "img": "images/maps/lieu_Route_7.jpg"
-  },
-  {
-    "name": "Camphrier Area (carte)",
-    "location_size": 16,
-    "location_border_thickness": 2,
-    "img": "images/maps/kalos.png"
   },
   {
     "name": "Lieu : Cyllage Area",
@@ -174,12 +228,6 @@
     "img": "images/maps/lieu_Route_8_Coast.jpg"
   },
   {
-    "name": "Cyllage Area (carte)",
-    "location_size": 16,
-    "location_border_thickness": 2,
-    "img": "images/maps/kalos.png"
-  },
-  {
     "name": "Lieu : Shalour Area",
     "location_size": 24,
     "location_border_thickness": 3,
@@ -240,12 +288,6 @@
     "img": "images/maps/lieu_Reflection_Cave_1F.jpg"
   },
   {
-    "name": "Shalour Area (carte)",
-    "location_size": 16,
-    "location_border_thickness": 2,
-    "img": "images/maps/kalos.png"
-  },
-  {
     "name": "Lieu : Coumarine Area",
     "location_size": 24,
     "location_border_thickness": 3,
@@ -280,12 +322,6 @@
     "location_size": 24,
     "location_border_thickness": 3,
     "img": "images/maps/lieu_Coumarine_City_Gym.jpg"
-  },
-  {
-    "name": "Coumarine Area (carte)",
-    "location_size": 16,
-    "location_border_thickness": 2,
-    "img": "images/maps/kalos.png"
   },
   {
     "name": "Lieu : Lumiose Area",
@@ -348,12 +384,6 @@
     "img": "images/maps/lieu_Lumiose_City_Gym_5F.jpg"
   },
   {
-    "name": "Lumiose Area (carte)",
-    "location_size": 16,
-    "location_border_thickness": 2,
-    "img": "images/maps/kalos.png"
-  },
-  {
     "name": "Lieu : Laverre Area",
     "location_size": 24,
     "location_border_thickness": 3,
@@ -376,12 +406,6 @@
     "location_size": 24,
     "location_border_thickness": 3,
     "img": "images/maps/lieu_Laverre_City_Gym.jpg"
-  },
-  {
-    "name": "Laverre Area (carte)",
-    "location_size": 16,
-    "location_border_thickness": 2,
-    "img": "images/maps/kalos.png"
   },
   {
     "name": "Lieu : Anistar Area",
@@ -472,12 +496,6 @@
     "location_size": 24,
     "location_border_thickness": 3,
     "img": "images/maps/lieu_Frost_Cavern_Outside.jpg"
-  },
-  {
-    "name": "Anistar Area (carte)",
-    "location_size": 16,
-    "location_border_thickness": 2,
-    "img": "images/maps/kalos.png"
   },
   {
     "name": "Lieu : Snowbelle Area",
@@ -576,12 +594,6 @@
     "img": "images/maps/lieu_Terminus_Cave_B1F.jpg"
   },
   {
-    "name": "Snowbelle Area (carte)",
-    "location_size": 16,
-    "location_border_thickness": 2,
-    "img": "images/maps/kalos.png"
-  },
-  {
     "name": "Lieu : Pokémon League",
     "location_size": 24,
     "location_border_thickness": 3,
@@ -652,11 +664,5 @@
     "location_size": 24,
     "location_border_thickness": 3,
     "img": "images/maps/lieu_Victory_Road_Outside_4.jpg"
-  },
-  {
-    "name": "Victory Road (carte)",
-    "location_size": 16,
-    "location_border_thickness": 2,
-    "img": "images/maps/kalos.png"
   }
 ]

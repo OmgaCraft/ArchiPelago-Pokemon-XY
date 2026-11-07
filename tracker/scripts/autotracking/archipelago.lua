@@ -16,9 +16,11 @@ function onClear(slot_data)
     for _, code in pairs(ITEM_MAPPING) do
         set_active(code, false)
     end
-    for _, path in pairs(LOCATION_MAPPING) do
-        local section = Tracker:FindObjectForCode(path)
-        if section then section.AvailableChestCount = section.ChestCount end
+    for _, paths in pairs(LOCATION_MAPPING) do
+        for _, path in ipairs(paths) do
+            local section = Tracker:FindObjectForCode(path)
+            if section then section.AvailableChestCount = section.ChestCount end
+        end
     end
     slot_data = slot_data or {}
     -- Valeurs du YAML (fill_slot_data) ; par défaut celles du YAML modèle.
@@ -36,10 +38,12 @@ function onItem(index, item_id, item_name, player_number)
 end
 
 function onLocation(location_id, location_name)
-    local path = LOCATION_MAPPING[location_id]
-    if not path then return end
-    local section = Tracker:FindObjectForCode(path)
-    if section then section.AvailableChestCount = 0 end
+    local paths = LOCATION_MAPPING[location_id]
+    if not paths then return end
+    for _, path in ipairs(paths) do
+        local section = Tracker:FindObjectForCode(path)
+        if section then section.AvailableChestCount = 0 end
+    end
 end
 
 Archipelago:AddClearHandler("pokemon_xy clear", onClear)

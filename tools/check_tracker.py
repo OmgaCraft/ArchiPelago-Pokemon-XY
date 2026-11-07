@@ -19,12 +19,14 @@ for it in items:
 rules, vis = [], []
 for region in locs:
     for loc in region["children"]:
-        path = f"@{region['name']}/{loc['name']}/Check"
-        sections[path] = lua.table(ChestCount=1, AvailableChestCount=1)
         rules += loc.get("access_rules", []); vis += loc.get("visibility_rules", [])
-        assert loc["map_locations"][0]["map"] in [m["name"] for m in maps]
-        for key in ("chest_unopened_img", "chest_opened_img"):
-            assert os.path.exists(os.path.join(T, loc["sections"][0][key])), loc["sections"][0][key]
+        for place in loc["map_locations"]:
+            assert place["map"] in [m["name"] for m in maps], place["map"]
+        for sec in loc["sections"]:
+            sections[f"@{region['name']}/{loc['name']}/{sec['name']}"] = lua.table(ChestCount=1, AvailableChestCount=1)
+            rules += sec.get("access_rules", []); vis += sec.get("visibility_rules", [])
+            for key in ("chest_unopened_img", "chest_opened_img"):
+                assert os.path.exists(os.path.join(T, sec[key])), sec[key]
 for it in items: assert os.path.exists(os.path.join(T, it["img"])), it["img"]
 for m in maps: assert os.path.exists(os.path.join(T, m["img"])), m["img"]
 loaded = []
@@ -62,7 +64,7 @@ print("règles invalides :", bad or "aucune", "| règles :", len(rules), "| visi
 # autotracking
 im, lm = g.ITEM_MAPPING, g.LOCATION_MAPPING
 assert all(c in objs for c in im.values()), "code d'objet inconnu"
-assert all(p in sections for p in lm.values()), "section inconnue"
+assert all(p in sections for v in lm.values() for p in v.values()), "section inconnue"
 print("mappings :", len(list(im.keys())), "objets,", len(list(lm.keys())), "lieux, tous résolus")
 handlers["clear"](lua.table(include_hidden_items=False, trainersanity=True, require_dowsing_machine=True))
 print("options après clear :", {k: bool(objs[k]["Active"]) for k in ("opt_hidden", "opt_trainers", "opt_dowsing")})
@@ -75,6 +77,6 @@ handlers["item"](3, 200471, "Dowsing Machine", 1)
 print("dowsing_ok après réception =", g.dowsing_ok())
 first = list(lm.keys())[0]
 handlers["loc"](first, "x")
-print("lieu validé :", lm[first], "->", sections[lm[first]]["AvailableChestCount"])
+print("lieu validé :", list(lm[first].values()), "->", [sections[p]["AvailableChestCount"] for p in lm[first].values()])
 handlers["clear"](None)
-print("après reconnexion :", sections[lm[first]]["AvailableChestCount"], objs["Bug_Badge"]["Active"], "| cachés par défaut :", objs["opt_hidden"]["Active"])
+print("après reconnexion :", [sections[p]["AvailableChestCount"] for p in lm[first].values()], objs["Bug_Badge"]["Active"], "| cachés par défaut :", objs["opt_hidden"]["Active"])
