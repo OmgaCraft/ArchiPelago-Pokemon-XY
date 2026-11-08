@@ -1,0 +1,752 @@
+{
+"Santalune City - Found Great Ball": [
+"Santalune City",
+0.22,
+0.52
+],
+"Santalune City - Found Antidote": [
+"Santalune City",
+0.08,
+0.45
+],
+"Santalune City - Found Super Potion": [
+"Santalune City",
+0.11,
+0.39
+],
+"Camphrier Town - Found Antidote": [
+"Camphrier Town",
+0.43,
+0.48
+],
+"Camphrier Town - Found Ether": [
+"Camphrier Town",
+0.5,
+0.88
+],
+"Parfum Palace - Found Pretty Wing (recurring)": [
+"Parfum Palace Courtyard",
+0.65,
+0.22
+],
+"Parfum Palace - Found X Sp. Atk": [
+"Parfum Palace Courtyard",
+0.27,
+0.5
+],
+"Parfum Palace - Found Rare Candy": [
+"Parfum Palace Courtyard",
+0.5,
+0.36
+],
+"Ambrette Town - Found X Attack": [
+"Ambrette Town",
+0.15,
+0.8
+],
+"Ambrette Town - Found Rare Candy": [
+"Ambrette Town",
+0.18,
+0.6
+],
+"Cyllage City - Found Ether": [
+"Cyllage City",
+0.62,
+0.9
+],
+"Cyllage City - Found X Speed": [
+"Cyllage City",
+0.82,
+0.62
+],
+"Cyllage City - Found Protein": [
+"Cyllage City",
+0.74,
+0.82
+],
+"Cyllage City - Found Pearl": [
+"Cyllage City",
+0.24,
+0.27
+],
+"Shalour City - Found Max Repel": [
+"Shalour City",
+0.63,
+0.17
+],
+"Shalour City - Found X Sp. Atk": [
+"Shalour City",
+0.12,
+0.6
+],
+"Shalour City - Found Stardust (recurring)": [
+"Shalour City",
+0.33,
+0.35
+],
+"Coumarine City - Found Elixir": [
+"Coumarine City",
+0.06,
+0.08
+],
+"Coumarine City - Found Awakening": [
+"Coumarine City",
+0.27,
+0.27
+],
+"Coumarine City - Found Max Repel": [
+"Coumarine City",
+0.57,
+0.7
+],
+"Laverre City - Found Tiny Mushroom (recurring)": [
+"Laverre City",
+0.25,
+0.9
+],
+"Laverre City - Found Ultra Ball": [
+"Laverre City",
+0.33,
+0.5
+],
+"Laverre City - Found Leaf Stone": [
+"Laverre City",
+0.82,
+0.25
+],
+"Anistar City - Found Escape Rope": [
+"Anistar City",
+0.9,
+0.5
+],
+"Anistar City - Found Sun Stone": [
+"Anistar City",
+0.4,
+0.3
+],
+"Anistar City - Found Pretty Wing (recurring)": [
+"Anistar City",
+0.62,
+0.55
+],
+"Anistar City - Found Super Repel": [
+"Anistar City",
+0.6,
+0.82
+],
+"Couriway Town - Found Pretty Wing": [
+"Couriway Town",
+0.3,
+0.35
+],
+"Couriway Town - Found Ether": [
+"Couriway Town",
+0.4,
+0.38
+],
+"Couriway Town - Found Poké Ball": [
+"Couriway Town",
+0.5,
+0.22
+],
+"Couriway Town - Found Burn Heal": [
+"Couriway Town",
+0.33,
+0.83
+],
+"Couriway Town - Found Prism Scale (recurring)": [
+"Couriway Town",
+0.8,
+0.58
+],
+"Dendemille Town - Found Heal Ball": [
+"Dendemille Town",
+0.07,
+0.74
+],
+"Dendemille Town - Found Nugget": [
+"Dendemille Town",
+0.6,
+0.8
+],
+"Dendemille Town - Found X Speed": [
+"Dendemille Town",
+0.04,
+0.07
+],
+"Snowbelle City - Found Icy Rock": [
+"Snowbelle City",
+0.68,
+0.2
+],
+"Snowbelle City - Found X Sp. Atk": [
+"Snowbelle City",
+0.3,
+0.4
+],
+"Snowbelle City - Found Full Heal": [
+"Snowbelle City",
+0.4,
+0.3
+],
+"Kiloude City - Found Max Revive": [
+"Kiloude City",
+0.52,
+0.1
+],
+"Kiloude City - Found PP Up": [
+"Kiloude City",
+0.85,
+0.45
+],
+"Pokémon Village - Found Honey": [
+"Pokémon Village",
+0.6,
+0.7
+],
+"Pokémon Village - Found Pretty Wing": [
+"Pokémon Village",
+0.4,
+0.45
+],
+"Pokémon Village - Found Honey (2)": [
+"Pokémon Village",
+0.18,
+0.55
+],
+"Azure Bay - Found Star Piece": [
+"Azure Bay",
+0.86,
+0.46
+],
+"Azure Bay - Found Heart Scale": [
+"Azure Bay",
+0.13,
+0.45
+],
+"Azure Bay - Found Hyper Potion": [
+"Azure Bay",
+0.25,
+0.78
+],
+"Poké Ball Factory - Found Dusk Ball": [
+"Poké Ball Factory",
+0.1,
+0.2
+],
+"Poké Ball Factory - Found Burn Heal": [
+"Poké Ball Factory",
+0.38,
+0.75
+],
+"Poké Ball Factory - Found Poké Ball": [
+"Poké Ball Factory",
+0.28,
+0.83
+],
+"Poké Ball Factory - Found Hyper Potion": [
+"Poké Ball Factory",
+0.75,
+0.77
+],
+"Route 4 - Found Honey (recurring)": [
+"Kalos Route 4",
+0.2,
+0.9
+],
+"Route 4 - Found Honey (recurring) (2)": [
+"Kalos Route 4",
+0.43,
+0.19
+],
+"Route 4 - Found Honey (recurring) (3)": [
+"Kalos Route 4",
+0.25,
+0.16
+],
+"Route 4 - Found Super Potion": [
+"Kalos Route 4",
+0.6,
+0.09
+],
+"Route 5 - Found Paralyze Heal": [
+"Kalos Route 5",
+0.77,
+0.27
+],
+"Route 5 - Found Super Potion": [
+"Kalos Route 5",
+0.6,
+0.52
+],
+"Route 6 - Found Antidote": [
+"Kalos Route 6",
+0.5,
+0.45
+],
+"Route 6 - Found Tiny Mushroom": [
+"Kalos Route 6",
+0.82,
+0.45
+],
+"Route 8 - Found Super Potion": [
+"Kalos Route 8",
+0.73,
+0.37
+],
+"Route 8 - Found Escape Rope": [
+"Kalos Route 8",
+0.6,
+0.56
+],
+"Route 8 - Found Pearl (recurring)": [
+"Kalos Route 8",
+0.42,
+0.58
+],
+"Route 8 - Found Ultra Ball": [
+"Kalos Route 8",
+0.5,
+0.86
+],
+"Route 8 - Found Heart Scale": [
+"Kalos Route 8",
+0.25,
+0.15
+],
+"Route 8 - Found Stardust (recurring)": [
+"Kalos Route 8",
+0.3,
+0.72
+],
+"Route 8 - Found Heart Scale (recurring)": [
+"Kalos Route 8",
+0.42,
+0.82
+],
+"Route 9 - Found Super Repel": [
+"Kalos Route 9",
+0.89,
+0.52
+],
+"Route 10 - Found Revive": [
+"Kalos Route 10",
+0.52,
+0.77
+],
+"Route 10 - Found Paralyze Heal": [
+"Kalos Route 10",
+0.5,
+0.6
+],
+"Route 10 - Found Burn Heal": [
+"Kalos Route 10",
+0.5,
+0.47
+],
+"Route 11 - Found Super Potion": [
+"Kalos Route 11",
+0.55,
+0.62
+],
+"Route 11 - Found Thunder Stone": [
+"Kalos Route 11",
+0.95,
+0.3
+],
+"Route 12 - Found Honey (recurring)": [
+"Kalos Route 12",
+0.6,
+0.3
+],
+"Route 12 - Found Net Ball": [
+"Kalos Route 12",
+0.35,
+0.9
+],
+"Route 12 - Found Ice Heal": [
+"Kalos Route 12",
+0.9,
+0.78
+],
+"Route 12 - Found Water Stone": [
+"Kalos Route 12",
+0.85,
+0.45
+],
+"Route 13 - Found Power Plant Pass": [
+"Kalos Route 13",
+0.22,
+0.72
+],
+"Route 13 - Found Guard Spec.": [
+"Kalos Route 13",
+0.76,
+0.47
+],
+"Route 13 - Found Heat Rock": [
+"Kalos Route 13",
+0.36,
+0.33
+],
+"Route 13 - Found Nest Ball": [
+"Kalos Route 13",
+0.37,
+0.84
+],
+"Route 13 - Found Hyper Potion": [
+"Kalos Route 13",
+0.15,
+0.55
+],
+"Route 13 - Found PP Up": [
+"Kalos Route 13",
+0.14,
+0.78
+],
+"Route 13 - Found X Accuracy": [
+"Kalos Route 13",
+0.8,
+0.52
+],
+"Route 13 - Found Stardust": [
+"Kalos Route 13",
+0.78,
+0.3
+],
+"Route 13 - Found Fire Stone": [
+"Kalos Route 13",
+0.93,
+0.55
+],
+"Route 13 - Found Star Piece": [
+"Kalos Route 13",
+0.42,
+0.58
+],
+"Route 14 - Found Super Potion": [
+"Kalos Route 14",
+0.12,
+0.9
+],
+"Route 14 - Found Tiny Mushroom": [
+"Kalos Route 14",
+0.33,
+0.43
+],
+"Route 14 - Found Revive": [
+"Kalos Route 14",
+0.2,
+0.28
+],
+"Route 15 - Found HP Up": [
+"Kalos Route 15",
+0.6,
+0.9
+],
+"Route 15 - Found Antidote": [
+"Kalos Route 15",
+0.38,
+0.08
+],
+"Route 15 - Found Tiny Mushroom": [
+"Kalos Route 15",
+0.55,
+0.25
+],
+"Route 15 - Found X Defense": [
+"Kalos Route 15",
+0.87,
+0.38
+],
+"Route 15 - Found Pretty Wing": [
+"Kalos Route 15",
+0.56,
+0.93
+],
+"Route 16 - Found Repel": [
+"Kalos Route 16",
+0.2,
+0.3
+],
+"Route 16 - Found Rare Candy": [
+"Kalos Route 16",
+0.35,
+0.65
+],
+"Route 16 - Found Big Mushroom": [
+"Kalos Route 16",
+0.5,
+0.82
+],
+"Route 16 - Found Max Revive": [
+"Kalos Route 16",
+0.8,
+0.12
+],
+"Route 17 - Found Timer Ball": [
+"Kalos Route 17",
+0.32,
+0.14
+],
+"Route 17 - Found Paralyze Heal": [
+"Kalos Route 17",
+0.9,
+0.72
+],
+"Route 18 - Found Poké Ball": [
+"Kalos Route 18",
+0.2,
+0.37
+],
+"Route 18 - Found Ether": [
+"Kalos Route 18",
+0.62,
+0.3
+],
+"Route 18 - Found Honey": [
+"Kalos Route 18",
+0.6,
+0.83
+],
+"Route 18 - Found Super Potion": [
+"Kalos Route 18",
+0.82,
+0.72
+],
+"Route 19 - Found Net Ball": [
+"Kalos Route 19",
+0.69,
+0.17
+],
+"Route 19 - Found Antidote": [
+"Kalos Route 19",
+0.92,
+0.65
+],
+"Route 19 - Found Damp Rock": [
+"Kalos Route 19",
+0.52,
+0.88
+],
+"Route 19 - Found Escape Rope": [
+"Kalos Route 19",
+0.3,
+0.7
+],
+"Route 19 - Found Timer Ball": [
+"Kalos Route 19",
+0.27,
+0.6
+],
+"Route 20 - Found Repeat Ball": [
+"Kalos Route 20",
+0.85,
+0.42
+],
+"Route 20 - Found Antidote": [
+"Kalos Route 20",
+0.56,
+0.67
+],
+"Route 20 - Found Mental Herb": [
+"Kalos Route 20",
+0.38,
+0.25
+],
+"Route 20 - Found Tiny Mushroom": [
+"Kalos Route 20",
+0.33,
+0.4
+],
+"Route 20 - Found Balm Mushroom": [
+"Kalos Route 20",
+0.23,
+0.73
+],
+"Route 21 - Found Guard Spec.": [
+"Kalos Route 21",
+0.72,
+0.5
+],
+"Route 21 - Found PP Up": [
+"Kalos Route 21",
+0.27,
+0.78
+],
+"Route 21 - Found Pearl String": [
+"Kalos Route 21",
+0.68,
+0.22
+],
+"Route 21 - Found Elixir": [
+"Kalos Route 21",
+0.36,
+0.1
+],
+"Route 22 - Found Max Elixir": [
+"Kalos Route 22",
+0.7,
+0.84
+],
+"Route 22 - Found Full Restore": [
+"Kalos Route 22",
+0.62,
+0.78
+],
+"Frost Cavern - Found Escape Rope": [
+"Frost Cavern 1F",
+0.33,
+0.85
+],
+"Frost Cavern - Found X Sp. Def": [
+"Frost Cavern 1F",
+0.2,
+0.3
+],
+"Frost Cavern - Found Ice Heal": [
+"Frost Cavern 1F",
+0.25,
+0.78
+],
+"Frost Cavern - Found Dusk Ball": [
+"Frost Cavern 1F",
+0.72,
+0.1
+],
+"Frost Cavern - Found Dire Hit": [
+"Frost Cavern 1F",
+0.62,
+0.3
+],
+"Frost Cavern - Found Pearl": [
+"Frost Cavern 2F",
+0.15,
+0.65
+],
+"Frost Cavern - Found Super Potion": [
+"Frost Cavern 2F",
+0.35,
+0.8
+],
+"Frost Cavern - Found Ice Heal (2)": [
+"Frost Cavern 2F",
+0.45,
+0.12
+],
+"Frost Cavern - Found Elixir": [
+"Frost Cavern 3F",
+0.62,
+0.65
+],
+"Frost Cavern - Found PP Up": [
+"Frost Cavern 3F",
+0.42,
+0.07
+],
+"Terminus Cave - Found Normal Gem": [
+"Terminus Cave 1F Zygarde chamber",
+0.5,
+0.4
+],
+"Terminus Cave - Found Dusk Ball": [
+"Terminus Cave 1F Entrance",
+0.12,
+0.5
+],
+"Terminus Cave - Found Hyper Potion": [
+"Terminus Cave 1F Entrance",
+0.22,
+0.42
+],
+"Terminus Cave - Found Moon Stone": [
+"Terminus Cave B1F Center",
+0.68,
+0.1
+],
+"Terminus Cave - Found Iron": [
+"Terminus Cave B1F Center",
+0.15,
+0.35
+],
+"Terminus Cave - Found Max Potion": [
+"Terminus Cave B1F Center",
+0.55,
+0.62
+],
+"Terminus Cave - Found Dire Hit": [
+"Terminus Cave B1F Center",
+0.62,
+0.78
+],
+"Terminus Cave - Found Max Repel": [
+"Terminus Cave B1F Center",
+0.85,
+0.28
+],
+"Terminus Cave - Found Big Nugget": [
+"Terminus Cave 1F Zygarde chamber",
+0.75,
+0.2
+],
+"Victory Road - Found X Attack": [
+"Kalos Victory Road First cave",
+0.62,
+0.35
+],
+"Victory Road - Found Hyper Potion": [
+"Kalos Victory Road First grove",
+0.2,
+0.45
+],
+"Victory Road - Found Full Heal": [
+"Kalos Victory Road Second grove",
+0.85,
+0.64
+],
+"Victory Road - Found Ultra Ball": [
+"Kalos Victory Road Second cave",
+0.33,
+0.52
+],
+"Victory Road - Found Smooth Rock": [
+"Kalos Victory Road Second cave",
+0.31,
+0.11
+],
+"Victory Road - Found Revive": [
+"Kalos Victory Road Second cave",
+0.32,
+0.8
+],
+"Victory Road - Found Pretty Wing": [
+"Kalos Victory Road Third cave",
+0.7,
+0.55
+],
+"Victory Road - Found Escape Rope": [
+"Kalos Victory Road Third cave",
+0.3,
+0.62
+],
+"Victory Road - Found Max Repel": [
+"Kalos Victory Road Third cave",
+0.9,
+0.38
+],
+"Victory Road - Found X Defense": [
+"Kalos Victory Road Third cave",
+0.52,
+0.2
+],
+"Victory Road - Found Max Ether": [
+"Kalos Victory Road Second grove",
+0.52,
+0.75
+],
+"Victory Road - Found Star Piece": [
+"Kalos Victory Road Gate",
+0.5,
+0.62
+]
+}

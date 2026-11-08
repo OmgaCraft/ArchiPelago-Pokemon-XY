@@ -13,6 +13,7 @@
 | `tools/build_tracker.py` | Génère `tracker/` (pack PopTracker) et `dist/Pokemon_XY_Tracker.zip` depuis les données du monde |
 | `tools/extract_ball_positions.py` | Lit dans la ROM la zone et la position (X, Y) des 207 Poké Balls -> `tools/assets/ball_positions.json` |
 | `tools/extract_trainer_positions.py` | Lit dans la ROM la zone et la position des dresseurs ayant un check (personnage = drapeau + 1260) -> `tools/assets/trainer_positions.json` |
+| `tools/hidden_positions.py` | Positions approximatives des 150 objets cachés (fractions d'image, d'après les descriptions de Bulbapedia) -> `tools/assets/hidden_positions.json`. Les positions exactes ne sont pas dans la ROM : seule la table des objets l'est (script 26 de `a/0/3/1`, entrées objet / quantité / n°, drapeau `0x44D + n - 1`) |
 | `tools/fetch_topdown_maps.py` | Télécharge les cartes vues du dessus de Bulbapedia dans `tools/assets/topmaps/` (ignoré par git) |
 | `tools/calibrate_topmaps.py` | Cale les positions de la ROM sur les icônes de Poké Ball de ces cartes -> `tools/assets/topmap_calibration.json` |
 | `tools/calibrate_zone_plans.py` | Cale les plans de zone fournis (`tools/assets/pack/zones/`, terrain lu dans la ROM) sur les coordonnées des personnages -> `tools/assets/zone_plan_calibration.json` |

@@ -541,6 +541,17 @@ def zone_plans():
 
 
 # Images sans plan (solution d'énigme écrite) ajoutées sous le titre de ces arènes.
+def load_hidden_positions():
+    """Objets cachés : {lieu: [carte, x, y]} (fractions de l'image), voir tools/hidden_positions.py."""
+    path = os.path.join(ASSETS_DIR, "hidden_positions.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+HIDDEN_POSITIONS = load_hidden_positions()
+
 EXTRA_PICTURES = {"Anistar City (Gym)": ["anistar_gym.png"], **{f"Lumiose City (Gym {f}F)": ["lumiose_gym.png"] for f in range(2, 7)}}
 
 
@@ -565,6 +576,7 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
         picture, _factor = fitted_picture(name, width, margin)
         pictures.append((picture, y))
         y += picture.height + 10
+    drawn = {}   # nom de l'image -> (haut, image) : sert à poser les objets cachés
     for name in OrderedDict.fromkeys(v[0] for v in calib.values()):
         picture, factor = fitted_picture(name, width, margin, 1000 if pack_plans else 640)
         for entry in entries:
@@ -575,6 +587,7 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
                 py = min(max((sy * positions[entry][2] + ty) * factor, 8), picture.height - 8)
                 placed[entry] = (int(margin + px), int(y + py))
         pictures.append((picture, y))
+        drawn[name] = (y, picture)
         y += picture.height + 10
     if not calib and USE_ZONES and not gym:  # carte(s) sans calage : affichées quand même, les checks restent en dessous
         names = images_for(group)
@@ -582,7 +595,22 @@ def make_group_map(path, group, entries, positions=None, zone_of=None):
             if picture_path(f"{name}.png"):
                 picture, _factor = fitted_picture(f"{name}.png", width, margin)
                 pictures.append((picture, y))
+                drawn[f"{name}.png"] = (y, picture)
                 y += picture.height + 10
+    # Objets cachés : position approximative (tools/hidden_positions.py), en fraction de l'image.
+    for entry in entries:
+        spot = HIDDEN_POSITIONS.get(entry)
+        if not spot or not USE_ZONES:
+            continue
+        name = f"{spot[0]}.png"
+        if name not in drawn and picture_path(name):
+            picture, _factor = fitted_picture(name, width, margin, 640)
+            pictures.append((picture, y))
+            drawn[name] = (y, picture)
+            y += picture.height + 10
+        if name in drawn:
+            top, picture = drawn[name]
+            placed[entry] = (int(margin + spot[1] * picture.width), int(top + spot[2] * picture.height))
     plans = plan_layout([e for e in entries if e not in placed], positions, plan_size, 26 if gym else 14)
     # Arène de Lumiose (étages 2 à 5) : les dresseurs ne sont pas dans les données de zone de la ROM. D'après
     # Bulbapedia (Lumiose Gym), chaque étage a 3 dresseurs, un devant chacun des 3 ascenseurs, de gauche à droite.
