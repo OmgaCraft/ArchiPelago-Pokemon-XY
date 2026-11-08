@@ -379,3 +379,35 @@ class TestDelivery(unittest.TestCase):
             checks = [m for m in ctx.sent if m.get("cmd") == "LocationChecks"]
             self.assertIn(200023, checks[-1]["locations"])
         self.run_async(scenario())
+
+
+class TestPingGuard(unittest.TestCase):
+    def test_desync_becomes_reconnection(self):
+        import asyncio
+        from worlds._bizhawk import context as bizhawk_context
+        import worlds._bizhawk as bizhawk
+        from worlds.pokemon_xy import Client as client_module
+
+        async def bad_ping(_ctx):
+            raise bizhawk.SyncError("Expected PONG but got WRITE_RESPONSE")
+
+        class Writer:
+            closed = False
+            def close(self):
+                self.closed = True
+
+        original = bizhawk_context.ping
+        bizhawk_context.ping = bad_ping
+        try:
+            client_module.install_ping_guard()
+            writer = Writer()
+            fake = type("Ctx", (), {})()
+            fake.streams = (None, writer)
+            fake.connection_status = bizhawk.ConnectionStatus.CONNECTED
+            with self.assertRaises(bizhawk.RequestFailedError):
+                asyncio.run(bizhawk_context.ping(fake))
+            self.assertTrue(writer.closed)
+            self.assertIsNone(fake.streams)
+            self.assertEqual(fake.connection_status, bizhawk.ConnectionStatus.NOT_CONNECTED)
+        finally:
+            bizhawk_context.ping = original

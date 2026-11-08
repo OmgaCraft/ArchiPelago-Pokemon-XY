@@ -36,6 +36,32 @@ ADDR_BAG_BERRIES  = 0x074D5FBC
 # Verified Event Flags Base Address in mainmemory domain
 EVENT_FLAGS_BASE = 0x074E86B8
 
+def install_ping_guard() -> None:
+    """
+    [FR] Si une réponse du script Lua arrive décalée (« attendu PONG, reçu WRITE_RESPONSE »),
+    Archipelago arrête tout le client. On coupe plutôt la connexion : le client se reconnecte
+    tout seul, sur une liaison propre.
+    """
+    from worlds._bizhawk import context as bizhawk_context
+    original = bizhawk_context.ping
+    if getattr(original, "_pokemon_xy_guard", False):
+        return
+
+    async def guarded_ping(bizhawk_ctx):
+        try:
+            await original(bizhawk_ctx)
+        except bizhawk.SyncError as exc:
+            streams = bizhawk_ctx.streams
+            bizhawk_ctx.streams = None
+            bizhawk_ctx.connection_status = bizhawk.ConnectionStatus.NOT_CONNECTED
+            if streams is not None:
+                streams[1].close()
+            raise bizhawk.RequestFailedError(f"réponses décalées ({exc}), reconnexion") from exc
+
+    guarded_ping._pokemon_xy_guard = True
+    bizhawk_context.ping = guarded_ping
+
+
 def get_pocket_info(item_id: int):
     if (328 <= item_id <= 424) or (618 <= item_id <= 620) or (690 <= item_id <= 694):
         # 106, not 110: ADDR_BAG_MEDICINE - ADDR_BAG_TM = 0x1A8 = 424 bytes =
@@ -437,6 +463,7 @@ class PokemonXYClient(BizHawkClient):
         return rom_patch.write_mod(mod_dir, files, stamp)
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
+        install_ping_guard()
         try:
             rom_info = await bizhawk.get_hash(ctx.bizhawk_ctx)
             logger.info(f"[PokémonXY] Received game identification from Lua connector: '{rom_info}'")
